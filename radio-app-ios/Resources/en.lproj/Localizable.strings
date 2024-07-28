@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  radio-app-ios
+
+  Created by  Maksim Stogniy on 29.07.2024.
+  
+*/
+
+//MARK: - Example
+"LabelValue" = "English label";
+"ButtonValue" = "English button";
