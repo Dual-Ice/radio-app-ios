@@ -29,9 +29,9 @@ extension UILabel {
     }
 
 
-    static func makeSignInTitleLabel(text: String) -> UILabel {
+    static func makeSignInTitleLabel(key: String?) -> UILabel {
         let label = UILabel()
-        label.text = text
+        label.text = NSLocalizedString(key ?? "LabelValue", comment: "Localizable")
         label.font = UIFont.TextFont.Onboarding.bitTitle
         label.textAlignment = .left
         label.numberOfLines = 2

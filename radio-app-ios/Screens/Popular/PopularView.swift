@@ -15,17 +15,12 @@ protocol PopularViewDelegate: AnyObject {
 final class PopularView: UIView {
     
     weak var delegate: PopularViewDelegate?
-    
-//    private let button: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.setTitle(NSLocalizedString("ButtonValue", comment: ""), for: .normal)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        return button
-//    }()
 
     private let button = UIButton.makeCustomButtonWithLabel(
         color: .pink,
         title: "Tap")
+
+//    private let button = UIButton.makeCustomButtonWithArrow()
 
 //    private let label = UILabel.makeCustomLabel(
 //        key: "LabelValue",
@@ -34,13 +29,13 @@ final class PopularView: UIView {
 //        numberOfLines: nil,
 //        textAligment: .center)
 
-    private let label = UILabel.makeSignInTitleLabel(text: "Hello world")
+    private let label = UILabel.makeSignInTitleLabel(key: "Hello world")
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViews()
         layoutViews()
-        self.backgroundColor = UIColor.customDeepBlue
+        self.backgroundColor = Color.customDeepBlue
     }
     
     required init?(coder: NSCoder) {

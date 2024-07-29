@@ -16,9 +16,9 @@ extension UIButton {
         var color: UIColor {
             switch self {
             case .pink:
-                return .customPink
+                return Color.customPink
             case .blue:
-                return .customLightBlue
+                return Color.customLightBlue
             }
         }
     }
@@ -32,7 +32,16 @@ extension UIButton {
         button.setTitle(title, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.DisplayFont.displayRegular(size: 20)
-        button.layer.cornerRadius = 12
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
+
+    static func makeCustomButtonWithArrow() -> UIButton {
+        let button = UIButton()
+        button.backgroundColor = Color.customLightBlue
+        button.setImage(Image.arrowForward, for: .normal)
+        button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }

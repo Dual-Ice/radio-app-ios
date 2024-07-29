@@ -1,5 +1,5 @@
 //
-//  UIColor_Extension.swift
+//  Images.swift
 //  radio-app-ios
 //
 //  Created by Михаил Болгар on 29.07.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIColor {
+enum Color {
 
     static let backgroundBlue: UIColor = {
         return UIColor (red: 1/255, green: 1/255, blue: 42/255, alpha: 1.0)
@@ -28,5 +28,15 @@ extension UIColor {
     static let customPink: UIColor = {
         return UIColor (red: 255/255, green: 41/255, blue: 109/255, alpha: 1.0)
     }()
+}
 
+
+enum Image {
+
+    static let arrowForward = UIImage(named: "arrowForward")
+
+}
+
+enum Constants {
+    // constants for constraints
 }
