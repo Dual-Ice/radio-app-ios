@@ -16,12 +16,16 @@ final class PopularView: UIView {
     
     weak var delegate: PopularViewDelegate?
     
-    private let button: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(NSLocalizedString("ButtonValue", comment: ""), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    private let button: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setTitle(NSLocalizedString("ButtonValue", comment: ""), for: .normal)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
+
+    private let button = UIButton.makeCustomButtonWithLabel(
+        color: .pink,
+        title: "Tap")
 
 //    private let label = UILabel.makeCustomLabel(
 //        key: "LabelValue",
@@ -70,6 +74,8 @@ final class PopularView: UIView {
             
             button.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10),
+            button.widthAnchor.constraint(equalToConstant: 200),
+            button.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
