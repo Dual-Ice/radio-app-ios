@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A76E5E282C5820CD004A06B3 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E272C5820CD004A06B3 /* WelcomeView.swift */; };
+		A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E292C5820E4004A06B3 /* WelcomeController.swift */; };
 		D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */; };
 		D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */; };
 		D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3692C56F362007FD2F0 /* PopularController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A76E5E272C5820CD004A06B3 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		A76E5E292C5820E4004A06B3 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		D9E6F3622C56F362007FD2F0 /* radio-app-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radio-app-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 		D9E6F37B2C56F50E007FD2F0 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				A76E5E292C5820E4004A06B3 /* WelcomeController.swift */,
+				A76E5E272C5820CD004A06B3 /* WelcomeView.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -305,7 +311,9 @@
 			files = (
 				D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */,
 				D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */,
+				A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */,
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
+				A76E5E282C5820CD004A06B3 /* WelcomeView.swift in Sources */,
 				D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
