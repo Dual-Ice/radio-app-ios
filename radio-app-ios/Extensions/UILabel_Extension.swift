@@ -1,0 +1,30 @@
+//
+//  UILabel_Extension.swift
+//  radio-app-ios
+//
+//  Created by Михаил Болгар on 29.07.2024.
+//
+
+import UIKit
+
+extension UILabel {
+    
+    static func makeLabel(key: String?,
+                          ofSize size: CGFloat,
+                          textColor: UIColor,
+                          numberOfLines: Int?,
+                          textAligment: NSTextAlignment?) -> UILabel
+    {
+        let label = UILabel()
+        label.text = NSLocalizedString(key ?? "LabelValue", comment: "Localizable")
+        label.numberOfLines = numberOfLines ?? 0
+        label.font = UIFont.systemFont(ofSize: size)
+        label.textColor = textColor
+        label.textAlignment = textAligment ?? .left
+        label.adjustsFontSizeToFitWidth = false
+        label.minimumScaleFactor = 0.8
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
+
+}

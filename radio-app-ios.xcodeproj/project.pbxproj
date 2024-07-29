@@ -14,6 +14,7 @@
 		D9E6F3722C56F364007FD2F0 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D9E6F3712C56F364007FD2F0 /* Base */; };
 		D9E6F3822C56F617007FD2F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9E6F3802C56F617007FD2F0 /* Localizable.strings */; };
 		D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F38C2C56F845007FD2F0 /* PopularView.swift */; };
+		F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		D9E6F3812C56F617007FD2F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D9E6F3832C56F65A007FD2F0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D9E6F38C2C56F845007FD2F0 /* PopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularView.swift; sourceTree = "<group>"; };
+		F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel_Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 		D9E6F3912C56FD6D007FD2F0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */,
 				D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */,
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
+				F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */,
 				D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +465,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87P7GYW9VY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "radio-app-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Radio App";
@@ -494,6 +499,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87P7GYW9VY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "radio-app-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Radio App";

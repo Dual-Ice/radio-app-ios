@@ -22,14 +22,20 @@ final class PopularView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    private let label: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = NSLocalizedString("LabelValue", comment: "")
-        return label
-    }()
-    
+//    private let label: UILabel = {
+//        let label = UILabel()
+//        label.textAlignment = .center
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.text = NSLocalizedString("LabelValue", comment: "")
+//        return label
+//    }()
+
+    private let label = UILabel.makeLabel(key: "LabelValue",
+                                          ofSize: 16,
+                                          textColor: .systemBlue,
+                                          numberOfLines: nil,
+                                          textAligment: .center)
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViews()
