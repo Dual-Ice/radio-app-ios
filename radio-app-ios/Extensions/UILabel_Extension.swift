@@ -9,16 +9,17 @@ import UIKit
 
 extension UILabel {
     
-    static func makeLabel(key: String?,
-                          ofSize size: CGFloat,
-                          textColor: UIColor,
-                          numberOfLines: Int?,
-                          textAligment: NSTextAlignment?) -> UILabel
+    static func makeCustomLabel(
+        key: String?,
+        font: UIFont,
+        textColor: UIColor,
+        numberOfLines: Int?,
+        textAligment: NSTextAlignment?) -> UILabel
     {
         let label = UILabel()
         label.text = NSLocalizedString(key ?? "LabelValue", comment: "Localizable")
         label.numberOfLines = numberOfLines ?? 0
-        label.font = UIFont.systemFont(ofSize: size)
+        label.font = font
         label.textColor = textColor
         label.textAlignment = textAligment ?? .left
         label.adjustsFontSizeToFitWidth = false
@@ -27,4 +28,15 @@ extension UILabel {
         return label
     }
 
+
+    static func makeSignInTitleLabel(text: String) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.font = UIFont.TextFont.Onboarding.bitTitle
+        label.textAlignment = .left
+        label.numberOfLines = 2
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
 }
