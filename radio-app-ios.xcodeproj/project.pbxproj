@@ -18,10 +18,10 @@
 		F4DE1C032C57B91300D55FC5 /* UIFont_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C022C57B91300D55FC5 /* UIFont_Extension.swift */; };
 		F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */; };
 		F4DE1C132C57C76000D55FC5 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C102C57C76000D55FC5 /* SF-Pro-Display-Regular.otf */; };
-		F4DE1C142C57C76000D55FC5 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C112C57C76000D55FC5 /* SF-Pro-Display-Bold.otf */; };
 		F4DE1C162C57CAE500D55FC5 /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C152C57CAE500D55FC5 /* SF-Pro-Display-Light.otf */; };
 		F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */; };
 		F4DE1C1C2C57EDA400D55FC5 /* UI_Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C1B2C57EDA400D55FC5 /* UI_Components.swift */; };
+		F4DE1C222C5801F100D55FC5 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C212C5801F100D55FC5 /* SF-Pro-Display-Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,10 +39,10 @@
 		F4DE1C022C57B91300D55FC5 /* UIFont_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIFont_Extension.swift; path = ../../../UIFont_Extension.swift; sourceTree = "<group>"; };
 		F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		F4DE1C102C57C76000D55FC5 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
-		F4DE1C112C57C76000D55FC5 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		F4DE1C152C57CAE500D55FC5 /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 		F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_Extension.swift; sourceTree = "<group>"; };
 		F4DE1C1B2C57EDA400D55FC5 /* UI_Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI_Components.swift; sourceTree = "<group>"; };
+		F4DE1C212C5801F100D55FC5 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +209,7 @@
 		D9E6F38E2C56FD36007FD2F0 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				F4DE1C112C57C76000D55FC5 /* SF-Pro-Display-Bold.otf */,
+				F4DE1C212C5801F100D55FC5 /* SF-Pro-Display-Bold.otf */,
 				F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */,
 				F4DE1C102C57C76000D55FC5 /* SF-Pro-Display-Regular.otf */,
 				F4DE1C152C57CAE500D55FC5 /* SF-Pro-Display-Light.otf */,
@@ -318,7 +318,7 @@
 				D9E6F36F2C56F364007FD2F0 /* Assets.xcassets in Resources */,
 				D9E6F3822C56F617007FD2F0 /* Localizable.strings in Resources */,
 				D9E6F3722C56F364007FD2F0 /* Base in Resources */,
-				F4DE1C142C57C76000D55FC5 /* SF-Pro-Display-Bold.otf in Resources */,
+				F4DE1C222C5801F100D55FC5 /* SF-Pro-Display-Bold.otf in Resources */,
 				F4DE1C132C57C76000D55FC5 /* SF-Pro-Display-Regular.otf in Resources */,
 				F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */,
 			);

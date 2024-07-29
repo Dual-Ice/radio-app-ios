@@ -16,20 +16,20 @@ final class PopularView: UIView {
     
     weak var delegate: PopularViewDelegate?
 
-    private let button = UIButton.makeCustomButtonWithLabel(
-        color: .pink,
-        title: "Tap")
+//    private let button = UIButton.makeCustomButtonWithLabel(
+//        color: .pink,
+//        title: "Tap")
 
-//    private let button = UIButton.makeCustomButtonWithArrow()
+    private let button = UIButton.makeCustomButtonWithArrow()
 
-//    private let label = UILabel.makeCustomLabel(
-//        key: "LabelValue",
-//        font:UIFont.DisplayFont.displayMedium(size: 20),
-//        textColor: .systemBlue,
-//        numberOfLines: nil,
-//        textAligment: .center)
+    private let label = UILabel.makeCustomLabel(
+        key: "LabelValue",
+        font: UIFont.DisplayFont.displayMedium(size: 30),
+        textColor: .systemBlue,
+        numberOfLines: nil,
+        textAligment: .center)
 
-    private let label = UILabel.makeSignInTitleLabel(key: "Hello world")
+//    private let label = UILabel.makeSignInTitleLabel(key: "LabelValue")
 
     override init(frame: CGRect) {
         super.init(frame: frame)
