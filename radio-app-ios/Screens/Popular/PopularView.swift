@@ -36,7 +36,7 @@ final class PopularView: UIView {
         super.init(frame: frame)
         setViews()
         layoutViews()
-        self.backgroundColor = .systemGray4
+        self.backgroundColor = UIColor.customDeepBlue
     }
     
     required init?(coder: NSCoder) {
