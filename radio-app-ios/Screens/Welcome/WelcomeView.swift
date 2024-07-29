@@ -54,6 +54,10 @@ final class WelcomeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setDelegates(_ value: WelcomeController) {
+        delegate = value
+    }
+    
     private func setViews() {
         self.backgroundColor = .white
         

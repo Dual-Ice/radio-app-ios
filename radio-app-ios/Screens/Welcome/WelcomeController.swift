@@ -9,14 +9,21 @@ import UIKit
 
 final class WelcomeController: UIViewController {
     
-    private let onboardingView = WelcomeView()
+    private let welcomeView = WelcomeView()
     
     // MARK: - Life Cycle
     override func loadView() {
-        view = onboardingView
+        view = welcomeView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        welcomeView.setDelegates(self)
+    }
+}
+
+extension WelcomeController: WelcomeViewDelegate {
+    func tappedButton() {
+        print("Button is tapped")
     }
 }
