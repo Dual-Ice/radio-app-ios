@@ -9,3 +9,6 @@
 //MARK: - Example
 "LabelValue" = "Русский лейбл";
 "ButtonValue" = "Русская кнопка";
+"Popular" = "Популярное";
+"Favorites" = "Избранное";
+"AllStations" = "Все станции";

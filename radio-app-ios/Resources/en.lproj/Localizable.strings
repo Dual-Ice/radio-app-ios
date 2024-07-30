@@ -9,3 +9,6 @@
 //MARK: - Example
 "LabelValue" = "English label";
 "ButtonValue" = "English button";
+"Popular" = "Popular";
+"Favorites" = "Favorites";
+"AllStations" = "All Stations";
