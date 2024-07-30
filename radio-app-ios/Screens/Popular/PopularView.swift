@@ -77,9 +77,9 @@ final class PopularView: UIView {
             label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
             button.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10),
-            button.widthAnchor.constraint(equalToConstant: 200),
-            button.heightAnchor.constraint(equalToConstant: 50)
+            button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: Constants.sideOffset),
+            button.widthAnchor.constraint(equalToConstant: Constants.buttonWidth),
+            button.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
         ])
     }
     

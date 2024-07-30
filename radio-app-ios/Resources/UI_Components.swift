@@ -33,10 +33,34 @@ enum Color {
 
 enum Image {
 
+    /// icons
+    static let arrowBack = UIImage(named: "arrowBack")
     static let arrowForward = UIImage(named: "arrowForward")
+    static let editCircle = UIImage(named: "editCircle")
+    static let editSquare = UIImage(named: "editSquare")
+    static let heartDeselected = UIImage(named: "heartDeselected")
+    static let heartSelected = UIImage(named: "heartSelected")
+    static let pointBlue = UIImage(named: "pointBlue")
+    static let searchMagnifying = UIImage(named: "searchMagnifying")
+    static let searchContinue = UIImage(named: "searchContinue")
 
-}
+    /// images
+    static let equalizer = UIImage(named: "equalizer")
+    static let heartBlue = UIImage(named: "arrowBack")
+    static let onboardingBackground = UIImage(named: "arrowBack")
+    static let playerBack = UIImage(named: "arrowBack")
+    static let playerMain = UIImage(named: "arrowBack")
+    static let playerNext = UIImage(named: "arrowBack")
+    static let playPink = UIImage(named: "arrowBack")
+    static let playWhite = UIImage(named: "arrowBack")
+    static let signInBackground = UIImage(named: "arrowBack")
+    static let trianglePink = UIImage(named: "arrowBack")
 
-enum Constants {
-    // constants for constraints
+    /// waves images
+    static let waveBlue = UIImage(named: "waveBlue")
+    static let waveGreen = UIImage(named: "waveGreen")
+    static let waveLightRed = UIImage(named: "waveLightRed")
+    static let wavePurple = UIImage(named: "wavePurple")
+    static let waveRed = UIImage(named: "waveRed")
+    static let waveYellow = UIImage(named: "waveYellow")
 }
