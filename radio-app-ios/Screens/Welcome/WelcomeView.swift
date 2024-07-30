@@ -20,8 +20,8 @@ final class WelcomeView: UIView {
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
-        label.text = NSLocalizedString("Let’s Get\nStarted", comment: "")
-        label.font = UIFont.boldSystemFont(ofSize: 54)
+        label.text = NSLocalizedString("WelcomeTitleLabel", comment: "")
+        label.font = UIFont.boldSystemFont(ofSize: 54) // Настроить
         return label
     }()
     
@@ -30,15 +30,15 @@ final class WelcomeView: UIView {
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 3
-        label.text = NSLocalizedString("Enjoy the best radio stations\nfrom your home, don't miss\nout on anything", comment: "")
+        label.text = NSLocalizedString("WelcomeLabel", comment: "")
         return label
     }()
     
     private let button: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(NSLocalizedString("Get Started", comment: ""), for: .normal)
+        button.setTitle(NSLocalizedString("ButtonGetStarted", comment: ""), for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 255/255, green: 41/255, blue: 109/255, alpha: 1)
+        button.backgroundColor = UIColor(red: 255/255, green: 41/255, blue: 109/255, alpha: 1) // Убрать когда будет фабрика
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

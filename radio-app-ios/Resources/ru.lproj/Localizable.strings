@@ -9,3 +9,6 @@
 //MARK: - Example
 "LabelValue" = "Русский лейбл";
 "ButtonValue" = "Русская кнопка";
+"ButtonGetStarted" = "Начать работу";
+"WelcomeTitleLabel" = "Давайте\nначнем";
+"WelcomeLabel" = "Наслаждайтесь лучшими\nрадиостанциями из вашего дома,\nне пропустите ничего.";
