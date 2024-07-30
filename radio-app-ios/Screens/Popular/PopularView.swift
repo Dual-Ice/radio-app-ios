@@ -16,20 +16,29 @@ final class PopularView: UIView {
     
     weak var delegate: PopularViewDelegate?
 
+    /// пример кнопки с тайтлом
 //    private let button = UIButton.makeCustomButtonWithLabel(
 //        color: .pink,
 //        title: "Tap")
 
+    /// пример кнопки со стрелочкой
     private let button = UIButton.makeCustomButtonWithArrow()
 
+    /// пример обычного лейбла
     private let label = UILabel.makeCustomLabel(
         key: "LabelValue",
-        font: UIFont.DisplayFont.displayMedium(size: 30),
-        textColor: .systemBlue,
+        fontSize: 40,
+        textColor: .white,
         numberOfLines: nil,
         textAligment: .center)
 
-//    private let label = UILabel.makeSignInTitleLabel(key: "LabelValue")
+    /// пример лейбла с толстым шрифтом
+//    private let label = UILabel.makeCustomLabelBold(
+//        key: "LabelValue",
+//        fontSize: 40,
+//        textColor: .white,
+//        numberOfLines: nil,
+//        textAligment: .center)
 
     override init(frame: CGRect) {
         super.init(frame: frame)

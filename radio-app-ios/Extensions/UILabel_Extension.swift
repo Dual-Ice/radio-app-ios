@@ -11,7 +11,7 @@ extension UILabel {
     
     static func makeCustomLabel(
         key: String?,
-        font: UIFont,
+        fontSize: CGFloat,
         textColor: UIColor,
         numberOfLines: Int?,
         textAligment: NSTextAlignment?) -> UILabel
@@ -19,7 +19,7 @@ extension UILabel {
         let label = UILabel()
         label.text = NSLocalizedString(key ?? "LabelValue", comment: "Localizable")
         label.numberOfLines = numberOfLines ?? 0
-        label.font = font
+        label.font = .systemFont(ofSize: fontSize)
         label.textColor = textColor
         label.textAlignment = textAligment ?? .left
         label.adjustsFontSizeToFitWidth = false
@@ -28,14 +28,22 @@ extension UILabel {
         return label
     }
 
-/// standartized label for SignIn Screen
-    static func makeSignInTitleLabel(key: String?) -> UILabel {
-        let label = UILabel.makeCustomLabel(
-            key: key,
-            font: UIFont.TextFont.Onboarding.bitTitle, 
-            textColor: .white,
-            numberOfLines: 2,
-            textAligment: .left)
+    static func makeCustomLabelBold(
+        key: String?,
+        fontSize: CGFloat,
+        textColor: UIColor,
+        numberOfLines: Int?,
+        textAligment: NSTextAlignment?) -> UILabel
+    {
+        let label = UILabel()
+        label.text = NSLocalizedString(key ?? "LabelValue", comment: "Localizable")
+        label.numberOfLines = numberOfLines ?? 0
+        label.font = .boldSystemFont(ofSize: fontSize)
+        label.textColor = textColor
+        label.textAlignment = textAligment ?? .left
+        label.adjustsFontSizeToFitWidth = false
+        label.minimumScaleFactor = 0.8
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
 }

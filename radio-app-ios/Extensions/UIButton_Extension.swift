@@ -31,7 +31,7 @@ extension UIButton {
         button.backgroundColor = color.color
         button.setTitle(title, for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.DisplayFont.displayRegular(size: 20)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

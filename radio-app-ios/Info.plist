@@ -8,6 +8,7 @@
 		<string>SF-Pro-Display-Medium.otf</string>
 		<string>SF-Pro-Display-Regular.otf</string>
 		<string>SF-Pro-Display-Light.otf</string>
+		<string>Inter-Bold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
