@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24BEC2282C59333F00ECF879 /* VerticalTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BEC2272C59333F00ECF879 /* VerticalTabBar.swift */; };
+		24BEC22B2C59336400ECF879 /* VerticalTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BEC22A2C59336400ECF879 /* VerticalTabBarController.swift */; };
+		24BEC22D2C59337200ECF879 /* VerticalTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BEC22C2C59337200ECF879 /* VerticalTabBarPresenter.swift */; };
+		24BEC22F2C59337D00ECF879 /* VerticalTabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BEC22E2C59337D00ECF879 /* VerticalTabBarBuilder.swift */; };
 		D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */; };
 		D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */; };
 		D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3692C56F362007FD2F0 /* PopularController.swift */; };
@@ -40,6 +44,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24BEC2272C59333F00ECF879 /* VerticalTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTabBar.swift; sourceTree = "<group>"; };
+		24BEC22A2C59336400ECF879 /* VerticalTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTabBarController.swift; sourceTree = "<group>"; };
+		24BEC22C2C59337200ECF879 /* VerticalTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTabBarPresenter.swift; sourceTree = "<group>"; };
+		24BEC22E2C59337D00ECF879 /* VerticalTabBarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTabBarBuilder.swift; sourceTree = "<group>"; };
 		D9E6F3622C56F362007FD2F0 /* radio-app-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radio-app-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +94,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24BEC2292C59334900ECF879 /* VerticalTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				24BEC2272C59333F00ECF879 /* VerticalTabBar.swift */,
+				24BEC22A2C59336400ECF879 /* VerticalTabBarController.swift */,
+				24BEC22C2C59337200ECF879 /* VerticalTabBarPresenter.swift */,
+				24BEC22E2C59337D00ECF879 /* VerticalTabBarBuilder.swift */,
+			);
+			path = VerticalTabBar;
+			sourceTree = "<group>";
+		};
 		D9E6F3592C56F362007FD2F0 = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				D9E6F3962C59307F007FD2F0 /* Components.swift */,
+				24BEC2292C59334900ECF879 /* VerticalTabBar */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -382,7 +402,9 @@
 				D9E6F39B2C5930B3007FD2F0 /* Services.swift in Sources */,
 				D9E6F3A52C5930F8007FD2F0 /* Auth.swift in Sources */,
 				F4DE1C032C57B91300D55FC5 /* UIFont_Extension.swift in Sources */,
+				24BEC22B2C59336400ECF879 /* VerticalTabBarController.swift in Sources */,
 				F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */,
+				24BEC2282C59333F00ECF879 /* VerticalTabBar.swift in Sources */,
 				D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */,
 				D9E6F3952C593066007FD2F0 /* Helpers.swift in Sources */,
 				D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */,
@@ -392,9 +414,11 @@
 				D9E6F3A92C59310D007FD2F0 /* Lang.swift in Sources */,
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
 				D9E6F39D2C5930C1007FD2F0 /* Search.swift in Sources */,
+				24BEC22D2C59337200ECF879 /* VerticalTabBarPresenter.swift in Sources */,
 				D9E6F3AD2C593120007FD2F0 /* About.swift in Sources */,
 				D9E6F3A72C593103007FD2F0 /* Welcome.swift in Sources */,
 				D9E6F39F2C5930CB007FD2F0 /* All.swift in Sources */,
+				24BEC22F2C59337D00ECF879 /* VerticalTabBarBuilder.swift in Sources */,
 				D9E6F3AB2C593117007FD2F0 /* Profile.swift in Sources */,
 				F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */,
 				D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */,
