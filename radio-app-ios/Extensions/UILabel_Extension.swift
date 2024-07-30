@@ -28,15 +28,14 @@ extension UILabel {
         return label
     }
 
-
-//    static func makeSignInTitleLabel(key: String?) -> UILabel {
-//        let label = UILabel()
-//        label.text = NSLocalizedString(key ?? "LabelValue", comment: "Localizable")
-//        label.font = UIFont.TextFont.Onboarding.bitTitle
-//        label.textAlignment = .left
-//        label.numberOfLines = 2
-//        label.textColor = .white
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }
+/// standartized label for SignIn Screen
+    static func makeSignInTitleLabel(key: String?) -> UILabel {
+        let label = UILabel.makeCustomLabel(
+            key: key,
+            font: UIFont.TextFont.Onboarding.bitTitle, 
+            textColor: .white,
+            numberOfLines: 2,
+            textAligment: .left)
+        return label
+    }
 }
