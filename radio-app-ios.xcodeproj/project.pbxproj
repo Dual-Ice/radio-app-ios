@@ -14,6 +14,15 @@
 		D9E6F3722C56F364007FD2F0 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D9E6F3712C56F364007FD2F0 /* Base */; };
 		D9E6F3822C56F617007FD2F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9E6F3802C56F617007FD2F0 /* Localizable.strings */; };
 		D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F38C2C56F845007FD2F0 /* PopularView.swift */; };
+		F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */; };
+		F4DE1C032C57B91300D55FC5 /* UIFont_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C022C57B91300D55FC5 /* UIFont_Extension.swift */; };
+		F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */; };
+		F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */; };
+		F4DE1C1C2C57EDA400D55FC5 /* UI_Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C1B2C57EDA400D55FC5 /* UI_Components.swift */; };
+		F4DE1C242C590A9300D55FC5 /* UITextField_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C232C590A9300D55FC5 /* UITextField_Extension.swift */; };
+		F4DE1C262C590FEB00D55FC5 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C252C590FEB00D55FC5 /* Inter-Bold.ttf */; };
+		F4DE1C282C59123E00D55FC5 /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C272C59123E00D55FC5 /* SF-Pro-Display-Light.otf */; };
+		F4DE1C2A2C59173500D55FC5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C292C59173500D55FC5 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +36,15 @@
 		D9E6F3812C56F617007FD2F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D9E6F3832C56F65A007FD2F0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D9E6F38C2C56F845007FD2F0 /* PopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularView.swift; sourceTree = "<group>"; };
+		F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel_Extension.swift; sourceTree = "<group>"; };
+		F4DE1C022C57B91300D55FC5 /* UIFont_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIFont_Extension.swift; path = ../../../UIFont_Extension.swift; sourceTree = "<group>"; };
+		F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_Extension.swift; sourceTree = "<group>"; };
+		F4DE1C1B2C57EDA400D55FC5 /* UI_Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI_Components.swift; sourceTree = "<group>"; };
+		F4DE1C232C590A9300D55FC5 /* UITextField_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField_Extension.swift; sourceTree = "<group>"; };
+		F4DE1C252C590FEB00D55FC5 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		F4DE1C272C59123E00D55FC5 /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
+		F4DE1C292C59173500D55FC5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				D9E6F38E2C56FD36007FD2F0 /* Fonts */,
+				F4DE1C1B2C57EDA400D55FC5 /* UI_Components.swift */,
 				D9E6F3802C56F617007FD2F0 /* Localizable.strings */,
+				F4DE1C292C59173500D55FC5 /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -192,6 +212,9 @@
 		D9E6F38E2C56FD36007FD2F0 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				F4DE1C252C590FEB00D55FC5 /* Inter-Bold.ttf */,
+				F4DE1C272C59123E00D55FC5 /* SF-Pro-Display-Light.otf */,
+				F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -213,6 +236,10 @@
 		D9E6F3912C56FD6D007FD2F0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */,
+				F4DE1C022C57B91300D55FC5 /* UIFont_Extension.swift */,
+				F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */,
+				F4DE1C232C590A9300D55FC5 /* UITextField_Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -291,8 +318,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9E6F36F2C56F364007FD2F0 /* Assets.xcassets in Resources */,
+				F4DE1C262C590FEB00D55FC5 /* Inter-Bold.ttf in Resources */,
 				D9E6F3822C56F617007FD2F0 /* Localizable.strings in Resources */,
 				D9E6F3722C56F364007FD2F0 /* Base in Resources */,
+				F4DE1C282C59123E00D55FC5 /* SF-Pro-Display-Light.otf in Resources */,
+				F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,9 +333,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4DE1C242C590A9300D55FC5 /* UITextField_Extension.swift in Sources */,
+				F4DE1C032C57B91300D55FC5 /* UIFont_Extension.swift in Sources */,
+				F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */,
 				D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */,
 				D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */,
+				F4DE1C2A2C59173500D55FC5 /* Constants.swift in Sources */,
+				F4DE1C1C2C57EDA400D55FC5 /* UI_Components.swift in Sources */,
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
+				F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */,
 				D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +497,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87P7GYW9VY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "radio-app-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Radio App";
@@ -494,6 +531,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87P7GYW9VY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "radio-app-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Radio App";
