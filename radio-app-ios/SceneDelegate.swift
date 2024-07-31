@@ -20,8 +20,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
+        let rootViewController: UIViewController
+        
+        if UserDefaults.standard.bool(forKey: "isWelcomeCompleted") {
+            let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
+            if isLoggedIn {
+                rootViewController = PopularController()
+            } else {
+                rootViewController = PopularController() // Заменить на LoginController
+            }
+        } else {
+            let welcomeController = WelcomeController()
+            rootViewController = UINavigationController(rootViewController: welcomeController)
+        }
+        
+        window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
-        self.window?.rootViewController = WelcomeController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

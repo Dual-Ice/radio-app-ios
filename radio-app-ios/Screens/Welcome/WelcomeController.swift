@@ -24,6 +24,26 @@ final class WelcomeController: UIViewController {
 
 extension WelcomeController: WelcomeViewDelegate {
     func tappedButton() {
-        print("Button is tapped")
+        // Сохраняем состояние, что Welcome был показан
+        UserDefaults.standard.set(true, forKey: "isWelcomeCompleted")
+        
+        let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
+        let nextController: UIViewController
+        
+        if isLoggedIn {
+            nextController = PopularController()
+        } else {
+            nextController = PopularController() //Исправить на LoginController
+        }
+        
+        if let windowScene = view.window?.windowScene {
+            UIView.transition(with: windowScene.windows.first!,
+                              duration: 0.5,
+                              options: .transitionCrossDissolve,
+                              animations: {
+                                  windowScene.windows.first?.rootViewController = nextController
+                              },
+                              completion: nil)
+        }
     }
 }

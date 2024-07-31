@@ -15,34 +15,19 @@ final class WelcomeView: UIView {
     
     weak var delegate: WelcomeViewDelegate?
     
-    private let largeLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 2
-        label.text = NSLocalizedString("WelcomeTitleLabel", comment: "")
-        label.font = UIFont.boldSystemFont(ofSize: 54) // Настроить
-        return label
+    private let imageView: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "onboardingBackground")
+        image.contentMode = .scaleAspectFill
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
     
-    private let smallLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 3
-        label.text = NSLocalizedString("WelcomeLabel", comment: "")
-        return label
-    }()
+    private let largeLabel = UILabel.makeCustomLabelBold(key: "WelcomeTitleLabel", fontSize: 54, textColor: .white, numberOfLines: 0, textAligment: .left)
     
-    private let button: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(NSLocalizedString("ButtonGetStarted", comment: ""), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 255/255, green: 41/255, blue: 109/255, alpha: 1) // Убрать когда будет фабрика
-        button.layer.cornerRadius = 10
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    private let smallLabel = UILabel.makeCustomLabel(key: "WelcomeLabel", fontSize: 16, textColor: .white, numberOfLines: 0, textAligment: .left)
+    
+    private let button = UIButton.makeCustomButtonWithLabel(color: .pink, key: "ButtonGetStarted")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,6 +47,7 @@ final class WelcomeView: UIView {
         self.backgroundColor = .white
         
         [
+            imageView,
             largeLabel,
             smallLabel,
             button,
@@ -77,8 +63,13 @@ final class WelcomeView: UIView {
     
     private func layoutViews() {
         NSLayoutConstraint.activate([
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
             largeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
-            largeLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 100),
+            largeLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
             
             smallLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
             smallLabel.topAnchor.constraint(equalTo: largeLabel.bottomAnchor, constant: 15),
