@@ -19,9 +19,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        
         window?.makeKeyAndVisible()
-        self.window?.rootViewController = PopularController()
+        
+        if !UserDefaults.standard.bool(forKey: "isWelcomeCompleted") {
+            window?.rootViewController = WelcomeController()
+            return
+        }
+        
+        let rootViewController: UIViewController
+        // Авторизацию проверять тут
+        rootViewController = PopularController()
+        window?.rootViewController = rootViewController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
