@@ -15,25 +15,36 @@ protocol PopularViewDelegate: AnyObject {
 final class PopularView: UIView {
     
     weak var delegate: PopularViewDelegate?
-    
-    private let button: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(NSLocalizedString("ButtonValue", comment: ""), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    private let label: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = NSLocalizedString("LabelValue", comment: "")
-        return label
-    }()
-    
+
+    /// пример кнопки с тайтлом
+//    private let button = UIButton.makeCustomButtonWithLabel(
+//        color: .pink,
+//        title: "Tap")
+
+    /// пример кнопки со стрелочкой
+    private let button = UIButton.makeCustomButtonWithArrow()
+
+    /// пример обычного лейбла
+    private let label = UILabel.makeCustomLabel(
+        key: "LabelValue",
+        fontSize: 40,
+        textColor: .white,
+        numberOfLines: nil,
+        textAligment: .center)
+
+    /// пример лейбла с толстым шрифтом
+//    private let label = UILabel.makeCustomLabelBold(
+//        key: "LabelValue",
+//        fontSize: 40,
+//        textColor: .white,
+//        numberOfLines: nil,
+//        textAligment: .center)
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViews()
         layoutViews()
+        self.backgroundColor = Color.customDeepBlue
     }
     
     required init?(coder: NSCoder) {
@@ -66,7 +77,9 @@ final class PopularView: UIView {
             label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
             button.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10),
+            button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: Constants.sideOffset),
+            button.widthAnchor.constraint(equalToConstant: Constants.buttonWidth),
+            button.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
         ])
     }
     

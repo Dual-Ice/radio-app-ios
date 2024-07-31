@@ -29,6 +29,5 @@ extension PopularController: PopularViewDelegate {
         print("Button is tapped")
     }
     
-    
 }
 
