@@ -69,7 +69,7 @@ final class WelcomeView: UIView {
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             largeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
-            largeLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
+            largeLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 50),
             
             smallLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
             smallLabel.topAnchor.constraint(equalTo: largeLabel.bottomAnchor, constant: 15),
