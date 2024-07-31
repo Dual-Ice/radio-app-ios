@@ -8,43 +8,33 @@
 import UIKit
 
 protocol VerticalTabBarDelegate: AnyObject {
-    func didSelectTab(_ sender: UIButton)
+    func didSelectTab(_ sender: CustomTabBarButton)
 }
 
 final class VerticalTabBar: UIView {
-    
-    private var buttons: [UIButton] = []
-    
     private let tabBarContainer: UIView = {
         let container = UIView()
-        
-        #warning("заменить цвет")
         container.backgroundColor = .systemPink
-        
-        container.translatesAutoresizingMaskIntoConstraints = false
-        return container
-    }()
-    
-    private var viewContainer: UIView = {
-        let container = UIView()
-        
-        #warning("заменить цвет")
-        container.backgroundColor = .blue
-        
         container.translatesAutoresizingMaskIntoConstraints = false
         return container
     }()
     
     private let stackView: UIStackView = {
         let stack = UIStackView()
-
-        #warning("заменить цвет")
         stack.backgroundColor = .green
-        
-        stack.axis = .vertical
-        stack.distribution = .fillEqually
+        stack.axis = .horizontal
+        stack.transform = CGAffineTransform(rotationAngle: CGFloat.pi / -2)
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
+    }()
+    
+    var buttons: [CustomTabBarButton] = []
+    
+    var viewContainer: UIView = {
+        let container = UIView()
+        container.backgroundColor = .blue
+        container.translatesAutoresizingMaskIntoConstraints = false
+        return container
     }()
     
     weak var delegate: VerticalTabBarDelegate?
@@ -58,34 +48,15 @@ final class VerticalTabBar: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private func createTabBarButton(_ title: String) -> UIButton {
-        let button = UIButton()
         
-        #warning("заменить цвет")
-        button.backgroundColor = .yellow
-        button.titleLabel?.text = title
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }
-    
-    lazy var button1 = createTabBarButton("test1")
-    lazy var button2 = createTabBarButton("test2")
-    lazy var button3 = createTabBarButton("test3")
-    
-    func addTabBarButton(_ title: String) {
-        let button = createTabBarButton(title)
+    func addTabBarButton(_ title: String, identifier: ViewType) {
+        let button = CustomTabBarButton(lableText: title, identifier: identifier)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         buttons.append(button)
-        stackView.addArrangedSubview(buttons.last ?? UIButton())
+        stackView.addArrangedSubview(button)
     }
     
-    func showView(_ view: UIView) {
-        viewContainer = view
-    }
-    
-    @objc private func buttonTapped(_ sender: UIButton) {
+    @objc private func buttonTapped(_ sender: CustomTabBarButton) {
         delegate?.didSelectTab(sender)
     }
 }
@@ -101,11 +72,12 @@ private extension VerticalTabBar {
     }
     
     func setupConstrains() {
+        
         NSLayoutConstraint.activate([
             tabBarContainer.topAnchor.constraint(equalTo: topAnchor),
             tabBarContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
             tabBarContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tabBarContainer.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
+            tabBarContainer.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.19),
             
             viewContainer.topAnchor.constraint(equalTo: topAnchor),
             viewContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -113,16 +85,7 @@ private extension VerticalTabBar {
             viewContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
             
             stackView.centerYAnchor.constraint(equalTo: tabBarContainer.centerYAnchor),
-            stackView.leadingAnchor.constraint(equalTo: tabBarContainer.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: tabBarContainer.trailingAnchor),
-            stackView.heightAnchor.constraint(equalToConstant: 300)
+            stackView.centerXAnchor.constraint(equalTo: tabBarContainer.centerXAnchor)
         ])
-    }
-}
-
-extension VerticalTabBar: VerticalTabBarDelegate {
-    func didSelectTab(_ sender: UIButton) {
-        print("VerticalTabBar: VerticalTabBarDelegate -> didSelectTab(at index: \(sender)")
-
     }
 }

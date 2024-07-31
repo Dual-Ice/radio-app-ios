@@ -9,11 +9,10 @@ import UIKit
 
 protocol VerticalTabBarControllerProtocol: AnyObject {
     func showView(_ viewController: ViewType)
-    func addTabBarButtons(_ title: String)
+    func addTabBarButtons(_ title: String, identifier: ViewType)
 }
 
 final class VerticalTabBarController: UIViewController {
-    
     private let verticalTabBar = VerticalTabBar()
     private var currentViewController: UIViewController?
     
@@ -31,18 +30,33 @@ final class VerticalTabBarController: UIViewController {
 }
 
 extension VerticalTabBarController: VerticalTabBarControllerProtocol {
-    func addTabBarButtons(_ title: String) {
-        verticalTabBar.addTabBarButton(title)
+    func addTabBarButtons(_ title: String, identifier: ViewType) {
+        verticalTabBar.addTabBarButton(title, identifier: identifier)
     }
     
     func showView(_ viewController: ViewType) {
-        currentViewController = viewController.viewController()
-        verticalTabBar.showView(currentViewController?.view ?? UIView())
+        children.forEach { children in
+            children.view.removeFromSuperview()
+            children.removeFromParent()
+        }
+        
+        let vc = viewController.viewController()
+        
+        print(vc)
+        
+        addChild(vc)
+        vc.view.frame = verticalTabBar.viewContainer.bounds
+        verticalTabBar.viewContainer.addSubview(vc.view)
+        vc.didMove(toParent: self)
     }
 }
 
 extension VerticalTabBarController: VerticalTabBarDelegate {
-    func didSelectTab(_ sender: UIButton) {
-        print("VerticalTabBarController: VerticalTabBarDelegate -> didSelectTab(at index: \(sender.titleLabel?.text)")
+    func didSelectTab(_ sender: CustomTabBarButton) {
+        verticalTabBar.buttons.forEach { button in
+            button.setActive(button == sender)
+        }
+        
+        presenter?.didChooseView(sender.buttonIdentifier)
     }
 }

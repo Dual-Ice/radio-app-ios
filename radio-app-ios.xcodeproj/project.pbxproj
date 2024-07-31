@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		244AB4CD2C5A7DF300C0233E /* CustomTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244AB4CC2C5A7DF300C0233E /* CustomTabBarButton.swift */; };
 		24BEC2282C59333F00ECF879 /* VerticalTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BEC2272C59333F00ECF879 /* VerticalTabBar.swift */; };
 		24BEC22B2C59336400ECF879 /* VerticalTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BEC22A2C59336400ECF879 /* VerticalTabBarController.swift */; };
 		24BEC22D2C59337200ECF879 /* VerticalTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BEC22C2C59337200ECF879 /* VerticalTabBarPresenter.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		244AB4CC2C5A7DF300C0233E /* CustomTabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarButton.swift; sourceTree = "<group>"; };
 		24BEC2272C59333F00ECF879 /* VerticalTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTabBar.swift; sourceTree = "<group>"; };
 		24BEC22A2C59336400ECF879 /* VerticalTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTabBarController.swift; sourceTree = "<group>"; };
 		24BEC22C2C59337200ECF879 /* VerticalTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTabBarPresenter.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				24BEC2272C59333F00ECF879 /* VerticalTabBar.swift */,
+				244AB4CC2C5A7DF300C0233E /* CustomTabBarButton.swift */,
 				24BEC22A2C59336400ECF879 /* VerticalTabBarController.swift */,
 				24BEC22C2C59337200ECF879 /* VerticalTabBarPresenter.swift */,
 				24BEC22E2C59337D00ECF879 /* VerticalTabBarBuilder.swift */,
@@ -410,6 +413,7 @@
 				D9E6F3A92C59310D007FD2F0 /* Lang.swift in Sources */,
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
 				D9E6F39D2C5930C1007FD2F0 /* Search.swift in Sources */,
+				244AB4CD2C5A7DF300C0233E /* CustomTabBarButton.swift in Sources */,
 				24BEC22D2C59337200ECF879 /* VerticalTabBarPresenter.swift in Sources */,
 				D9E6F3AD2C593120007FD2F0 /* About.swift in Sources */,
 				D9E6F3A72C593103007FD2F0 /* Welcome.swift in Sources */,
