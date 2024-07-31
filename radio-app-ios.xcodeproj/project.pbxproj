@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D13ADE122C59E43D002B94AE /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13ADE112C59E43C002B94AE /* AuthView.swift */; };
+		D13ADE142C59E64B002B94AE /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13ADE132C59E64B002B94AE /* AuthController.swift */; };
 		D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */; };
 		D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */; };
 		D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3692C56F362007FD2F0 /* PopularController.swift */; };
@@ -29,7 +31,6 @@
 		D9E6F3AD2C593120007FD2F0 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AC2C593120007FD2F0 /* About.swift */; };
 		D9E6F3AF2C59312E007FD2F0 /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AE2C59312E007FD2F0 /* Policy.swift */; };
 		F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */; };
-		F4DE1C032C57B91300D55FC5 /* UIFont_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C022C57B91300D55FC5 /* UIFont_Extension.swift */; };
 		F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */; };
 		F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */; };
 		F4DE1C1C2C57EDA400D55FC5 /* UI_Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C1B2C57EDA400D55FC5 /* UI_Components.swift */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D13ADE112C59E43C002B94AE /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		D13ADE132C59E64B002B94AE /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		D9E6F3622C56F362007FD2F0 /* radio-app-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radio-app-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +68,6 @@
 		D9E6F3AC2C593120007FD2F0 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		D9E6F3AE2C59312E007FD2F0 /* Policy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Policy.swift; sourceTree = "<group>"; };
 		F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel_Extension.swift; sourceTree = "<group>"; };
-		F4DE1C022C57B91300D55FC5 /* UIFont_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIFont_Extension.swift; path = ../../../UIFont_Extension.swift; sourceTree = "<group>"; };
 		F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_Extension.swift; sourceTree = "<group>"; };
 		F4DE1C1B2C57EDA400D55FC5 /* UI_Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI_Components.swift; sourceTree = "<group>"; };
@@ -157,6 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				D9E6F3A42C5930F8007FD2F0 /* Auth.swift */,
+				D13ADE112C59E43C002B94AE /* AuthView.swift */,
+				D13ADE132C59E64B002B94AE /* AuthController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -277,7 +281,6 @@
 			isa = PBXGroup;
 			children = (
 				F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */,
-				F4DE1C022C57B91300D55FC5 /* UIFont_Extension.swift */,
 				F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */,
 				F4DE1C232C590A9300D55FC5 /* UITextField_Extension.swift */,
 			);
@@ -381,8 +384,8 @@
 				D9E6F3972C59307F007FD2F0 /* Components.swift in Sources */,
 				D9E6F39B2C5930B3007FD2F0 /* Services.swift in Sources */,
 				D9E6F3A52C5930F8007FD2F0 /* Auth.swift in Sources */,
-				F4DE1C032C57B91300D55FC5 /* UIFont_Extension.swift in Sources */,
 				F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */,
+				D13ADE142C59E64B002B94AE /* AuthController.swift in Sources */,
 				D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */,
 				D9E6F3952C593066007FD2F0 /* Helpers.swift in Sources */,
 				D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */,
@@ -390,6 +393,7 @@
 				F4DE1C1C2C57EDA400D55FC5 /* UI_Components.swift in Sources */,
 				D9E6F3A12C5930D5007FD2F0 /* Fav.swift in Sources */,
 				D9E6F3A92C59310D007FD2F0 /* Lang.swift in Sources */,
+				D13ADE122C59E43D002B94AE /* AuthView.swift in Sources */,
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
 				D9E6F39D2C5930C1007FD2F0 /* Search.swift in Sources */,
 				D9E6F3AD2C593120007FD2F0 /* About.swift in Sources */,
