@@ -12,6 +12,18 @@ protocol AuthViewDelegate: AnyObject {
     func tappedButton()
 }
 
+extension UIView {
+func addShadow(shadowColor: CGColor = UIColor.black.cgColor,
+                   shadowOffset: CGSize = CGSize(width: 1.0, height: 2.0),
+                   shadowOpacity: Float = 0.4,
+                   shadowRadius: CGFloat = 3.0) {
+        layer.shadowColor = shadowColor
+        layer.shadowOffset = shadowOffset
+        layer.shadowOpacity = shadowOpacity
+        layer.shadowRadius = shadowRadius
+        layer.masksToBounds = false
+    }
+}
 
 final class AuthView: UIView {
     weak var delegate: AuthViewDelegate?
@@ -40,19 +52,8 @@ final class AuthView: UIView {
         textColor: .white,
         numberOfLines: nil,
         textAligment: .left)
-    
-    private lazy var emailTexfield: UITextField = {
-        let element = UITextField()
-        element.placeholder = "Email"
-        element.textAlignment = .center
-        element.backgroundColor = .white
-        element.layer.cornerRadius = 10
-        element.font = .systemFont(ofSize: 25)
-        element.textColor = .blue
-        element.tintColor = .red
-        element.translatesAutoresizingMaskIntoConstraints = false
-        return element
-    }()
+        
+    private let emailTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "Your email")
     
     private let passwordLabel = UILabel.makeCustomLabel(
         key: "Password",
@@ -64,18 +65,7 @@ final class AuthView: UIView {
     
     private let forgotButton = UIButton.makeCustomPlainButton(title: "Forgot password?", fontSize: CGFloat(20))
     
-    private lazy var passwordTexfield: UITextField = {
-        let element = UITextField()
-        element.placeholder = "Password"
-        element.textAlignment = .center
-        element.backgroundColor = .white
-        element.layer.cornerRadius = 10
-        element.font = .systemFont(ofSize: 25)
-        element.textColor = .blue
-        element.tintColor = .red
-        element.translatesAutoresizingMaskIntoConstraints = false
-        return element
-    }()
+    private let passwordTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "Your password")
     
     private lazy var separatorStackView: UIStackView = {
         var element = UIStackView()
@@ -177,6 +167,7 @@ final class AuthView: UIView {
             emailTexfield.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 10),
             emailTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
             emailTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.sideOffset),
+            emailTexfield.heightAnchor.constraint(equalToConstant: 53),
             
             passwordLabel.topAnchor.constraint(equalTo: emailTexfield.bottomAnchor, constant: 50),
             passwordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
@@ -184,6 +175,7 @@ final class AuthView: UIView {
             passwordTexfield.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 10),
             passwordTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
             passwordTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.sideOffset),
+            passwordTexfield.heightAnchor.constraint(equalToConstant: 53),
             
             forgotButton.topAnchor.constraint(equalTo: passwordTexfield.bottomAnchor, constant: 10),
             forgotButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.sideOffset),
