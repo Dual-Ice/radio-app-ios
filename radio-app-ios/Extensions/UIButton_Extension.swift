@@ -45,4 +45,14 @@ extension UIButton {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }
+    
+    // кнопка без текста
+    static func makeCustomPlainButton(title: String?, fontSize: CGFloat) -> UIButton {
+        let button = UIButton()
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
 }

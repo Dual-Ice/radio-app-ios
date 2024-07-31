@@ -16,20 +16,106 @@ protocol AuthViewDelegate: AnyObject {
 final class AuthView: UIView {
     weak var delegate: AuthViewDelegate?
     
-    private let button = UIButton.makeCustomButtonWithArrow()
+    private let playImage = UIImageView.makeSimpleImage(imageName: "playPink")
+    private let bgImage = UIImageView.makeSimpleImage(imageName: "bgLogin")
+    private let googleImage = UIImageView.makeSimpleImage(imageName: "googlePlus")
 
-    private let label = UILabel.makeCustomLabel(
-        key: "LabelValue",
+    private let headingLabel = UILabel.makeCustomLabelBold(
+        key: "Sign in",
         fontSize: 40,
         textColor: .white,
         numberOfLines: nil,
         textAligment: .center)
     
+    private let subHeadingLabel = UILabel.makeCustomLabel(
+        key: "to start play",
+        fontSize: 20,
+        textColor: .white,
+        numberOfLines: nil,
+        textAligment: .left)
+    
+    private let emailLabel = UILabel.makeCustomLabel(
+        key: "Email",
+        fontSize: 20,
+        textColor: .white,
+        numberOfLines: nil,
+        textAligment: .left)
+    
+    private lazy var emailTexfield: UITextField = {
+        let element = UITextField()
+        element.placeholder = "Email"
+        element.textAlignment = .center
+        element.backgroundColor = .white
+        element.layer.cornerRadius = 10
+        element.font = .systemFont(ofSize: 25)
+        element.textColor = .blue
+        element.tintColor = .red
+        element.translatesAutoresizingMaskIntoConstraints = false
+        return element
+    }()
+    
+    private let passwordLabel = UILabel.makeCustomLabel(
+        key: "Password",
+        fontSize: 20,
+        textColor: .white,
+        numberOfLines: nil,
+        textAligment: .left)
+    
+    
+    private let forgotButton = UIButton.makeCustomPlainButton(title: "Forgot password?", fontSize: CGFloat(20))
+    
+    private lazy var passwordTexfield: UITextField = {
+        let element = UITextField()
+        element.placeholder = "Password"
+        element.textAlignment = .center
+        element.backgroundColor = .white
+        element.layer.cornerRadius = 10
+        element.font = .systemFont(ofSize: 25)
+        element.textColor = .blue
+        element.tintColor = .red
+        element.translatesAutoresizingMaskIntoConstraints = false
+        return element
+    }()
+    
+    private lazy var separatorStackView: UIStackView = {
+        var element = UIStackView()
+        element.axis = .horizontal
+        element.spacing = 10
+        element.alignment = .center
+        element.distribution = .equalCentering
+        element.translatesAutoresizingMaskIntoConstraints = false
+        return element
+    }()
+    
+    private lazy var lineViewRight: UIView = {
+        let element = UIView()
+        element.backgroundColor = .white
+        element.translatesAutoresizingMaskIntoConstraints = false
+        return element
+    }()
+    
+    private lazy var lineViewLeft: UIView = {
+        let element = UIView()
+        element.backgroundColor = .white
+        element.translatesAutoresizingMaskIntoConstraints = false
+        return element
+    }()
+    
+    private lazy var connectLabel = UILabel.makeCustomLabel(
+        key: "or connect with",
+        fontSize: 20,
+        textColor: .white,
+        numberOfLines: nil,
+        textAligment: .center)
+    
+    private let button = UIButton.makeCustomButtonWithArrow()
+    
+    private let signUpButton = UIButton.makeCustomPlainButton(title: "or Sign Up", fontSize: CGFloat(25))
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViews()
         layoutViews()
-        self.backgroundColor = Color.customDeepBlue
     }
     
     required init?(coder: NSCoder) {
@@ -41,12 +127,26 @@ final class AuthView: UIView {
     }
     
     private func setViews() {
-        self.backgroundColor = .white
+        self.backgroundColor = Color.customDeepBlue
+        
+        self.addSubview(bgImage)
+        
         [
-            label,
+            playImage,
+            headingLabel,
+            subHeadingLabel,
+            emailLabel,
+            emailTexfield,
+            passwordLabel,
+            passwordTexfield,
+            forgotButton,
+            separatorStackView,
+            googleImage,
             button,
-            
-        ].forEach { addSubview($0) }
+            signUpButton
+        ].forEach { bgImage.addSubview($0) }
+        
+        [lineViewLeft, connectLabel, lineViewRight].forEach { separatorStackView.addArrangedSubview($0) }
         
         setUpViews()
     }
@@ -57,13 +157,56 @@ final class AuthView: UIView {
     
     private func layoutViews() {
         NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            bgImage.topAnchor.constraint(equalTo: self.topAnchor),
+            bgImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            bgImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            bgImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             
-            button.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: Constants.sideOffset),
+            playImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
+            playImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
+            
+            headingLabel.topAnchor.constraint(equalTo: playImage.bottomAnchor, constant: 50),
+            headingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
+            
+            subHeadingLabel.topAnchor.constraint(equalTo: headingLabel.bottomAnchor, constant: Constants.sideOffset),
+            subHeadingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
+            
+            emailLabel.topAnchor.constraint(equalTo: subHeadingLabel.bottomAnchor, constant: 50),
+            emailLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
+            
+            emailTexfield.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 10),
+            emailTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
+            emailTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.sideOffset),
+            
+            passwordLabel.topAnchor.constraint(equalTo: emailTexfield.bottomAnchor, constant: 50),
+            passwordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
+            
+            passwordTexfield.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 10),
+            passwordTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
+            passwordTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.sideOffset),
+            
+            forgotButton.topAnchor.constraint(equalTo: passwordTexfield.bottomAnchor, constant: 10),
+            forgotButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.sideOffset),
+            
+            separatorStackView.topAnchor.constraint(equalTo: forgotButton.bottomAnchor, constant: 30),
+            separatorStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            lineViewLeft.widthAnchor.constraint(equalToConstant: 93),
+            lineViewLeft.heightAnchor.constraint(equalToConstant: 1),
+            
+            lineViewRight.widthAnchor.constraint(equalToConstant: 93),
+            lineViewRight.heightAnchor.constraint(equalToConstant: 1),
+            
+            googleImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            googleImage.topAnchor.constraint(equalTo: separatorStackView.bottomAnchor, constant: 30),
+
+            button.topAnchor.constraint(equalTo: googleImage.bottomAnchor, constant: 10),
+            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
             button.widthAnchor.constraint(equalToConstant: Constants.buttonWidth),
-            button.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
+            button.heightAnchor.constraint(equalToConstant: Constants.buttonHeight),
+            
+            signUpButton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 10),
+            signUpButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset)
         ])
     }
     
