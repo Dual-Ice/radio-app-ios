@@ -22,8 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.makeKeyAndVisible()
         //self.window?.rootViewController = PopularController()
-        self.window?.rootViewController = AuthController()
-        //self.window?.rootViewController = PasswordController()
+        //self.window?.rootViewController = AuthController()
+        self.window?.rootViewController = PasswordController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

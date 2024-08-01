@@ -19,8 +19,10 @@
 "YourNameValue" = "Вашe имя";
 "YourEmailValue" = "Ваш email";
 "YourPasswordValue" = "Ваш пароль";
+"ConfirmPasswordValue" = "Подтвердите пароль";
 "ConnectValue" = "или войдте с";
 "OrSignUpValue" = "или Зарегистрируйтесь";
 "OrSignInValue" = "или Войдите";
 "ForgotHeadingValue" = "Забыли \nПароль";
 "SentButtonValue" = "Отправить";
+"ChangeButtonValue" = "Изменить пароль";

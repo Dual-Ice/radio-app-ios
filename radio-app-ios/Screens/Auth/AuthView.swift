@@ -69,10 +69,9 @@ final class AuthView: UIView {
         numberOfLines: nil,
         textAligment: .left)
     
+    private let passwordTexfield = UITextField.makePasswordPinkTextfield(placeholderText: "YourPasswordValue")
     
     private let forgotButton = UIButton.makeCustomPlainButton(title: "ForgotButtonValue", fontSize: Constants.forgotLabelSize)
-    
-    private let passwordTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "YourPasswordValue")
     
     private lazy var separatorStackView: UIStackView = {
         var element = UIStackView()

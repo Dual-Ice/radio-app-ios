@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum PasswordPageType: String {
+    case request = "Request changing password"
+    case change = "Change password"
+}
 
 protocol PasswordViewDelegate: AnyObject {
     func tappedButton()
@@ -14,7 +18,15 @@ protocol PasswordViewDelegate: AnyObject {
 
 final class PasswordView: UIView {
     weak var delegate: PasswordViewDelegate?
+    
+    // MARK: - Public Properties
+        
+    public var passwordPageType: PasswordPageType? = .change // delete the value after setting the navigation
+    
+    // MARK: - UI
 
+    private let bgImage = UIImageView.makeSimpleImage(imageName: "signInBackground")
+    
     private var triangleImage: UIImageView = {
         let element = UIImageView()
         element.image = UIImage(named: "trianglePink")
@@ -38,8 +50,27 @@ final class PasswordView: UIView {
         
     private let emailTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "YourEmailValue")
     
+    private let passwordLabel = UILabel.makeCustomLabel(
+        key: "PasswordLabel",
+        fontSize: Constants.regularLabelSize,
+        textColor: .white,
+        numberOfLines: nil,
+        textAligment: .left)
+    
+    private let passwordTexfield = UITextField.makePasswordPinkTextfield(placeholderText: "YourPasswordValue")
+    
+    private let confirmLabel = UILabel.makeCustomLabel(
+        key: "ConfirmPasswordValue",
+        fontSize: Constants.regularLabelSize,
+        textColor: .white,
+        numberOfLines: nil,
+        textAligment: .left)
+    
+    private let confirmTexfield = UITextField.makePasswordPinkTextfield(placeholderText: "YourPasswordValue")
+    
     private let button = UIButton.makeRectangularButtonWithTitle(title: "SentButtonValue")
     
+    // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,17 +86,40 @@ final class PasswordView: UIView {
         delegate = value
     }
     
+    // MARK: - Set Views
+    
     private func setViews() {
+        switch passwordPageType {
+            case .request:
+                button.setTitle(NSLocalizedString("SentButtonValue", comment: "Localizable"), for: .normal)
+                bgImage.image = nil
+                passwordLabel.isHidden = true
+                passwordTexfield.isHidden = true
+                confirmLabel.isHidden = true
+                confirmTexfield.isHidden = true
+            case .change:
+                button.setTitle(NSLocalizedString("ChangeButtonValue", comment: "Localizable"), for: .normal)
+                emailLabel.isHidden = true
+                emailTexfield.isHidden = true
+            default: break
+        }
+        
         self.backgroundColor = Color.backgroundBlue
         headingLabel.textAlignment = .left
+        
+        self.addSubview(bgImage)
     
         [
             headingLabel,
             triangleImage,
             emailLabel,
             emailTexfield,
+            passwordLabel,
+            passwordTexfield,
+            confirmLabel,
+            confirmTexfield,
             button
-        ].forEach { addSubview($0) }
+        ].forEach { bgImage.addSubview($0) }
         
         setUpViews()
     }
@@ -75,15 +129,34 @@ final class PasswordView: UIView {
         
     }
     
-    private func layoutViews() {
+    @objc private func buttonTapped(){
+        delegate?.tappedButton()
+    }
+    
+    // MARK: - Setup Constraints
+    
+    
+    private func setCommonLayouts() {
         NSLayoutConstraint.activate([
-
+            bgImage.topAnchor.constraint(equalTo: self.topAnchor),
+            bgImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            bgImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            bgImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            
             triangleImage.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.topOffset * 8),
             triangleImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             headingLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.topOffset * 19),
             headingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
             
+            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
+            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.customOffset),
+            button.heightAnchor.constraint(equalToConstant: Constants.bigButtonHeight)
+        ])
+    }
+    
+    private func setRequestLayouts(){
+        NSLayoutConstraint.activate([
             emailLabel.topAnchor.constraint(equalTo: headingLabel.bottomAnchor, constant: Constants.topOffset * 4),
             emailLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
             
@@ -92,15 +165,43 @@ final class PasswordView: UIView {
             emailTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.customOffset),
             emailTexfield.heightAnchor.constraint(equalToConstant: Constants.textFieldHeight),
             
-            button.topAnchor.constraint(equalTo: emailTexfield.bottomAnchor, constant: Constants.topOffset * 8),
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
-            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.customOffset),
-            button.heightAnchor.constraint(equalToConstant: Constants.bigButtonHeight)
+            button.topAnchor.constraint(equalTo: emailTexfield.bottomAnchor, constant: Constants.topOffset * 8)
         ])
     }
     
-    @objc private func buttonTapped(){
-        delegate?.tappedButton()
+    private func setChangePasswordLayouts(){
+        NSLayoutConstraint.activate([
+            passwordLabel.topAnchor.constraint(equalTo: headingLabel.bottomAnchor, constant: Constants.topOffset * 4),
+            passwordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
+            
+            passwordTexfield.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: Constants.topOffset),
+            passwordTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
+            passwordTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.customOffset),
+            passwordTexfield.heightAnchor.constraint(equalToConstant: Constants.textFieldHeight),
+            
+            confirmLabel.topAnchor.constraint(equalTo: passwordTexfield.bottomAnchor, constant: Constants.topOffset * 4),
+            confirmLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
+            
+            confirmTexfield.topAnchor.constraint(equalTo: confirmLabel.bottomAnchor, constant: Constants.topOffset),
+            confirmTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
+            confirmTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.customOffset),
+            confirmTexfield.heightAnchor.constraint(equalToConstant: Constants.textFieldHeight),
+            
+            button.topAnchor.constraint(equalTo: confirmTexfield.bottomAnchor, constant: Constants.topOffset * 8),
+        ])
+    }
+    
+    private func layoutViews() {
+        switch passwordPageType {
+            case .request:
+                setCommonLayouts()
+                setRequestLayouts()
+            
+            case .change:
+                setCommonLayouts()
+                setChangePasswordLayouts()
+            default: break
+        }
     }
     
 }

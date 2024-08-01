@@ -19,8 +19,10 @@
 "YourNameValue" = "Your name";
 "YourEmailValue" = "Your email";
 "YourPasswordValue" = "Your password";
+"ConfirmPasswordValue" = "Confirm password";
 "ConnectValue" = "Or connect with";
 "OrSignUpValue" = "or Sign Up";
 "OrSignInValue" = "or Sign In";
 "ForgotHeadingValue" = "Forgot \nPassword";
 "SentButtonValue" = "Sent";
+"ChangeButtonValue" = "Change password";
