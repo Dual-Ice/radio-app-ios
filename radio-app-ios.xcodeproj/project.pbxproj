@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24008BD32C5C05CB001DF2CF /* AudioPleer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24008BD22C5C05CB001DF2CF /* AudioPleer.swift */; };
 		243E43692C5BE51F001D958D /* CustomTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43632C5BE51F001D958D /* CustomTabBarButton.swift */; };
 		243E436A2C5BE51F001D958D /* VerticalTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43642C5BE51F001D958D /* VerticalTabBar.swift */; };
 		243E436B2C5BE51F001D958D /* VerticalTabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43652C5BE51F001D958D /* VerticalTabBarBuilder.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24008BD22C5C05CB001DF2CF /* AudioPleer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPleer.swift; sourceTree = "<group>"; };
 		243E43632C5BE51F001D958D /* CustomTabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarButton.swift; sourceTree = "<group>"; };
 		243E43642C5BE51F001D958D /* VerticalTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBar.swift; sourceTree = "<group>"; };
 		243E43652C5BE51F001D958D /* VerticalTabBarBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarBuilder.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24008BD42C5C05D4001DF2CF /* AudioPleer */ = {
+			isa = PBXGroup;
+			children = (
+				24008BD22C5C05CB001DF2CF /* AudioPleer.swift */,
+			);
+			path = AudioPleer;
+			sourceTree = "<group>";
+		};
 		243E43682C5BE51F001D958D /* VerticalTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				D9E6F39A2C5930B3007FD2F0 /* Services.swift */,
+				24008BD42C5C05D4001DF2CF /* AudioPleer */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -417,6 +428,7 @@
 				243E436D2C5BE51F001D958D /* VerticalTabBarPresenter.swift in Sources */,
 				F4DE1C1C2C57EDA400D55FC5 /* UI_Components.swift in Sources */,
 				D9E6F3A12C5930D5007FD2F0 /* Fav.swift in Sources */,
+				24008BD32C5C05CB001DF2CF /* AudioPleer.swift in Sources */,
 				D9E6F3A92C59310D007FD2F0 /* Lang.swift in Sources */,
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
 				D9E6F39D2C5930C1007FD2F0 /* Search.swift in Sources */,
