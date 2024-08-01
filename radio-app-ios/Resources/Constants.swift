@@ -24,5 +24,7 @@ enum Constants {
     static let signLabelSize: CGFloat = 20
     static let signButtonHeight: CGFloat = 56
     static let signButtonWidth: CGFloat = 132
+    static let separatorWidth: CGFloat = 93
+    static let textFieldHeight: CGFloat = 53
     
 }
