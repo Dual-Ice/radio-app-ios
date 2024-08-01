@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         window?.makeKeyAndVisible()
-        self.window?.rootViewController = VerticalTabBarBuilder.build()//PopularController()
+        self.window?.rootViewController = PopularController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

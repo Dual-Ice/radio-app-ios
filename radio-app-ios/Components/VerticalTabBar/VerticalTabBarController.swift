@@ -8,8 +8,8 @@
 import UIKit
 
 protocol VerticalTabBarControllerProtocol: AnyObject {
-    func showView(_ viewController: ViewType)
-    func addTabBarButtons(_ title: String, identifier: ViewType)
+    func showView(_ viewController: UIViewController)
+    func addTabBarButtons(_ title: String, identifier: String)
 }
 
 final class VerticalTabBarController: UIViewController {
@@ -27,23 +27,28 @@ final class VerticalTabBarController: UIViewController {
         super.viewDidLoad()
         verticalTabBar.delegate = self
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        didSelectTab(
+            verticalTabBar.buttons.first
+            ?? CustomTabBarButton(lableText: "Empty", identifier: "Empty")
+        )
+    }
 }
 
 extension VerticalTabBarController: VerticalTabBarControllerProtocol {
-    func addTabBarButtons(_ title: String, identifier: ViewType) {
+    func addTabBarButtons(_ title: String, identifier: String) {
         verticalTabBar.addTabBarButton(title, identifier: identifier)
     }
     
-    func showView(_ viewController: ViewType) {
+    func showView(_ viewController: UIViewController) {
         children.forEach { children in
             children.view.removeFromSuperview()
             children.removeFromParent()
         }
         
-        let vc = viewController.viewController()
-        
-        print(vc)
-        
+        let vc = viewController
         addChild(vc)
         vc.view.frame = verticalTabBar.viewContainer.bounds
         verticalTabBar.viewContainer.addSubview(vc.view)

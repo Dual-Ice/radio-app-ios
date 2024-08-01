@@ -18,16 +18,16 @@ final class CustomTabBarButton: UIButton {
     
     private let buttonLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var buttonIdentifier: ViewType
+    var buttonIdentifier: String
     
-    init(lableText: String, identifier: ViewType) {
+    init(lableText: String, identifier: String) {
         buttonIdentifier = identifier
         super.init(frame: .zero)
-        backgroundColor = .yellow
         setupButton(labelText: lableText)
     }
     
@@ -37,7 +37,7 @@ final class CustomTabBarButton: UIButton {
     
     private func setupButton(labelText: String) {
         buttonLabel.text = labelText
-        circleView.alpha = 0.1
+        circleView.alpha = 0.0
         
         addSubview(circleView)
         addSubview(buttonLabel)
@@ -55,8 +55,8 @@ final class CustomTabBarButton: UIButton {
     }
     
     func setActive(_ isActive: Bool) {
-        circleView.alpha = isActive ? 1.0 : 0.1
-        buttonLabel.alpha = isActive ? 1.0 : 0.1
+        circleView.alpha = isActive ? 1.0 : 0.0
+        buttonLabel.alpha = isActive ? 1.0 : 0.3
         self.isEnabled = !isActive
     }
 }

@@ -28,6 +28,10 @@ enum Color {
     static let customPink: UIColor = {
         return UIColor (red: 255/255, green: 41/255, blue: 109/255, alpha: 1.0)
     }()
+    
+    static let verticvalTabBar: UIColor = {
+        return UIColor (red: 8/255, green: 8/255, blue: 51/255, alpha: 1.0)
+    }()
 }
 
 
@@ -51,7 +55,7 @@ enum Image {
     static let playerBack = UIImage(named: "arrowBack")
     static let playerMain = UIImage(named: "arrowBack")
     static let playerNext = UIImage(named: "arrowBack")
-    static let playPink = UIImage(named: "arrowBack")
+    static let playPink = UIImage(named: "playPink")
     static let playWhite = UIImage(named: "arrowBack")
     static let signInBackground = UIImage(named: "arrowBack")
     static let trianglePink = UIImage(named: "arrowBack")

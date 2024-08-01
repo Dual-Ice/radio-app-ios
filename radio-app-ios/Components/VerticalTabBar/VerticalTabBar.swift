@@ -14,18 +14,22 @@ protocol VerticalTabBarDelegate: AnyObject {
 final class VerticalTabBar: UIView {
     private let tabBarContainer: UIView = {
         let container = UIView()
-        container.backgroundColor = .systemPink
-        container.translatesAutoresizingMaskIntoConstraints = false
+        container.backgroundColor = Color.verticvalTabBar
         return container
     }()
     
     private let stackView: UIStackView = {
         let stack = UIStackView()
-        stack.backgroundColor = .green
         stack.axis = .horizontal
         stack.transform = CGAffineTransform(rotationAngle: CGFloat.pi / -2)
-        stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
+    }()
+    
+    private let playImageView: UIImageView = {
+        let view = UIImageView()
+        view.image = Image.playPink
+        view.contentMode = .scaleAspectFit
+        return view
     }()
     
     var buttons: [CustomTabBarButton] = []
@@ -33,7 +37,6 @@ final class VerticalTabBar: UIView {
     var viewContainer: UIView = {
         let container = UIView()
         container.backgroundColor = .blue
-        container.translatesAutoresizingMaskIntoConstraints = false
         return container
     }()
     
@@ -49,7 +52,7 @@ final class VerticalTabBar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
         
-    func addTabBarButton(_ title: String, identifier: ViewType) {
+    func addTabBarButton(_ title: String, identifier: String) {
         let button = CustomTabBarButton(lableText: title, identifier: identifier)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         buttons.append(button)
@@ -67,8 +70,12 @@ private extension VerticalTabBar {
         [
             tabBarContainer,
             viewContainer,
-            stackView
-        ].forEach { addSubview($0) }
+            stackView,
+            playImageView
+        ].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            addSubview($0)
+        }
     }
     
     func setupConstrains() {
@@ -85,7 +92,11 @@ private extension VerticalTabBar {
             viewContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
             
             stackView.centerYAnchor.constraint(equalTo: tabBarContainer.centerYAnchor),
-            stackView.centerXAnchor.constraint(equalTo: tabBarContainer.centerXAnchor)
+            stackView.centerXAnchor.constraint(equalTo: tabBarContainer.centerXAnchor),
+            
+            playImageView.centerXAnchor.constraint(equalTo: tabBarContainer.centerXAnchor),
+            playImageView.widthAnchor.constraint(equalTo: tabBarContainer.widthAnchor, multiplier: 0.41),
+            playImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
         ])
     }
 }
