@@ -26,8 +26,10 @@ final class AuthView: UIView {
     // MARK: - UI
     
     private let playImage = UIImageView.makeSimpleImage(imageName: "playPink")
-    private let bgImage = UIImageView.makeSimpleImage(imageName: "bgLogin")
+    private let bgImage = UIImageView.makeSimpleImage(imageName: "signInBackground")
     private let googleImage = UIImageView.makeSimpleImage(imageName: "googlePlus")
+    private var triangleImage = UIImageView.makeSimpleImage(imageName: "trianglePink")
+       
 
     private let headingLabel = UILabel.makeCustomLabelBold(
         key: "SignInValue",
@@ -137,6 +139,7 @@ final class AuthView: UIView {
         self.addSubview(bgImage)
         
         [
+            triangleImage,
             playImage,
             headingLabel,
             subHeadingLabel,
@@ -177,6 +180,9 @@ final class AuthView: UIView {
             bgImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             bgImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             bgImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            
+            triangleImage.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.topOffset * 8),
+            triangleImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             playImage.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.topOffset * 10),
             playImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),

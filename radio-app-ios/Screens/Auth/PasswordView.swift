@@ -27,13 +27,8 @@ final class PasswordView: UIView {
 
     private let bgImage = UIImageView.makeSimpleImage(imageName: "signInBackground")
     
-    private var triangleImage: UIImageView = {
-        let element = UIImageView()
-        element.image = UIImage(named: "trianglePink")
-        element.translatesAutoresizingMaskIntoConstraints = false
-        return element
-    }()
-
+    private var triangleImage = UIImageView.makeSimpleImage(imageName: "trianglePink")
+        
     private let headingLabel = UILabel.makeCustomLabelBold(
         key: "ForgotHeadingValue",
         fontSize: Constants.headingSize,
