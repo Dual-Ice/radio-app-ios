@@ -93,7 +93,7 @@ final class AuthView: UIView {
     }
     
     private func setViews() {
-        self.backgroundColor = .black
+        self.backgroundColor = Color.backgroundBlue
         
         self.addSubview(bgImage)
         
@@ -131,32 +131,32 @@ final class AuthView: UIView {
             bgImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             
             playImage.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.topOffset * 10),
-            playImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
+            playImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
             
             headingLabel.topAnchor.constraint(equalTo: playImage.bottomAnchor, constant: Constants.topOffset * 3),
-            headingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
+            headingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
             
             subHeadingLabel.topAnchor.constraint(equalTo: headingLabel.bottomAnchor, constant: Constants.topOffset * 0.8),
-            subHeadingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
+            subHeadingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
             
             emailLabel.topAnchor.constraint(equalTo: subHeadingLabel.bottomAnchor, constant: Constants.topOffset * 4),
-            emailLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
+            emailLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
             
             emailTexfield.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: Constants.topOffset),
-            emailTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
-            emailTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.sideOffset),
+            emailTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
+            emailTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.customOffset),
             emailTexfield.heightAnchor.constraint(equalToConstant: Constants.textFieldHeight),
             
             passwordLabel.topAnchor.constraint(equalTo: emailTexfield.bottomAnchor, constant: Constants.topOffset * 2),
-            passwordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
+            passwordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
             
             passwordTexfield.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: Constants.topOffset),
-            passwordTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
-            passwordTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.sideOffset),
+            passwordTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
+            passwordTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.customOffset),
             passwordTexfield.heightAnchor.constraint(equalToConstant: Constants.textFieldHeight),
             
             forgotButton.topAnchor.constraint(equalTo: passwordTexfield.bottomAnchor, constant: Constants.topOffset),
-            forgotButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.sideOffset),
+            forgotButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.customOffset),
             
             separatorStackView.topAnchor.constraint(equalTo: forgotButton.bottomAnchor, constant: Constants.topOffset * 3),
             separatorStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
@@ -171,12 +171,12 @@ final class AuthView: UIView {
             googleImage.topAnchor.constraint(equalTo: separatorStackView.bottomAnchor, constant: Constants.topOffset),
 
             button.topAnchor.constraint(equalTo: googleImage.bottomAnchor, constant: Constants.topOffset * 4),
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
+            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
             button.widthAnchor.constraint(equalToConstant: Constants.signButtonWidth),
             button.heightAnchor.constraint(equalToConstant: Constants.signButtonHeight),
             
             signUpButton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: Constants.topOffset * 2),
-            signUpButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset)
+            signUpButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset)
         ])
     }
     

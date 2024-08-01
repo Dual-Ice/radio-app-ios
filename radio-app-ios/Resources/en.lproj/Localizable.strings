@@ -18,3 +18,5 @@
 "YourPasswordValue" = "Your password";
 "ConnectValue" = "Or connect with";
 "OrSignUpValue" = "or Sign Up";
+"ForgotHeadingValue" = "Forgot \nPassword";
+"SentButtonValue" = "Sent";

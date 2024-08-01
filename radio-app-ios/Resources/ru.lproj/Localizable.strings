@@ -18,3 +18,5 @@
 "YourPasswordValue" = "Ваш пароль";
 "ConnectValue" = "или войдте с";
 "OrSignUpValue" = "или Зарегистрируйтесь";
+"ForgotHeadingValue" = "Забыли \nПароль";
+"SentButtonValue" = "Отправить";
