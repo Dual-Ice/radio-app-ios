@@ -16,7 +16,7 @@ extension UITextField {
         return field
     }
     
-    static func makeCustomPinkTextfield(placeholderText: String) -> UITextField {
+    static func makeCustomPinkTextfield(placeholderText: String?) -> UITextField {
         let element = UITextField()
         
         let paddingView = UIView(frame: CGRectMake(0, 0, 20, 20))
@@ -24,7 +24,8 @@ extension UITextField {
         element.leftViewMode = .always
 
         let color = UIColor.white
-        element.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor : color])
+        let placeholderLocalized = NSLocalizedString(placeholderText ?? "LabelValue", comment: "Localizable")
+        element.attributedPlaceholder = NSAttributedString(string: placeholderLocalized, attributes: [NSAttributedString.Key.foregroundColor : color])
         
         element.textAlignment = .left
         element.layer.cornerRadius = 5

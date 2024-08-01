@@ -9,3 +9,12 @@
 //MARK: - Example
 "LabelValue" = "English label";
 "ButtonValue" = "English button";
+"SignInValue" = "Sign in";
+"SubheadingValue" = "to start play";
+"EmailLabel" = "Email";
+"PasswordLabel" = "Password";
+"ForgotButtonValue" = "Forgot password?";
+"YourEmailValue" = "Your email";
+"YourPasswordValue" = "Your password";
+"ConnectValue" = "Or connect with";
+"OrSignUpValue" = "or Sign Up";

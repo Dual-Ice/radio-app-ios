@@ -12,19 +12,6 @@ protocol AuthViewDelegate: AnyObject {
     func tappedButton()
 }
 
-extension UIView {
-func addShadow(shadowColor: CGColor = UIColor.black.cgColor,
-                   shadowOffset: CGSize = CGSize(width: 1.0, height: 2.0),
-                   shadowOpacity: Float = 0.4,
-                   shadowRadius: CGFloat = 3.0) {
-        layer.shadowColor = shadowColor
-        layer.shadowOffset = shadowOffset
-        layer.shadowOpacity = shadowOpacity
-        layer.shadowRadius = shadowRadius
-        layer.masksToBounds = false
-    }
-}
-
 final class AuthView: UIView {
     weak var delegate: AuthViewDelegate?
     
@@ -33,39 +20,39 @@ final class AuthView: UIView {
     private let googleImage = UIImageView.makeSimpleImage(imageName: "googlePlus")
 
     private let headingLabel = UILabel.makeCustomLabelBold(
-        key: "Sign in",
-        fontSize: 40,
+        key: "SignInValue",
+        fontSize: Constants.headingSize,
         textColor: .white,
         numberOfLines: nil,
         textAligment: .center)
     
     private let subHeadingLabel = UILabel.makeCustomLabel(
-        key: "to start play",
-        fontSize: 20,
+        key: "SubheadingValue",
+        fontSize: Constants.subHeadingSize,
         textColor: .white,
         numberOfLines: nil,
         textAligment: .left)
     
     private let emailLabel = UILabel.makeCustomLabel(
-        key: "Email",
-        fontSize: 20,
+        key: "EmailLabel",
+        fontSize: Constants.regularLabelSize,
         textColor: .white,
         numberOfLines: nil,
         textAligment: .left)
         
-    private let emailTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "Your email")
+    private let emailTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "YourEmailValue")
     
     private let passwordLabel = UILabel.makeCustomLabel(
-        key: "Password",
-        fontSize: 20,
+        key: "PasswordLabel",
+        fontSize: Constants.regularLabelSize,
         textColor: .white,
         numberOfLines: nil,
         textAligment: .left)
     
     
-    private let forgotButton = UIButton.makeCustomPlainButton(title: "Forgot password?", fontSize: CGFloat(20))
+    private let forgotButton = UIButton.makeCustomPlainButton(title: "ForgotButtonValue", fontSize: Constants.forgotLabelSize)
     
-    private let passwordTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "Your password")
+    private let passwordTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "YourPasswordValue")
     
     private lazy var separatorStackView: UIStackView = {
         var element = UIStackView()
@@ -77,30 +64,19 @@ final class AuthView: UIView {
         return element
     }()
     
-    private lazy var lineViewRight: UIView = {
-        let element = UIView()
-        element.backgroundColor = .white
-        element.translatesAutoresizingMaskIntoConstraints = false
-        return element
-    }()
-    
-    private lazy var lineViewLeft: UIView = {
-        let element = UIView()
-        element.backgroundColor = .white
-        element.translatesAutoresizingMaskIntoConstraints = false
-        return element
-    }()
+    private let lineViewRight = UIView.makeSeparatorLine()
+    private let lineViewLeft = UIView.makeSeparatorLine()
     
     private lazy var connectLabel = UILabel.makeCustomLabel(
-        key: "or connect with",
-        fontSize: 20,
+        key: "ConnectValue",
+        fontSize: Constants.connectLabelSize,
         textColor: .white,
         numberOfLines: nil,
         textAligment: .center)
     
-    private let button = UIButton.makeCustomButtonWithArrow()
+    private let button = UIButton.makeRectangularButtonWithArrow()
     
-    private let signUpButton = UIButton.makeCustomPlainButton(title: "or Sign Up", fontSize: CGFloat(25))
+    private let signUpButton = UIButton.makeCustomPlainButton(title: "OrSignUpValue", fontSize: Constants.signLabelSize)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -117,7 +93,7 @@ final class AuthView: UIView {
     }
     
     private func setViews() {
-        self.backgroundColor = Color.customDeepBlue
+        self.backgroundColor = .black
         
         self.addSubview(bgImage)
         
@@ -143,6 +119,8 @@ final class AuthView: UIView {
     
     private func setUpViews(){
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        forgotButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
     private func layoutViews() {
@@ -152,35 +130,35 @@ final class AuthView: UIView {
             bgImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             bgImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             
-            playImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
+            playImage.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.topOffset * 10),
             playImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
             
-            headingLabel.topAnchor.constraint(equalTo: playImage.bottomAnchor, constant: 50),
+            headingLabel.topAnchor.constraint(equalTo: playImage.bottomAnchor, constant: Constants.topOffset * 3),
             headingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
             
-            subHeadingLabel.topAnchor.constraint(equalTo: headingLabel.bottomAnchor, constant: Constants.sideOffset),
+            subHeadingLabel.topAnchor.constraint(equalTo: headingLabel.bottomAnchor, constant: Constants.topOffset * 0.8),
             subHeadingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
             
-            emailLabel.topAnchor.constraint(equalTo: subHeadingLabel.bottomAnchor, constant: 50),
+            emailLabel.topAnchor.constraint(equalTo: subHeadingLabel.bottomAnchor, constant: Constants.topOffset * 4),
             emailLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
             
-            emailTexfield.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 10),
+            emailTexfield.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: Constants.topOffset),
             emailTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
             emailTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.sideOffset),
             emailTexfield.heightAnchor.constraint(equalToConstant: 53),
             
-            passwordLabel.topAnchor.constraint(equalTo: emailTexfield.bottomAnchor, constant: 50),
+            passwordLabel.topAnchor.constraint(equalTo: emailTexfield.bottomAnchor, constant: Constants.topOffset * 2),
             passwordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
             
-            passwordTexfield.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 10),
+            passwordTexfield.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: Constants.topOffset),
             passwordTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
             passwordTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.sideOffset),
             passwordTexfield.heightAnchor.constraint(equalToConstant: 53),
             
-            forgotButton.topAnchor.constraint(equalTo: passwordTexfield.bottomAnchor, constant: 10),
+            forgotButton.topAnchor.constraint(equalTo: passwordTexfield.bottomAnchor, constant: Constants.topOffset),
             forgotButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.sideOffset),
             
-            separatorStackView.topAnchor.constraint(equalTo: forgotButton.bottomAnchor, constant: 30),
+            separatorStackView.topAnchor.constraint(equalTo: forgotButton.bottomAnchor, constant: Constants.topOffset * 3),
             separatorStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
             lineViewLeft.widthAnchor.constraint(equalToConstant: 93),
@@ -190,14 +168,14 @@ final class AuthView: UIView {
             lineViewRight.heightAnchor.constraint(equalToConstant: 1),
             
             googleImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            googleImage.topAnchor.constraint(equalTo: separatorStackView.bottomAnchor, constant: 30),
+            googleImage.topAnchor.constraint(equalTo: separatorStackView.bottomAnchor, constant: Constants.topOffset),
 
-            button.topAnchor.constraint(equalTo: googleImage.bottomAnchor, constant: 10),
+            button.topAnchor.constraint(equalTo: googleImage.bottomAnchor, constant: Constants.topOffset * 4),
             button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
-            button.widthAnchor.constraint(equalToConstant: Constants.buttonWidth),
-            button.heightAnchor.constraint(equalToConstant: Constants.buttonHeight),
+            button.widthAnchor.constraint(equalToConstant: Constants.signButtonWidth),
+            button.heightAnchor.constraint(equalToConstant: Constants.signButtonHeight),
             
-            signUpButton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 10),
+            signUpButton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: Constants.topOffset * 2),
             signUpButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset)
         ])
     }

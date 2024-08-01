@@ -25,7 +25,7 @@ extension UIButton {
 
     static func makeCustomButtonWithLabel(
         color: ButtonColor,
-        title: String) -> UIButton
+        title: String?) -> UIButton
     {
         let button = UIButton()
         button.backgroundColor = color.color
@@ -49,9 +49,19 @@ extension UIButton {
     // кнопка без текста
     static func makeCustomPlainButton(title: String?, fontSize: CGFloat) -> UIButton {
         let button = UIButton()
-        button.setTitle(title, for: .normal)
+        let titleLocalized = NSLocalizedString(title ?? "Button", comment: "Localizable")
+        button.setTitle(titleLocalized, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
+    
+    // кнопка без закруглений и стрелкой
+    static func makeRectangularButtonWithArrow() -> UIButton {
+        let button = UIButton()
+        button.backgroundColor = Color.customLightBlue
+        button.setImage(Image.arrowForward, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }
