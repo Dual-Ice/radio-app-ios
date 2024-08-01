@@ -45,4 +45,35 @@ extension UIButton {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }
+    // кнопка без текста
+    static func makeCustomPlainButton(title: String?, fontSize: CGFloat) -> UIButton {
+        let button = UIButton()
+        let titleLocalized = NSLocalizedString(title ?? "Button", comment: "Localizable")
+        button.setTitle(titleLocalized, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
+        
+    // кнопка без закруглений и стрелкой
+    static func makeRectangularButtonWithArrow() -> UIButton {
+        let button = UIButton()
+        button.backgroundColor = Color.customLightBlue
+        button.setImage(Image.arrowForward, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
+        
+    // кнопка без закруглений и тайтлом
+    static func makeRectangularButtonWithTitle(title: String?) -> UIButton {
+        let button = UIButton()
+        button.backgroundColor = Color.customLightBlue
+        let titleLocalized = NSLocalizedString(title ?? "Button", comment: "Localizable")
+        button.setTitle(titleLocalized, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
 }
