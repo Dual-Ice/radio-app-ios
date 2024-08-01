@@ -10,13 +10,17 @@
 "LabelValue" = "Русский лейбл";
 "ButtonValue" = "Русская кнопка";
 "SignInValue" = "Войди";
+"SignUpValue" = "Зарегистрироваться";
 "SubheadingValue" = "и начни прослушивание";
 "EmailLabel" = "Email";
+"NameLabel" = "Имя";
 "PasswordLabel" = "Пароль";
 "ForgotButtonValue" = "Забыли пароль?";
+"YourNameValue" = "Вашe имя";
 "YourEmailValue" = "Ваш email";
 "YourPasswordValue" = "Ваш пароль";
 "ConnectValue" = "или войдте с";
 "OrSignUpValue" = "или Зарегистрируйтесь";
+"OrSignInValue" = "или Войдите";
 "ForgotHeadingValue" = "Забыли \nПароль";
 "SentButtonValue" = "Отправить";

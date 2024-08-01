@@ -81,7 +81,7 @@ final class PasswordView: UIView {
             triangleImage.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.topOffset * 8),
             triangleImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-            headingLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.topOffset * 22),
+            headingLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.topOffset * 19),
             headingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
             
             emailLabel.topAnchor.constraint(equalTo: headingLabel.bottomAnchor, constant: Constants.topOffset * 4),

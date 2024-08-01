@@ -10,13 +10,17 @@
 "LabelValue" = "English label";
 "ButtonValue" = "English button";
 "SignInValue" = "Sign in";
+"SignUpValue" = "Sign up";
 "SubheadingValue" = "to start play";
+"NameLabel" = "Name";
 "EmailLabel" = "Email";
 "PasswordLabel" = "Password";
 "ForgotButtonValue" = "Forgot password?";
+"YourNameValue" = "Your name";
 "YourEmailValue" = "Your email";
 "YourPasswordValue" = "Your password";
 "ConnectValue" = "Or connect with";
 "OrSignUpValue" = "or Sign Up";
+"OrSignInValue" = "or Sign In";
 "ForgotHeadingValue" = "Forgot \nPassword";
 "SentButtonValue" = "Sent";
