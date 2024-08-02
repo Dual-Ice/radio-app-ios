@@ -16,7 +16,7 @@ enum NetworkError: Error {
 
 class NetworkManager {
 
-    private func createURL(for endpoint: Endpoints, with query: String? = nil) -> URL? {
+    func createURL(for endpoint: Endpoints, with query: String? = nil) -> URL? {
 
         var components = URLComponents()
         components.scheme = API.scheme
@@ -60,7 +60,7 @@ class NetworkManager {
         return parameters
     }
 
-    private func makeTask<T: Codable>(for url: URL, using session: URLSession = .shared, completion: @escaping(Result<T, NetworkError>) -> Void) {
+    func makeTask<T: Codable>(for url: URL, using session: URLSession = .shared, completion: @escaping(Result<T, NetworkError>) -> Void) {
 
         session.dataTask(with: url) { data, response, error in
 
@@ -93,48 +93,5 @@ class NetworkManager {
                 completion(.failure(.decodingError(error)))
             }
         }.resume()
-    }
-
-    // to move to separated class RadioAPI
-    func getPopular(completion: @escaping(Result<[Station], NetworkError>) -> Void) {
-        guard let url = createURL(for: .getPopular) else { return }
-        makeTask(for: url, completion: completion)
-    }
-
-    func getCountries(completion: @escaping(Result<[Country], NetworkError>) -> Void) {
-        guard let url = createURL(for: .getCountriesList) else { return }
-        makeTask(for: url, completion: completion)
-    }
-
-    func getLanguages(completion: @escaping(Result<[Language], NetworkError>) -> Void) {
-        guard let url = createURL(for: .getLanguagesList) else { return }
-        makeTask(for: url, completion: completion)
-    }
-
-    func getTags(completion: @escaping(Result<[Tag], NetworkError>) -> Void) {
-        guard let url = createURL(for: .getTags) else { return }
-        makeTask(for: url, completion: completion)
-    }
-
-    func doSearch(request: String, completion: @escaping(Result<[Station], NetworkError>) -> Void) {
-        guard let url = createURL(for: .doSearch(request: request)) else { return }
-        makeTask(for: url, completion: completion)
-    }
-
-    func doSearchByCountry(parameter: String, completion: @escaping(Result<[Station], NetworkError>) -> Void) {
-        guard let url = createURL(for: .doSearchByCountry(parameter: parameter)) else { return }
-        makeTask(for: url, completion: completion)
-    }
-
-    /// универсальная функция для поиска и по тэгам, и по языку, т.к. по языку приходят пустые ответы
-    func doSearchByLanguageOrTag(parameter: String, completion: @escaping(Result<[Station], NetworkError>) -> Void) {
-        guard let url = createURL(for: .doSearchByLanguageOrTag(parameter: parameter)) else { return }
-        makeTask(for: url, completion: completion)
-    }
-
-    // возможно лишнее
-    func getStation(for id: String, completion: @escaping(Result<[Station], NetworkError>) -> Void) {
-        guard let url = createURL(for: .getSingleStation(uuids: id)) else { return }
-        makeTask(for: url, completion: completion)
     }
 }
