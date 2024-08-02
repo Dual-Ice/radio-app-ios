@@ -9,7 +9,7 @@ import Foundation
 
 enum NetworkError: Error {
     case transportError (Error)
-    case serverError (statusCode: Int) // апи предоставляет коды?
+    case serverError (statusCode: Int)
     case noData
     case decodingError (Error)
 }
@@ -49,6 +49,12 @@ class NetworkManager {
         case .doSearch(request: let request):
             parameters ["name"] = "\(request)"
             parameters ["limit"] = "15"
+        case .doSearchByCountry(parameter: let parameter):
+            parameters ["country"] = "\(parameter)"
+            parameters ["limit"] = "10"
+        case .doSearchByLanguageOrTag(parameter: let parameter):
+            parameters ["tag"] = "\(parameter)"
+            parameters ["limit"] = "10"
         }
 
         return parameters
@@ -112,6 +118,17 @@ class NetworkManager {
 
     func doSearch(request: String, completion: @escaping(Result<[Station], NetworkError>) -> Void) {
         guard let url = createURL(for: .doSearch(request: request)) else { return }
+        makeTask(for: url, completion: completion)
+    }
+
+    func doSearchByCountry(parameter: String, completion: @escaping(Result<[Station], NetworkError>) -> Void) {
+        guard let url = createURL(for: .doSearchByCountry(parameter: parameter)) else { return }
+        makeTask(for: url, completion: completion)
+    }
+
+    /// универсальная функция для поиска и по тэгам, и по языку, т.к. по языку приходят пустые ответы
+    func doSearchByLanguageOrTag(parameter: String, completion: @escaping(Result<[Station], NetworkError>) -> Void) {
+        guard let url = createURL(for: .doSearchByLanguageOrTag(parameter: parameter)) else { return }
         makeTask(for: url, completion: completion)
     }
 

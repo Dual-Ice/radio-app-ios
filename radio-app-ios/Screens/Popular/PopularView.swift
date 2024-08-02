@@ -51,7 +51,8 @@ final class PopularView: UIView {
 //        getListOfLanguages()
 //        getListOfTags()
 //        getSingleStation(by: "7fe99458-b6f2-4af0-95bc-e05977964622")
-        doSearch(for: "radio")
+//        doSearch(for: "radio")
+        searchByCountry(parameter: "Russia")
     }
 
     required init?(coder: NSCoder) {
@@ -110,7 +111,19 @@ final class PopularView: UIView {
         networkManager.doSearch(request: request) { result in
             switch result {
             case .success(let stations):
-                print ("Founded stations: \(stations)")
+                print ("Found stations: \(stations)")
+            case .failure(let error):
+                print ("Occured error while fetching data: \(error)")
+            }
+        }
+    }
+
+    //аналогичная функция для поиска по тэгу/языку, только поменять вызываемую функцию
+    private func searchByCountry(parameter: String) {
+        networkManager.doSearchByCountry(parameter: parameter) { result in
+            switch result {
+            case .success(let stations):
+                print ("Found stations for country \(parameter): \(stations)")
             case .failure(let error):
                 print ("Occured error while fetching data: \(error)")
             }
