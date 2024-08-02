@@ -15,6 +15,7 @@ protocol PopularViewDelegate: AnyObject {
 final class PopularView: UIView {
     
     weak var delegate: PopularViewDelegate?
+    private let networkManager = NetworkManager()
 
     /// пример кнопки с тайтлом
 //    private let button = UIButton.makeCustomButtonWithLabel(
@@ -45,12 +46,90 @@ final class PopularView: UIView {
         setViews()
         layoutViews()
         self.backgroundColor = Color.customDeepBlue
+//        getPopularStations()
+//        getListOfCountries()
+//        getListOfLanguages()
+//        getListOfTags()
+//        getSingleStation(by: "7fe99458-b6f2-4af0-95bc-e05977964622")
+        doSearch(for: "radio")
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    /// example of using network manager requests
+    private func getPopularStations() {
+        networkManager.getPopular { result in
+            switch result {
+            case .success(let stations):
+                print ("Popular stations: \(stations)")
+            case .failure(let error):
+                print ("Occured error while fetching data: \(error)")
+            }
+        }
+    }
+
+    /// get counties list
+    private func getListOfCountries() {
+        networkManager.getCountries { result in
+            switch result {
+            case .success(let countries):
+                print ("List of countries \(countries)")
+            case .failure(let error):
+                print ("Occured error while fetching data: \(error)")
+            }
+        }
+    }
+
+    /// get tags list
+    private func getListOfTags() {
+        networkManager.getTags { result in
+            switch result {
+            case .success(let tags):
+                print ("List of tags: \(tags)")
+            case .failure(let error):
+                print ("Occured error while fetching data: \(error)")
+            }
+        }
+    }
+
+    /// get languages list
+    private func getListOfLanguages() {
+        networkManager.getLanguages { result in
+            switch result {
+            case .success(let languages):
+                print("List of languages: \(languages)")
+            case .failure(let error):
+                print ("Occured error while fetching data: \(error)")
+            }
+        }
+    }
+
+    private func doSearch(for request: String) {
+        networkManager.doSearch(request: request) { result in
+            switch result {
+            case .success(let stations):
+                print ("Founded stations: \(stations)")
+            case .failure(let error):
+                print ("Occured error while fetching data: \(error)")
+            }
+        }
+    }
+
+    // ахтунг: по данному запросу прилетает массив из нескольких станций, предлагаю выбирать первую по дефолту
+    // ахтунг №2: эта функция вроде как не нужна, для перехода на экран Деталей можно использовать данные из модели Station
+    private func getSingleStation(by id: String) {
+        networkManager.getStation(for: id) { result in
+            switch result {
+            case .success(let station):
+                print ("Info about station: \(station)")
+            case .failure(let error):
+                print ("Occured error while fetching data: \(error)")
+            }
+        }
+    }
+
     func setDelegates(_ value: PopularController) {
         delegate = value
     }

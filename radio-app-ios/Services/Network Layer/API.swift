@@ -8,6 +8,6 @@
 import Foundation
 
 struct API {
-    let schene = "http"
-    let host = "nl1.api.radio-browser.info"
+    static let scheme = "https"
+    static let host = "nl1.api.radio-browser.info"
 }
