@@ -9,21 +9,9 @@ import UIKit
 
 final class PopularCell: UICollectionViewCell {
     
-    private let playButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .clear
-        button.setImage(UIImage(named: "playWhite"), for: .normal)
-        button.layer.cornerRadius = 10
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    private let playButton = UIButton.makeCustomButtonWithImage(image: Image.playWhite)
     private let votesLabel = UILabel.makeCustomLabel(key: "votes", fontSize: 10, textColor: .white, numberOfLines: 1, textAligment: .left)
-    private let votesButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "heartDeselected"), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    private let votesButton = UIButton.makeCustomButtonWithImage(image: Image.heartDeselected)
     private let genreLabel = UILabel.makeCustomLabelBold(key: "POP", fontSize: 28, textColor: .white, numberOfLines: 1, textAligment: .center)
     private let radioNameLabel = UILabel.makeCustomLabel(key: "Radio Record", fontSize: 12, textColor: .white, numberOfLines: 1, textAligment: .center)
     private let waveImageView = UIImageView()
@@ -36,7 +24,6 @@ final class PopularCell: UICollectionViewCell {
         super.init(frame: frame)
         setViews()
         layoutViews()
-        setupLayer()
     }
     
     required init?(coder: NSCoder) {
@@ -45,6 +32,8 @@ final class PopularCell: UICollectionViewCell {
     
     private func setViews() {
         self.layer.cornerRadius = 10
+        self.layer.borderColor = Color.customGray.cgColor
+        self.layer.borderWidth = 2.0
         self.layer.masksToBounds = true
         
         votesButton.addTarget(self, action: #selector(votesButtonTapped), for: .touchUpInside)
@@ -53,8 +42,6 @@ final class PopularCell: UICollectionViewCell {
     }
     
     private func layoutViews() {
-        playButton.translatesAutoresizingMaskIntoConstraints = false
-        votesButton.translatesAutoresizingMaskIntoConstraints = false
         waveImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -83,11 +70,6 @@ final class PopularCell: UICollectionViewCell {
             waveImageView.heightAnchor.constraint(equalToConstant: 23),
             waveImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ])
-    }
-    
-    private func setupLayer() {
-        layer.borderColor = Color.customGray.cgColor
-        layer.borderWidth = 2.0
     }
     
     @objc private func votesButtonTapped() {
