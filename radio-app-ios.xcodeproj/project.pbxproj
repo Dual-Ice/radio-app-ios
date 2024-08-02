@@ -25,7 +25,6 @@
 		D9E6F3952C593066007FD2F0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3942C593066007FD2F0 /* Helpers.swift */; };
 		D9E6F3972C59307F007FD2F0 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3962C59307F007FD2F0 /* Components.swift */; };
 		D9E6F3992C5930A8007FD2F0 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3982C5930A8007FD2F0 /* Models.swift */; };
-		D9E6F39B2C5930B3007FD2F0 /* Network_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F39A2C5930B3007FD2F0 /* Network_Manager.swift */; };
 		D9E6F39D2C5930C1007FD2F0 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F39C2C5930C1007FD2F0 /* Search.swift */; };
 		D9E6F39F2C5930CB007FD2F0 /* All.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F39E2C5930CB007FD2F0 /* All.swift */; };
 		D9E6F3A12C5930D5007FD2F0 /* Fav.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3A02C5930D5007FD2F0 /* Fav.swift */; };
@@ -36,6 +35,7 @@
 		D9E6F3AD2C593120007FD2F0 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AC2C593120007FD2F0 /* About.swift */; };
 		D9E6F3AF2C59312E007FD2F0 /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AE2C59312E007FD2F0 /* Policy.swift */; };
 		F48255472C5D4EE400488872 /* Radio_API_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255462C5D4EE400488872 /* Radio_API_Manager.swift */; };
+		F48255492C5D549600488872 /* Network_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255482C5D549600488872 /* Network_Manager.swift */; };
 		F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */; };
 		F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */; };
 		F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */; };
@@ -71,7 +71,6 @@
 		D9E6F3942C593066007FD2F0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		D9E6F3962C59307F007FD2F0 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		D9E6F3982C5930A8007FD2F0 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		D9E6F39A2C5930B3007FD2F0 /* Network_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network_Manager.swift; sourceTree = "<group>"; };
 		D9E6F39C2C5930C1007FD2F0 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		D9E6F39E2C5930CB007FD2F0 /* All.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = All.swift; sourceTree = "<group>"; };
 		D9E6F3A02C5930D5007FD2F0 /* Fav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fav.swift; sourceTree = "<group>"; };
@@ -82,6 +81,7 @@
 		D9E6F3AC2C593120007FD2F0 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		D9E6F3AE2C59312E007FD2F0 /* Policy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Policy.swift; sourceTree = "<group>"; };
 		F48255462C5D4EE400488872 /* Radio_API_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radio_API_Manager.swift; sourceTree = "<group>"; };
+		F48255482C5D549600488872 /* Network_Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network_Manager.swift; sourceTree = "<group>"; };
 		F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel_Extension.swift; sourceTree = "<group>"; };
 		F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_Extension.swift; sourceTree = "<group>"; };
@@ -301,7 +301,6 @@
 		D9E6F38F2C56FD5D007FD2F0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				D9E6F39A2C5930B3007FD2F0 /* Services.swift */,
 				24008BD42C5C05D4001DF2CF /* AudioPleer */,
 				F4DE1C2F2C5A781300D55FC5 /* Network Layer */,
 			);
@@ -349,7 +348,7 @@
 				F4DE1C322C5A7D1500D55FC5 /* API.swift */,
 				F4DE1C302C5A7B7800D55FC5 /* Request Models.swift */,
 				F4DE1C342C5A84AE00D55FC5 /* Endpoints.swift */,
-				D9E6F39A2C5930B3007FD2F0 /* Network_Manager.swift */,
+				F48255482C5D549600488872 /* Network_Manager.swift */,
 				F48255462C5D4EE400488872 /* Radio_API_Manager.swift */,
 			);
 			path = "Network Layer";
@@ -431,16 +430,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4DE1C242C590A9300D55FC5 /* UITextField_Extension.swift in Sources */,
+				F48255492C5D549600488872 /* Network_Manager.swift in Sources */,
 				D9E6F3992C5930A8007FD2F0 /* Models.swift in Sources */,
 				243E436A2C5BE51F001D958D /* VerticalTabBar.swift in Sources */,
 				D9E6F3A32C5930E2007FD2F0 /* Detail.swift in Sources */,
 				D9E6F3972C59307F007FD2F0 /* Components.swift in Sources */,
 				243E43692C5BE51F001D958D /* CustomTabBarButton.swift in Sources */,
-				D9E6F39B2C5930B3007FD2F0 /* Services.swift in Sources */,
-				D9E6F39B2C5930B3007FD2F0 /* Network_Manager.swift in Sources */,
 				D9E6F3A52C5930F8007FD2F0 /* Auth.swift in Sources */,
 				F4DE1C312C5A7B7800D55FC5 /* Request Models.swift in Sources */,
-				F4DE1C032C57B91300D55FC5 /* UIFont_Extension.swift in Sources */,
 				F4DE1C332C5A7D1500D55FC5 /* API.swift in Sources */,
 				F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */,
 				D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */,
