@@ -17,7 +17,7 @@ final class WelcomeView: UIView {
     
     private let imageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "onboardingBackground")
+        image.image = Image.onboardingBackground
         image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image

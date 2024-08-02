@@ -2,89 +2,93 @@
 //  PopularView.swift
 //  radio-app-ios
 //
-//  Created by  Maksim Stogniy on 29.07.2024.
+//  Created by Валентина Попова on 01.08.2024.
 //
 
 import UIKit
 
 protocol PopularViewDelegate: AnyObject {
     func tappedButton()
+    func cellSelected(at indexPath: IndexPath)
 }
-
 
 final class PopularView: UIView {
     
+    private let collectionView: UICollectionView
+    private let cellIdentifier = "PopularCell"
+    
+    private var items = [
+        ("POP", "Radio Record", 315, true, UIImage(named: "waveRed")),
+        ("16bit", "Radio Gameplay", 240, false, UIImage(named: "waveBlue")),
+        ("Punk", "Russian Punk rock", 200, false, UIImage(named: "wavePurple")),
+        ("Dj remix", "IREMIX!", 54, false, UIImage(named: "waveGreen")),
+        ("Adult", "RUSSIAN WAVE", 315, false, UIImage(named: "waveYellow")),
+        ("Etnic", "beufm.kz", 74, false, UIImage(named: "waveLightRed"))
+    ]
+    
     weak var delegate: PopularViewDelegate?
-
-    /// пример кнопки с тайтлом
-//    private let button = UIButton.makeCustomButtonWithLabel(
-//        color: .pink,
-//        title: "Tap")
-
-    /// пример кнопки со стрелочкой
-    private let button = UIButton.makeCustomButtonWithArrow()
-
-    /// пример обычного лейбла
-    private let label = UILabel.makeCustomLabel(
-        key: "LabelValue",
-        fontSize: 40,
-        textColor: .white,
-        numberOfLines: nil,
-        textAligment: .center)
-
-    /// пример лейбла с толстым шрифтом
-//    private let label = UILabel.makeCustomLabelBold(
-//        key: "LabelValue",
-//        fontSize: 40,
-//        textColor: .white,
-//        numberOfLines: nil,
-//        textAligment: .center)
-
+    
     override init(frame: CGRect) {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 150, left: 50, bottom: 150, right: 50)
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.itemSize = CGSize(width: 139, height: 139)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
         super.init(frame: frame)
-        setViews()
-        layoutViews()
-        self.backgroundColor = Color.customDeepBlue
+        
+        setupCollectionView()
+        self.backgroundColor = Color.backgroundBlue
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setDelegates(_ value: PopularController) {
-        delegate = value
-    }
-    
-    private func setViews() {
-        self.backgroundColor = .white
-        [
-            label,
-            button,
-            
-        ].forEach { addSubview($0) }
+    private func setupCollectionView() {
+        addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .clear
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(PopularCell.self, forCellWithReuseIdentifier: cellIdentifier)
         
-        setUpViews()
-    }
-    
-    private func setUpViews(){
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-    }
-    
-    
-    private func layoutViews() {
         NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            
-            button.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: Constants.sideOffset),
-            button.widthAnchor.constraint(equalToConstant: Constants.buttonWidth),
-            button.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
     
-    @objc private func buttonTapped(){
-        delegate?.tappedButton()
+    func setDelegates(_ delegate: PopularViewDelegate) {
+        self.delegate = delegate
+    }
+}
+
+extension PopularView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return items.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? PopularCell else {
+            return UICollectionViewCell()
+        }
+        
+        let item = items[indexPath.row]
+        cell.configure(with: item.0, subtitle: item.1, votes: item.2, isActive: item.3, waveImage: item.4!)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        for i in 0..<items.count {
+            items[i].3 = (i == indexPath.row)
+        }
+        collectionView.reloadData()
+        delegate?.cellSelected(at: indexPath)
+    }
 }

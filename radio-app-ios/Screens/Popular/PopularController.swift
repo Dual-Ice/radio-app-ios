@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  PopularController.swift
 //  radio-app-ios
 //
-//  Created by  Maksim Stogniy on 29.07.2024.
+//  Created by Валентина Попова on 01.08.2024.
 //
 
 import UIKit
@@ -20,8 +20,6 @@ final class PopularController: UIViewController {
         super.viewDidLoad()
         popularView.setDelegates(self)
     }
-
-
 }
 
 extension PopularController: PopularViewDelegate {
@@ -29,5 +27,7 @@ extension PopularController: PopularViewDelegate {
         print("Button is tapped")
     }
     
+    func cellSelected(at indexPath: IndexPath) {
+        print("Selected cell at \(indexPath)")
+    }
 }
-
