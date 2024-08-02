@@ -9,3 +9,9 @@
 //MARK: - Example
 "LabelValue" = "English label";
 "ButtonValue" = "English button";
+"ButtonGetStarted" = "Get Started";
+"WelcomeTitleLabel" = "Let’s Get\nStarted";
+"WelcomeLabel" = "Enjoy the best radio stations\nfrom your home, don't miss\nout on anything";
+"Popular" = "Popular";
+"Favorites" = "Favorites";
+"AllStations" = "All Stations";

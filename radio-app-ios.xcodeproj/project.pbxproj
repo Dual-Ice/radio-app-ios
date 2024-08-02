@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24008BD32C5C05CB001DF2CF /* AudioPleer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24008BD22C5C05CB001DF2CF /* AudioPleer.swift */; };
+		243E43692C5BE51F001D958D /* CustomTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43632C5BE51F001D958D /* CustomTabBarButton.swift */; };
+		243E436A2C5BE51F001D958D /* VerticalTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43642C5BE51F001D958D /* VerticalTabBar.swift */; };
+		243E436B2C5BE51F001D958D /* VerticalTabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43652C5BE51F001D958D /* VerticalTabBarBuilder.swift */; };
+		243E436C2C5BE51F001D958D /* VerticalTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43662C5BE51F001D958D /* VerticalTabBarController.swift */; };
+		243E436D2C5BE51F001D958D /* VerticalTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43672C5BE51F001D958D /* VerticalTabBarPresenter.swift */; };
+		A76E5E282C5820CD004A06B3 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E272C5820CD004A06B3 /* WelcomeView.swift */; };
+		A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E292C5820E4004A06B3 /* WelcomeController.swift */; };
 		D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */; };
 		D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */; };
 		D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3692C56F362007FD2F0 /* PopularController.swift */; };
@@ -23,14 +31,12 @@
 		D9E6F3A12C5930D5007FD2F0 /* Fav.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3A02C5930D5007FD2F0 /* Fav.swift */; };
 		D9E6F3A32C5930E2007FD2F0 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3A22C5930E2007FD2F0 /* Detail.swift */; };
 		D9E6F3A52C5930F8007FD2F0 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3A42C5930F8007FD2F0 /* Auth.swift */; };
-		D9E6F3A72C593103007FD2F0 /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3A62C593103007FD2F0 /* Welcome.swift */; };
 		D9E6F3A92C59310D007FD2F0 /* Lang.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3A82C59310D007FD2F0 /* Lang.swift */; };
 		D9E6F3AB2C593117007FD2F0 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AA2C593117007FD2F0 /* Profile.swift */; };
 		D9E6F3AD2C593120007FD2F0 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AC2C593120007FD2F0 /* About.swift */; };
 		D9E6F3AF2C59312E007FD2F0 /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AE2C59312E007FD2F0 /* Policy.swift */; };
 		F48255472C5D4EE400488872 /* Radio_API_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255462C5D4EE400488872 /* Radio_API_Manager.swift */; };
 		F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */; };
-		F4DE1C032C57B91300D55FC5 /* UIFont_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C022C57B91300D55FC5 /* UIFont_Extension.swift */; };
 		F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */; };
 		F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */; };
 		F4DE1C1C2C57EDA400D55FC5 /* UI_Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C1B2C57EDA400D55FC5 /* UI_Components.swift */; };
@@ -44,6 +50,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24008BD22C5C05CB001DF2CF /* AudioPleer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPleer.swift; sourceTree = "<group>"; };
+		243E43632C5BE51F001D958D /* CustomTabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarButton.swift; sourceTree = "<group>"; };
+		243E43642C5BE51F001D958D /* VerticalTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBar.swift; sourceTree = "<group>"; };
+		243E43652C5BE51F001D958D /* VerticalTabBarBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarBuilder.swift; sourceTree = "<group>"; };
+		243E43662C5BE51F001D958D /* VerticalTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarController.swift; sourceTree = "<group>"; };
+		243E43672C5BE51F001D958D /* VerticalTabBarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarPresenter.swift; sourceTree = "<group>"; };
+		A76E5E272C5820CD004A06B3 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		A76E5E292C5820E4004A06B3 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		D9E6F3622C56F362007FD2F0 /* radio-app-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radio-app-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,14 +77,12 @@
 		D9E6F3A02C5930D5007FD2F0 /* Fav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fav.swift; sourceTree = "<group>"; };
 		D9E6F3A22C5930E2007FD2F0 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		D9E6F3A42C5930F8007FD2F0 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
-		D9E6F3A62C593103007FD2F0 /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
 		D9E6F3A82C59310D007FD2F0 /* Lang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lang.swift; sourceTree = "<group>"; };
 		D9E6F3AA2C593117007FD2F0 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D9E6F3AC2C593120007FD2F0 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		D9E6F3AE2C59312E007FD2F0 /* Policy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Policy.swift; sourceTree = "<group>"; };
 		F48255462C5D4EE400488872 /* Radio_API_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radio_API_Manager.swift; sourceTree = "<group>"; };
 		F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel_Extension.swift; sourceTree = "<group>"; };
-		F4DE1C022C57B91300D55FC5 /* UIFont_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIFont_Extension.swift; path = ../../../UIFont_Extension.swift; sourceTree = "<group>"; };
 		F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_Extension.swift; sourceTree = "<group>"; };
 		F4DE1C1B2C57EDA400D55FC5 /* UI_Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI_Components.swift; sourceTree = "<group>"; };
@@ -94,6 +106,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24008BD42C5C05D4001DF2CF /* AudioPleer */ = {
+			isa = PBXGroup;
+			children = (
+				24008BD22C5C05CB001DF2CF /* AudioPleer.swift */,
+			);
+			path = AudioPleer;
+			sourceTree = "<group>";
+		};
+		243E43682C5BE51F001D958D /* VerticalTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				243E43632C5BE51F001D958D /* CustomTabBarButton.swift */,
+				243E43642C5BE51F001D958D /* VerticalTabBar.swift */,
+				243E43652C5BE51F001D958D /* VerticalTabBarBuilder.swift */,
+				243E43662C5BE51F001D958D /* VerticalTabBarController.swift */,
+				243E43672C5BE51F001D958D /* VerticalTabBarPresenter.swift */,
+			);
+			path = VerticalTabBar;
+			sourceTree = "<group>";
+		};
 		D9E6F3592C56F362007FD2F0 = {
 			isa = PBXGroup;
 			children = (
@@ -156,7 +188,8 @@
 		D9E6F37B2C56F50E007FD2F0 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				D9E6F3A62C593103007FD2F0 /* Welcome.swift */,
+				A76E5E292C5820E4004A06B3 /* WelcomeController.swift */,
+				A76E5E272C5820CD004A06B3 /* WelcomeView.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -268,6 +301,8 @@
 		D9E6F38F2C56FD5D007FD2F0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D9E6F39A2C5930B3007FD2F0 /* Services.swift */,
+				24008BD42C5C05D4001DF2CF /* AudioPleer */,
 				F4DE1C2F2C5A781300D55FC5 /* Network Layer */,
 			);
 			path = Services;
@@ -285,7 +320,6 @@
 			isa = PBXGroup;
 			children = (
 				F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */,
-				F4DE1C022C57B91300D55FC5 /* UIFont_Extension.swift */,
 				F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */,
 				F4DE1C232C590A9300D55FC5 /* UITextField_Extension.swift */,
 			);
@@ -295,6 +329,7 @@
 		D9E6F3922C56FD74007FD2F0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				243E43682C5BE51F001D958D /* VerticalTabBar */,
 				D9E6F3962C59307F007FD2F0 /* Components.swift */,
 			);
 			path = Components;
@@ -397,8 +432,11 @@
 			files = (
 				F4DE1C242C590A9300D55FC5 /* UITextField_Extension.swift in Sources */,
 				D9E6F3992C5930A8007FD2F0 /* Models.swift in Sources */,
+				243E436A2C5BE51F001D958D /* VerticalTabBar.swift in Sources */,
 				D9E6F3A32C5930E2007FD2F0 /* Detail.swift in Sources */,
 				D9E6F3972C59307F007FD2F0 /* Components.swift in Sources */,
+				243E43692C5BE51F001D958D /* CustomTabBarButton.swift in Sources */,
+				D9E6F39B2C5930B3007FD2F0 /* Services.swift in Sources */,
 				D9E6F39B2C5930B3007FD2F0 /* Network_Manager.swift in Sources */,
 				D9E6F3A52C5930F8007FD2F0 /* Auth.swift in Sources */,
 				F4DE1C312C5A7B7800D55FC5 /* Request Models.swift in Sources */,
@@ -408,20 +446,26 @@
 				D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */,
 				D9E6F3952C593066007FD2F0 /* Helpers.swift in Sources */,
 				D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */,
+				A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */,
+				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
+				A76E5E282C5820CD004A06B3 /* WelcomeView.swift in Sources */,
 				F4DE1C2A2C59173500D55FC5 /* Constants.swift in Sources */,
+				243E436D2C5BE51F001D958D /* VerticalTabBarPresenter.swift in Sources */,
 				F4DE1C1C2C57EDA400D55FC5 /* UI_Components.swift in Sources */,
 				D9E6F3A12C5930D5007FD2F0 /* Fav.swift in Sources */,
+				24008BD32C5C05CB001DF2CF /* AudioPleer.swift in Sources */,
 				F4DE1C352C5A84AE00D55FC5 /* Endpoints.swift in Sources */,
 				D9E6F3A92C59310D007FD2F0 /* Lang.swift in Sources */,
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
 				D9E6F39D2C5930C1007FD2F0 /* Search.swift in Sources */,
 				D9E6F3AD2C593120007FD2F0 /* About.swift in Sources */,
-				D9E6F3A72C593103007FD2F0 /* Welcome.swift in Sources */,
 				D9E6F39F2C5930CB007FD2F0 /* All.swift in Sources */,
+				243E436B2C5BE51F001D958D /* VerticalTabBarBuilder.swift in Sources */,
 				D9E6F3AB2C593117007FD2F0 /* Profile.swift in Sources */,
 				F48255472C5D4EE400488872 /* Radio_API_Manager.swift in Sources */,
 				F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */,
 				D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */,
+				243E436C2C5BE51F001D958D /* VerticalTabBarController.swift in Sources */,
 				D9E6F3AF2C59312E007FD2F0 /* Policy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
