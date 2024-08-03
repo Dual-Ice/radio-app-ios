@@ -11,6 +11,7 @@ final class AuthController: UIViewController {
     
     private let authView = AuthView()
     private let presenter: AuthPresenter
+    private let authAlertManager = AuthAlertManager()
     
     //MARK: - init(_:)
     init(presenter: AuthPresenter) {
@@ -32,13 +33,47 @@ final class AuthController: UIViewController {
         super.viewDidLoad()
         authView.setDelegates(self)
     }
-
+    
 
 }
 
-extension AuthController: AuthViewDelegate {
-    func tappedButton(_ sender: UIButton) {
-        print("Button is tapped - \(sender.currentTitle ?? "Empty button")")
+extension AuthController {
+    func showLoginAlert(for status: LoginAlert) {
+        authAlertManager.showLoginAlert(on: self, for: status)
     }
+    
+    func showRegisterAlert(for status: RegisterAlert) {
+        authAlertManager.showRegisterAlert(on: self, for: status)
+    }
+    
+    func showDefaultAlert(message: String) {
+        authAlertManager.showDefaultAlert(on: self, title: NSLocalizedString("AuthSceenRegistrationErrorTitle", comment: ""), message: message)
+    }
+    
+    func goToMain() {
+        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+            sceneDelegate.checkAuthentication()
+        }
+    }
+}
+
+extension AuthController: AuthViewDelegate {
+    
+    func googleButtonTapped() {
+        presenter.loginViaGoogle(presentingViewController: self)
+    }
+    
+    func forgotButtonTapped() {
+        presenter.forgotPassword()
+    }
+    
+    func handleLoginButtonTap(with request: LoginUserRequest) {
+        presenter.loginUser(with: request)
+    }
+    
+    func handleRegisterButtonTap(with request: RegisterUserRequest) {
+        presenter.registerUser(with: request)
+    }
+    
 }
 
