@@ -26,7 +26,19 @@ final class PopularController: UIViewController {
 
 extension PopularController: PopularViewDelegate {
     func tappedButton() {
-        print("Button is tapped")
+        var request = RegisterUserRequest(username: "test", email: "test@m.ru", password: "123456")
+        AuthManager.shared.registerUser(with: request) { registeredUser, error in
+            if let error = error {
+                print("error")
+                return
+            }
+            
+            guard let user = registeredUser else {
+                return
+            }
+            print(user)
+            UserManager.shared.setUser(userObject: user)
+        }
     }
     
 }
