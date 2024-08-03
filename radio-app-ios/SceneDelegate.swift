@@ -7,6 +7,10 @@
 
 import UIKit
 
+struct Datan {
+    let number: Int
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -21,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         window?.makeKeyAndVisible()
-        self.window?.rootViewController = PopularController()
+        self.window?.rootViewController = DetailBuilder(navigationController: UINavigationController()).build(data: Datan(number: 1))
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

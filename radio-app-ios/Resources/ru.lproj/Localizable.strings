@@ -9,3 +9,4 @@
 //MARK: - Example
 "LabelValue" = "Русский лейбл";
 "ButtonValue" = "Русская кнопка";
+"LabelPlaying" = "Сейчас играет";
