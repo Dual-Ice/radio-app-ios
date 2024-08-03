@@ -15,7 +15,7 @@ extension UITextField {
         return field
     }
     
-    static func makeCustomPinkTextfield(placeholderText: String?) -> UITextField {
+    static func makeCustomPinkTextfield(placeholderText: String?, isSecure: Bool) -> UITextField {
         let element = UITextField()
         
         let paddingView = UIView(frame: CGRectMake(0, 0, 20, 20))
@@ -24,13 +24,13 @@ extension UITextField {
 
         let color = UIColor.white
         let placeholderLocalized = NSLocalizedString(placeholderText ?? "LabelValue", comment: "Localizable")
-        element.attributedPlaceholder = NSAttributedString(string: placeholderLocalized, attributes: [NSAttributedString.Key.foregroundColor : color])
+        element.attributedPlaceholder = NSAttributedString(string: placeholderLocalized, attributes: [NSAttributedString.Key.foregroundColor : color.withAlphaComponent(0.5)])
         
         element.textAlignment = .left
         element.layer.cornerRadius = 5
         element.font = .systemFont(ofSize: 16)
-        element.textColor = .blue
-        element.tintColor = .red
+        element.textColor = .white
+        element.tintColor = Color.customPink
         element.layer.borderColor = Color.customPink.cgColor
         element.layer.borderWidth = 3.0
         
@@ -42,49 +42,34 @@ extension UITextField {
         element.layer.masksToBounds = false
         
         element.translatesAutoresizingMaskIntoConstraints = false
+        
+        if (isSecure) {
+            element.isSecureTextEntry = true
+            element.setSecureInputButton()
+        }
+        
         return element
     }
-    
-    static func makePasswordPinkTextfield(placeholderText: String?) -> UITextField {
-        let element = UITextField()
         
-        let paddingView = UIView(frame: CGRectMake(0, 0, 20, 20))
-        element.leftView = paddingView
-        element.leftViewMode = .always
-
-        let color = UIColor.white
-        let placeholderLocalized = NSLocalizedString(placeholderText ?? "LabelValue", comment: "Localizable")
-        element.attributedPlaceholder = NSAttributedString(string: placeholderLocalized, attributes: [NSAttributedString.Key.foregroundColor : color])
+    func setSecureInputButton() {
+        let button = UIButton(type: .custom)
+        let showPass = UIImage(systemName: "eye")
+        let hidePass = UIImage(systemName: "eye.slash")
+        let action = UIAction { [weak self] action in
+            self?.isSecureTextEntry.toggle()
+            let image = self?.isSecureTextEntry ?? true ? showPass : hidePass
+            button.setImage(image, for: .normal)
+        }
+        button.frame = CGRect(x: 16, y: 10, width: 20, height: 20)
+        button.setImage(showPass, for: .normal)
+        button.addAction(action, for: .touchUpInside)
+        button.sizeToFit()
         
-        element.textAlignment = .left
-        element.layer.cornerRadius = 5
-        element.font = .systemFont(ofSize: 16)
-        element.textColor = .blue
-        element.tintColor = .red
-        element.layer.borderColor = Color.customPink.cgColor
-        element.layer.borderWidth = 3.0
-        element.isSecureTextEntry = true
-        
-        // add "eye" icon
-        let leftView = UIView(frame: CGRectMake(0, 0, 40, 20))
-        let iconView = UIImageView(frame: CGRectMake(0, 0, 20, 20))
-        leftView.addSubview(iconView)
-        iconView.image = UIImage(systemName: "eye")
-        iconView.contentMode = .center
-        iconView.tintColor = .white
-        element.rightView = leftView
-        element.rightViewMode = .always
-        
-        // add shadow
-        element.layer.shadowColor = Color.customPink.cgColor
-        element.layer.shadowOffset = CGSize(width: 3.0, height: 4.0)
-        element.layer.shadowOpacity = 0.5
-        element.layer.shadowRadius = CGFloat(3.0)
-        element.layer.masksToBounds = false
-        
-
-        
-        element.translatesAutoresizingMaskIntoConstraints = false
-        return element
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 55, height: 40))
+        containerView.addSubview(button)
+        rightView = containerView
+        rightViewMode = .always
     }
+
+
 }

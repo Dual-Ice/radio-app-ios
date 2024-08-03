@@ -7,30 +7,42 @@
 
 import UIKit
 
-enum AuthorizationType: String {
+enum AuthorizationState: String {
     case logIn
     case register
 }
 
 protocol AuthViewDelegate: AnyObject {
-    func tappedButton(_ sender: UIButton)
+    func handleLoginButtonTap(
+        with request: LoginUserRequest
+    )
+    func handleRegisterButtonTap(
+        with request: RegisterUserRequest
+    )
+    func googleButtonTapped()
+    func forgotButtonTapped()
 }
 
 final class AuthView: UIView {
     weak var delegate: AuthViewDelegate?
     
     // MARK: - Public Properties
-        
-    public var authorizationType: AuthorizationType? = .logIn // delete the value after setting the navigation
+    
+    public var authorizationState: AuthorizationState = .logIn {
+        didSet {
+            layoutViews()
+            configureUI()
+        }
+    }
     
     // MARK: - UI
+    private var customConstraints = [NSLayoutConstraint]()
     
     private let playImage = UIImageView.makeSimpleImage(imageName: "playPink")
     private let bgImage = UIImageView.makeSimpleImage(imageName: "signInBackground")
-    private let googleImage = UIImageView.makeSimpleImage(imageName: "googlePlus")
     private var triangleImage = UIImageView.makeSimpleImage(imageName: "trianglePink")
-       
-
+    
+    
     private let headingLabel = UILabel.makeCustomLabelBold(
         key: "SignIn",
         fontSize: Constants.headingSize,
@@ -46,32 +58,18 @@ final class AuthView: UIView {
         textAligment: .left)
     
     
-    private let nameLabel = UILabel.makeCustomLabel(
-        key: "NameLabel",
-        fontSize: Constants.regularLabelSize,
-        textColor: .white,
-        numberOfLines: nil,
-        textAligment: .left)
-        
-    private let nameTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "YourName")
+    private let nameField = FormField(labelText: "NameLabel", placeholder: "YourName", isSecure: false)
+    private let emailField = FormField(labelText: "EmailLabel", placeholder: "YourEmail", isSecure: false)
+    private let passwordField = FormField(labelText: "PasswordLabel", placeholder: "YourPassword", isSecure: true)
     
-    private let emailLabel = UILabel.makeCustomLabel(
-        key: "EmailLabel",
-        fontSize: Constants.regularLabelSize,
-        textColor: .white,
-        numberOfLines: nil,
-        textAligment: .left)
-        
-    private let emailTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "YourEmail")
     
-    private let passwordLabel = UILabel.makeCustomLabel(
-        key: "PasswordLabel",
-        fontSize: Constants.regularLabelSize,
-        textColor: .white,
-        numberOfLines: nil,
-        textAligment: .left)
-    
-    private let passwordTexfield = UITextField.makePasswordPinkTextfield(placeholderText: "YourPassword")
+    private lazy var inputStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = Constants.topOffset * 2
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
     
     private let forgotButton = UIButton.makeCustomPlainButton(title: "ForgotButton", fontSize: Constants.forgotLabelSize)
     
@@ -91,11 +89,18 @@ final class AuthView: UIView {
     private lazy var connectLabel = UILabel.makeCustomLabel(
         key: "Connect",
         fontSize: Constants.connectLabelSize,
-        textColor: .white,
+        textColor: .white.withAlphaComponent(0.5),
         numberOfLines: nil,
         textAligment: .center)
     
-    private let button = UIButton.makeCustomButtonWithArrow()
+    private let googleButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setBackgroundImage(Image.googleSignIn, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private let submitButton = UIButton.makeCustomButtonWithArrow()
     
     private let signButton = UIButton.makeCustomPlainButton(title: "OrSignUp", fontSize: Constants.signLabelSize)
     
@@ -105,6 +110,7 @@ final class AuthView: UIView {
         super.init(frame: frame)
         setViews()
         layoutViews()
+        configureUI()
     }
     
     required init?(coder: NSCoder) {
@@ -118,22 +124,6 @@ final class AuthView: UIView {
     // MARK: - Set Views
     
     private func setViews() {
-        
-        switch authorizationType {
-            case .logIn:
-                headingLabel.text = NSLocalizedString("SignIn", comment: "Localizable")
-                signButton.setTitle(NSLocalizedString("SignIn", comment: "Localizable"), for: .normal)
-                nameLabel.isHidden = true
-                nameTexfield.isHidden = true
-            case .register:
-                headingLabel.text = NSLocalizedString("SignUp", comment: "Localizable")
-                forgotButton.isHidden = true
-                separatorStackView.isHidden = true
-                googleImage.isHidden = true
-                signButton.setTitle(NSLocalizedString("OrSignIn", comment: "Localizable"), for: .normal)
-            default: break
-        }
-        
         self.backgroundColor = Color.backgroundBlue
         
         self.addSubview(bgImage)
@@ -143,39 +133,80 @@ final class AuthView: UIView {
             playImage,
             headingLabel,
             subHeadingLabel,
-            nameLabel,
-            nameTexfield,
-            emailLabel,
-            emailTexfield,
-            passwordLabel,
-            passwordTexfield,
+            inputStackView,
             forgotButton,
             separatorStackView,
-            googleImage,
-            button,
+            googleButton,
+            submitButton,
             signButton
         ].forEach { bgImage.addSubview($0) }
         
         [lineViewLeft, connectLabel, lineViewRight].forEach { separatorStackView.addArrangedSubview($0) }
         
+        [nameField, emailField, passwordField].forEach { inputStackView.addArrangedSubview($0) }
+        
         setUpViews()
     }
     
     private func setUpViews(){
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        signButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        forgotButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        submitButton.addTarget(self, action: #selector(submit), for: .touchUpInside)
+        signButton.addTarget(self, action: #selector(changeAuthAction), for: .touchUpInside)
+        forgotButton.addTarget(self, action: #selector(forgotPasswordAction), for: .touchUpInside)
+        googleButton.addTarget(self, action: #selector(googleAction), for: .touchUpInside)
     }
     
-    @objc private func buttonTapped(_ sender: UIButton){
-        delegate?.tappedButton(sender)
+    @objc private func submit(_ sender: UIButton){
+        switch authorizationState {
+        case .logIn:
+            makeLoginRequest()
+        case .register:
+            makeRegisterRequest()
+        }
+    }
+    
+    @objc private func changeAuthAction(_ sender: UIButton){
+        authorizationState = authorizationState == .logIn ? .register : .logIn
+    }
+    
+    @objc private func forgotPasswordAction(_ sender: UIButton){
+        delegate?.forgotButtonTapped()
+    }
+    
+    @objc private func googleAction(_ sender: UIButton){
+        delegate?.googleButtonTapped()
+    }
+    
+    private func makeRegisterRequest() {
+        let username = nameField.getFieldValue()
+        let email = emailField.getFieldValue()
+        let password = passwordField.getFieldValue()
+ 
+        let request = RegisterUserRequest(
+            username: username,
+            email: email,
+            password: password
+        )
+        
+        delegate?.handleRegisterButtonTap(with: request)
+    }
+    
+    private func makeLoginRequest() {
+        let email = emailField.getFieldValue()
+        let password = passwordField.getFieldValue()
+        
+        let request = LoginUserRequest(
+            email: email,
+            password: password
+        )
+        
+        delegate?.handleLoginButtonTap(with: request)
     }
     
     
     // MARK: - Setup Constraints
     
     private func setCommonLayouts() {
-        NSLayoutConstraint.activate([
+        let constraints = [
             bgImage.topAnchor.constraint(equalTo: self.topAnchor),
             bgImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             bgImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
@@ -193,35 +224,24 @@ final class AuthView: UIView {
             subHeadingLabel.topAnchor.constraint(equalTo: headingLabel.bottomAnchor, constant: Constants.topOffset * 0.8),
             subHeadingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
             
-            emailLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
+            inputStackView.topAnchor.constraint(equalTo: subHeadingLabel.bottomAnchor, constant: Constants.customOffset),
+            inputStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
+            inputStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.customOffset),
             
-            emailTexfield.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: Constants.topOffset),
-            emailTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
-            emailTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.customOffset),
-            emailTexfield.heightAnchor.constraint(equalToConstant: Constants.textFieldHeight),
-            
-            passwordLabel.topAnchor.constraint(equalTo: emailTexfield.bottomAnchor, constant: Constants.topOffset * 2),
-            passwordLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
-            
-            passwordTexfield.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: Constants.topOffset),
-            passwordTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
-            passwordTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.customOffset),
-            passwordTexfield.heightAnchor.constraint(equalToConstant: Constants.textFieldHeight),
-            
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
-            button.widthAnchor.constraint(equalToConstant: Constants.signButtonWidth),
-            button.heightAnchor.constraint(equalToConstant: Constants.signButtonHeight),
+            submitButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
+            submitButton.widthAnchor.constraint(equalToConstant: Constants.signButtonWidth),
+            submitButton.heightAnchor.constraint(equalToConstant: Constants.signButtonHeight),
             
             signButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset)
             
-        ])
+        ]
+        
+        activate(constraints: constraints)
     }
     
     private func setSignInLayouts(){
-        NSLayoutConstraint.activate([
-            emailLabel.topAnchor.constraint(equalTo: subHeadingLabel.bottomAnchor, constant: Constants.topOffset * 4),
-            
-            forgotButton.topAnchor.constraint(equalTo: passwordTexfield.bottomAnchor, constant: Constants.topOffset),
+        let constraints = [
+            forgotButton.topAnchor.constraint(equalTo: inputStackView.bottomAnchor, constant: Constants.topOffset),
             forgotButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.customOffset),
             
             separatorStackView.topAnchor.constraint(equalTo: forgotButton.bottomAnchor, constant: Constants.topOffset * 3),
@@ -233,44 +253,67 @@ final class AuthView: UIView {
             lineViewRight.widthAnchor.constraint(equalToConstant: Constants.separatorWidth),
             lineViewRight.heightAnchor.constraint(equalToConstant: 1),
             
-            googleImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            googleImage.topAnchor.constraint(equalTo: separatorStackView.bottomAnchor, constant: Constants.topOffset),
-
-            button.topAnchor.constraint(equalTo: googleImage.bottomAnchor, constant: Constants.topOffset * 4),
+            googleButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            googleButton.topAnchor.constraint(equalTo: separatorStackView.bottomAnchor, constant: Constants.topOffset),
             
-            signButton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: Constants.topOffset * 2),
-        ])
+            submitButton.topAnchor.constraint(equalTo: googleButton.bottomAnchor, constant: Constants.topOffset * 4),
+            
+            signButton.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: Constants.topOffset * 2),
+        ]
+        
+        activate(constraints: constraints)
     }
     
     private func setSignUpLayouts(){
-        NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: subHeadingLabel.bottomAnchor, constant: Constants.topOffset * 4),
-            nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
+        let constraints = [
+            submitButton.topAnchor.constraint(equalTo: inputStackView.bottomAnchor, constant: Constants.topOffset * 4),
             
-            nameTexfield.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: Constants.topOffset),
-            nameTexfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
-            nameTexfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.customOffset),
-            nameTexfield.heightAnchor.constraint(equalToConstant: Constants.textFieldHeight),
-            
-            emailLabel.topAnchor.constraint(equalTo: nameTexfield.bottomAnchor, constant: Constants.topOffset * 2),
+            signButton.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: Constants.topOffset * 2)
+        ]
         
-            button.topAnchor.constraint(equalTo: passwordTexfield.bottomAnchor, constant: Constants.topOffset * 4),
-            
-            signButton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: Constants.topOffset * 2)
-            
-        ])
+        activate(constraints: constraints)
+    }
+    
+    private func activate(constraints: [NSLayoutConstraint]) {
+        customConstraints.append(contentsOf: constraints)
+        customConstraints.forEach { $0.isActive = true }
+    }
+    
+    private func clearConstraints() {
+        customConstraints.forEach { $0.isActive = false }
+        customConstraints.removeAll()
     }
     
     private func layoutViews() {
-        switch authorizationType {
-            case .logIn:
-                setCommonLayouts()
-                setSignInLayouts()
-            
-            case .register:
-                setCommonLayouts()
-                setSignUpLayouts()
-            default: break
+        clearConstraints()
+        setCommonLayouts()
+        
+        switch authorizationState {
+        case .logIn:
+            setSignInLayouts()
+        case .register:
+            setSignUpLayouts()
+        }
+        
+        self.layoutIfNeeded()
+    }
+    
+    private func configureUI() {
+        switch authorizationState {
+        case .logIn:
+            headingLabel.text = NSLocalizedString("SignIn", comment: "Localizable")
+            signButton.setTitle(NSLocalizedString("OrSignUp", comment: "Localizable"), for: .normal)
+            nameField.isHidden = true
+            forgotButton.isHidden = false
+            separatorStackView.isHidden = false
+            googleButton.isHidden = false
+        case .register:
+            headingLabel.text = NSLocalizedString("SignUp", comment: "Localizable")
+            forgotButton.isHidden = true
+            separatorStackView.isHidden = true
+            googleButton.isHidden = true
+            signButton.setTitle(NSLocalizedString("OrSignIn", comment: "Localizable"), for: .normal)
+            nameField.isHidden = false
         }
     }
 }
