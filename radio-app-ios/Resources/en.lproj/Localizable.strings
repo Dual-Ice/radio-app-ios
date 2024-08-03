@@ -32,3 +32,19 @@
 "ForgotHeading" = "Forgot \nPassword";
 "SentButton" = "Sent";
 "ChangeButton" = "Change password";
+
+
+//MARK: - AuthScreen
+"AuthScreenUDismissButtonText" = "Dismiss";
+"AuthScreenUserNameOrPasswordErrorTitle" = "Invalid username or password.";
+"AuthScreenUserNameOrPasswordErrorMessage" = "Please try again.";
+"AuthScreenUserNameErrorTitle" = "Invalid username";
+"AuthScreenUserNameErrorMessage" = "Username must contain at least 4 symbols. Please enter correct username.";
+"AuthScreenUserEmailErrorTitle" = "Invalid email";
+"AuthScreenUserEmailErrorMessage" = "Please enter correct email";
+"AuthScreenUserPasswordErrorTitle" = "Invalid password";
+"AuthScreenUserPasswordErrorMessage" = "Password must contain at least 6 symbols. Please enter correct password.";
+"AuthScreenUserPasswordRepeatErrorTitle" = "Password mismatch";
+"AuthScreenUserPasswordRepeatErrorMessage" = "Passwords do not match. Please try again.";
+"AuthSceenRegistrationErrorTitle" = "Oh, it's an error";
+"AuthSceenRegistrationUserError" = "User's registration error";
