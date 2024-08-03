@@ -8,8 +8,8 @@
 import UIKit
 
 enum PasswordPageType: String {
-    case request = "Request changing password"
-    case change = "Change password"
+    case requestPassword
+    case changePassword
 }
 
 protocol PasswordViewDelegate: AnyObject {
@@ -21,7 +21,7 @@ final class PasswordView: UIView {
     
     // MARK: - Public Properties
         
-    public var passwordPageType: PasswordPageType? = .change // delete the value after setting the navigation
+    public var passwordPageType: PasswordPageType? = .changePassword // delete the value after setting the navigation
     
     // MARK: - UI
 
@@ -30,7 +30,7 @@ final class PasswordView: UIView {
     private var triangleImage = UIImageView.makeSimpleImage(imageName: "trianglePink")
         
     private let headingLabel = UILabel.makeCustomLabelBold(
-        key: "ForgotHeadingValue",
+        key: "ForgotHeading",
         fontSize: Constants.headingSize,
         textColor: .white,
         numberOfLines: nil,
@@ -43,7 +43,7 @@ final class PasswordView: UIView {
         numberOfLines: nil,
         textAligment: .left)
         
-    private let emailTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "YourEmailValue")
+    private let emailTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "YourEmail")
     
     private let passwordLabel = UILabel.makeCustomLabel(
         key: "PasswordLabel",
@@ -52,18 +52,18 @@ final class PasswordView: UIView {
         numberOfLines: nil,
         textAligment: .left)
     
-    private let passwordTexfield = UITextField.makePasswordPinkTextfield(placeholderText: "YourPasswordValue")
+    private let passwordTexfield = UITextField.makePasswordPinkTextfield(placeholderText: "YourPassword")
     
     private let confirmLabel = UILabel.makeCustomLabel(
-        key: "ConfirmPasswordValue",
+        key: "ConfirmPassword",
         fontSize: Constants.regularLabelSize,
         textColor: .white,
         numberOfLines: nil,
         textAligment: .left)
     
-    private let confirmTexfield = UITextField.makePasswordPinkTextfield(placeholderText: "YourPasswordValue")
+    private let confirmTexfield = UITextField.makePasswordPinkTextfield(placeholderText: "YourPassword")
     
-    private let button = UIButton.makeRectangularButtonWithTitle(title: "SentButtonValue")
+    private let button = UIButton.makeRectangularButtonWithTitle(title: "SentButton")
     
     // MARK: - Life Cycle
     
@@ -85,15 +85,15 @@ final class PasswordView: UIView {
     
     private func setViews() {
         switch passwordPageType {
-            case .request:
-                button.setTitle(NSLocalizedString("SentButtonValue", comment: "Localizable"), for: .normal)
+            case .requestPassword:
+                button.setTitle(NSLocalizedString("SentButton", comment: "Localizable"), for: .normal)
                 bgImage.image = nil
                 passwordLabel.isHidden = true
                 passwordTexfield.isHidden = true
                 confirmLabel.isHidden = true
                 confirmTexfield.isHidden = true
-            case .change:
-                button.setTitle(NSLocalizedString("ChangeButtonValue", comment: "Localizable"), for: .normal)
+            case .changePassword:
+                button.setTitle(NSLocalizedString("ChangeButton", comment: "Localizable"), for: .normal)
                 emailLabel.isHidden = true
                 emailTexfield.isHidden = true
             default: break
@@ -188,11 +188,11 @@ final class PasswordView: UIView {
     
     private func layoutViews() {
         switch passwordPageType {
-            case .request:
+            case .requestPassword:
                 setCommonLayouts()
                 setRequestLayouts()
             
-            case .change:
+            case .changePassword:
                 setCommonLayouts()
                 setChangePasswordLayouts()
             default: break

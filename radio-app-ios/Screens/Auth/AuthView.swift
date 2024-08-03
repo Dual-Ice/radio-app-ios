@@ -8,8 +8,8 @@
 import UIKit
 
 enum AuthorizationType: String {
-    case logIn = "Sign In"
-    case register = "Sign Up"
+    case logIn
+    case register
 }
 
 protocol AuthViewDelegate: AnyObject {
@@ -21,7 +21,7 @@ final class AuthView: UIView {
     
     // MARK: - Public Properties
         
-    public var authorizationType: AuthorizationType? = .logIn // delete the value after setting the navigation
+    public var authorizationType: AuthorizationType? = .register // delete the value after setting the navigation
     
     // MARK: - UI
     
@@ -32,14 +32,14 @@ final class AuthView: UIView {
        
 
     private let headingLabel = UILabel.makeCustomLabelBold(
-        key: "SignInValue",
+        key: "SignIn",
         fontSize: Constants.headingSize,
         textColor: .white,
         numberOfLines: nil,
         textAligment: .center)
     
     private let subHeadingLabel = UILabel.makeCustomLabel(
-        key: "SubheadingValue",
+        key: "Subheading",
         fontSize: Constants.subHeadingSize,
         textColor: .white,
         numberOfLines: nil,
@@ -53,7 +53,7 @@ final class AuthView: UIView {
         numberOfLines: nil,
         textAligment: .left)
         
-    private let nameTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "YourNameValue")
+    private let nameTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "YourName")
     
     private let emailLabel = UILabel.makeCustomLabel(
         key: "EmailLabel",
@@ -62,7 +62,7 @@ final class AuthView: UIView {
         numberOfLines: nil,
         textAligment: .left)
         
-    private let emailTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "YourEmailValue")
+    private let emailTexfield = UITextField.makeCustomPinkTextfield(placeholderText: "YourEmail")
     
     private let passwordLabel = UILabel.makeCustomLabel(
         key: "PasswordLabel",
@@ -71,9 +71,9 @@ final class AuthView: UIView {
         numberOfLines: nil,
         textAligment: .left)
     
-    private let passwordTexfield = UITextField.makePasswordPinkTextfield(placeholderText: "YourPasswordValue")
+    private let passwordTexfield = UITextField.makePasswordPinkTextfield(placeholderText: "YourPassword")
     
-    private let forgotButton = UIButton.makeCustomPlainButton(title: "ForgotButtonValue", fontSize: Constants.forgotLabelSize)
+    private let forgotButton = UIButton.makeCustomPlainButton(title: "ForgotButton", fontSize: Constants.forgotLabelSize)
     
     private lazy var separatorStackView: UIStackView = {
         var element = UIStackView()
@@ -89,7 +89,7 @@ final class AuthView: UIView {
     private let lineViewLeft = UIView.makeSeparatorLine()
     
     private lazy var connectLabel = UILabel.makeCustomLabel(
-        key: "ConnectValue",
+        key: "Connect",
         fontSize: Constants.connectLabelSize,
         textColor: .white,
         numberOfLines: nil,
@@ -97,7 +97,7 @@ final class AuthView: UIView {
     
     private let button = UIButton.makeRectangularButtonWithArrow()
     
-    private let signButton = UIButton.makeCustomPlainButton(title: "OrSignUpValue", fontSize: Constants.signLabelSize)
+    private let signButton = UIButton.makeCustomPlainButton(title: "OrSignUp", fontSize: Constants.signLabelSize)
     
     // MARK: - Life Cycle
     
@@ -121,16 +121,16 @@ final class AuthView: UIView {
         
         switch authorizationType {
             case .logIn:
-                headingLabel.text = NSLocalizedString("SignInValue", comment: "Localizable")
-                signButton.setTitle(NSLocalizedString("SignInValue", comment: "Localizable"), for: .normal)
+                headingLabel.text = NSLocalizedString("SignIn", comment: "Localizable")
+                signButton.setTitle(NSLocalizedString("SignIn", comment: "Localizable"), for: .normal)
                 nameLabel.isHidden = true
                 nameTexfield.isHidden = true
             case .register:
-                headingLabel.text = NSLocalizedString("SignUpValue", comment: "Localizable")
+                headingLabel.text = NSLocalizedString("SignUp", comment: "Localizable")
                 forgotButton.isHidden = true
                 separatorStackView.isHidden = true
                 googleImage.isHidden = true
-                signButton.setTitle(NSLocalizedString("OrSignInValue", comment: "Localizable"), for: .normal)
+                signButton.setTitle(NSLocalizedString("OrSignIn", comment: "Localizable"), for: .normal)
             default: break
         }
         
