@@ -29,7 +29,7 @@ extension UIButton {
     {
         let button = UIButton()
         button.backgroundColor = color.color
-        button.setTitle(title, for: .normal)
+        button.setTitle(NSLocalizedString(key ?? "LabelValue", comment: "Localizable"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.layer.cornerRadius = 10
