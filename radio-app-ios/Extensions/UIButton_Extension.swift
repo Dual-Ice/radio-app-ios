@@ -25,7 +25,7 @@ extension UIButton {
 
     static func makeCustomButtonWithLabel(
         color: ButtonColor,
-        title: String?) -> UIButton
+        key: String?) -> UIButton
     {
         let button = UIButton()
         button.backgroundColor = color.color
