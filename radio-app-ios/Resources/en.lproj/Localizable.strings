@@ -9,4 +9,26 @@
 //MARK: - Example
 "LabelValue" = "English label";
 "ButtonValue" = "English button";
-"LabelPlaying" = "Playing now";
+"ButtonGetStarted" = "Get Started";
+"WelcomeTitleLabel" = "Let’s Get\nStarted";
+"WelcomeLabel" = "Enjoy the best radio stations\nfrom your home, don't miss\nout on anything";
+"Popular" = "Popular";
+"Favorites" = "Favorites";
+"AllStations" = "All Stations";
+"SignIn" = "Sign in";
+"SignUp" = "Sign up";
+"Subheading" = "to start play";
+"NameLabel" = "Name";
+"EmailLabel" = "Email";
+"PasswordLabel" = "Password";
+"ForgotButton" = "Forgot password?";
+"YourName" = "Your name";
+"YourEmail" = "Your email";
+"YourPassword" = "Your password";
+"ConfirmPassword" = "Confirm password";
+"Connect" = "Or connect with";
+"OrSignUp" = "or Sign Up";
+"OrSignIn" = "or Sign In";
+"ForgotHeading" = "Forgot \nPassword";
+"SentButton" = "Sent";
+"ChangeButton" = "Change password";
