@@ -13,7 +13,7 @@ enum AuthorizationType: String {
 }
 
 protocol AuthViewDelegate: AnyObject {
-    func tappedButton()
+    func tappedButton(_ sender: UIButton)
 }
 
 final class AuthView: UIView {
@@ -21,7 +21,7 @@ final class AuthView: UIView {
     
     // MARK: - Public Properties
         
-    public var authorizationType: AuthorizationType? = .register // delete the value after setting the navigation
+    public var authorizationType: AuthorizationType? = .logIn // delete the value after setting the navigation
     
     // MARK: - UI
     
@@ -95,7 +95,7 @@ final class AuthView: UIView {
         numberOfLines: nil,
         textAligment: .center)
     
-    private let button = UIButton.makeRectangularButtonWithArrow()
+    private let button = UIButton.makeCustomButtonWithArrow()
     
     private let signButton = UIButton.makeCustomPlainButton(title: "OrSignUp", fontSize: Constants.signLabelSize)
     
@@ -167,8 +167,8 @@ final class AuthView: UIView {
         forgotButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
-    @objc private func buttonTapped(){
-        delegate?.tappedButton()
+    @objc private func buttonTapped(_ sender: UIButton){
+        delegate?.tappedButton(sender)
     }
     
     

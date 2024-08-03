@@ -25,9 +25,8 @@ final class AuthController: UIViewController {
 }
 
 extension AuthController: AuthViewDelegate {
-    func tappedButton() {
-        print("Button is tapped")
+    func tappedButton(_ sender: UIButton) {
+        print("Button is tapped - \(sender.currentTitle ?? "Empty button")")
     }
-    
 }
 

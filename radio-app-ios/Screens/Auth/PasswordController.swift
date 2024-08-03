@@ -25,9 +25,8 @@ final class PasswordController: UIViewController {
 }
 
 extension PasswordController: PasswordViewDelegate {
-    func tappedButton() {
-        print("Button is tapped")
+    func tappedButton(_ sender: UIButton) {
+        print("Button is tapped - \(sender.currentTitle ?? "Empty button")")
     }
-    
 }
 

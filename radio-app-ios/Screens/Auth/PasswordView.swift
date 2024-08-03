@@ -13,7 +13,7 @@ enum PasswordPageType: String {
 }
 
 protocol PasswordViewDelegate: AnyObject {
-    func tappedButton()
+    func tappedButton(_ sender: UIButton)
 }
 
 final class PasswordView: UIView {
@@ -63,7 +63,7 @@ final class PasswordView: UIView {
     
     private let confirmTexfield = UITextField.makePasswordPinkTextfield(placeholderText: "YourPassword")
     
-    private let button = UIButton.makeRectangularButtonWithTitle(title: "SentButton")
+    private let button = UIButton.makeBigButtonWithTitle(title: "SentButton")
     
     // MARK: - Life Cycle
     
@@ -124,8 +124,8 @@ final class PasswordView: UIView {
         
     }
     
-    @objc private func buttonTapped(){
-        delegate?.tappedButton()
+    @objc private func buttonTapped(_ sender: UIButton){
+        delegate?.tappedButton(sender)
     }
     
     // MARK: - Setup Constraints
