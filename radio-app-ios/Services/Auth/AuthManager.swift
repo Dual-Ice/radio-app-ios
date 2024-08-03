@@ -8,20 +8,10 @@
 import Foundation
 import FirebaseAuth
 
-protocol AuthManagerProtocol {
-    
-    func registerUser(with registerRequest: RegisterUserRequest)
-    func signInUser(with loginRequest: LoginUserRequest)
-}
-
 final class AuthManager {
+    private let firestoreManager = FirestoreManager()
     
-    static let shared = AuthManager()
-    
-    private init() {}
-}
-
-extension AuthManager {
+    init() {}
    
     func checkAuth() -> Bool {
         Auth.auth().currentUser != nil
@@ -56,18 +46,29 @@ extension AuthManager {
                 image: ""
             )
             
-            FirestoreManager.shared.setCollection(
-                with: user
-            ) { wasSet, error in
+        
+            self.makeUser(user: user) { user, error in
                 if let error = error {
                     completion(nil, error)
+                } else {
+                    completion(user, nil)
                 }
-                completion(user, nil)
             }
         }
     }
     
-    func signIn(
+    func makeUser(user: User, completion: @escaping (User?, Error?) -> Void) {
+        firestoreManager.setCollection(
+            with: user
+        ) { wasSet, error in
+            if let error = error {
+                completion(nil, error)
+            }
+            completion(user, nil)
+        }
+    }
+    
+    func signInViaEmail(
         with userRequest: LoginUserRequest,
         completion: @escaping (Error?) -> Void
     ) {
@@ -84,6 +85,50 @@ extension AuthManager {
         }
     }
     
+    func signInViaGoogleCredentials(
+        with credential: AuthCredential,
+        completion: @escaping (Error?) -> Void
+    ) {
+        Auth.auth().signIn(
+            with: credential
+        ) { result, error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            guard let userID = result?.user.uid else {
+                completion(NSError(domain: "AuthError", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found"]))
+                return
+            }
+            
+            self.fetchUser(uid: userID){ existingUser, fetchError in
+                
+                if existingUser != nil {
+                    completion(nil)
+                    return
+                }
+                
+                let newUser = User(
+                    id: userID,
+                    username: result?.user.displayName ?? "User",
+                    email: result?.user.email ?? "test@m.com",
+                    image: ""
+                )
+                
+                self.makeUser(user: newUser) { user, error in
+                    if let error = error {
+                        completion(error)
+                    } else {
+                        completion(nil)
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    
     func signOut(completion: @escaping (Error?) -> Void) {
         do {
             try Auth.auth().signOut()
@@ -93,12 +138,20 @@ extension AuthManager {
         }
     }
     
-    func fetchUser(completion: @escaping (User?, Error?) -> Void) {
-        guard let userID = Auth.auth().currentUser?.uid else {
-            completion(nil, NSError(domain: "AuthError", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
-            return
+    func fetchUser(uid: String? = nil, completion: @escaping (User?, Error?) -> Void) {
+        let userID: String
+            
+        if let uid = uid {
+            userID = uid
+        } else {
+            guard let currentUserID = Auth.auth().currentUser?.uid else {
+                completion(nil, NSError(domain: "AuthError", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
+                return
+            }
+            userID = currentUserID
         }
-        FirestoreManager.shared.fetchCollection(for: userID) { user, error in
+                
+        firestoreManager.fetchCollection(for: userID) { user, error in
             if let error = error {
                 completion(nil, error)
                 return

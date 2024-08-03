@@ -15,6 +15,7 @@ struct UserData {
 
 final class UserManager {
     static let shared = UserManager()
+    static let firestoreManager = FirestoreManager()
     private var user: User?
     
     private init() {}
@@ -28,7 +29,7 @@ final class UserManager {
             let pathToAvatar = saveUserAvatarToUD(with: user?.id ?? "", avatar: base64String)
             user?.image = pathToAvatar
             DispatchQueue.main.async {
-                FirestoreManager.shared.setCollection(
+                UserManager.firestoreManager.setCollection(
                     with: self.user!
                 ) { success, error in
                     if let error = error {

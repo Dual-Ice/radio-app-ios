@@ -15,14 +15,10 @@ final class FirestoreManager {
         static let image = "image"
     }
     
-    static let shared = FirestoreManager()
-    
     private let environment = "users"
     private let db = Firestore.firestore()
     
-    private init() {}
-    
-    
+    init() {}
     
     func setCollection(
         with user: User,
