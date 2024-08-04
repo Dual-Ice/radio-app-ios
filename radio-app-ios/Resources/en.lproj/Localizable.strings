@@ -52,3 +52,7 @@
 "AuthSceenResetPasswordErrorTitle" = "Oh, it's an error";
 "AuthSceenPasswordResetSuccessTitle" = "Password reset";
 "AuthSceenPasswordResetSuccessMessage" = "The password reset email has been successfully sent. Please check your email.";
+
+// MARK: - Settings
+"UserName" = "Your name";
+"UserEmail" = "Your email";

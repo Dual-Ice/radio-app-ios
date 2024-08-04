@@ -52,3 +52,7 @@
 "AuthSceenResetPasswordErrorTitle" = "Упс, ошибка";
 "AuthSceenPasswordResetSuccessTitle" = "Сброс пароля";
 "AuthSceenPasswordResetSuccessMessage" = "Письмо для сброса пароля успешно отправлено. Пожалуйста, проверьте свою электронную почту.";
+
+// MARK: - Settings
+"UserName" = "Ваше имя";
+"UserEmail" = "Ваша эл.почта";

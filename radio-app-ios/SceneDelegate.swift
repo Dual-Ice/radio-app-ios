@@ -27,12 +27,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            }
 //        }
         
-        if UserDefaults.standard.bool(forKey: "isWelcomeCompleted") {
-            checkAuthentication()
-            return
-        }
+//        if UserDefaults.standard.bool(forKey: "isWelcomeCompleted") {
+//            checkAuthentication()
+//            return
+//        }
         
-        window?.rootViewController = WelcomeController()
+        window?.rootViewController = LanguagesVC()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
