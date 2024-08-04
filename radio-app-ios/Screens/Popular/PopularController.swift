@@ -26,6 +26,7 @@ final class PopularController: UIViewController {
 
 extension PopularController: PopularViewDelegate {
     func tappedButton() {
+        print("Button is tapped")
     }
     
 }
