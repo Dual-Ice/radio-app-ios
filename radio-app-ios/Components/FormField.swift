@@ -13,7 +13,12 @@ final class FormField: UIView {
     private let label: UILabel
     private let textField: UITextField
     
-    init(labelText: String, placeholder: String, isSecure: Bool) {
+    init(
+        labelText: String,
+        placeholder: String,
+        isSecure: Bool,
+        keyboardType: UIKeyboardType
+    ) {
         label = UILabel.makeCustomLabel(
             key: labelText,
             fontSize: Constants.regularLabelSize,
@@ -22,7 +27,11 @@ final class FormField: UIView {
             textAligment: .left
         )
         
-        textField = UITextField.makeCustomPinkTextfield(placeholderText: placeholder, isSecure: isSecure)
+        textField = UITextField.makeCustomPinkTextfield(
+            placeholderText: placeholder,
+            isSecure: isSecure,
+            keyboardType: keyboardType
+        )
         
         super.init(frame: .zero)
         

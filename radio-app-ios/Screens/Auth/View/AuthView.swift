@@ -58,9 +58,9 @@ final class AuthView: UIView {
         textAligment: .left)
     
     
-    private let nameField = FormField(labelText: "NameLabel", placeholder: "YourName", isSecure: false)
-    private let emailField = FormField(labelText: "EmailLabel", placeholder: "YourEmail", isSecure: false)
-    private let passwordField = FormField(labelText: "PasswordLabel", placeholder: "YourPassword", isSecure: true)
+    private let nameField = FormField(labelText: "NameLabel", placeholder: "YourName", isSecure: false, keyboardType: .default)
+    private let emailField = FormField(labelText: "EmailLabel", placeholder: "YourEmail", isSecure: false, keyboardType: .emailAddress)
+    private let passwordField = FormField(labelText: "PasswordLabel", placeholder: "YourPassword", isSecure: true, keyboardType: .default)
     
     
     private lazy var inputStackView: UIStackView = {

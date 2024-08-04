@@ -36,9 +36,9 @@ final class PasswordView: UIView {
         numberOfLines: nil,
         textAligment: .left)
     
-    private let emailField = FormField(labelText: "EmailLabel", placeholder: "YourEmail", isSecure: false)
-    private let passwordField = FormField(labelText: "PasswordLabel", placeholder: "YourPassword", isSecure: true)
-    private let confirmPasswordField = FormField(labelText: "ConfirmPassword", placeholder: "YourPassword", isSecure: true)
+    private let emailField = FormField(labelText: "EmailLabel", placeholder: "YourEmail", isSecure: false, keyboardType: .emailAddress)
+    private let passwordField = FormField(labelText: "PasswordLabel", placeholder: "YourPassword", isSecure: true, keyboardType: .default)
+    private let confirmPasswordField = FormField(labelText: "ConfirmPassword", placeholder: "YourPassword", isSecure: true, keyboardType: .default)
     
     private let inputStackView: UIStackView = {
         let stackView = UIStackView()

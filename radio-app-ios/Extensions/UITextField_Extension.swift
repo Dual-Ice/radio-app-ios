@@ -15,8 +15,9 @@ extension UITextField {
         return field
     }
     
-    static func makeCustomPinkTextfield(placeholderText: String?, isSecure: Bool) -> UITextField {
+    static func makeCustomPinkTextfield(placeholderText: String?, isSecure: Bool, keyboardType: UIKeyboardType) -> UITextField {
         let element = UITextField()
+        element.keyboardType = keyboardType
         
         let paddingView = UIView(frame: CGRectMake(0, 0, 20, 20))
         element.leftView = paddingView
