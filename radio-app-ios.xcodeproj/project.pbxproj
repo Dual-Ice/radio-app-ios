@@ -59,6 +59,9 @@
 		D9E6F3DB2C5E8B6A007FD2F0 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3DA2C5E8B6A007FD2F0 /* AlertManager.swift */; };
 		D9E6F3DE2C5E9290007FD2F0 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = D9E6F3DD2C5E9290007FD2F0 /* GoogleSignIn */; };
 		D9E6F3E02C5E9290007FD2F0 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D9E6F3DF2C5E9290007FD2F0 /* GoogleSignInSwift */; };
+		D9E6F3E22C5FB6A1007FD2F0 /* ResetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3E12C5FB6A1007FD2F0 /* ResetPasswordRequest.swift */; };
+		D9E6F3E42C5FB6C0007FD2F0 /* UpdatePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3E32C5FB6C0007FD2F0 /* UpdatePasswordRequest.swift */; };
+		D9E6F3E62C5FCB11007FD2F0 /* UIResponder_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3E52C5FCB11007FD2F0 /* UIResponder_Extension.swift */; };
 		F48255472C5D4EE400488872 /* Radio_API_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255462C5D4EE400488872 /* Radio_API_Manager.swift */; };
 		F48255492C5D549600488872 /* Network_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255482C5D549600488872 /* Network_Manager.swift */; };
 		F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */; };
@@ -125,6 +128,9 @@
 		D9E6F3D62C5E88AF007FD2F0 /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		D9E6F3D82C5E8AC9007FD2F0 /* AuthAlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAlertManager.swift; sourceTree = "<group>"; };
 		D9E6F3DA2C5E8B6A007FD2F0 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		D9E6F3E12C5FB6A1007FD2F0 /* ResetPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordRequest.swift; sourceTree = "<group>"; };
+		D9E6F3E32C5FB6C0007FD2F0 /* UpdatePasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordRequest.swift; sourceTree = "<group>"; };
+		D9E6F3E52C5FCB11007FD2F0 /* UIResponder_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder_Extension.swift; sourceTree = "<group>"; };
 		F48255462C5D4EE400488872 /* Radio_API_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radio_API_Manager.swift; sourceTree = "<group>"; };
 		F48255482C5D549600488872 /* Network_Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network_Manager.swift; sourceTree = "<group>"; };
 		F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel_Extension.swift; sourceTree = "<group>"; };
@@ -382,6 +388,7 @@
 				F4DE1C232C590A9300D55FC5 /* UITextField_Extension.swift */,
 				D1A1D8402C5AE0E600ED1998 /* UIImageView_Extension.swift */,
 				D1A1D8422C5B02CC00ED1998 /* UIView_Extension.swift */,
+				D9E6F3E52C5FCB11007FD2F0 /* UIResponder_Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -421,6 +428,8 @@
 			children = (
 				D9E6F3BD2C5BE57E007FD2F0 /* RegisterUserRequest.swift */,
 				D9E6F3BF2C5BE61C007FD2F0 /* LoginUserRequest.swift */,
+				D9E6F3E12C5FB6A1007FD2F0 /* ResetPasswordRequest.swift */,
+				D9E6F3E32C5FB6C0007FD2F0 /* UpdatePasswordRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -555,6 +564,7 @@
 				F48255492C5D549600488872 /* Network_Manager.swift in Sources */,
 				D9E6F3992C5930A8007FD2F0 /* Models.swift in Sources */,
 				243E436A2C5BE51F001D958D /* VerticalTabBar.swift in Sources */,
+				D9E6F3E22C5FB6A1007FD2F0 /* ResetPasswordRequest.swift in Sources */,
 				D9E6F3A32C5930E2007FD2F0 /* Detail.swift in Sources */,
 				D9E6F3972C59307F007FD2F0 /* Components.swift in Sources */,
 				D9E6F3D52C5E7D8E007FD2F0 /* FormField.swift in Sources */,
@@ -587,12 +597,14 @@
 				D9E6F3A92C59310D007FD2F0 /* Lang.swift in Sources */,
 				D1A1D8472C5B17B400ED1998 /* PasswordController.swift in Sources */,
 				D1A1D8452C5B179E00ED1998 /* PasswordView.swift in Sources */,
+				D9E6F3E42C5FB6C0007FD2F0 /* UpdatePasswordRequest.swift in Sources */,
 				D13ADE122C59E43D002B94AE /* AuthView.swift in Sources */,
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
 				D9E6F39D2C5930C1007FD2F0 /* Search.swift in Sources */,
 				D9E6F3CE2C5E4A12007FD2F0 /* AuthRouter.swift in Sources */,
 				D9E6F3AD2C593120007FD2F0 /* About.swift in Sources */,
 				D9E6F3CA2C5E49FC007FD2F0 /* AuthBuilder.swift in Sources */,
+				D9E6F3E62C5FCB11007FD2F0 /* UIResponder_Extension.swift in Sources */,
 				D1A1D8412C5AE0E600ED1998 /* UIImageView_Extension.swift in Sources */,
 				D9E6F39F2C5930CB007FD2F0 /* All.swift in Sources */,
 				243E436B2C5BE51F001D958D /* VerticalTabBarBuilder.swift in Sources */,

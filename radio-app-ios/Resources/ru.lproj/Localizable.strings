@@ -35,7 +35,8 @@
 
 //MARK: - AuthScreen
 "AuthScreenUDismissButtonText" = "Отмена";
-"AuthScreenUserNameOrPasswordErrorTitle" = "Неверное имя пользователя или пароль.";
+"AuthScreenOkButtonText" = "Ок";
+"AuthScreenUserNameOrPasswordErrorTitle" = "Неверный email или пароль.";
 "AuthScreenUserNameOrPasswordErrorMessage" = "Пожалуйста, попробуйте снова.";
 "AuthScreenUserNameErrorTitle" = "Неверное имя пользователя";
 "AuthScreenUserNameErrorMessage" = "Имя пользователя должно содержать как минимум 4 символа. Пожалуйста, введите верное имя пользователя.";
@@ -48,3 +49,6 @@
 "AuthSceenRegistrationErrorTitle" = "Упс, ошибка";
 "AuthSceenRegistrationUserError" = "Ошибка регистрации пользователя";
 "AuthSceenRegistrationUnexpectedError" = "Неожиданная ошибка";
+"AuthSceenResetPasswordErrorTitle" = "Упс, ошибка";
+"AuthSceenPasswordResetSuccessTitle" = "Сброс пароля";
+"AuthSceenPasswordResetSuccessMessage" = "Письмо для сброса пароля успешно отправлено. Пожалуйста, проверьте свою электронную почту.";

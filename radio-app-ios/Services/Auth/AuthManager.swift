@@ -160,5 +160,28 @@ final class AuthManager {
             completion(user, nil)
         }
     }
+    
+    func passwordReset(with email: String, completion: @escaping (Bool, Error?) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            if let error = error {
+                completion(false, error)
+                return
+            }
+            
+            completion(true, nil)
+        }
+    }
+    
+    func passwordChange(with password: String, completion: @escaping (Bool, Error?) -> Void)  {
+        Auth.auth().currentUser?.updatePassword(to: password) { error in
+            if let error = error {
+                completion(false, error)
+                return
+            }
+            
+            completion(true, nil)
+        }
+    }
+    
 }
 

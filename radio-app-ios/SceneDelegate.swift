@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
         
+        // Пока нет кнопки выхода - вы можете использовать этот код, чтобы разавторизовать пользователя
 //        AuthManager().signOut { error in
 //            if let error = error {
 //                print(error.localizedDescription)

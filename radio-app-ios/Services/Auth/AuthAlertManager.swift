@@ -18,6 +18,12 @@ enum RegisterAlert {
     case passwordsMismatch
 }
 
+enum ForgotPasswordAlert {
+    case invalidEmail
+    case invalidPassword
+    case passwordsMismatch
+}
+
 final class AuthAlertManager: AlertManager {
     
     func showLoginAlert(
@@ -37,6 +43,20 @@ final class AuthAlertManager: AlertManager {
         switch status {
         case .invalidUsername:
             showInvalidUsernameAlert(on: viewController)
+        case .invalidEmail:
+            showInvalidEmailAlert(on: viewController)
+        case .invalidPassword:
+            showInvalidPasswordAlert(on: viewController)
+        case .passwordsMismatch:
+            showPasswordsMismatchAlert(on: viewController)
+        }
+    }
+    
+    func showForgotPasswordAlert(
+        on viewController: UIViewController,
+        for status: ForgotPasswordAlert
+    ) {
+        switch status {
         case .invalidEmail:
             showInvalidEmailAlert(on: viewController)
         case .invalidPassword:

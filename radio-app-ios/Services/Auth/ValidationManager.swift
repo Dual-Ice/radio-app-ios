@@ -11,7 +11,7 @@ final class ValidationManager {
     
     static func isValidDisplayName(_ displayName: String) -> Bool {
         let displayName = displayName.trimmingCharacters(in: .whitespacesAndNewlines)
-        let displayNameRegEx = "\\w{4,24}"
+        let displayNameRegEx = "\\w{3,24}"
         let displayNamePredicate = NSPredicate(format:"SELF MATCHES %@", displayNameRegEx)
         return displayNamePredicate.evaluate(with: displayName)
     }

@@ -13,10 +13,10 @@ enum AuthorizationState: String {
 }
 
 protocol AuthViewDelegate: AnyObject {
-    func handleLoginButtonTap(
+    func handleLogin(
         with request: LoginUserRequest
     )
-    func handleRegisterButtonTap(
+    func handleRegister(
         with request: RegisterUserRequest
     )
     func googleButtonTapped()
@@ -187,7 +187,7 @@ final class AuthView: UIView {
             password: password
         )
         
-        delegate?.handleRegisterButtonTap(with: request)
+        delegate?.handleRegister(with: request)
     }
     
     private func makeLoginRequest() {
@@ -199,7 +199,7 @@ final class AuthView: UIView {
             password: password
         )
         
-        delegate?.handleLoginButtonTap(with: request)
+        delegate?.handleLogin(with: request)
     }
     
     
@@ -299,6 +299,9 @@ final class AuthView: UIView {
     }
     
     private func configureUI() {
+        nameField.setFieldValue("")
+        emailField.setFieldValue("")
+        passwordField.setFieldValue("")
         switch authorizationState {
         case .logIn:
             headingLabel.text = NSLocalizedString("SignIn", comment: "Localizable")

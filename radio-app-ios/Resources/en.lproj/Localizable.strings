@@ -36,7 +36,8 @@
 
 //MARK: - AuthScreen
 "AuthScreenUDismissButtonText" = "Dismiss";
-"AuthScreenUserNameOrPasswordErrorTitle" = "Invalid username or password.";
+"AuthScreenOkButtonText" = "Ok";
+"AuthScreenUserNameOrPasswordErrorTitle" = "Invalid email or password.";
 "AuthScreenUserNameOrPasswordErrorMessage" = "Please try again.";
 "AuthScreenUserNameErrorTitle" = "Invalid username";
 "AuthScreenUserNameErrorMessage" = "Username must contain at least 4 symbols. Please enter correct username.";
@@ -48,3 +49,6 @@
 "AuthScreenUserPasswordRepeatErrorMessage" = "Passwords do not match. Please try again.";
 "AuthSceenRegistrationErrorTitle" = "Oh, it's an error";
 "AuthSceenRegistrationUserError" = "User's registration error";
+"AuthSceenResetPasswordErrorTitle" = "Oh, it's an error";
+"AuthSceenPasswordResetSuccessTitle" = "Password reset";
+"AuthSceenPasswordResetSuccessMessage" = "The password reset email has been successfully sent. Please check your email.";

@@ -47,6 +47,10 @@ final class FormField: UIView {
         return textField.text ?? ""
     }
     
+    func setFieldValue(_ value: String) {
+        textField.text = value
+    }
+    
     // MARK: - Setup Views
     
     private func setUpViews() {

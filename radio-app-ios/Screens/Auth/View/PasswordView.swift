@@ -13,7 +13,14 @@ enum PasswordPageType: String {
 }
 
 protocol PasswordViewDelegate: AnyObject {
-    func tappedButton(_ sender: UIButton)
+    func handleEmailSend(
+        with request: ResetPasswordRequest
+    )
+    func handlePasswordSet(
+        with request: UpdatePasswordRequest
+    )
+    
+    func backButtonPressed()
 }
 
 final class PasswordView: UIView {
@@ -21,7 +28,7 @@ final class PasswordView: UIView {
     
     // MARK: - Public Properties
         
-    public var passwordPageType: PasswordPageType? = .requestPassword // delete the value after setting the navigation
+    public var passwordPageType: PasswordPageType = .requestPassword
     
     // MARK: - UI
 
@@ -50,11 +57,20 @@ final class PasswordView: UIView {
     
     private let button = UIButton.makeBigButtonWithTitle(title: "SentButton")
     
+    private let backButton: UIButton = {
+        let button = UIButton()
+        button.setImage(Image.arrowBack, for: .normal)
+        button.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViews()
+        configureUI()
         layoutViews()
     }
     
@@ -66,26 +82,20 @@ final class PasswordView: UIView {
         delegate = value
     }
     
+    func changeStateToPasswordUpdate() {
+        passwordPageType = .changePassword
+        configureUI()
+    }
+    
     // MARK: - Set Views
     
     private func setViews() {
-        switch passwordPageType {
-            case .requestPassword:
-                button.setTitle(NSLocalizedString("SentButton", comment: "Localizable"), for: .normal)
-                bgImage.image = nil
-                passwordField.isHidden = true
-                confirmPasswordField.isHidden = true
-            case .changePassword:
-                button.setTitle(NSLocalizedString("ChangeButton", comment: "Localizable"), for: .normal)
-                emailField.isHidden = true
-            default: break
-        }
-        
         self.backgroundColor = Color.backgroundBlue
         
         self.addSubview(bgImage)
     
         [
+            backButton,
             headingLabel,
             triangleImage,
             inputStackView,
@@ -106,8 +116,40 @@ final class PasswordView: UIView {
         
     }
     
+    @objc private func backButtonPressed(_ sender: UIButton){
+        delegate?.backButtonPressed()
+    }
+    
+    
     @objc private func buttonTapped(_ sender: UIButton){
-        delegate?.tappedButton(sender)
+        switch passwordPageType {
+        case .requestPassword:
+            makeResetPasswordRequest()
+        case .changePassword:
+            makeUpdatePasswordRequest()
+        }
+    }
+    
+    private func makeResetPasswordRequest() {
+        let email = emailField.getFieldValue()
+ 
+        let request = ResetPasswordRequest(
+            email: email
+        )
+        
+        delegate?.handleEmailSend(with: request)
+    }
+    
+    private func makeUpdatePasswordRequest() {
+        let password = passwordField.getFieldValue()
+        let confirmPassword = confirmPasswordField.getFieldValue()
+        
+        let request = UpdatePasswordRequest(
+            password: password,
+            confirmPassword: confirmPassword
+        )
+        
+        delegate?.handlePasswordSet(with: request)
     }
     
     // MARK: - Setup Constraints
@@ -123,7 +165,10 @@ final class PasswordView: UIView {
             triangleImage.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.topOffset * 8),
             triangleImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-            headingLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.topOffset * 19),
+            backButton.topAnchor.constraint(equalTo: self.topAnchor, constant: Constants.topOffset * 12),
+            backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
+
+            headingLabel.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: Constants.topOffset * 3),
             headingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.customOffset),
             
             inputStackView.topAnchor.constraint(equalTo: headingLabel.bottomAnchor, constant: Constants.customOffset),
@@ -138,6 +183,10 @@ final class PasswordView: UIView {
     }
     
     private func configureUI() {
+        emailField.setFieldValue("")
+        passwordField.setFieldValue("")
+        confirmPasswordField.setFieldValue("")
+        
         switch passwordPageType {
             case .requestPassword:
                 button.setTitle(NSLocalizedString("SentButton", comment: "Localizable"), for: .normal)
@@ -149,7 +198,6 @@ final class PasswordView: UIView {
                 emailField.isHidden = true
                 passwordField.isHidden = false
                 confirmPasswordField.isHidden = false
-            default: break
         }
     }
 }
