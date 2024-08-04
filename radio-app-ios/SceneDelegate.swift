@@ -74,7 +74,6 @@ extension SceneDelegate {
             
             navigationController.setViewControllers([loginVC], animated: true)
             window?.rootViewController = navigationController
-//            window?.rootViewController = loginVC
             return
         }
         
