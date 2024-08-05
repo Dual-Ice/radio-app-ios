@@ -1,0 +1,105 @@
+//
+//  BaseSettingsView.swift
+//  radio-app-ios
+//
+//  Created by Михаил Болгар on 05.08.2024.
+//
+
+import UIKit
+
+class BaseSettingsView: UIView {
+
+    // MARK: Closures
+    var firstViewTap: (() -> Void)?
+    var secondViewTap: (() -> Void)?
+
+    // MARK: UI Elements
+
+    private var titelLabel = UILabel.makeCustomLabelBold(
+        key: "",
+        fontSize: 18,
+        textColor: .white,
+        numberOfLines: 1,
+        textAligment: .left)
+
+    private lazy var firstSettingView = SettingView(
+        title: "")
+
+    private lazy var secondSettingView = SettingView(
+        title: "")
+
+    private let separatorLineView: UIView = {
+        let line = UIView()
+        line.translatesAutoresizingMaskIntoConstraints = false
+        line.backgroundColor = Color.borderColor
+        return line
+    }()
+
+    // MARK: Init
+
+    init(
+        titleLabel: String,
+        firstTitle: String,
+        secondTitle: String
+    ) {
+        super.init(frame: .zero)
+        titelLabel.text = NSLocalizedString(titleLabel, comment: "")
+        firstSettingView.configureView(with: firstTitle)
+        secondSettingView.configureView(with: secondTitle)
+
+        setView()
+        setMainView()
+        setupConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+private extension BaseSettingsView {
+
+    func setMainView() {
+        self.backgroundColor = .clear
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.layer.borderWidth = 1
+        self.layer.borderColor = Color.borderColor.cgColor
+        self.layer.cornerRadius = 15
+    }
+
+    func setView() {
+        [titelLabel, firstSettingView, secondSettingView, separatorLineView].forEach { self.addSubview($0) }
+    }
+
+    func setupConstraints() {
+
+        NSLayoutConstraint.activate([
+
+            titelLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.smallSideOffset),
+            titelLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: LayoutConstants.smallSideOffset),
+
+            firstSettingView.topAnchor.constraint(equalTo: titelLabel.bottomAnchor, constant: LayoutConstants.bigSideOffset),
+            firstSettingView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.smallSideOffset),
+            firstSettingView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.smallSideOffset),
+
+            separatorLineView.topAnchor.constraint(equalTo: firstSettingView.bottomAnchor, constant: LayoutConstants.bigSideOffset),
+            separatorLineView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.separatorSideOffset),
+            separatorLineView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.separatorSideOffset),
+            separatorLineView.heightAnchor.constraint(equalToConstant: LayoutConstants.separatorHeigt),
+
+            secondSettingView.topAnchor.constraint(equalTo: separatorLineView.bottomAnchor, constant: LayoutConstants.bigSideOffset),
+            secondSettingView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.smallSideOffset),
+            secondSettingView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.smallSideOffset)
+
+        ])
+    }
+
+    enum LayoutConstants {
+
+        static let smallSideOffset: CGFloat = 18
+        static let bigSideOffset: CGFloat = 32
+        static let separatorSideOffset: CGFloat = 48
+
+        static let separatorHeigt: CGFloat = 1
+    }
+}

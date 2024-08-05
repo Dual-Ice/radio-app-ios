@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class LanguagesVC: UIViewController {
+final class SettingVC: UIViewController {
 
     // MARK: UI Elements
 
-    private let backgroundView = LanguagesView()
+    private let backgroundView = SettingsView()
 
     // MARK: Life Cycle
 
@@ -21,7 +21,7 @@ final class LanguagesVC: UIViewController {
     }
 }
 
-private extension LanguagesVC {
+private extension SettingVC {
 
     func setView() {
         [backgroundView].forEach { view.addSubview($0) }

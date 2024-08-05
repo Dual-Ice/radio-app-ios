@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            return
 //        }
         
-        window?.rootViewController = LanguagesVC()
+        window?.rootViewController = SettingVC()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

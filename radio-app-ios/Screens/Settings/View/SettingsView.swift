@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LanguagesView: UIView {
+final class SettingsView: UIView {
 
     // MARK: UI Elements
 
@@ -19,6 +19,16 @@ final class LanguagesView: UIView {
     }()
 
     private let userInfoView = UserInfoView()
+    private let generalSettingsView = GeneralSettingsView()
+    private let moreSettingsView = MoreSettingsView()
+
+    private let stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 30
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
 
     // MARK: Init
 
@@ -27,31 +37,37 @@ final class LanguagesView: UIView {
         setView()
         setupConstraints()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-private extension LanguagesView {
+private extension SettingsView {
 
     func setView() {
         self.translatesAutoresizingMaskIntoConstraints = false
-        [backgroundView, userInfoView].forEach { self.addSubview($0) }
+
+        [backgroundView, stackView].forEach { self.addSubview($0) }
+        [userInfoView, generalSettingsView, moreSettingsView].forEach { stackView.addArrangedSubview($0) }
     }
 
     func setupConstraints() {
 
         NSLayoutConstraint.activate([
+            
             backgroundView.topAnchor.constraint(equalTo: self.topAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 
-            userInfoView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            userInfoView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
+            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+
             userInfoView.heightAnchor.constraint(equalToConstant: 100),
-            userInfoView.topAnchor.constraint(equalTo: self.topAnchor, constant: 100)
+            generalSettingsView.heightAnchor.constraint(equalToConstant: 170),
+            moreSettingsView.heightAnchor.constraint(equalToConstant: 170),
 
         ])
     }

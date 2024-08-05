@@ -71,6 +71,7 @@ private extension UserInfoView {
         [userImage, userName, userEmail, editButton].forEach { self.addSubview($0) }
     }
 
+    #warning("убрать в расширение + переименовать в styleMainView")
     func setMainView() {
         self.backgroundColor = .clear
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -100,15 +101,15 @@ private extension UserInfoView {
             editButton.heightAnchor.constraint(equalToConstant: LayoutConstants.editButtonSize)
         ])
     }
-}
 
-enum LayoutConstants {
+    enum LayoutConstants {
 
-    static let userImageSize: CGFloat = 54
-    static let editButtonSize: CGFloat = 32
+        static let userImageSize: CGFloat = 54
+        static let editButtonSize: CGFloat = 32
 
-    static let bigSideOffset: CGFloat = 16
-    static let smallSideOffset: CGFloat = 12
+        static let bigSideOffset: CGFloat = 16
+        static let smallSideOffset: CGFloat = 12
 
-    static let labelOffset: CGFloat = 4
+        static let labelOffset: CGFloat = 4
+    }
 }
