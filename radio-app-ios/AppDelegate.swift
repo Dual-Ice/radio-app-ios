@@ -9,13 +9,16 @@ import UIKit
 import FirebaseCore
 import Firebase
 import GoogleSignIn
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    
+    var coreDataManager: CoreDataManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        coreDataManager = CoreDataManager()
         // Override point for customization after application launch.
         FirebaseApp.configure()
         return true
@@ -39,7 +42,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        coreDataManager?.saveContext { error in
+            if let error = error {
+                // Логируем ошибку, если необходимо
+                print("Failed to save context: \(error)")
+            }
+        }
+    }
 
-
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        coreDataManager?.saveContext { error in
+            if let error = error {
+                // Логируем ошибку, если необходимо
+                print("Failed to save context: \(error)")
+            }
+        }
+    }
 }
 
