@@ -122,4 +122,15 @@ final class PopularCell: UICollectionViewCell {
             waveImageView.alpha = 0.5
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        playButton.setImage(Image.playWhite, for: .normal)
+        hasVoted = false
+        votes = 0
+        isActive = false
+        waveImageView.image = Image.waveRed
+        updateVotesLabel()
+        updateAppearance()
+    }
 }
