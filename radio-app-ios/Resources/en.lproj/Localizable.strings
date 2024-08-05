@@ -14,3 +14,42 @@
 "WelcomeLabel" = "Enjoy the best radio stations\nfrom your home, don't miss\nout on anything";
 "Hello" = "Hello";
 "Popular" = "Popular";
+"Favorites" = "Favorites";
+"AllStations" = "All Stations";
+"SignIn" = "Sign in";
+"SignUp" = "Sign up";
+"Subheading" = "to start play";
+"NameLabel" = "Name";
+"EmailLabel" = "Email";
+"PasswordLabel" = "Password";
+"ForgotButton" = "Forgot password?";
+"YourName" = "Your name";
+"YourEmail" = "Your email";
+"YourPassword" = "Your password";
+"ConfirmPassword" = "Confirm password";
+"Connect" = "Or connect with";
+"OrSignUp" = "or Sign Up";
+"OrSignIn" = "or Sign In";
+"ForgotHeading" = "Forgot \nPassword";
+"SentButton" = "Sent";
+"ChangeButton" = "Change password";
+
+
+//MARK: - AuthScreen
+"AuthScreenUDismissButtonText" = "Dismiss";
+"AuthScreenOkButtonText" = "Ok";
+"AuthScreenUserNameOrPasswordErrorTitle" = "Invalid email or password.";
+"AuthScreenUserNameOrPasswordErrorMessage" = "Please try again.";
+"AuthScreenUserNameErrorTitle" = "Invalid username";
+"AuthScreenUserNameErrorMessage" = "Username must contain at least 4 symbols. Please enter correct username.";
+"AuthScreenUserEmailErrorTitle" = "Invalid email";
+"AuthScreenUserEmailErrorMessage" = "Please enter correct email";
+"AuthScreenUserPasswordErrorTitle" = "Invalid password";
+"AuthScreenUserPasswordErrorMessage" = "Password must contain at least 6 symbols. Please enter correct password.";
+"AuthScreenUserPasswordRepeatErrorTitle" = "Password mismatch";
+"AuthScreenUserPasswordRepeatErrorMessage" = "Passwords do not match. Please try again.";
+"AuthSceenRegistrationErrorTitle" = "Oh, it's an error";
+"AuthSceenRegistrationUserError" = "User's registration error";
+"AuthSceenResetPasswordErrorTitle" = "Oh, it's an error";
+"AuthSceenPasswordResetSuccessTitle" = "Password reset";
+"AuthSceenPasswordResetSuccessMessage" = "The password reset email has been successfully sent. Please check your email.";

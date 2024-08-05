@@ -19,7 +19,7 @@ final class PopularView: UIView {
     private let cellIdentifier = "PopularCell"
     
     weak var delegate: PopularViewDelegate?
-    
+
     override init(frame: CGRect) {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 80, left: 60, bottom: 80, right: 40)

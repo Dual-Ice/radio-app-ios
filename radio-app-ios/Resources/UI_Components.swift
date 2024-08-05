@@ -32,6 +32,10 @@ enum Color {
     static let customGray: UIColor = {
         return UIColor(red: 50/255, green: 50/255, blue: 78/255, alpha: 1.0)
     }()
+    
+    static let verticvalTabBar: UIColor = {
+        return UIColor (red: 8/255, green: 8/255, blue: 51/255, alpha: 1.0)
+    }()
 }
 
 
@@ -59,6 +63,7 @@ enum Image {
     static let playWhite = UIImage(named: "playWhite")
     static let signInBackground = UIImage(named: "signInBackground")
     static let trianglePink = UIImage(named: "trianglePink")
+    static let googleSignIn = UIImage(named: "google-signin")
 
     /// waves images
     static let waveBlue = UIImage(named: "waveBlue")
