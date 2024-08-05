@@ -14,6 +14,7 @@ final class FavoritesController: UIViewController {
 	// MARK: - Life Cycle
 	override func loadView() {
 		view = favoritesView
+		view.backgroundColor = Color.backgroundBlue
 	}
 
 	override func viewDidLoad() {
@@ -31,7 +32,8 @@ extension FavoritesController: FavoritesViewDelegate {
 
 }
 
-@available(iOS 17, *)
-#Preview {
-	FavoritesController()
-}
+
+//@available(iOS 17, *)
+//#Preview {
+//	FavoritesController()
+//}
