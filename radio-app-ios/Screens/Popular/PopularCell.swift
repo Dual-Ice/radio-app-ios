@@ -111,16 +111,16 @@ final class PopularCell: UICollectionViewCell {
             votesButton.tintColor = .white
             playButton.isHidden = false
             waveImageView.alpha = 1
-        } else {
-            backgroundColor = .clear
-            layer.borderColor = Color.customGray.cgColor
-            genreLabel.textColor = Color.customGray
-            radioNameLabel.textColor = Color.customGray
-            votesLabel.textColor = Color.customGray
-            votesButton.tintColor = Color.customGray
-            playButton.isHidden = true
-            waveImageView.alpha = 0.5
+            return
         }
+        backgroundColor = .clear
+        layer.borderColor = Color.customGray.cgColor
+        genreLabel.textColor = Color.customGray
+        radioNameLabel.textColor = Color.customGray
+        votesLabel.textColor = Color.customGray
+        votesButton.tintColor = Color.customGray
+        playButton.isHidden = true
+        waveImageView.alpha = 0.5
     }
     
     override func prepareForReuse() {

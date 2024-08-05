@@ -28,6 +28,12 @@ final class PopularController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         popularView.setDelegates(self, dataSource: self)
+        
+        setupHeaderView()
+    }
+    
+    private func setupHeaderView() {
+//        popularView.headerView.setTitle("Popular")
     }
 }
 

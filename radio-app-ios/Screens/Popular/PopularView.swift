@@ -14,6 +14,7 @@ protocol PopularViewDelegate: AnyObject {
 
 final class PopularView: UIView {
     
+    private let headerView = HeaderView()
     private let collectionView: UICollectionView
     private let cellIdentifier = "PopularCell"
     
@@ -21,7 +22,7 @@ final class PopularView: UIView {
     
     override init(frame: CGRect) {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 150, left: 50, bottom: 150, right: 50)
+        layout.sectionInset = UIEdgeInsets(top: 80, left: 60, bottom: 80, right: 40)
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
         layout.itemSize = CGSize(width: 139, height: 139)
@@ -29,7 +30,8 @@ final class PopularView: UIView {
         
         super.init(frame: frame)
         
-        setupCollectionView()
+        setupViews()
+        setupConstraints()
         self.backgroundColor = Color.backgroundBlue
     }
     
@@ -37,17 +39,27 @@ final class PopularView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupCollectionView() {
+    private func setupViews() {
+        addSubview(headerView)
         addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
         collectionView.register(PopularCell.self, forCellWithReuseIdentifier: cellIdentifier)
+    }
+    
+    private func setupConstraints() {
+        headerView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            headerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            headerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: 50),
+            
+            collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     
