@@ -25,7 +25,7 @@ final class ValidationManager {
     
     static func isValidPassword(_ password: String) -> Bool {
         let password = password.trimmingCharacters(in: .whitespacesAndNewlines)
-        let passwordRegEx = "^(?=.*[a-z])(?=.*[A-z])(?=.*[S@S#1%*?&]).{6,32}$"
+        let passwordRegEx = "^[a-zA-Z0-9]{6,32}$"
         let passwordPredicate = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
         return passwordPredicate.evaluate(with: password)
     }

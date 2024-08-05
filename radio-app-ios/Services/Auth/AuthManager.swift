@@ -9,7 +9,7 @@ import Foundation
 import FirebaseAuth
 
 final class AuthManager {
-    private let firestoreManager = FirestoreManager()
+    private let coreDataManager = CoreDataManager()
     
     init() {}
    
@@ -45,26 +45,13 @@ final class AuthManager {
                 email: email,
                 image: ""
             )
-            
-        
-            self.makeUser(user: user) { user, error in
+            self.coreDataManager.addUser(id: user.id, username: user.username, email: user.email, image: user.image) { error in
                 if let error = error {
                     completion(nil, error)
                 } else {
                     completion(user, nil)
                 }
             }
-        }
-    }
-    
-    func makeUser(user: User, completion: @escaping (User?, Error?) -> Void) {
-        firestoreManager.setCollection(
-            with: user
-        ) { wasSet, error in
-            if let error = error {
-                completion(nil, error)
-            }
-            completion(user, nil)
         }
     }
     
@@ -116,7 +103,7 @@ final class AuthManager {
                     image: ""
                 )
                 
-                self.makeUser(user: newUser) { user, error in
+                self.coreDataManager.addUser(id: newUser.id, username: newUser.username, email: newUser.email, image: newUser.image) { error in
                     if let error = error {
                         completion(error)
                     } else {
@@ -150,14 +137,15 @@ final class AuthManager {
             }
             userID = currentUserID
         }
-                
-        firestoreManager.fetchCollection(for: userID) { user, error in
+        
+        coreDataManager.getUser(id: userID) { radioUser, error in
             if let error = error {
                 completion(nil, error)
-                return
+            } else if let radioUser = radioUser {
+                completion(radioUser.toUser(), nil)
+            } else {
+                completion(nil, NSError(domain: "AuthError", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found in Database"]))
             }
-            
-            completion(user, nil)
         }
     }
     
@@ -174,6 +162,23 @@ final class AuthManager {
     
     func passwordChange(with password: String, completion: @escaping (Bool, Error?) -> Void)  {
         Auth.auth().currentUser?.updatePassword(to: password) { error in
+            if let error = error {
+                completion(false, error)
+                return
+            }
+            
+            completion(true, nil)
+        }
+    }
+    
+    func updateEmail(to newEmail: String, completion: @escaping (Bool, Error?) -> Void) {
+        guard let user = Auth.auth().currentUser else {
+            let error = NSError(domain: "AuthError", code: 404, userInfo: [NSLocalizedDescriptionKey: "No user is currently signed in"])
+            completion(false, error)
+            return
+        }
+        
+        user.updateEmail(to: newEmail) { error in
             if let error = error {
                 completion(false, error)
                 return
