@@ -9,12 +9,12 @@ import UIKit
 
 extension UIImageView {
 
-	static func makeSimpleImage(imageName: String) -> UIImageView {
-		let image = UIImageView()
-		//code
-		image.image = UIImage(named: imageName)
-		image.isUserInteractionEnabled = true
-		image.translatesAutoresizingMaskIntoConstraints = false
-		return image
-	}
+    static func makeSimpleImage(imageName: String) -> UIImageView {
+        let image = UIImageView()
+        //code
+        image.image = UIImage(named: imageName)
+        image.isUserInteractionEnabled = true
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }
 }

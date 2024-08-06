@@ -25,11 +25,11 @@ extension UIButton {
 
     static func makeCustomButtonWithLabel(
         color: ButtonColor,
-        title: String) -> UIButton
+        key: String?) -> UIButton
     {
         let button = UIButton()
         button.backgroundColor = color.color
-        button.setTitle(title, for: .normal)
+        button.setTitle(NSLocalizedString(key ?? "LabelValue", comment: "Localizable"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.layer.cornerRadius = 10
@@ -46,11 +46,34 @@ extension UIButton {
         return button
     }
 
-	static func makeCustomButtonWithHeart() -> UIButton {
-		let button = UIButton()
-		button.backgroundColor = .clear
-		button.setImage(.heartBlue, for: .normal)
-		button.translatesAutoresizingMaskIntoConstraints = false
-		return button
-	}
+    static func makeCustomButtonWithHeart() -> UIButton {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        button.setImage(.heartBlue, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
+    
+    // кнопка без текста
+    static func makeCustomPlainButton(title: String?, fontSize: CGFloat) -> UIButton {
+        let button = UIButton()
+        let titleLocalized = NSLocalizedString(title ?? "Button", comment: "Localizable")
+        button.setTitle(titleLocalized, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
+    
+    static func makeBigButtonWithTitle(title: String?) -> UIButton {
+        let button = UIButton()
+        button.backgroundColor = Color.customLightBlue
+        let titleLocalized = NSLocalizedString(title ?? "Button", comment: "Localizable")
+        button.setTitle(titleLocalized, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
 }

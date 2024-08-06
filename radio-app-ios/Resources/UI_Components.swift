@@ -28,6 +28,10 @@ enum Color {
     static let customPink: UIColor = {
         return UIColor (red: 255/255, green: 41/255, blue: 109/255, alpha: 1.0)
     }()
+    
+    static let verticvalTabBar: UIColor = {
+        return UIColor (red: 8/255, green: 8/255, blue: 51/255, alpha: 1.0)
+    }()
 }
 
 
@@ -46,15 +50,16 @@ enum Image {
 
     /// images
     static let equalizer = UIImage(named: "equalizer")
-    static let heartBlue = UIImage(named: "arrowBack")
-    static let onboardingBackground = UIImage(named: "arrowBack")
-    static let playerBack = UIImage(named: "arrowBack")
-    static let playerMain = UIImage(named: "arrowBack")
-    static let playerNext = UIImage(named: "arrowBack")
-    static let playPink = UIImage(named: "arrowBack")
-    static let playWhite = UIImage(named: "arrowBack")
-    static let signInBackground = UIImage(named: "arrowBack")
-    static let trianglePink = UIImage(named: "arrowBack")
+    static let heartBlue = UIImage(named: "heartBlue")
+    static let onboardingBackground = UIImage(named: "onboardingBackground")
+    static let playerBack = UIImage(named: "playerBack")
+    static let playerMain = UIImage(named: "playerMain")
+    static let playerNext = UIImage(named: "playerNext")
+    static let playPink = UIImage(named: "playPink")
+    static let playWhite = UIImage(named: "playWhite")
+    static let signInBackground = UIImage(named: "signInBackground")
+    static let trianglePink = UIImage(named: "trianglePink")
+    static let googleSignIn = UIImage(named: "google-signin")
 
     /// waves images
     static let waveBlue = UIImage(named: "waveBlue")
