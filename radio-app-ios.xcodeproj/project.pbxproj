@@ -17,6 +17,7 @@
 		A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E292C5820E4004A06B3 /* WelcomeController.swift */; };
 		A76E5E2C2C5B728A004A06B3 /* PopularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E2B2C5B728A004A06B3 /* PopularCell.swift */; };
 		A76E5E302C60FE03004A06B3 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E2F2C60FE03004A06B3 /* HeaderView.swift */; };
+		A76E5E322C612322004A06B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A76E5E312C612321004A06B3 /* GoogleService-Info.plist */; };
 		D13ADE122C59E43D002B94AE /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13ADE112C59E43C002B94AE /* AuthView.swift */; };
 		D13ADE142C59E64B002B94AE /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13ADE132C59E64B002B94AE /* AuthController.swift */; };
 		D1A1D8412C5AE0E600ED1998 /* UIImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1D8402C5AE0E600ED1998 /* UIImageView_Extension.swift */; };
@@ -90,6 +91,7 @@
 		A76E5E292C5820E4004A06B3 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		A76E5E2B2C5B728A004A06B3 /* PopularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCell.swift; sourceTree = "<group>"; };
 		A76E5E2F2C60FE03004A06B3 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		A76E5E312C612321004A06B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D13ADE112C59E43C002B94AE /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		D13ADE132C59E64B002B94AE /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		D1A1D8402C5AE0E600ED1998 /* UIImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView_Extension.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				D9E6F36E2C56F364007FD2F0 /* Assets.xcassets */,
 				D9E6F3702C56F364007FD2F0 /* LaunchScreen.storyboard */,
 				D9E6F3732C56F364007FD2F0 /* Info.plist */,
+				A76E5E312C612321004A06B3 /* GoogleService-Info.plist */,
 			);
 			path = "radio-app-ios";
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9E6F36F2C56F364007FD2F0 /* Assets.xcassets in Resources */,
+				A76E5E322C612322004A06B3 /* GoogleService-Info.plist in Resources */,
 				F4DE1C262C590FEB00D55FC5 /* Inter-Bold.ttf in Resources */,
 				D9E6F3822C56F617007FD2F0 /* Localizable.strings in Resources */,
 				D9E6F3722C56F364007FD2F0 /* Base in Resources */,
