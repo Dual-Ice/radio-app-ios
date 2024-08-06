@@ -43,7 +43,7 @@ final class SettingView: UIView {
             let imageView = UIImageView(image: UIImage(named: title))
             view.addSubview(imageView)
 
-            // прописать констрейнты
+        #warning("поправить значки")
         }
 
         return view

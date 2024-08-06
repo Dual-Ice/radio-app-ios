@@ -56,3 +56,4 @@
 // MARK: - Settings
 "UserName" = "Ваше имя";
 "UserEmail" = "Ваша эл.почта";
+"Log Out" = "Выйти из аккаунта";

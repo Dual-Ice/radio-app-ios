@@ -30,6 +30,8 @@ final class SettingsView: UIView {
         return stack
     }()
 
+    private let logoutButton = UIButton.makeBigButtonWithTitle(title: "Log Out")
+
     // MARK: Init
 
     override init(frame: CGRect) {
@@ -48,7 +50,7 @@ private extension SettingsView {
     func setView() {
         self.translatesAutoresizingMaskIntoConstraints = false
 
-        [backgroundView, stackView].forEach { self.addSubview($0) }
+        [backgroundView, stackView, logoutButton].forEach { self.addSubview($0) }
         [userInfoView, generalSettingsView, moreSettingsView].forEach { stackView.addArrangedSubview($0) }
     }
 
@@ -62,13 +64,26 @@ private extension SettingsView {
             backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 
             stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.sideOffset),
+            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.sideOffset),
 
-            userInfoView.heightAnchor.constraint(equalToConstant: 100),
-            generalSettingsView.heightAnchor.constraint(equalToConstant: 170),
-            moreSettingsView.heightAnchor.constraint(equalToConstant: 170),
+            userInfoView.heightAnchor.constraint(equalToConstant: LayoutConstants.userInfoFieldSize),
+            generalSettingsView.heightAnchor.constraint(equalToConstant: LayoutConstants.settingsBigSize),
+            moreSettingsView.heightAnchor.constraint(equalToConstant: LayoutConstants.settingsBigSize),
+
+            logoutButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.sideOffset),
+            logoutButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.sideOffset),
+            logoutButton.heightAnchor.constraint(equalToConstant: LayoutConstants.logoutButtonHeight),
+            logoutButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: LayoutConstants.sideOffset)
 
         ])
+    }
+
+    enum LayoutConstants {
+        static let userInfoFieldSize: CGFloat = 100
+        static let settingsBigSize: CGFloat = 170
+        static let logoutButtonHeight: CGFloat = 56
+
+        static let sideOffset: CGFloat = 30
     }
 }
