@@ -10,7 +10,7 @@ import UIKit
 final class FavoritesController: UIViewController {
 
 	private let favoritesView = FavoritesView()
-	private let favoriteCell = FavoriteCell()
+
 
 	// MARK: - Life Cycle
 	override func loadView() {
@@ -19,7 +19,7 @@ final class FavoritesController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		favoriteCell.delegate = self
+		favoritesView.collectionView.delegate = self
 		favoritesView.collectionView.dataSource = self
 	}
 }
@@ -46,7 +46,7 @@ extension FavoritesController: UICollectionViewDataSource, UICollectionViewDeleg
 }
 
 // MARK: - Preview
-@available(iOS 17, *)
-#Preview {
-	FavoritesController()
-}
+//@available(iOS 17, *)
+//#Preview {
+//	FavoritesController()
+//}
