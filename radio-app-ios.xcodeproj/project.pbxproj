@@ -37,7 +37,7 @@
 		D9E6F3A32C5930E2007FD2F0 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3A22C5930E2007FD2F0 /* Detail.swift */; };
 		D9E6F3AB2C593117007FD2F0 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AA2C593117007FD2F0 /* Profile.swift */; };
 		D9E6F3AD2C593120007FD2F0 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AC2C593120007FD2F0 /* About.swift */; };
-		D9E6F3AF2C59312E007FD2F0 /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AE2C59312E007FD2F0 /* Policy.swift */; };
+		D9E6F3AF2C59312E007FD2F0 /* PolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AE2C59312E007FD2F0 /* PolicyVC.swift */; };
 		D9E6F3B22C5BE470007FD2F0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D9E6F3B12C5BE470007FD2F0 /* FirebaseAuth */; };
 		D9E6F3B42C5BE470007FD2F0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D9E6F3B32C5BE470007FD2F0 /* FirebaseFirestore */; };
 		D9E6F3B92C5BE4C6007FD2F0 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3B82C5BE4C6007FD2F0 /* FirestoreManager.swift */; };
@@ -118,7 +118,7 @@
 		D9E6F3A22C5930E2007FD2F0 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		D9E6F3AA2C593117007FD2F0 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D9E6F3AC2C593120007FD2F0 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
-		D9E6F3AE2C59312E007FD2F0 /* Policy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Policy.swift; sourceTree = "<group>"; };
+		D9E6F3AE2C59312E007FD2F0 /* PolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyVC.swift; sourceTree = "<group>"; };
 		D9E6F3B82C5BE4C6007FD2F0 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		D9E6F3BA2C5BE4E0007FD2F0 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		D9E6F3BD2C5BE57E007FD2F0 /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
@@ -335,7 +335,7 @@
 		D9E6F3882C56F79D007FD2F0 /* Policy */ = {
 			isa = PBXGroup;
 			children = (
-				D9E6F3AE2C59312E007FD2F0 /* Policy.swift */,
+				D9E6F3AE2C59312E007FD2F0 /* PolicyVC.swift */,
 			);
 			path = Policy;
 			sourceTree = "<group>";
@@ -659,7 +659,7 @@
 				D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */,
 				D9E6F3D72C5E88AF007FD2F0 /* ValidationManager.swift in Sources */,
 				243E436C2C5BE51F001D958D /* VerticalTabBarController.swift in Sources */,
-				D9E6F3AF2C59312E007FD2F0 /* Policy.swift in Sources */,
+				D9E6F3AF2C59312E007FD2F0 /* PolicyVC.swift in Sources */,
 				D1A1D8432C5B02CC00ED1998 /* UIView_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
