@@ -69,6 +69,7 @@
 		D9E6F44E2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F44A2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift */; };
 		D9E6F44F2C614469007FD2F0 /* FavoriteStation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F44B2C614469007FD2F0 /* FavoriteStation+CoreDataClass.swift */; };
 		D9E6F4502C614469007FD2F0 /* FavoriteStation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F44C2C614469007FD2F0 /* FavoriteStation+CoreDataProperties.swift */; };
+		D9E6F4542C6281F5007FD2F0 /* RoundedTriangleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F4532C6281F5007FD2F0 /* RoundedTriangleImageView.swift */; };
 		F48255472C5D4EE400488872 /* Radio_API_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255462C5D4EE400488872 /* Radio_API_Manager.swift */; };
 		F48255492C5D549600488872 /* Network_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255482C5D549600488872 /* Network_Manager.swift */; };
 		F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */; };
@@ -145,6 +146,7 @@
 		D9E6F44A2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RadioUser+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		D9E6F44B2C614469007FD2F0 /* FavoriteStation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteStation+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		D9E6F44C2C614469007FD2F0 /* FavoriteStation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteStation+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		D9E6F4532C6281F5007FD2F0 /* RoundedTriangleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTriangleImageView.swift; sourceTree = "<group>"; };
 		F48255462C5D4EE400488872 /* Radio_API_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radio_API_Manager.swift; sourceTree = "<group>"; };
 		F48255482C5D549600488872 /* Network_Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network_Manager.swift; sourceTree = "<group>"; };
 		F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel_Extension.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				243E43682C5BE51F001D958D /* VerticalTabBar */,
 				D9E6F3962C59307F007FD2F0 /* Components.swift */,
 				D9E6F3D42C5E7D8E007FD2F0 /* FormField.swift */,
+				D9E6F4532C6281F5007FD2F0 /* RoundedTriangleImageView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				D9E6F3D72C5E88AF007FD2F0 /* ValidationManager.swift in Sources */,
 				243E436C2C5BE51F001D958D /* VerticalTabBarController.swift in Sources */,
 				D9E6F3AF2C59312E007FD2F0 /* Policy.swift in Sources */,
+				D9E6F4542C6281F5007FD2F0 /* RoundedTriangleImageView.swift in Sources */,
 				D1A1D8432C5B02CC00ED1998 /* UIView_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
