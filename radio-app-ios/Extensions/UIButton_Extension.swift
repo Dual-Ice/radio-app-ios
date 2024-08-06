@@ -45,4 +45,12 @@ extension UIButton {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }
+
+	static func makeCustomButtonWithHeart() -> UIButton {
+		let button = UIButton()
+		button.backgroundColor = .clear
+		button.setImage(.heartBlue, for: .normal)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}
 }

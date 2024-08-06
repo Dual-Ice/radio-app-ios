@@ -2,18 +2,19 @@
 //  UIImageView_Extension.swift
 //  radio-app-ios
 //
-//  Created by Andrey Zavershinskiy on 01.08.2024.
+//  Created by Дмитрий Волков on 31.07.2024.
 //
 
 import UIKit
 
 extension UIImageView {
 
-	static func makeImageHeartView(resource: UIImage) -> UIImageView {
-		let imageView = UIImageView()
-		imageView.image = resource
-		imageView.layer.masksToBounds = true
-		imageView.translatesAutoresizingMaskIntoConstraints = false
-		return imageView
+	static func makeSimpleImage(imageName: String) -> UIImageView {
+		let image = UIImageView()
+		//code
+		image.image = UIImage(named: imageName)
+		image.isUserInteractionEnabled = true
+		image.translatesAutoresizingMaskIntoConstraints = false
+		return image
 	}
 }

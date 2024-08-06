@@ -7,13 +7,7 @@
 
 import UIKit
 
-protocol FavoritesViewDelegate: AnyObject {
-	func tappedButton()
-}
-
-final class FavoritesView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
-
-	weak var delegate: FavoritesViewDelegate?
+final class FavoritesView: UIView {
 
 	// MARK: - UICollection
 	lazy var collectionView: UICollectionView = {
@@ -23,6 +17,7 @@ final class FavoritesView: UIView, UICollectionViewDataSource, UICollectionViewD
 		layout.minimumLineSpacing = 16
 
 		let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+		cv.translatesAutoresizingMaskIntoConstraints = false
 		cv.backgroundColor = .clear
 		cv.showsVerticalScrollIndicator = false
 		cv.alwaysBounceVertical = true
@@ -32,43 +27,26 @@ final class FavoritesView: UIView, UICollectionViewDataSource, UICollectionViewD
 		return cv
 	}()
 
-	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		30
-	}
-
-	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteCell.identifier, for: indexPath) as? FavoriteCell else {
-			return UICollectionViewCell()
-		}
-		//		cell.configure(model: ?)
-		return cell
-	}
-
 	// MARK: - Life Cycle
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setupViews()
-		collectionView.delegate = self
-		collectionView.dataSource = self
 	}
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	func setDelegates(_ value: FavoritesController) {
-		delegate = value
-	}
-
+	// MARK: - Setting Views
 	private func setupViews(){
-		backgroundColor = .clear
+		backgroundColor = Color.backgroundBlue
+
 		addSubview(collectionView)
 		setupConstraints()
 	}
 
+	// MARK: - Constraints
 	private func setupConstraints() {
-		collectionView.translatesAutoresizingMaskIntoConstraints = false // temp
-
 		NSLayoutConstraint.activate([
 			collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
 			collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
@@ -76,14 +54,4 @@ final class FavoritesView: UIView, UICollectionViewDataSource, UICollectionViewD
 			collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -230)
 		])
 	}
-
-	@objc private func buttonTapped(){
-		delegate?.tappedButton()
-	}
 }
-
-
-//@available(iOS 17, *)
-//#Preview {
-//	FavoritesView()
-//}

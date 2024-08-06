@@ -7,15 +7,39 @@
 
 import UIKit
 
+protocol FavoriteCellDelegate: AnyObject {
+	func tappedButton()
+}
+
 final class FavoriteCell: UICollectionViewCell {
 
-	static let identifier = "favoriteCell"
+	weak var delegate: FavoriteCellDelegate?
+
+	// MARK: - Identifier
+	static let identifier = FavoriteCell.description()
 
 	// MARK: - UI
-	private lazy var genreStation = UILabel()
-	private lazy var nameStation = UILabel()
-	private lazy var imageWave = UIImageView()
-	private lazy var imageHeart = UIImageView()
+	private var genreStation = UILabel.makeCustomLabelBold(
+		key: "POP", // test
+		fontSize: 30,
+		textColor: .white,
+		numberOfLines: 1,
+		textAligment: .left
+	)
+
+	private var nameStation = UILabel.makeCustomLabel(
+		key: "Radio Record", // test
+		fontSize: 15,
+		textColor: .white,
+		numberOfLines: 1,
+		textAligment: .left
+	)
+
+	private var imageWave = UIImageView.makeSimpleImage(
+		imageName: "waveRed" // test
+	)
+
+	private var buttonHeart = UIButton.makeCustomButtonWithHeart()
 
 	// MARK: - Life Cycle
 	override init(frame: CGRect) {
@@ -42,32 +66,17 @@ final class FavoriteCell: UICollectionViewCell {
 		contentView.layer.borderColor = #colorLiteral(red: 0.2560741901, green: 0.2609855533, blue: 0.3792468607, alpha: 1)
 		contentView.layer.cornerRadius = 15
 
-		genreStation = UILabel.makeCustomLabelBold(
-			key: "POP", // test
-			fontSize: 30,
-			textColor: .white,
-			numberOfLines: 1,
-			textAligment: .left
-		)
-		nameStation = UILabel.makeCustomLabel(
-			key: "Radio Record", // test
-			fontSize: 15,
-			textColor: .white,
-			numberOfLines: 1,
-			textAligment: .left
-		)
-		imageWave = UIImageView.makeImageHeartView(
-			resource: .waveRed // test
-		)
-		imageHeart = UIImageView.makeImageHeartView(
-			resource: .heartBlue
+		buttonHeart.addTarget(
+			self, 
+			action: #selector(buttonTapped),
+			for: .touchUpInside
 		)
 
 		[
 			genreStation,
 			nameStation,
 			imageWave,
-			imageHeart
+			buttonHeart
 		].forEach { addSubview($0) }
 
 		setupConstraints()
@@ -87,23 +96,28 @@ final class FavoriteCell: UICollectionViewCell {
 			imageWave.topAnchor.constraint(equalTo: nameStation.bottomAnchor, constant: 10),
 			imageWave.leadingAnchor.constraint(equalTo: genreStation.leadingAnchor),
 
-			imageHeart.centerYAnchor.constraint(equalTo: centerYAnchor),
-			imageHeart.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+			buttonHeart.centerYAnchor.constraint(equalTo: centerYAnchor),
+			buttonHeart.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
 
 		])
 	}
 
 	// MARK: - Updating a cell with data obtained from models
-//	func configure(model: ?) { // temp: String
+//	func configure(model: Station) {
 //				genreStation.text = model.
 //				nameStation.text = model.
 //
 //	}
-
 }
 
 
-//@available(iOS 17, *)
-//#Preview {
-//	FavoriteCell()
-//}
+extension FavoriteCell {
+	func setDelegates(_ value: FavoritesController) {
+		delegate = value
+	}
+
+	// MARK: - @objc method
+	@objc private func buttonTapped(){
+		delegate?.tappedButton()
+	}
+}
