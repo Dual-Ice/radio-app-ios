@@ -17,7 +17,7 @@ final class HeaderView: UIView {
     private let usernameLabel = UILabel.makeCustomLabelBold(key: "Mark", fontSize: 26, textColor: Color.customPink, numberOfLines: 1, textAligment: .left)
     
     //MARK: Заменить на картинку профиля
-    private let profileButton = UIButton.makeCustomButtonWithImage(image: Image.heartSelected)
+//    private let profileButton = UIButton.makeCustomButtonWithImage(image: Image.heartSelected)
     private let titleLabel = UILabel.makeCustomLabel(key: "Popular", fontSize: 30, textColor: .white, numberOfLines: 1, textAligment: .left)
     
     var onProfileTapped: (() -> Void)?
