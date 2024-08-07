@@ -8,15 +8,12 @@
 import UIKit
 
 final class HeaderView: UIView {
-    private let playPinkImage: UIImageView = {
-        let imageView = UIImageView(image: Image.playPink)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    private let playPinkImage = UIImageView.makeSimpleImage(imageName: "playPink")
     private let greetingLabel = UILabel.makeCustomLabelBold(key: "Hello", fontSize: 26, textColor: .white, numberOfLines: 1, textAligment: .left)
     private let usernameLabel = UILabel.makeCustomLabelBold(key: "Mark", fontSize: 26, textColor: Color.customPink, numberOfLines: 1, textAligment: .left)
     
     //MARK: Заменить на картинку профиля
+    private let profileImageView = RoundedTriangleImageView(frame: CGRect(x: 0, y: 0, width: 70, height: 70), radius: 15)
 //    private let profileButton = UIButton.makeCustomButtonWithImage(image: Image.heartSelected)
     private let titleLabel = UILabel.makeCustomLabel(key: "Popular", fontSize: 30, textColor: .white, numberOfLines: 1, textAligment: .left)
     
@@ -35,9 +32,12 @@ final class HeaderView: UIView {
     }
     
     private func setupViews() {
-        profileButton.layer.masksToBounds = true
+        profileImageView.layer.masksToBounds = true
+        if let image = UIImage(named: "onboardingBackground") {
+            profileImageView.setImage(image)
+        }
         
-        [playPinkImage, greetingLabel, usernameLabel, profileButton, titleLabel].forEach { addSubview($0) }
+        [playPinkImage, greetingLabel, usernameLabel, profileImageView, titleLabel].forEach { addSubview($0) }
     }
     
     private func layoutViews() {
@@ -53,10 +53,10 @@ final class HeaderView: UIView {
             usernameLabel.leadingAnchor.constraint(equalTo: greetingLabel.trailingAnchor, constant: 5),
             usernameLabel.centerYAnchor.constraint(equalTo: greetingLabel.centerYAnchor),
             
-            profileButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            profileButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            profileButton.widthAnchor.constraint(equalToConstant: 30),
-            profileButton.heightAnchor.constraint(equalToConstant: 30),
+            profileImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            profileImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            profileImageView.widthAnchor.constraint(equalToConstant: 30),
+            profileImageView.heightAnchor.constraint(equalToConstant: 30),
             
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
             titleLabel.topAnchor.constraint(equalTo: playPinkImage.bottomAnchor, constant: 25)
@@ -64,8 +64,9 @@ final class HeaderView: UIView {
     }
     
     private func setupActions() {
-        profileButton.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
-    }
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileTapped))
+        profileImageView.addGestureRecognizer(tapGestureRecognizer)
+        profileImageView.isUserInteractionEnabled = true }
     
     @objc private func profileTapped() {
         onProfileTapped?()
@@ -76,12 +77,12 @@ final class HeaderView: UIView {
         let username = "Mark"
         let profileImage = Image.heartSelected
         
-        // configure(with: username, profileImage: profileImage)
+         configure(with: username, profileImage: profileImage!)
     }
     
     func configure(with username: String, profileImage: UIImage) {
         usernameLabel.text = username
-        profileButton.setImage(profileImage, for: .normal)
+        profileImageView.setImage(profileImage)
     }
     
     func setTitle(_ title: String) {
