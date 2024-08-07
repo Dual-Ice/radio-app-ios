@@ -8,7 +8,6 @@
 import UIKit
 
 protocol PopularViewDelegate: AnyObject {
-    func tappedButton()
     func cellSelected(at indexPath: IndexPath)
 }
 
@@ -59,7 +58,7 @@ final class PopularView: UIView {
             collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            collectionView.heightAnchor.constraint(equalToConstant: 520)
         ])
     }
     

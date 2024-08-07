@@ -16,16 +16,14 @@ final class PopularController: UIViewController {
             popularView.getCollectionView.reloadData()
         }
     }
-    private var selectedIndexPath: IndexPath?
-    
-//    private var items = [
-//        ("POP", "Radio Record", 315, true, UIImage(named: "waveRed")),
-//        ("16bit", "Radio Gameplay", 240, false, UIImage(named: "waveBlue")),
-//        ("Punk", "Russian Punk rock", 200, false, UIImage(named: "wavePurple")),
-//        ("Dj remix", "IREMIX!", 54, false, UIImage(named: "waveGreen")),
-//        ("Adult", "RUSSIAN WAVE", 315, false, UIImage(named: "waveYellow")),
-//        ("Etnic", "beufm.kz", 74, false, UIImage(named: "waveLightRed"))
-//    ]
+    private var selectedIndexPath: IndexPath? = IndexPath(row: 0, section: 0)
+    private let waveImages: [UIImage] = [
+        Image.waveRed!,
+        Image.waveBlue!,
+        Image.waveGreen!,
+        Image.wavePurple!,
+        Image.waveYellow!,
+        Image.waveLightRed!]
     
     // MARK: - Life Cycle
     override func loadView() {
@@ -36,7 +34,6 @@ final class PopularController: UIViewController {
         super.viewDidLoad()
         popularView.setDelegates(self, dataSource: self)
         fetchPopularStations()
-//        setupHeaderView()
     }
     
     private func fetchPopularStations() {
@@ -54,14 +51,8 @@ final class PopularController: UIViewController {
 }
 
 extension PopularController: PopularViewDelegate {
-//    func tappedButton() {
-//        print("Button is tapped")
-//    }
     
     func cellSelected(at indexPath: IndexPath) {
-//        for i in 0..<stations.count {
-//            stations[i].isSelected = (i == indexPath.row)
-//        }
         selectedIndexPath = indexPath
         popularView.getCollectionView.reloadData()
         print("Selected cell at \(indexPath)")
@@ -81,12 +72,13 @@ extension PopularController: UICollectionViewDataSource, UICollectionViewDelegat
         
         let station = stations[indexPath.row]
         let isActive = indexPath == selectedIndexPath
+        let waveImage = waveImages[indexPath.row % waveImages.count]
         cell.configure(
             with: station.tags ?? "Unknow Genre",
             subtitle: station.name ?? "Unknow Station",
             votes: station.votes ?? 0,
             isActive: isActive,
-            waveImage: Image.waveLightRed
+            waveImage: waveImage
         )
         
         return cell
