@@ -16,6 +16,7 @@ final class PopularController: UIViewController {
             popularView.getCollectionView.reloadData()
         }
     }
+    private var selectedIndexPath: IndexPath?
     
 //    private var items = [
 //        ("POP", "Radio Record", 315, true, UIImage(named: "waveRed")),
@@ -50,10 +51,6 @@ final class PopularController: UIViewController {
             }
         }
     }
-    
-//    private func setupHeaderView() {
-////        popularView.headerView.setTitle("Popular")
-//    }
 }
 
 extension PopularController: PopularViewDelegate {
@@ -62,9 +59,10 @@ extension PopularController: PopularViewDelegate {
 //    }
     
     func cellSelected(at indexPath: IndexPath) {
-        for i in 0..<stations.count {
-            stations[i].isSelected = (i == indexPath.row)
-        }
+//        for i in 0..<stations.count {
+//            stations[i].isSelected = (i == indexPath.row)
+//        }
+        selectedIndexPath = indexPath
         popularView.getCollectionView.reloadData()
         print("Selected cell at \(indexPath)")
     }
@@ -82,11 +80,12 @@ extension PopularController: UICollectionViewDataSource, UICollectionViewDelegat
         }
         
         let station = stations[indexPath.row]
+        let isActive = indexPath == selectedIndexPath
         cell.configure(
             with: station.tags ?? "Unknow Genre",
             subtitle: station.name ?? "Unknow Station",
             votes: station.votes ?? 0,
-            isActive: station.isSelected ?? false,
+            isActive: isActive,
             waveImage: Image.waveLightRed
         )
         

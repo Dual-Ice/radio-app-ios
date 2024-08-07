@@ -16,7 +16,6 @@ final class PopularCell: UICollectionViewCell {
     private let radioNameLabel = UILabel.makeCustomLabel(key: "Radio Record", fontSize: 12, textColor: .white, numberOfLines: 1, textAligment: .center)
     private let waveImageView = UIImageView()
     
-    private var isActive = false
     private var votes = 0
     private var hasVoted = false
     
@@ -93,15 +92,14 @@ final class PopularCell: UICollectionViewCell {
         self.genreLabel.text = title
         self.radioNameLabel.text = subtitle
         self.votes = votes
-        self.isActive = isActive
         self.hasVoted = false
         self.waveImageView.image = waveImage
         
         updateVotesLabel()
-        updateAppearance()
+        updateAppearance(isActive: isActive)
     }
     
-    private func updateAppearance() {
+    private func updateAppearance(isActive: Bool) {
         if isActive {
             backgroundColor = Color.customPink
             layer.borderColor = Color.customPink.cgColor
@@ -131,6 +129,6 @@ final class PopularCell: UICollectionViewCell {
         isActive = false
         waveImageView.image = Image.waveRed
         updateVotesLabel()
-        updateAppearance()
+        updateAppearance(isActive: false)
     }
 }
