@@ -26,16 +26,8 @@ extension WelcomeController: WelcomeViewDelegate {
     func tappedButton() {
         // Сохраняем состояние, что Welcome был показан
         UserDefaults.standard.set(true, forKey: "isWelcomeCompleted")
-        
-        if let windowScene = view.window?.windowScene {
-            let nextController = PopularController() // заменить на loginController
-            UIView.transition(with: windowScene.windows.first!,
-                              duration: 0.5,
-                              options: .transitionCrossDissolve,
-                              animations: {
-                                  windowScene.windows.first?.rootViewController = nextController
-                              },
-                              completion: nil)
+        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+            sceneDelegate.checkAuthentication()
         }
     }
 }
