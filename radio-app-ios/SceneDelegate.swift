@@ -26,7 +26,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         if !UserDefaults.standard.bool(forKey: "isWelcomeCompleted") {
-            window?.rootViewController = WelcomeController()
+            let test = Datan(number: 1)
+            let nacVC = UINavigationController()
+            window?.rootViewController = DetailBuilder(navigationController: nacVC).build(data: test)
+            
             return
         }
         

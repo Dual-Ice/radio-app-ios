@@ -9,6 +9,9 @@ import UIKit
 
 final class DetailController: UIViewController {
     
+    let radioAPI = Radio_API_Manager()
+
+    
     private let detailView = DetailView()
     let presenter: DetailPresenter
     
@@ -39,9 +42,38 @@ final class DetailController: UIViewController {
 }
 
 extension DetailController: DetailViewDelegate {
-    func tappedButton() {
-        print("Button is tapped")
+    
+    func profileButtonTapped() {
+        print("profileButtonTapped")
     }
     
+    func arrowButtonTapped() {
+        print("arrowButtonTapped")
+    }
     
+    func addFavoriteButtonTapped() {
+        let currentImage = detailView.addFavoriteButton.image(for: .normal)
+        
+        if currentImage == Image.heartDeselected {
+            detailView.addFavoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        } else {
+            detailView.addFavoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }
+    }
+    
+    func playButtonTapped() {
+        print("playButtonTapped")
+    }
+    
+    func playNextButtonTapped() {
+        print("playNextButtonTapped")
+    }
+    
+    func playBackButtonTapped() {
+        print("playBackButtonTapped")
+    }
+    
+    func volumeSliderChanged(_ sender: UISlider) {
+        detailView.percentsLabel.text = "\(Int(sender.value))%"
+    }
 }

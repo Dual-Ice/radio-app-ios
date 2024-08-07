@@ -8,7 +8,13 @@
 import UIKit
 
 protocol DetailViewDelegate: AnyObject {
-    func tappedButton()
+    func addFavoriteButtonTapped()
+    func volumeSliderChanged(_ sender: UISlider)
+    func playButtonTapped()
+    func playNextButtonTapped()
+    func playBackButtonTapped()
+    func arrowButtonTapped()
+    func profileButtonTapped()
 }
 
 final class DetailView: UIView {
@@ -31,9 +37,9 @@ final class DetailView: UIView {
         return element
     }()
     
-    private lazy var arrowImageView: UIImageView = {
-        let element = UIImageView()
-        element.image = Image.arrowBack
+    private lazy var arrowButton: UIButton = {
+        let element = UIButton()
+        element.setImage(Image.arrowBack, for: .normal)
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
@@ -42,6 +48,7 @@ final class DetailView: UIView {
         let element = UIImageView()
         element.image = Image.onboardingBackground
         element.contentMode = .scaleAspectFill
+        element.isUserInteractionEnabled = true
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
@@ -53,12 +60,25 @@ final class DetailView: UIView {
         numberOfLines: nil,
         textAligment: .center)
 
-    private lazy var addFavoriteButton: UIButton = {
+    lazy var addFavoriteButton: UIButton = {
         let element = UIButton()
-        element.setImage(UIImage(named: "heart"), for: .normal)
+        element.setImage(UIImage(systemName: "heart"), for: .normal)
+        element.tintColor = .white
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
+    
+    private lazy var avatarRadioImageView: UIImageView = {
+        let element = UIImageView()
+        element.image = UIImage(named: "onboardingBackground")
+        element.tintColor = .white
+        element.layer.cornerRadius = 35
+        element.contentMode = .scaleAspectFill
+        element.clipsToBounds = true
+        element.translatesAutoresizingMaskIntoConstraints = false
+        return element
+    }()
+
     
     private lazy var equalizerImageView: UIImageView = {
         let element = UIImageView()
@@ -136,14 +156,13 @@ final class DetailView: UIView {
         element.tintColor = Color.customLightBlue
         element.translatesAutoresizingMaskIntoConstraints = false
         element.thumbTintColor = Color.customLightBlue
-        element.setThumbImage(Image.ellipse, for: .normal)
-        element.setThumbImage(Image.ellipse, for: .highlighted)
-        element.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
+        element.setThumbImage(Image.pointBlue, for: .normal)
+        element.setThumbImage(Image.pointBlue, for: .highlighted)
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
     
-    private lazy var percentsLabel: UILabel = {
+    lazy var percentsLabel: UILabel = {
         let element = UILabel()
         element.text = "\(Int(slider.value))%"
         element.font = .systemFont(ofSize: 15)
@@ -181,12 +200,13 @@ final class DetailView: UIView {
         self.addSubview(headerStackView)
         self.addSubview(equalizerImageView)
         self.addSubview(addFavoriteButton)
+        self.addSubview(avatarRadioImageView)
         self.addSubview(frequencyRadioLabel)
         self.addSubview(divelementLabel)
         self.addSubview(controlStackView)
         self.addSubview(volumeStackView)
         
-        headerStackView.addArrangedSubview(arrowImageView)
+        headerStackView.addArrangedSubview(arrowButton)
         headerStackView.addArrangedSubview(headerLabel)
         headerStackView.addArrangedSubview(profileImageView)
         
@@ -202,9 +222,14 @@ final class DetailView: UIView {
     }
     
     private func setUpViews(){
-        //button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         addFavoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
-
+        slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
+        playButton.addTarget(self, action: #selector(playButtonTap), for: .touchUpInside)
+        playNextButton.addTarget(self, action: #selector(playNextButtonTap), for: .touchUpInside)
+        playBackButton.addTarget(self, action: #selector(playBackButtonTap), for: .touchUpInside)
+        arrowButton.addTarget(self, action: #selector(arrowButtonTap), for: .touchUpInside)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(profileTap))
+        profileImageView.addGestureRecognizer(tapGesture)
     }
     
     private func layoutViews() {
@@ -219,16 +244,21 @@ final class DetailView: UIView {
             headerStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.sideForHeader),
             headerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.sideForHeader),
             
-            arrowImageView.widthAnchor.constraint(equalToConstant: Constants.profileImageSize),
-            arrowImageView.heightAnchor.constraint(equalToConstant: Constants.profileImageSize),
+            arrowButton.widthAnchor.constraint(equalToConstant: Constants.profileImageSize),
+            arrowButton.heightAnchor.constraint(equalToConstant: Constants.profileImageSize),
 
             profileImageView.widthAnchor.constraint(equalToConstant: Constants.profileImageSize),
             profileImageView.heightAnchor.constraint(equalToConstant: Constants.profileImageSize),
             
             addFavoriteButton.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: Constants.sideForFavorite),
             addFavoriteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.sideForFavoriteTrailing),
-            //addFavoriteButton.widthAnchor.constraint(equalToConstant: Constants.profileImageSize),
-            //addFavoriteButton.heightAnchor.constraint(equalToConstant: Constants.profileImageSize),
+            addFavoriteButton.widthAnchor.constraint(equalToConstant: Constants.profileImageSize),
+            addFavoriteButton.heightAnchor.constraint(equalToConstant: Constants.profileImageSize),
+            
+            avatarRadioImageView.topAnchor.constraint(equalTo: frequencyRadioLabel.topAnchor, constant: 10),
+            avatarRadioImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
+            avatarRadioImageView.widthAnchor.constraint(equalToConstant: 70),
+            avatarRadioImageView.heightAnchor.constraint(equalToConstant: 70),
             
             equalizerImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             equalizerImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
@@ -249,24 +279,34 @@ final class DetailView: UIView {
         ])
     }
     // MARK: - Actions
-    @objc func sliderValueChanged(_ sender: UISlider) {
-        percentsLabel.text = "\(Int(sender.value))%"
-        }
+    
+    @objc private func profileTap() {
+        delegate?.profileButtonTapped()
+    }
+    
+    @objc private func arrowButtonTap() {
+        delegate?.arrowButtonTapped()
+    }
     
     @objc private func favoriteButtonTapped() {
-        let currentImage = addFavoriteButton.image(for: .normal)
-        
-        if currentImage == Image.heartDeselected {
-            addFavoriteButton.setImage(UIImage(named: "heart"), for: .normal)
-        } else {
-            addFavoriteButton.setImage(UIImage(named: "heart"), for: .normal)
+        delegate?.addFavoriteButtonTapped()
+    }
+    
+    @objc private func playButtonTap() {
+        delegate?.playButtonTapped()
+    }
+    
+    @objc private func playNextButtonTap() {
+        delegate?.playNextButtonTapped()
+    }
+    
+    @objc private func playBackButtonTap() {
+        delegate?.playBackButtonTapped()
+    }
+    
+    @objc func sliderValueChanged(_ sender: UISlider) {
+        delegate?.volumeSliderChanged(sender)
         }
-    }
-    
-    
-    @objc private func buttonTapped(){
-        delegate?.tappedButton()
-    }
     
     private func applyCustomShapeMask(to imageView: UIImageView) {
         let path = UIBezierPath()
