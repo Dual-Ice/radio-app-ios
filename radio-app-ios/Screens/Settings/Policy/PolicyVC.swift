@@ -11,12 +11,6 @@ final class PolicyVC: UIViewController {
 
     // MARK: UI Elements
 
-    private let scrollView: UIScrollView = {
-        let scroll = UIScrollView()
-        scroll.translatesAutoresizingMaskIntoConstraints = false
-        return scroll
-    }()
-
     private let backgroundView: UIImageView = {
         let view = UIImageView()
         view.image = Image.signInBackground
@@ -49,22 +43,24 @@ final class PolicyVC: UIViewController {
     private let firstTextLabel = UILabel.makeCustomLabelBold(
         key: "MockText",
         fontSize: 14,
-        textColor: .white,
-        numberOfLines: 1,
+        textColor: .systemGray,
+        numberOfLines: 0,
         textAligment: .left)
 
     private let secondTextLabel = UILabel.makeCustomLabelBold(
         key: "MockText",
         fontSize: 14,
-        textColor: .white,
-        numberOfLines: 1,
+        textColor: .systemGray,
+        numberOfLines: 0,
         textAligment: .left)
 
 
     // MARK: Life cycle
 
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+        setView()
+        setupConstraints()
     }
 }
 
@@ -73,16 +69,33 @@ private extension PolicyVC {
 
     func setView() {
 
-        view.addSubview(scrollView)
-        [backgroundView, stackView].forEach { scrollView.addSubview($0) }
-       
-        [firstTextLabel,
+        view.addSubview(backgroundView)
+        backgroundView.addSubview(stackView)
+
+        [firstTitleLabel,
          firstTextLabel,
          secondTitleLabel,
          secondTextLabel].forEach { stackView.addArrangedSubview($0) }
     }
 
     func setupConstraints() {
-        
+
+        NSLayoutConstraint.activate([
+
+            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+            stackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: LayoutConstants.sideOffset),
+            stackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -LayoutConstants.sideOffset),
+            stackView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 100),
+
+        ])
+
+    }
+
+    enum LayoutConstants {
+        static let sideOffset: CGFloat = 16
     }
 }
