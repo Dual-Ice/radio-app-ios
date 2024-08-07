@@ -11,7 +11,7 @@ extension UIView {
     
     static func makeSeparatorLine() -> UIView {
         let element = UIView()
-        element.backgroundColor = .white
+        element.backgroundColor = .white.withAlphaComponent(0.5)
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }

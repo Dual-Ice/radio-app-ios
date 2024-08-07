@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 struct Datan {
     let number: Int
@@ -17,26 +18,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
         
-        if !UserDefaults.standard.bool(forKey: "isWelcomeCompleted") {
-            let test = Datan(number: 1)
-            let nacVC = UINavigationController()
-            window?.rootViewController = DetailBuilder(navigationController: nacVC).build(data: test)
-            
+        // Пока нет кнопки выхода - вы можете использовать этот код, чтобы разавторизовать пользователя
+//        AuthManager().signOut { error in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//        }
+        
+        if UserDefaults.standard.bool(forKey: "isWelcomeCompleted") {
+            checkAuthentication()
             return
         }
         
-        let rootViewController: UIViewController
-        // Авторизацию проверять тут
-        rootViewController = PopularController()
-        window?.rootViewController = rootViewController
+        window?.rootViewController = WelcomeController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -66,7 +66,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+}
 
-
+extension SceneDelegate {
+    func checkAuthentication() {
+        if Auth.auth().currentUser == nil {
+            let navigationController = UINavigationController()
+            let authBuilder = AuthBuilder(navigationVC: navigationController)
+            let authRouter = authBuilder.buildAuthRouter()
+            let loginVC = authBuilder.buildAuth(router: authRouter)
+            
+            navigationController.setViewControllers([loginVC], animated: true)
+            window?.rootViewController = navigationController
+            return
+        }
+        
+        AuthManager().fetchUser { [weak self] user, error in
+            if let error = error {
+                print("There is an error signing the user in ==> \(error)")
+                return
+            }
+            
+            guard let user = user else { return }
+            UserManager.shared.setUser(userObject: user)
+            
+            self?.window?.rootViewController = PopularController()
+        }
+    }
 }
 

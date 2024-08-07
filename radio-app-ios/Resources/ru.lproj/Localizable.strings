@@ -9,15 +9,15 @@
 //MARK: - Example
 "LabelValue" = "Русский лейбл";
 "ButtonValue" = "Русская кнопка";
-"ButtonGetStarted" = "Начать работу";
+"ButtonGetStarted" = "Начать прослушивание";
 "WelcomeTitleLabel" = "Давайте\nначнем";
 "WelcomeLabel" = "Наслаждайтесь лучшими\nрадиостанциями из вашего дома,\nне пропустите ничего.";
 "Popular" = "Популярное";
 "Favorites" = "Избранное";
 "AllStations" = "Все станции";
-"SignIn" = "Войди";
-"SignUp" = "Зарегистрироваться";
-"Subheading" = "и начни прослушивание";
+"SignIn" = "Войди,";
+"SignUp" = "Зарегистрируйся,";
+"Subheading" = "чтобы начать прослушивание";
 "EmailLabel" = "Email";
 "NameLabel" = "Имя";
 "PasswordLabel" = "Пароль";
@@ -26,9 +26,29 @@
 "YourEmail" = "Ваш email";
 "YourPassword" = "Ваш пароль";
 "ConfirmPassword" = "Подтвердите пароль";
-"Connect" = "или войдте с";
+"Connect" = "или войдите с";
 "OrSignUp" = "или Зарегистрируйтесь";
 "OrSignIn" = "или Войдите";
 "ForgotHeading" = "Забыли \nПароль";
 "SentButton" = "Отправить";
 "ChangeButton" = "Изменить пароль";
+
+//MARK: - AuthScreen
+"AuthScreenUDismissButtonText" = "Отмена";
+"AuthScreenOkButtonText" = "Ок";
+"AuthScreenUserNameOrPasswordErrorTitle" = "Неверный email или пароль.";
+"AuthScreenUserNameOrPasswordErrorMessage" = "Пожалуйста, попробуйте снова.";
+"AuthScreenUserNameErrorTitle" = "Неверное имя пользователя";
+"AuthScreenUserNameErrorMessage" = "Имя пользователя должно содержать как минимум 4 символа. Пожалуйста, введите верное имя пользователя.";
+"AuthScreenUserEmailErrorTitle" = "Неверный email";
+"AuthScreenUserEmailErrorMessage" = "Пожалуйста, введите корректный email.";
+"AuthScreenUserPasswordErrorTitle" = "Неверный пароль";
+"AuthScreenUserPasswordErrorMessage" = "Пароль должен содержать как минимум 6 символов. Пожалуйста, введите корректный пароль.";
+"AuthScreenUserPasswordRepeatErrorTitle" = "Пароли не совпадают";
+"AuthScreenUserPasswordRepeatErrorMessage" = "Пароли не совпали, попробуйте ещё раз.";
+"AuthSceenRegistrationErrorTitle" = "Упс, ошибка";
+"AuthSceenRegistrationUserError" = "Ошибка регистрации пользователя";
+"AuthSceenRegistrationUnexpectedError" = "Неожиданная ошибка";
+"AuthSceenResetPasswordErrorTitle" = "Упс, ошибка";
+"AuthSceenPasswordResetSuccessTitle" = "Сброс пароля";
+"AuthSceenPasswordResetSuccessMessage" = "Письмо для сброса пароля успешно отправлено. Пожалуйста, проверьте свою электронную почту.";

@@ -59,6 +59,7 @@ enum Image {
     static let playWhite = UIImage(named: "playWhite")
     static let signInBackground = UIImage(named: "signInBackground")
     static let trianglePink = UIImage(named: "trianglePink")
+    static let googleSignIn = UIImage(named: "google-signin")
 
     /// waves images
     static let waveBlue = UIImage(named: "waveBlue")
