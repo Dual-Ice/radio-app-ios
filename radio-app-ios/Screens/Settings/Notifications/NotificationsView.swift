@@ -52,7 +52,7 @@ final class NotificationsView: UIView {
 
     private let toggle: UISwitch = {
         let toggle = UISwitch()
-        toggle.isOn = false
+        toggle.isOn = true
         toggle.onTintColor = Color.customLightBlue
         toggle.translatesAutoresizingMaskIntoConstraints = false
         return toggle
