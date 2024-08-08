@@ -7,7 +7,13 @@
 
 import UIKit
 
-final class ProfileVC: UIViewController {
+protocol EditProfileVCProtocol: AnyObject {
+
+}
+
+final class EditProfileVC: UIViewController, EditProfileVCProtocol {
+
+    var presenter: EditProfilePresenterProtocol!
 
     // MARK: UI Elements
 
@@ -24,7 +30,7 @@ final class ProfileVC: UIViewController {
 
     // MARK: Layout
 
-private extension ProfileVC {
+private extension EditProfileVC {
 
     func setView() {
         view.addSubview(profileView)

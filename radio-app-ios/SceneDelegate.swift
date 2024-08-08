@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        }
         
 //        window?.rootViewController = LanguageVC()
-        let settingsBuilder = SettingsBuilder()
+        let settingsBuilder = MainSettingsBuilder()
         window?.rootViewController = settingsBuilder.createLanguageVC()
     }
 

@@ -7,7 +7,12 @@
 
 import UIKit
 
-final class PolicyVC: UIViewController {
+protocol PolicyVCProtocol: AnyObject {
+}
+
+final class PolicyVC: UIViewController, PolicyVCProtocol {
+
+    var presenter: PolicyPresenterProtocol!
 
     // MARK: UI Elements
 

@@ -7,7 +7,13 @@
 
 import UIKit
 
-final class AboutVC: UIViewController {
+protocol AboutVCProtocol: AnyObject {
+
+}
+
+final class AboutVC: UIViewController, AboutVCProtocol {
+
+    var presenter: AboutPresenterProtocol!
 
     // MARK: UI Elements
 

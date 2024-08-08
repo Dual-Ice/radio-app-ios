@@ -7,7 +7,13 @@
 
 import UIKit
 
-final class NotificationsVC: UIViewController {
+protocol NotificationsVCProtocol: AnyObject {
+
+}
+
+final class NotificationsVC: UIViewController, NotificationsVCProtocol {
+
+    var presenter: NotificationsPresenterProtocol!
 
     // MARK: UI Elements
 

@@ -7,11 +7,13 @@
 
 import UIKit
 
-protocol MainSettingsVCProtocol {
+protocol MainSettingsVCProtocol: AnyObject {
 
 }
 
 final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
+
+    var presenter: MainSettingsPresenter!
 
     // MARK: UI Elements
 
