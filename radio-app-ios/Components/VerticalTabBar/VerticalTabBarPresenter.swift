@@ -51,7 +51,9 @@ class testVC: UIViewController {
         "https://drive.uber.radio/uber/crberlinphilharmonic/icecast.audio"
     ]
     
-    let controler = PlayerControlView()
+    let playerControler = PlayerControlView()
+    
+    let volumeControler = VolumeControlView()
         
     override func loadView() {
         let testView = UIView()
@@ -66,13 +68,16 @@ class testVC: UIViewController {
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        controler.translatesAutoresizingMaskIntoConstraints = false
-        controler.delegate = self
+        playerControler.translatesAutoresizingMaskIntoConstraints = false
+        playerControler.delegate = self
+        
+        volumeControler.translatesAutoresizingMaskIntoConstraints = false
         
         [
             label,
             button,
-            controler
+            playerControler,
+            volumeControler
         ].forEach {
             testView.addSubview($0)
         }
@@ -83,16 +88,22 @@ class testVC: UIViewController {
             button.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
             button.topAnchor.constraint(equalTo: label.bottomAnchor),
             
-            controler.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
-            controler.widthAnchor.constraint(equalTo: testView.widthAnchor, multiplier: 255/335),
-            controler.heightAnchor.constraint(equalTo: controler.widthAnchor, multiplier: 127/255),
-            controler.bottomAnchor.constraint(equalTo: testView.bottomAnchor, constant: -75)
+            volumeControler.bottomAnchor.constraint(equalTo: testView.bottomAnchor, constant: -50),
+            volumeControler.leadingAnchor.constraint(equalTo: testView.leadingAnchor, constant: 38),
+            volumeControler.trailingAnchor.constraint(equalTo: testView.trailingAnchor, constant: -38),
+            volumeControler.heightAnchor.constraint(equalToConstant: 16),
+            
+            playerControler.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
+            playerControler.widthAnchor.constraint(equalTo: testView.widthAnchor, multiplier: 255/335),
+            playerControler.heightAnchor.constraint(equalTo: playerControler.widthAnchor, multiplier: 127/255),
+            playerControler.bottomAnchor.constraint(equalTo: volumeControler.topAnchor, constant: -30)
         ])
         view = testView
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        controler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
+        playerControler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
+        volumeControler.updateSliderValue(to: AudioPleer.shared.playerVolume)
     }
     
     @objc private func buttonTapped(_ sender: CustomTabBarButton) {
@@ -113,18 +124,93 @@ class testVC: UIViewController {
 extension testVC: PlayerControlViewDelegate {
     func backButtonTapped() {
         AudioPleer.shared.loadMusic(from: moks.randomElement() ?? "")
-        controler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
+        playerControler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
     }
     
     func centralButtonTapped() {
         AudioPleer.shared.isPlaying ? AudioPleer.shared.pauseMusic() : AudioPleer.shared.playMusic()
-        controler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
+        playerControler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
     }
     
     func nextButtonTapped() {
         let state = AudioPleer.shared.isPlaying
         AudioPleer.shared.loadMusic(from: moks.randomElement() ?? "")
         state ? AudioPleer.shared.playMusic() : AudioPleer.shared.pauseMusic()
-        controler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
+        playerControler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
     }
 }
+
+
+//import UIKit
+//import MediaPlayer
+//
+//class ViewController: UIViewController {
+//
+//    private var volumeView: MPVolumeView!
+//    private var volumeObservation: NSKeyValueObservation?
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        
+//        setupVolumeView()
+//        observeVolumeChanges()
+//    }
+//
+//    private func setupVolumeView() {
+//        volumeView = MPVolumeView(frame: .zero)
+//        volumeView.isHidden = true
+//        view.addSubview(volumeView)
+//    }
+//
+//    private func observeVolumeChanges() {
+//        let volumeView = MPVolumeView()
+//        let volumeSlider = volumeView.subviews.first(where: { $0 is UISlider }) as? UISlider
+//        volumeObservation = volumeSlider?.observe(\.value, options: [.new]) { [weak self] slider, change in
+//            guard let _ = self else { return }
+//            let newVolume = slider.value
+//            print("Volume changed to \(newVolume)")
+//            // Handle the volume change here
+//        }
+//    }
+//}
+
+//import UIKit
+//import AVFoundation
+//
+//class ViewController: UIViewController {
+//
+//    private var audioSession: AVAudioSession!
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        setupAudioSession()
+//    }
+//
+//    private func setupAudioSession() {
+//        print("setupAudioSession")
+//        audioSession = AVAudioSession.sharedInstance()
+//        do {
+//            try audioSession.setCategory(.playback, mode: .default)
+//            try audioSession.setActive(true)
+//            NotificationCenter.default.addObserver(
+//                self,
+//                selector: #selector(volumeChanged),
+//                name: AVAudioSession.silenceSecondaryAudioHintNotification,
+//                object: nil
+//            )
+//        } catch {
+//            print("Failed to set up audio session: \(error)")
+//        }
+//    }
+//
+//    @objc func volumeChanged() {
+//        print("volumeChanged()")
+//        let volume = audioSession.outputVolume
+//        print("Volume changed to \(volume)")
+//    }
+//
+//    deinit {
+//        print("deinit")
+//        NotificationCenter.default.removeObserver(self)
+//    }
+//}

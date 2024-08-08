@@ -21,6 +21,7 @@ final class PlayerControlView: UIView {
         view.image = UIImage(systemName: "pause.fill")
         view.contentMode = .scaleAspectFit
         view.tintColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
