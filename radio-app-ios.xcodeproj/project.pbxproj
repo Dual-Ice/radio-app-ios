@@ -17,6 +17,8 @@
 		A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E292C5820E4004A06B3 /* WelcomeController.swift */; };
 		D12BE9932C63CD72002552A4 /* Radio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D12BE9912C63CD72002552A4 /* Radio.xcdatamodeld */; };
 		D12BE9952C645A9D002552A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D12BE9942C645A9D002552A4 /* GoogleService-Info.plist */; };
+		D12BE9972C64614E002552A4 /* AllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12BE9962C64614E002552A4 /* AllView.swift */; };
+		D12BE9992C646190002552A4 /* AllController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12BE9982C646190002552A4 /* AllController.swift */; };
 		D13ADE122C59E43D002B94AE /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13ADE112C59E43C002B94AE /* AuthView.swift */; };
 		D13ADE142C59E64B002B94AE /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13ADE132C59E64B002B94AE /* AuthController.swift */; };
 		D1A1D8412C5AE0E600ED1998 /* UIImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1D8402C5AE0E600ED1998 /* UIImageView_Extension.swift */; };
@@ -95,6 +97,8 @@
 		A76E5E292C5820E4004A06B3 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		D12BE9922C63CD72002552A4 /* Radio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Radio.xcdatamodel; sourceTree = "<group>"; };
 		D12BE9942C645A9D002552A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D12BE9962C64614E002552A4 /* AllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllView.swift; sourceTree = "<group>"; };
+		D12BE9982C646190002552A4 /* AllController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllController.swift; sourceTree = "<group>"; };
 		D13ADE112C59E43C002B94AE /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		D13ADE132C59E64B002B94AE /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		D1A1D8402C5AE0E600ED1998 /* UIImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView_Extension.swift; sourceTree = "<group>"; };
@@ -321,6 +325,8 @@
 			isa = PBXGroup;
 			children = (
 				D9E6F39E2C5930CB007FD2F0 /* All.swift */,
+				D12BE9962C64614E002552A4 /* AllView.swift */,
+				D12BE9982C646190002552A4 /* AllController.swift */,
 			);
 			path = All;
 			sourceTree = "<group>";
@@ -617,6 +623,7 @@
 				D9E6F3952C593066007FD2F0 /* Helpers.swift in Sources */,
 				D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */,
 				D9E6F3BB2C5BE4E0007FD2F0 /* AuthManager.swift in Sources */,
+				D12BE9992C646190002552A4 /* AllController.swift in Sources */,
 				A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */,
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
 				D9E6F3BE2C5BE57E007FD2F0 /* RegisterUserRequest.swift in Sources */,
@@ -626,6 +633,7 @@
 				D12BE9932C63CD72002552A4 /* Radio.xcdatamodeld in Sources */,
 				F4DE1C2A2C59173500D55FC5 /* Constants.swift in Sources */,
 				D9E6F43C2C612423007FD2F0 /* CoreDataManager.swift in Sources */,
+				D12BE9972C64614E002552A4 /* AllView.swift in Sources */,
 				D9E6F3D12C5E53F8007FD2F0 /* ResetPasswordPresenter.swift in Sources */,
 				243E436D2C5BE51F001D958D /* VerticalTabBarPresenter.swift in Sources */,
 				D9E6F3C22C5BE6BD007FD2F0 /* UserManager.swift in Sources */,

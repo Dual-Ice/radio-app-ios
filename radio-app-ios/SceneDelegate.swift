@@ -86,7 +86,8 @@ extension SceneDelegate {
             guard let user = user else { return }
             UserManager.shared.setUser(userObject: user)
             
-            self?.window?.rootViewController = PopularController()
+            //self?.window?.rootViewController = PopularController() THIS ON
+            self?.window?.rootViewController = AllController()
         }
     }
 }
