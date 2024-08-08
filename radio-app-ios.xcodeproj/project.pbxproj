@@ -986,7 +986,7 @@
 			);
 			currentVersion = D9E6F4162C612162007FD2F0 /* Radio.xcdatamodel */;
 			name = Radio.xcdatamodeld;
-			path = "/Users/m_stogniy/Develop/Projects/radio-app-ios/radio-app-ios/Models/DB/Radio.xcdatamodeld";
+			path = "Radio.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
