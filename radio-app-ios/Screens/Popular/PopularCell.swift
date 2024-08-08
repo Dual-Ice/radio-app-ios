@@ -52,9 +52,9 @@ final class PopularCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             playImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            playImage.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            playImage.widthAnchor.constraint(equalToConstant: 30),
-            playImage.heightAnchor.constraint(equalToConstant: 30),
+            playImage.topAnchor.constraint(equalTo: topAnchor, constant: 13),
+            playImage.widthAnchor.constraint(equalToConstant: 25),
+            playImage.heightAnchor.constraint(equalToConstant: 25),
             
             votesButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             votesButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
@@ -91,7 +91,7 @@ final class PopularCell: UICollectionViewCell {
     }
     
     private func updateVotesLabel() {
-        votesLabel.text = "votes \(votes)"
+        votesLabel.text = String(format: NSLocalizedString("votes", comment: ""), votes)
     }
     
     private func configureGenreLabelText(_ text: String) -> String {

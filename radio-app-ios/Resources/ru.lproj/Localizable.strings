@@ -56,3 +56,6 @@
 "AuthSceenResetPasswordErrorTitle" = "Упс, ошибка";
 "AuthSceenPasswordResetSuccessTitle" = "Сброс пароля";
 "AuthSceenPasswordResetSuccessMessage" = "Письмо для сброса пароля успешно отправлено. Пожалуйста, проверьте свою электронную почту.";
+
+//MARK: - Popular
+"votes" = "голоса %d";
