@@ -28,5 +28,9 @@ enum Constants {
     static let bigButtonHeight: CGFloat = 66
     static let separatorWidth: CGFloat = 93
     static let textFieldHeight: CGFloat = 53
-    
+    static let profileImageSize: CGFloat = 50
+    static let sideForHeader: CGFloat = 20
+    static let sideForFavorite: CGFloat = 30
+    static let sideForFavoriteTrailing: CGFloat = 50
+    static let sideForStackView: CGFloat = 80
 }
