@@ -20,7 +20,7 @@ final class PopularCell: UICollectionViewCell {
     private let votesButton = UIButton.makeCustomButtonWithImage(image: Image.heartDeselected)
     private let genreLabel = UILabel.makeCustomLabelBold(key: "POP", fontSize: 22, textColor: .white, numberOfLines: 1, textAligment: .center)
     private let radioNameLabel = UILabel.makeCustomLabel(key: "Radio Record", fontSize: 11, textColor: .white, numberOfLines: 1, textAligment: .center)
-    private let waveImageView = UIImageView()
+    private let waveView = WaveView(frame: CGRect(x: 0, y: 0, width: 94, height: 23), dotColor: .red)
     
     private var votes = 0
     private var hasVoted = false
@@ -44,11 +44,11 @@ final class PopularCell: UICollectionViewCell {
         
         votesButton.addTarget(self, action: #selector(votesButtonTapped), for: .touchUpInside)
         
-        [playImage, votesLabel, votesButton, genreLabel, radioNameLabel, waveImageView].forEach { addSubview($0) }
+        [playImage, votesLabel, votesButton, genreLabel, radioNameLabel, waveView].forEach { addSubview($0) }
     }
     
     private func layoutViews() {
-        waveImageView.translatesAutoresizingMaskIntoConstraints = false
+        waveView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             playImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
@@ -70,11 +70,11 @@ final class PopularCell: UICollectionViewCell {
             radioNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             radioNameLabel.topAnchor.constraint(equalTo: genreLabel.bottomAnchor, constant: -30),
             
-            waveImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            waveImageView.topAnchor.constraint(equalTo: radioNameLabel.bottomAnchor, constant: 10),
-            waveImageView.widthAnchor.constraint(equalToConstant: 94),
-            waveImageView.heightAnchor.constraint(equalToConstant: 23),
-            waveImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15)
+            waveView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            waveView.topAnchor.constraint(equalTo: radioNameLabel.bottomAnchor, constant: 10),
+            waveView.widthAnchor.constraint(equalToConstant: 94),
+            waveView.heightAnchor.constraint(equalToConstant: 23),
+            waveView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15)
         ])
     }
     
@@ -98,12 +98,13 @@ final class PopularCell: UICollectionViewCell {
         return text.components(separatedBy: ",").first?.components(separatedBy: " ").prefix(2).joined(separator: " ") ?? text
     }
     
-    func configure(with title: String, subtitle: String, votes: Int, isActive: Bool, waveImage: UIImage) {
+    func configure(with title: String, subtitle: String, votes: Int, isActive: Bool, dotColor: UIColor) {
         self.genreLabel.text = configureGenreLabelText(title)
         self.radioNameLabel.text = subtitle
         self.votes = votes
         self.hasVoted = false
-        self.waveImageView.image = waveImage
+        self.waveView.dotColor = dotColor
+        self.waveView.setNeedsDisplay() // Обновляем отображение цвета точки
         
         updateVotesLabel()
         updateAppearance(isActive: isActive)
@@ -118,7 +119,7 @@ final class PopularCell: UICollectionViewCell {
             votesLabel.textColor = .white
             votesButton.tintColor = .white
             playImage.isHidden = false
-            waveImageView.alpha = 1
+            waveView.alpha = 1
             return
         }
         backgroundColor = .clear
@@ -128,7 +129,7 @@ final class PopularCell: UICollectionViewCell {
         votesLabel.textColor = Color.customGray
         votesButton.tintColor = Color.customGray
         playImage.isHidden = true
-        waveImageView.alpha = 0.5
+        waveView.alpha = 0.5
     }
     
     override func prepareForReuse() {
@@ -136,7 +137,8 @@ final class PopularCell: UICollectionViewCell {
         playImage.image = Image.playWhite
         hasVoted = false
         votes = 0
-        waveImageView.image = Image.waveRed
+        waveView.dotColor = .red
+        waveView.setNeedsDisplay()
         updateVotesLabel()
         updateAppearance(isActive: false)
     }

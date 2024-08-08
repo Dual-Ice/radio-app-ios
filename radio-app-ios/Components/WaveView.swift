@@ -10,7 +10,7 @@ import UIKit
 final class WaveView: UIView {
 
     private var waveColor: UIColor = .white
-    private let dotColor: UIColor!
+    var dotColor: UIColor!
     private var isActive: Bool = true
     
     init(frame: CGRect, dotColor: UIColor) {

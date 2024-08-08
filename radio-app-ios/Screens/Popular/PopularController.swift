@@ -17,13 +17,8 @@ final class PopularController: UIViewController {
         }
     }
     private var selectedIndexPath: IndexPath? = IndexPath(row: 0, section: 0)
-    private let waveImages: [UIImage] = [
-        Image.waveRed!,
-        Image.waveBlue!,
-        Image.waveGreen!,
-        Image.wavePurple!,
-        Image.waveYellow!,
-        Image.waveLightRed!]
+    private let dotColors: [UIColor] = [.red, .blue, .green, .purple, .yellow, .systemCyan, .orange]
+    private var cellDotColors: [IndexPath: UIColor] = [:]
     
     // MARK: - Life Cycle
     override func loadView() {
@@ -47,6 +42,10 @@ final class PopularController: UIViewController {
                 switch result {
                 case .success(let stations):
                     self?.stations = stations
+                    for (index, _) in stations.enumerated() {
+                        let indexPath = IndexPath(row: index, section: 0)
+                        self?.cellDotColors[indexPath] = self?.dotColors[index % (self?.dotColors.count ?? 1)]
+                    }
                 case .failure(let error):
                     print("Failed to featch popular stations: \(error)")
                 }
@@ -68,13 +67,13 @@ extension PopularController: UICollectionViewDataSource, UICollectionViewDelegat
         
         let station = stations[indexPath.row]
         let isActive = indexPath == selectedIndexPath
-        let waveImage = waveImages[indexPath.row % waveImages.count]
+        let dotColor = cellDotColors[indexPath] ?? .red
         cell.configure(
             with: station.tags ?? "Unknow Genre",
             subtitle: station.name ?? "Unknow Station",
             votes: station.votes ?? 0,
             isActive: isActive,
-            waveImage: waveImage
+            dotColor: dotColor
         )
         
         return cell
