@@ -16,6 +16,7 @@
 		A76E5E282C5820CD004A06B3 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E272C5820CD004A06B3 /* WelcomeView.swift */; };
 		A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E292C5820E4004A06B3 /* WelcomeController.swift */; };
 		D12BE9932C63CD72002552A4 /* Radio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D12BE9912C63CD72002552A4 /* Radio.xcdatamodeld */; };
+		D12BE9952C645A9D002552A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D12BE9942C645A9D002552A4 /* GoogleService-Info.plist */; };
 		D13ADE122C59E43D002B94AE /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13ADE112C59E43C002B94AE /* AuthView.swift */; };
 		D13ADE142C59E64B002B94AE /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13ADE132C59E64B002B94AE /* AuthController.swift */; };
 		D1A1D8412C5AE0E600ED1998 /* UIImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1D8402C5AE0E600ED1998 /* UIImageView_Extension.swift */; };
@@ -62,7 +63,6 @@
 		D9E6F3E22C5FB6A1007FD2F0 /* ResetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3E12C5FB6A1007FD2F0 /* ResetPasswordRequest.swift */; };
 		D9E6F3E42C5FB6C0007FD2F0 /* UpdatePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3E32C5FB6C0007FD2F0 /* UpdatePasswordRequest.swift */; };
 		D9E6F3E62C5FCB11007FD2F0 /* UIResponder_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3E52C5FCB11007FD2F0 /* UIResponder_Extension.swift */; };
-		D9E6F3EA2C5FDB80007FD2F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9E6F3E92C5FDB80007FD2F0 /* GoogleService-Info.plist */; };
 		D9E6F4142C612149007FD2F0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E6F4132C612149007FD2F0 /* CoreData.framework */; };
 		D9E6F43C2C612423007FD2F0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F43B2C612423007FD2F0 /* CoreDataManager.swift */; };
 		D9E6F44D2C614469007FD2F0 /* RadioUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F4492C614469007FD2F0 /* RadioUser+CoreDataClass.swift */; };
@@ -94,6 +94,7 @@
 		A76E5E272C5820CD004A06B3 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A76E5E292C5820E4004A06B3 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		D12BE9922C63CD72002552A4 /* Radio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Radio.xcdatamodel; sourceTree = "<group>"; };
+		D12BE9942C645A9D002552A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D13ADE112C59E43C002B94AE /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		D13ADE132C59E64B002B94AE /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		D1A1D8402C5AE0E600ED1998 /* UIImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView_Extension.swift; sourceTree = "<group>"; };
@@ -138,7 +139,6 @@
 		D9E6F3E12C5FB6A1007FD2F0 /* ResetPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordRequest.swift; sourceTree = "<group>"; };
 		D9E6F3E32C5FB6C0007FD2F0 /* UpdatePasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordRequest.swift; sourceTree = "<group>"; };
 		D9E6F3E52C5FCB11007FD2F0 /* UIResponder_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder_Extension.swift; sourceTree = "<group>"; };
-		D9E6F3E92C5FDB80007FD2F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9E6F4132C612149007FD2F0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D9E6F43B2C612423007FD2F0 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D9E6F4492C614469007FD2F0 /* RadioUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RadioUser+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -217,7 +217,7 @@
 		D9E6F3642C56F362007FD2F0 /* radio-app-ios */ = {
 			isa = PBXGroup;
 			children = (
-				D9E6F3E92C5FDB80007FD2F0 /* GoogleService-Info.plist */,
+				D12BE9942C645A9D002552A4 /* GoogleService-Info.plist */,
 				D9E6F3932C56FD8B007FD2F0 /* Helpers */,
 				D9E6F3922C56FD74007FD2F0 /* Components */,
 				D9E6F3912C56FD6D007FD2F0 /* Extensions */,
@@ -587,7 +587,7 @@
 				D9E6F3722C56F364007FD2F0 /* Base in Resources */,
 				F4DE1C282C59123E00D55FC5 /* SF-Pro-Display-Light.otf in Resources */,
 				F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */,
-				D9E6F3EA2C5FDB80007FD2F0 /* GoogleService-Info.plist in Resources */,
+				D12BE9952C645A9D002552A4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
