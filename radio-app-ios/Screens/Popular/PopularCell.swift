@@ -19,7 +19,7 @@ final class PopularCell: UICollectionViewCell {
     private let votesLabel = UILabel.makeCustomLabelBold(key: "votes", fontSize: 10, textColor: .white, numberOfLines: 1, textAligment: .left)
     private let votesButton = UIButton.makeCustomButtonWithImage(image: Image.heartDeselected)
     private let genreLabel = UILabel.makeCustomLabelBold(key: "POP", fontSize: 22, textColor: .white, numberOfLines: 1, textAligment: .center)
-    private let radioNameLabel = UILabel.makeCustomLabel(key: "Radio Record", fontSize: 12, textColor: .white, numberOfLines: 1, textAligment: .center)
+    private let radioNameLabel = UILabel.makeCustomLabel(key: "Radio Record", fontSize: 11, textColor: .white, numberOfLines: 1, textAligment: .center)
     private let waveImageView = UIImageView()
     
     private var votes = 0
@@ -65,16 +65,16 @@ final class PopularCell: UICollectionViewCell {
             votesLabel.centerYAnchor.constraint(equalTo: votesButton.centerYAnchor),
             
             genreLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            genreLabel.topAnchor.constraint(equalTo: playImage.bottomAnchor, constant: -5),
+            genreLabel.topAnchor.constraint(equalTo: playImage.bottomAnchor, constant: -30),
             
             radioNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            radioNameLabel.topAnchor.constraint(equalTo: genreLabel.bottomAnchor, constant: -10),
+            radioNameLabel.topAnchor.constraint(equalTo: genreLabel.bottomAnchor, constant: -30),
             
             waveImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             waveImageView.topAnchor.constraint(equalTo: radioNameLabel.bottomAnchor, constant: 10),
             waveImageView.widthAnchor.constraint(equalToConstant: 94),
             waveImageView.heightAnchor.constraint(equalToConstant: 23),
-            waveImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
+            waveImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15)
         ])
     }
     
