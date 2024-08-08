@@ -54,7 +54,18 @@
 "AuthSceenPasswordResetSuccessMessage" = "The password reset email has been successfully sent. Please check your email.";
 
 // MARK: - Settings
-"UserName" = "Your name";
-"UserEmail" = "Your email";
+
+// main
+"HeaderUserName" = "Your name";
+"HeaderUserEmail" = "Your email";
 "Log Out" = "Log Out";
+
+// policy
 "MockText" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget ornare quam vel facilisis feugiat amet sagittis arcu, tortor. Sapien, consequat ultrices morbi orci semper sit nulla. Leo auctor ut etiam est, amet aliquet ut vivamus. Odio vulputate est id tincidunt fames";
+
+// edit profile 
+"UserName" = "Full name";
+"UserEmail" = "Email";
+"UserPassword" = "Password";
+"Save Changes" = "Save Changes";
+"ChangeEmailError" = "* Email already exists";

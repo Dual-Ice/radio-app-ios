@@ -37,7 +37,7 @@ enum Color {
         return UIColor (red: 50/255, green: 50/255, blue: 78/255, alpha: 1.0)
     }()
 
-    static let blueArrowBackground: UIColor = {
+    static let buttonWithBlueIconBackground: UIColor = {
         return UIColor (red: 31/255, green: 29/255, blue: 43/255, alpha: 1.0)
     }()
 

@@ -92,7 +92,6 @@ private extension PolicyVC {
             stackView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 100),
 
         ])
-
     }
 
     enum LayoutConstants {

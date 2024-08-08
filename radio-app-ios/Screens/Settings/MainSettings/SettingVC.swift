@@ -11,7 +11,7 @@ final class SettingVC: UIViewController {
 
     // MARK: UI Elements
 
-    private let backgroundView = SettingsView()
+    private let settingsView = SettingsView()
 
     // MARK: Life Cycle
 
@@ -24,15 +24,15 @@ final class SettingVC: UIViewController {
 private extension SettingVC {
 
     func setView() {
-        [backgroundView].forEach { view.addSubview($0) }
+        [settingsView].forEach { view.addSubview($0) }
     }
 
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            settingsView.topAnchor.constraint(equalTo: view.topAnchor),
+            settingsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            settingsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            settingsView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }

@@ -54,7 +54,18 @@
 "AuthSceenPasswordResetSuccessMessage" = "Письмо для сброса пароля успешно отправлено. Пожалуйста, проверьте свою электронную почту.";
 
 // MARK: - Settings
-"UserName" = "Ваше имя";
-"UserEmail" = "Ваша эл.почта";
+
+/// main
+"HeaderUserName" = "Ваше имя";
+"HeaderUserEmail" = "Ваша эл.почта";
 "Log Out" = "Выйти из аккаунта";
+
+// policy
 "MockText" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget ornare quam vel facilisis feugiat amet sagittis arcu, tortor. Sapien, consequat ultrices morbi orci semper sit nulla. Leo auctor ut etiam est, amet aliquet ut vivamus. Odio vulputate est id tincidunt fames";
+
+// edit profile 
+"UserName" = "Ваше имя";
+"UserEmail" = "Email";
+"UserPassword" = "Пароль";
+"Save Changes" = "Сохранить";
+"ChangeEmailError" = "* Почта уже используется";

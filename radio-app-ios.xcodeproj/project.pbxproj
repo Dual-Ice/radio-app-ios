@@ -35,8 +35,8 @@
 		D9E6F39F2C5930CB007FD2F0 /* All.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F39E2C5930CB007FD2F0 /* All.swift */; };
 		D9E6F3A12C5930D5007FD2F0 /* Fav.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3A02C5930D5007FD2F0 /* Fav.swift */; };
 		D9E6F3A32C5930E2007FD2F0 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3A22C5930E2007FD2F0 /* Detail.swift */; };
-		D9E6F3AB2C593117007FD2F0 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AA2C593117007FD2F0 /* Profile.swift */; };
-		D9E6F3AD2C593120007FD2F0 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AC2C593120007FD2F0 /* About.swift */; };
+		D9E6F3AB2C593117007FD2F0 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AA2C593117007FD2F0 /* ProfileVC.swift */; };
+		D9E6F3AD2C593120007FD2F0 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AC2C593120007FD2F0 /* AboutVC.swift */; };
 		D9E6F3AF2C59312E007FD2F0 /* PolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AE2C59312E007FD2F0 /* PolicyVC.swift */; };
 		D9E6F3B22C5BE470007FD2F0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D9E6F3B12C5BE470007FD2F0 /* FirebaseAuth */; };
 		D9E6F3B42C5BE470007FD2F0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D9E6F3B32C5BE470007FD2F0 /* FirebaseFirestore */; };
@@ -71,6 +71,12 @@
 		F482555F2C610E0D00488872 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F482555E2C610E0D00488872 /* GeneralSettingsView.swift */; };
 		F48255652C6120CA00488872 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255642C6120CA00488872 /* SettingVC.swift */; };
 		F48255672C61213700488872 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255662C61213700488872 /* SettingsView.swift */; };
+		F482557E2C63CEDF00488872 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F482557D2C63CEDF00488872 /* ProfileView.swift */; };
+		F48255802C63D15800488872 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F482557F2C63D15800488872 /* AboutView.swift */; };
+		F48255842C63D27700488872 /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255832C63D27700488872 /* NotificationsVC.swift */; };
+		F48255862C63D28200488872 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255852C63D28200488872 /* NotificationsView.swift */; };
+		F48255882C63D28E00488872 /* LanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255872C63D28E00488872 /* LanguageVC.swift */; };
+		F482558A2C63D29A00488872 /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255892C63D29A00488872 /* LanguageView.swift */; };
 		F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */; };
 		F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */; };
 		F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */; };
@@ -116,8 +122,8 @@
 		D9E6F39E2C5930CB007FD2F0 /* All.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = All.swift; sourceTree = "<group>"; };
 		D9E6F3A02C5930D5007FD2F0 /* Fav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fav.swift; sourceTree = "<group>"; };
 		D9E6F3A22C5930E2007FD2F0 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
-		D9E6F3AA2C593117007FD2F0 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		D9E6F3AC2C593120007FD2F0 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
+		D9E6F3AA2C593117007FD2F0 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		D9E6F3AC2C593120007FD2F0 /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		D9E6F3AE2C59312E007FD2F0 /* PolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyVC.swift; sourceTree = "<group>"; };
 		D9E6F3B82C5BE4C6007FD2F0 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		D9E6F3BA2C5BE4E0007FD2F0 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -147,6 +153,12 @@
 		F482555E2C610E0D00488872 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 		F48255642C6120CA00488872 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		F48255662C61213700488872 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F482557D2C63CEDF00488872 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F482557F2C63D15800488872 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		F48255832C63D27700488872 /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
+		F48255852C63D28200488872 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		F48255872C63D28E00488872 /* LanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageVC.swift; sourceTree = "<group>"; };
+		F48255892C63D29A00488872 /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
 		F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel_Extension.swift; sourceTree = "<group>"; };
 		F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_Extension.swift; sourceTree = "<group>"; };
@@ -280,8 +292,10 @@
 		D9E6F37D2C56F51A007FD2F0 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				D9E6F38B2C56F7DB007FD2F0 /* View */,
+				D9E6F38B2C56F7DB007FD2F0 /* MainSettings */,
 				D9E6F38A2C56F7CF007FD2F0 /* Profile */,
+				F48255822C63D23400488872 /* Notifications */,
+				F48255812C63D22B00488872 /* Language */,
 				D9E6F3892C56F7AD007FD2F0 /* About */,
 				D9E6F3882C56F79D007FD2F0 /* Policy */,
 			);
@@ -343,7 +357,8 @@
 		D9E6F3892C56F7AD007FD2F0 /* About */ = {
 			isa = PBXGroup;
 			children = (
-				D9E6F3AC2C593120007FD2F0 /* About.swift */,
+				D9E6F3AC2C593120007FD2F0 /* AboutVC.swift */,
+				F482557F2C63D15800488872 /* AboutView.swift */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -351,12 +366,13 @@
 		D9E6F38A2C56F7CF007FD2F0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				D9E6F3AA2C593117007FD2F0 /* Profile.swift */,
+				D9E6F3AA2C593117007FD2F0 /* ProfileVC.swift */,
+				F482557D2C63CEDF00488872 /* ProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		D9E6F38B2C56F7DB007FD2F0 /* View */ = {
+		D9E6F38B2C56F7DB007FD2F0 /* MainSettings */ = {
 			isa = PBXGroup;
 			children = (
 				F48255642C6120CA00488872 /* SettingVC.swift */,
@@ -364,7 +380,7 @@
 				F482555B2C60D89400488872 /* Small_Views */,
 				F482555A2C60D88C00488872 /* Model */,
 			);
-			path = View;
+			path = MainSettings;
 			sourceTree = "<group>";
 		};
 		D9E6F38E2C56FD36007FD2F0 /* Fonts */ = {
@@ -498,6 +514,24 @@
 			path = Small_Views;
 			sourceTree = "<group>";
 		};
+		F48255812C63D22B00488872 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				F48255872C63D28E00488872 /* LanguageVC.swift */,
+				F48255892C63D29A00488872 /* LanguageView.swift */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		F48255822C63D23400488872 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				F48255832C63D27700488872 /* NotificationsVC.swift */,
+				F48255852C63D28200488872 /* NotificationsView.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		F4DE1C2F2C5A781300D55FC5 /* Network Layer */ = {
 			isa = PBXGroup;
 			children = (
@@ -605,6 +639,7 @@
 				D9E6F3A32C5930E2007FD2F0 /* Detail.swift in Sources */,
 				D9E6F3972C59307F007FD2F0 /* Components.swift in Sources */,
 				D9E6F3D52C5E7D8E007FD2F0 /* FormField.swift in Sources */,
+				F48255882C63D28E00488872 /* LanguageVC.swift in Sources */,
 				243E43692C5BE51F001D958D /* CustomTabBarButton.swift in Sources */,
 				D9E6F3DB2C5E8B6A007FD2F0 /* AlertManager.swift in Sources */,
 				D9E6F3C42C5BE6E3007FD2F0 /* User.swift in Sources */,
@@ -624,6 +659,7 @@
 				F48255672C61213700488872 /* SettingsView.swift in Sources */,
 				D9E6F3C02C5BE61C007FD2F0 /* LoginUserRequest.swift in Sources */,
 				D9E6F3B92C5BE4C6007FD2F0 /* FirestoreManager.swift in Sources */,
+				F482557E2C63CEDF00488872 /* ProfileView.swift in Sources */,
 				F4DE1C2A2C59173500D55FC5 /* Constants.swift in Sources */,
 				F48255572C6042F100488872 /* BaseSettingsView.swift in Sources */,
 				D9E6F3D12C5E53F8007FD2F0 /* ResetPasswordPresenter.swift in Sources */,
@@ -634,6 +670,7 @@
 				F4DE1C1C2C57EDA400D55FC5 /* UI_Components.swift in Sources */,
 				D9E6F3A12C5930D5007FD2F0 /* Fav.swift in Sources */,
 				24008BD32C5C05CB001DF2CF /* AudioPleer.swift in Sources */,
+				F48255842C63D27700488872 /* NotificationsVC.swift in Sources */,
 				F48255592C60D87700488872 /* SettingView.swift in Sources */,
 				F4DE1C352C5A84AE00D55FC5 /* Endpoints.swift in Sources */,
 				F48255652C6120CA00488872 /* SettingVC.swift in Sources */,
@@ -642,18 +679,21 @@
 				D9E6F3E42C5FB6C0007FD2F0 /* UpdatePasswordRequest.swift in Sources */,
 				F482555F2C610E0D00488872 /* GeneralSettingsView.swift in Sources */,
 				F48255552C602A7600488872 /* UserInfoView.swift in Sources */,
+				F48255802C63D15800488872 /* AboutView.swift in Sources */,
 				D13ADE122C59E43D002B94AE /* AuthView.swift in Sources */,
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
 				D9E6F39D2C5930C1007FD2F0 /* Search.swift in Sources */,
+				F48255862C63D28200488872 /* NotificationsView.swift in Sources */,
 				D9E6F3CE2C5E4A12007FD2F0 /* AuthRouter.swift in Sources */,
-				D9E6F3AD2C593120007FD2F0 /* About.swift in Sources */,
+				F482558A2C63D29A00488872 /* LanguageView.swift in Sources */,
+				D9E6F3AD2C593120007FD2F0 /* AboutVC.swift in Sources */,
 				D9E6F3CA2C5E49FC007FD2F0 /* AuthBuilder.swift in Sources */,
 				D9E6F3E62C5FCB11007FD2F0 /* UIResponder_Extension.swift in Sources */,
 				D1A1D8412C5AE0E600ED1998 /* UIImageView_Extension.swift in Sources */,
 				D9E6F39F2C5930CB007FD2F0 /* All.swift in Sources */,
 				243E436B2C5BE51F001D958D /* VerticalTabBarBuilder.swift in Sources */,
 				D9E6F3CC2C5E4A06007FD2F0 /* AuthPresenter.swift in Sources */,
-				D9E6F3AB2C593117007FD2F0 /* Profile.swift in Sources */,
+				D9E6F3AB2C593117007FD2F0 /* ProfileVC.swift in Sources */,
 				F48255472C5D4EE400488872 /* Radio_API_Manager.swift in Sources */,
 				F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */,
 				D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */,

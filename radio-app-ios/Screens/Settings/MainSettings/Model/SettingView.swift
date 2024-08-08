@@ -16,7 +16,7 @@ final class SettingView: UIView {
 
     private let arrowIcon: UIView = {
         let arrowView = UIImageView(image: Image.arrowBlue)
-        arrowView.backgroundColor = Color.blueArrowBackground
+        arrowView.backgroundColor = Color.buttonWithBlueIconBackground
         arrowView.layer.cornerRadius = LayoutConstants.iconSize / 2
         return arrowView
     }()

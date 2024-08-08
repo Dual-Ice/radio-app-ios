@@ -21,14 +21,14 @@ final class UserInfoView: UIView {
     }()
 
     private let userName = UILabel.makeCustomLabel(
-        key: "UserName",
+        key: "HeaderUserName",
         fontSize: 18,
         textColor: .white,
         numberOfLines: 1,
         textAligment: .left)
 
     private let userEmail = UILabel.makeCustomLabel(
-        key: "UserEmail",
+        key: "HeaderUserEmail",
         fontSize: 16,
         textColor: .systemGray,
         numberOfLines: 1,
