@@ -7,17 +7,11 @@
 
 import UIKit
 
-protocol PopularViewDelegate: AnyObject {
-    func cellSelected(at indexPath: IndexPath)
-}
-
 final class PopularView: UIView {
     
     private let headerView = HeaderView()
     private let collectionView: UICollectionView
     private let cellIdentifier = "PopularCell"
-    
-    weak var delegate: PopularViewDelegate?
 
     override init(frame: CGRect) {
         let layout = UICollectionViewFlowLayout()
@@ -41,14 +35,13 @@ final class PopularView: UIView {
     private func setupViews() {
         addSubview(headerView)
         addSubview(collectionView)
+        headerView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
         collectionView.register(PopularCell.self, forCellWithReuseIdentifier: cellIdentifier)
     }
     
     private func setupConstraints() {
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             headerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -62,10 +55,13 @@ final class PopularView: UIView {
         ])
     }
     
-    func setDelegates(_ delegate: PopularViewDelegate, dataSource: UICollectionViewDataSource) {
-        self.delegate = delegate
-        collectionView.delegate = delegate as? UICollectionViewDelegate
-        collectionView.dataSource = dataSource
+    func configureHeader(with username: String, profileImage: UIImage) {
+        headerView.configure(with: username, profileImage: profileImage)
+    }
+    
+    func setDelegates(_ delegate: UICollectionViewDelegate & UICollectionViewDataSource) {
+        collectionView.delegate = delegate
+        collectionView.dataSource = delegate
     }
     
     var getCollectionView: UICollectionView {

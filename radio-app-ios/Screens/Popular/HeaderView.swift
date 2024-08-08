@@ -11,10 +11,7 @@ final class HeaderView: UIView {
     private let playPinkImage = UIImageView.makeSimpleImage(imageName: "playPink")
     private let greetingLabel = UILabel.makeCustomLabelBold(key: "Hello", fontSize: 26, textColor: .white, numberOfLines: 1, textAligment: .left)
     private let usernameLabel = UILabel.makeCustomLabelBold(key: "Mark", fontSize: 26, textColor: Color.customPink, numberOfLines: 1, textAligment: .left)
-    
-    //MARK: Заменить на картинку профиля
     private let profileImageView = RoundedTriangleImageView(frame: CGRect(x: 0, y: 0, width: 70, height: 70), radius: 15)
-//    private let profileButton = UIButton.makeCustomButtonWithImage(image: Image.heartSelected)
     private let titleLabel = UILabel.makeCustomLabel(key: "Popular", fontSize: 30, textColor: .white, numberOfLines: 1, textAligment: .left)
     
     var onProfileTapped: (() -> Void)?
@@ -24,7 +21,6 @@ final class HeaderView: UIView {
         setupViews()
         layoutViews()
         setupActions()
-        loadProfileData()
     }
     
     required init?(coder: NSCoder) {
@@ -32,11 +28,6 @@ final class HeaderView: UIView {
     }
     
     private func setupViews() {
-        profileImageView.layer.masksToBounds = true
-        if let image = UIImage(named: "onboardingBackground") {
-            profileImageView.setImage(image)
-        }
-        
         [playPinkImage, greetingLabel, usernameLabel, profileImageView, titleLabel].forEach { addSubview($0) }
     }
     
@@ -72,20 +63,8 @@ final class HeaderView: UIView {
         onProfileTapped?()
     }
     
-// MARK: Заполнить данные
-    func loadProfileData() {
-        let username = "Mark"
-        let profileImage = Image.heartSelected
-        
-         configure(with: username, profileImage: profileImage!)
-    }
-    
     func configure(with username: String, profileImage: UIImage) {
         usernameLabel.text = username
         profileImageView.setImage(profileImage)
-    }
-    
-    func setTitle(_ title: String) {
-        titleLabel.text = title
     }
 }

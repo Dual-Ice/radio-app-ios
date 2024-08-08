@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol PopularCellDelegate: AnyObject {
+    func vote(for stationuuid: String)
+}
+
 final class PopularCell: UICollectionViewCell {
     
-//    private let playButton = UIButton.makeCustomButtonWithImage(image: Image.playWhite)
+    weak var delegate: PopularCellDelegate?
+    
     private let playImage = UIImageView.makeSimpleImage(imageName: "playWhite")
     private let votesLabel = UILabel.makeCustomLabelBold(key: "votes", fontSize: 10, textColor: .white, numberOfLines: 1, textAligment: .left)
     private let votesButton = UIButton.makeCustomButtonWithImage(image: Image.heartDeselected)
@@ -19,6 +24,7 @@ final class PopularCell: UICollectionViewCell {
     
     private var votes = 0
     private var hasVoted = false
+    private var stationuuid: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,16 +79,15 @@ final class PopularCell: UICollectionViewCell {
     }
     
     @objc private func votesButtonTapped() {
-        if hasVoted {
-            hasVoted = false
-            votes -= 1
-            votesButton.setImage(UIImage(named: "heartDeselected"), for: .normal)
-        } else {
+        if !hasVoted {
             hasVoted = true
             votes += 1
             votesButton.setImage(UIImage(named: "heartSelected"), for: .normal)
+            updateVotesLabel()
+            if let stationuuid = stationuuid {
+                delegate?.vote(for: stationuuid)
+            }
         }
-        updateVotesLabel()
     }
     
     private func updateVotesLabel() {

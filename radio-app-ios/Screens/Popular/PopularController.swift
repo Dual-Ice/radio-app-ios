@@ -32,8 +32,13 @@ final class PopularController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        popularView.setDelegates(self, dataSource: self)
+        popularView.setDelegates(self)
         fetchPopularStations()
+        
+        // MARK: - Заменить на данные с профиля
+        if let profileImage = UIImage(named: "onboardingBackground") {
+            popularView.configureHeader(with: "Mark", profileImage: profileImage)
+        }
     }
     
     private func fetchPopularStations() {
@@ -47,15 +52,6 @@ final class PopularController: UIViewController {
                 }
             }
         }
-    }
-}
-
-extension PopularController: PopularViewDelegate {
-    
-    func cellSelected(at indexPath: IndexPath) {
-        selectedIndexPath = indexPath
-        popularView.getCollectionView.reloadData()
-        print("Selected cell at \(indexPath)")
     }
 }
 
@@ -85,6 +81,19 @@ extension PopularController: UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        cellSelected(at: indexPath)
+        selectedIndexPath = indexPath
+        popularView.getCollectionView.reloadData()
+        print("Selected cell at \(indexPath)")
     }
+    // MARK: - Активировать когда будет метод
+//    func vote(for stationuuid: String) {
+//        apiManager.vote(for: stationuuid) { [weak self] result in
+//            switch result {
+//            case .success:
+//                print("Vote registered for station \(stationuuid)")
+//            case .failure(let error):
+//                print("Failed to register vote: \(error)")
+//            }
+//        }
+//    }
 }
