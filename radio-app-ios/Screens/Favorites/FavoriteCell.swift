@@ -63,7 +63,7 @@ final class FavoriteCell: UICollectionViewCell {
 	private func setupView() {
 		backgroundColor = .clear
 		contentView.layer.borderWidth = 2
-		contentView.layer.borderColor = #colorLiteral(red: 0.2560741901, green: 0.2609855533, blue: 0.3792468607, alpha: 1)
+		contentView.layer.borderColor = Color.cellBorder.cgColor
 		contentView.layer.cornerRadius = 15
 
 		buttonHeart.addTarget(

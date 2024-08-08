@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		876A05952C5A54A60080F344 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A05942C5A54A60080F344 /* FavoritesView.swift */; };
-		876A05972C5C26000080F344 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A05962C5C26000080F344 /* FavoriteCell.swift */; };
 		24008BD32C5C05CB001DF2CF /* AudioPleer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24008BD22C5C05CB001DF2CF /* AudioPleer.swift */; };
 		243E43692C5BE51F001D958D /* CustomTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43632C5BE51F001D958D /* CustomTabBarButton.swift */; };
 		243E436A2C5BE51F001D958D /* VerticalTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43642C5BE51F001D958D /* VerticalTabBar.swift */; };
 		243E436B2C5BE51F001D958D /* VerticalTabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43652C5BE51F001D958D /* VerticalTabBarBuilder.swift */; };
 		243E436C2C5BE51F001D958D /* VerticalTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43662C5BE51F001D958D /* VerticalTabBarController.swift */; };
 		243E436D2C5BE51F001D958D /* VerticalTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43672C5BE51F001D958D /* VerticalTabBarPresenter.swift */; };
+		876A05952C5A54A60080F344 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A05942C5A54A60080F344 /* FavoritesView.swift */; };
+		876A05972C5C26000080F344 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A05962C5C26000080F344 /* FavoriteCell.swift */; };
+		87959E3B2C62731B00626EB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87959E3A2C62731B00626EB0 /* GoogleService-Info.plist */; };
+		87959E422C62757800626EB0 /* Radio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87959E402C62757800626EB0 /* Radio.xcdatamodeld */; };
 		A76E5E282C5820CD004A06B3 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E272C5820CD004A06B3 /* WelcomeView.swift */; };
 		A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E292C5820E4004A06B3 /* WelcomeController.swift */; };
 		D13ADE122C59E43D002B94AE /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13ADE112C59E43C002B94AE /* AuthView.swift */; };
@@ -64,9 +65,7 @@
 		D9E6F3E22C5FB6A1007FD2F0 /* ResetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3E12C5FB6A1007FD2F0 /* ResetPasswordRequest.swift */; };
 		D9E6F3E42C5FB6C0007FD2F0 /* UpdatePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3E32C5FB6C0007FD2F0 /* UpdatePasswordRequest.swift */; };
 		D9E6F3E62C5FCB11007FD2F0 /* UIResponder_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3E52C5FCB11007FD2F0 /* UIResponder_Extension.swift */; };
-		D9E6F3EA2C5FDB80007FD2F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9E6F3E92C5FDB80007FD2F0 /* GoogleService-Info.plist */; };
 		D9E6F4142C612149007FD2F0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E6F4132C612149007FD2F0 /* CoreData.framework */; };
-		D9E6F4172C612162007FD2F0 /* Radio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F4152C612162007FD2F0 /* Radio.xcdatamodeld */; };
 		D9E6F43C2C612423007FD2F0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F43B2C612423007FD2F0 /* CoreDataManager.swift */; };
 		D9E6F44D2C614469007FD2F0 /* RadioUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F4492C614469007FD2F0 /* RadioUser+CoreDataClass.swift */; };
 		D9E6F44E2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F44A2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift */; };
@@ -88,15 +87,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-
-		876A05942C5A54A60080F344 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		876A05962C5C26000080F344 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		24008BD22C5C05CB001DF2CF /* AudioPleer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPleer.swift; sourceTree = "<group>"; };
 		243E43632C5BE51F001D958D /* CustomTabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarButton.swift; sourceTree = "<group>"; };
 		243E43642C5BE51F001D958D /* VerticalTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBar.swift; sourceTree = "<group>"; };
 		243E43652C5BE51F001D958D /* VerticalTabBarBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarBuilder.swift; sourceTree = "<group>"; };
 		243E43662C5BE51F001D958D /* VerticalTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarController.swift; sourceTree = "<group>"; };
 		243E43672C5BE51F001D958D /* VerticalTabBarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarPresenter.swift; sourceTree = "<group>"; };
+		876A05942C5A54A60080F344 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		876A05962C5C26000080F344 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		87959E3A2C62731B00626EB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		87959E412C62757800626EB0 /* Radio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Radio.xcdatamodel; sourceTree = "<group>"; };
 		A76E5E272C5820CD004A06B3 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A76E5E292C5820E4004A06B3 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		D13ADE112C59E43C002B94AE /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -143,9 +143,7 @@
 		D9E6F3E12C5FB6A1007FD2F0 /* ResetPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordRequest.swift; sourceTree = "<group>"; };
 		D9E6F3E32C5FB6C0007FD2F0 /* UpdatePasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordRequest.swift; sourceTree = "<group>"; };
 		D9E6F3E52C5FCB11007FD2F0 /* UIResponder_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder_Extension.swift; sourceTree = "<group>"; };
-		D9E6F3E92C5FDB80007FD2F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9E6F4132C612149007FD2F0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		D9E6F4162C612162007FD2F0 /* Radio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Radio.xcdatamodel; sourceTree = "<group>"; };
 		D9E6F43B2C612423007FD2F0 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D9E6F4492C614469007FD2F0 /* RadioUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RadioUser+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		D9E6F44A2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RadioUser+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -223,7 +221,7 @@
 		D9E6F3642C56F362007FD2F0 /* radio-app-ios */ = {
 			isa = PBXGroup;
 			children = (
-				D9E6F3E92C5FDB80007FD2F0 /* GoogleService-Info.plist */,
+				87959E3A2C62731B00626EB0 /* GoogleService-Info.plist */,
 				D9E6F3932C56FD8B007FD2F0 /* Helpers */,
 				D9E6F3922C56FD74007FD2F0 /* Components */,
 				D9E6F3912C56FD6D007FD2F0 /* Extensions */,
@@ -494,7 +492,7 @@
 				D9E6F44A2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift */,
 				D9E6F44B2C614469007FD2F0 /* FavoriteStation+CoreDataClass.swift */,
 				D9E6F44C2C614469007FD2F0 /* FavoriteStation+CoreDataProperties.swift */,
-				D9E6F4152C612162007FD2F0 /* Radio.xcdatamodeld */,
+				87959E402C62757800626EB0 /* Radio.xcdatamodeld */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -595,7 +593,7 @@
 				D9E6F3722C56F364007FD2F0 /* Base in Resources */,
 				F4DE1C282C59123E00D55FC5 /* SF-Pro-Display-Light.otf in Resources */,
 				F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */,
-				D9E6F3EA2C5FDB80007FD2F0 /* GoogleService-Info.plist in Resources */,
+				87959E3B2C62731B00626EB0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,7 +625,6 @@
 				D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */,
 				D9E6F3BB2C5BE4E0007FD2F0 /* AuthManager.swift in Sources */,
 				A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */,
-				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
 				D9E6F3BE2C5BE57E007FD2F0 /* RegisterUserRequest.swift in Sources */,
 				A76E5E282C5820CD004A06B3 /* WelcomeView.swift in Sources */,
 				D9E6F3C02C5BE61C007FD2F0 /* LoginUserRequest.swift in Sources */,
@@ -637,7 +634,6 @@
 				D9E6F3D12C5E53F8007FD2F0 /* ResetPasswordPresenter.swift in Sources */,
 				243E436D2C5BE51F001D958D /* VerticalTabBarPresenter.swift in Sources */,
 				D9E6F3C22C5BE6BD007FD2F0 /* UserManager.swift in Sources */,
-				D9E6F4172C612162007FD2F0 /* Radio.xcdatamodeld in Sources */,
 				D9E6F3D92C5E8AC9007FD2F0 /* AuthAlertManager.swift in Sources */,
 				F4DE1C1C2C57EDA400D55FC5 /* UI_Components.swift in Sources */,
 				D9E6F3A12C5930D5007FD2F0 /* FavoritesController.swift in Sources */,
@@ -667,6 +663,7 @@
 				F48255472C5D4EE400488872 /* Radio_API_Manager.swift in Sources */,
 				F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */,
 				D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */,
+				87959E422C62757800626EB0 /* Radio.xcdatamodeld in Sources */,
 				D9E6F3D72C5E88AF007FD2F0 /* ValidationManager.swift in Sources */,
 				243E436C2C5BE51F001D958D /* VerticalTabBarController.swift in Sources */,
 				D9E6F3AF2C59312E007FD2F0 /* Policy.swift in Sources */,
@@ -957,14 +954,14 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		D9E6F4152C612162007FD2F0 /* Radio.xcdatamodeld */ = {
+		87959E402C62757800626EB0 /* Radio.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D9E6F4162C612162007FD2F0 /* Radio.xcdatamodel */,
+				87959E412C62757800626EB0 /* Radio.xcdatamodel */,
 			);
-			currentVersion = D9E6F4162C612162007FD2F0 /* Radio.xcdatamodel */;
+			currentVersion = 87959E412C62757800626EB0 /* Radio.xcdatamodel */;
 			name = Radio.xcdatamodeld;
-			path = "/Users/m_stogniy/Develop/Projects/radio-app-ios/radio-app-ios/Models/DB/Radio.xcdatamodeld";
+			path = "Radio.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
