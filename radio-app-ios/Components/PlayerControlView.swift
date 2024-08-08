@@ -14,11 +14,7 @@ protocol PlayerControlViewDelegate: AnyObject {
 }
 
 final class PlayerControlView: UIView {
-    private let centralButton: UIButton = {
-        let button = UIButton()
-        button.setImage(Image.playerCentral, for: .normal)
-        return button
-    }()
+    private let centralButton: UIButton = UIButton.makeCustomButtonWithImage(image: Image.playerCentral!)
     
     private let playerStateView: UIImageView = {
         let view = UIImageView()
@@ -28,17 +24,9 @@ final class PlayerControlView: UIView {
         return view
     }()
     
-    private let backButton: UIButton = {
-        let button = UIButton()
-        button.setImage(Image.playerBack, for: .normal)
-        return button
-    }()
+    private let backButton: UIButton = UIButton.makeCustomButtonWithImage(image: Image.playerBack!)
     
-    private let nextButton: UIButton = {
-        let button = UIButton()
-        button.setImage(Image.playerNext, for: .normal)
-        return button
-    }()
+    private let nextButton: UIButton = UIButton.makeCustomButtonWithImage(image: Image.playerNext!)
     
     weak var delegate: PlayerControlViewDelegate?
     
@@ -81,7 +69,6 @@ extension PlayerControlView {
             backButton,
             nextButton
         ].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
         }
     }
