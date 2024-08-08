@@ -54,6 +54,12 @@ final class PopularController: UIViewController {
     }
 }
 
+extension PopularController: HeaderViewDelegate {
+    func profileTapped() {
+        print("go to profile")
+    }
+}
+
 extension PopularController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -61,7 +67,7 @@ extension PopularController: UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularCell", for: indexPath) as? PopularCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularCell.identifier, for: indexPath) as? PopularCell else {
             return UICollectionViewCell()
         }
         

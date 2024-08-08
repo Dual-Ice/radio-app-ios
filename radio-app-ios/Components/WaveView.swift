@@ -10,7 +10,7 @@ import UIKit
 final class WaveView: UIView {
 
     private var waveColor: UIColor = .white
-    var dotColor: UIColor!
+    private var dotColor: UIColor!
     private var isActive: Bool = true
     
     init(frame: CGRect, dotColor: UIColor) {
@@ -31,10 +31,14 @@ final class WaveView: UIView {
         drawWave(in: rect)
     }
     
-    func toggleWaveColor() {
-        isActive = !isActive
+    func toggleWaveColor(active: Bool) {
+        isActive = active
         self.waveColor = isActive ? .white : .white.withAlphaComponent(0.5)
         self.setNeedsDisplay()
+    }
+    
+    func setDotColor(color: UIColor) {
+        dotColor = color
     }
     
     private func drawWave(in rect: CGRect) {

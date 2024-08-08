@@ -12,6 +12,7 @@ protocol PopularCellDelegate: AnyObject {
 }
 
 final class PopularCell: UICollectionViewCell {
+    static let identifier = PopularCell.debugDescription()
     
     weak var delegate: PopularCellDelegate?
     
@@ -103,7 +104,7 @@ final class PopularCell: UICollectionViewCell {
         self.radioNameLabel.text = subtitle
         self.votes = votes
         self.hasVoted = false
-        self.waveView.dotColor = dotColor
+        self.waveView.setDotColor(color: dotColor)
         self.waveView.setNeedsDisplay() // Обновляем отображение цвета точки
         
         updateVotesLabel()
@@ -119,7 +120,7 @@ final class PopularCell: UICollectionViewCell {
             votesLabel.textColor = .white
             votesButton.tintColor = .white
             playImage.isHidden = false
-            waveView.alpha = 1
+            waveView.toggleWaveColor(active: true)
             return
         }
         backgroundColor = .clear
@@ -129,15 +130,16 @@ final class PopularCell: UICollectionViewCell {
         votesLabel.textColor = Color.customGray
         votesButton.tintColor = Color.customGray
         playImage.isHidden = true
-        waveView.alpha = 0.5
+        waveView.toggleWaveColor(active: false)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        playImage.image = Image.playWhite
+        playImage.image = nil
         hasVoted = false
         votes = 0
-        waveView.dotColor = .red
+        waveView.setDotColor(color: .red)
+        waveView.toggleWaveColor(active: false)
         waveView.setNeedsDisplay()
         updateVotesLabel()
         updateAppearance(isActive: false)

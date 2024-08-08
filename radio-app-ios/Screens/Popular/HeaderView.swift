@@ -7,14 +7,20 @@
 
 import UIKit
 
+
+protocol HeaderViewDelegate: AnyObject {
+    func profileTapped()
+}
+
 final class HeaderView: UIView {
+    
+    weak var delegate: HeaderViewDelegate?
+    
     private let playPinkImage = UIImageView.makeSimpleImage(imageName: "playPink")
     private let greetingLabel = UILabel.makeCustomLabelBold(key: "Hello", fontSize: 26, textColor: .white, numberOfLines: 1, textAligment: .left)
     private let usernameLabel = UILabel.makeCustomLabelBold(key: "Mark", fontSize: 26, textColor: Color.customPink, numberOfLines: 1, textAligment: .left)
-    private let profileImageView = RoundedTriangleImageView(frame: CGRect(x: 0, y: 0, width: 70, height: 70), radius: 15)
+    private let profileImageView = RoundedTriangleImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50), radius: 10)
     private let titleLabel = UILabel.makeCustomLabel(key: "Popular", fontSize: 30, textColor: .white, numberOfLines: 1, textAligment: .left)
-    
-    var onProfileTapped: (() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,8 +52,8 @@ final class HeaderView: UIView {
             
             profileImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             profileImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            profileImageView.widthAnchor.constraint(equalToConstant: 30),
-            profileImageView.heightAnchor.constraint(equalToConstant: 30),
+            profileImageView.widthAnchor.constraint(equalToConstant: 50),
+            profileImageView.heightAnchor.constraint(equalToConstant: 50),
             
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
             titleLabel.topAnchor.constraint(equalTo: playPinkImage.bottomAnchor, constant: 20)
@@ -57,14 +63,19 @@ final class HeaderView: UIView {
     private func setupActions() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileTapped))
         profileImageView.addGestureRecognizer(tapGestureRecognizer)
-        profileImageView.isUserInteractionEnabled = true }
+        profileImageView.isUserInteractionEnabled = true
+    }
     
     @objc private func profileTapped() {
-        onProfileTapped?()
+        delegate?.profileTapped()
     }
     
     func configure(with username: String, profileImage: UIImage) {
         usernameLabel.text = username
         profileImageView.setImage(profileImage)
+    }
+    
+    func setDelegate(value: HeaderViewDelegate) {
+        delegate = value
     }
 }

@@ -11,7 +11,6 @@ final class PopularView: UIView {
     
     private let headerView = HeaderView()
     private let collectionView: UICollectionView
-    private let cellIdentifier = "PopularCell"
 
     override init(frame: CGRect) {
         let layout = UICollectionViewFlowLayout()
@@ -38,7 +37,7 @@ final class PopularView: UIView {
         headerView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
-        collectionView.register(PopularCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.register(PopularCell.self, forCellWithReuseIdentifier: PopularCell.identifier)
     }
     
     private func setupConstraints() {
@@ -59,9 +58,10 @@ final class PopularView: UIView {
         headerView.configure(with: username, profileImage: profileImage)
     }
     
-    func setDelegates(_ delegate: UICollectionViewDelegate & UICollectionViewDataSource) {
+    func setDelegates(_ delegate: PopularController) {
         collectionView.delegate = delegate
         collectionView.dataSource = delegate
+        headerView.setDelegate(value: delegate)
     }
     
     var getCollectionView: UICollectionView {
