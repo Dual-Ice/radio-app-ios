@@ -77,6 +77,9 @@
 		F48255862C63D28200488872 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255852C63D28200488872 /* NotificationsView.swift */; };
 		F48255882C63D28E00488872 /* LanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255872C63D28E00488872 /* LanguageVC.swift */; };
 		F482558A2C63D29A00488872 /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255892C63D29A00488872 /* LanguageView.swift */; };
+		F482558C2C64F12B00488872 /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F482558B2C64F12A00488872 /* LanguageCell.swift */; };
+		F482558E2C651E7100488872 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F482558D2C651E7100488872 /* SettingsBuilder.swift */; };
+		F48255942C65206800488872 /* LanguagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255932C65206800488872 /* LanguagePresenter.swift */; };
 		F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */; };
 		F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */; };
 		F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */; };
@@ -159,6 +162,9 @@
 		F48255852C63D28200488872 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		F48255872C63D28E00488872 /* LanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageVC.swift; sourceTree = "<group>"; };
 		F48255892C63D29A00488872 /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
+		F482558B2C64F12A00488872 /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
+		F482558D2C651E7100488872 /* SettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
+		F48255932C65206800488872 /* LanguagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePresenter.swift; sourceTree = "<group>"; };
 		F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel_Extension.swift; sourceTree = "<group>"; };
 		F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_Extension.swift; sourceTree = "<group>"; };
@@ -293,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				D9E6F38B2C56F7DB007FD2F0 /* MainSettings */,
+				F482558F2C651E7500488872 /* ModuleBuilder */,
 				D9E6F38A2C56F7CF007FD2F0 /* Profile */,
 				F48255822C63D23400488872 /* Notifications */,
 				F48255812C63D22B00488872 /* Language */,
@@ -366,8 +373,7 @@
 		D9E6F38A2C56F7CF007FD2F0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				D9E6F3AA2C593117007FD2F0 /* ProfileVC.swift */,
-				F482557D2C63CEDF00488872 /* ProfileView.swift */,
+				F48255902C651E7D00488872 /* View */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -517,8 +523,8 @@
 		F48255812C63D22B00488872 /* Language */ = {
 			isa = PBXGroup;
 			children = (
-				F48255872C63D28E00488872 /* LanguageVC.swift */,
-				F48255892C63D29A00488872 /* LanguageView.swift */,
+				F48255912C65203A00488872 /* View */,
+				F48255922C65204600488872 /* Presenter */,
 			);
 			path = Language;
 			sourceTree = "<group>";
@@ -530,6 +536,41 @@
 				F48255852C63D28200488872 /* NotificationsView.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		F482558F2C651E7500488872 /* ModuleBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				F482558D2C651E7100488872 /* SettingsBuilder.swift */,
+			);
+			path = ModuleBuilder;
+			sourceTree = "<group>";
+		};
+		F48255902C651E7D00488872 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9E6F3AA2C593117007FD2F0 /* ProfileVC.swift */,
+				F482557D2C63CEDF00488872 /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F48255912C65203A00488872 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F48255872C63D28E00488872 /* LanguageVC.swift */,
+				F48255892C63D29A00488872 /* LanguageView.swift */,
+				F482558B2C64F12A00488872 /* LanguageCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F48255922C65204600488872 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F48255932C65206800488872 /* LanguagePresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		F4DE1C2F2C5A781300D55FC5 /* Network Layer */ = {
@@ -662,6 +703,8 @@
 				F482557E2C63CEDF00488872 /* ProfileView.swift in Sources */,
 				F4DE1C2A2C59173500D55FC5 /* Constants.swift in Sources */,
 				F48255572C6042F100488872 /* BaseSettingsView.swift in Sources */,
+				F48255942C65206800488872 /* LanguagePresenter.swift in Sources */,
+				F482558E2C651E7100488872 /* SettingsBuilder.swift in Sources */,
 				D9E6F3D12C5E53F8007FD2F0 /* ResetPasswordPresenter.swift in Sources */,
 				243E436D2C5BE51F001D958D /* VerticalTabBarPresenter.swift in Sources */,
 				D9E6F3C22C5BE6BD007FD2F0 /* UserManager.swift in Sources */,
@@ -669,6 +712,7 @@
 				F482555D2C60F93900488872 /* MoreSettingsView.swift in Sources */,
 				F4DE1C1C2C57EDA400D55FC5 /* UI_Components.swift in Sources */,
 				D9E6F3A12C5930D5007FD2F0 /* Fav.swift in Sources */,
+				F482558C2C64F12B00488872 /* LanguageCell.swift in Sources */,
 				24008BD32C5C05CB001DF2CF /* AudioPleer.swift in Sources */,
 				F48255842C63D27700488872 /* NotificationsVC.swift in Sources */,
 				F48255592C60D87700488872 /* SettingView.swift in Sources */,

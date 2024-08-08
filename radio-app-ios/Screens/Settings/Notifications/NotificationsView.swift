@@ -79,7 +79,7 @@ final class NotificationsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setView()
-        setupContraints()
+        setupConstraints()
     }
 
     required init?(coder: NSCoder) {
@@ -97,7 +97,7 @@ private extension NotificationsView {
         [titleLabel, showNotificationsLabel, sendNotificationsLabel, toggle, timePicker].forEach { mainView.addSubview($0) }
     }
 
-    func setupContraints() {
+    func setupConstraints() {
 
         NSLayoutConstraint.activate([
 

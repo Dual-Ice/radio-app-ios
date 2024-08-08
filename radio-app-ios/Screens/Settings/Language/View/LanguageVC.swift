@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol LanguageVCProtocol: AnyObject {
+}
+
 final class LanguageVC: UIViewController {
+
+    var presenter: LanguagePresenterProtocol!
 
     // MARK: UI Elements
 
@@ -47,4 +52,8 @@ private extension LanguageVC {
     enum LayoutConstants {
 
     }
+}
+
+    // MARK: LanguageVCProtocol
+extension LanguageVC: LanguageVCProtocol {
 }
