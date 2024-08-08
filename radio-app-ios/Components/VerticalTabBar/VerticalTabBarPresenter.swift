@@ -40,9 +40,10 @@ final class VerticalTabBarPresenter: VerticalTabBarPresenterProtocol {
 
 
 
+import AVFoundation
+
 #warning("TO DO: Заглушки. Удалить после заполнения viewControllers[:]")
 class testVC: UIViewController {
-    
     let moks: [String] = [
         "https://0n-jazz.radionetz.de/0n-jazz.mp3",
         "https://stream.rockantenne.de/alternative/stream/mp3",
@@ -51,9 +52,12 @@ class testVC: UIViewController {
         "https://drive.uber.radio/uber/crberlinphilharmonic/icecast.audio"
     ]
     
-    let controler = PlayerControlView()
-        
+    let playerControler = PlayerControlView()
+    
+    let volumeControler = VolumeControlView()
+            
     override func loadView() {
+        
         let testView = UIView()
         testView.backgroundColor = Color.backgroundBlue
         let label = UILabel()
@@ -66,13 +70,16 @@ class testVC: UIViewController {
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        controler.translatesAutoresizingMaskIntoConstraints = false
-        controler.delegate = self
+        playerControler.translatesAutoresizingMaskIntoConstraints = false
+        playerControler.delegate = self
+        
+        volumeControler.translatesAutoresizingMaskIntoConstraints = false
         
         [
             label,
             button,
-            controler
+            playerControler,
+            volumeControler
         ].forEach {
             testView.addSubview($0)
         }
@@ -83,16 +90,22 @@ class testVC: UIViewController {
             button.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
             button.topAnchor.constraint(equalTo: label.bottomAnchor),
             
-            controler.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
-            controler.widthAnchor.constraint(equalTo: testView.widthAnchor, multiplier: 255/335),
-            controler.heightAnchor.constraint(equalTo: controler.widthAnchor, multiplier: 127/255),
-            controler.bottomAnchor.constraint(equalTo: testView.bottomAnchor, constant: -75)
+            volumeControler.bottomAnchor.constraint(equalTo: testView.bottomAnchor, constant: -50),
+            volumeControler.leadingAnchor.constraint(equalTo: testView.leadingAnchor, constant: 38),
+            volumeControler.trailingAnchor.constraint(equalTo: testView.trailingAnchor, constant: -38),
+            volumeControler.heightAnchor.constraint(equalToConstant: 16),
+            
+            playerControler.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
+            playerControler.widthAnchor.constraint(equalTo: testView.widthAnchor, multiplier: 255/335),
+            playerControler.heightAnchor.constraint(equalTo: playerControler.widthAnchor, multiplier: 127/255),
+            playerControler.bottomAnchor.constraint(equalTo: volumeControler.topAnchor, constant: -30),
         ])
         view = testView
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        controler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
+        playerControler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
+        volumeControler.updateSliderValue(to: AudioPleer.shared.playerVolume)
     }
     
     @objc private func buttonTapped(_ sender: CustomTabBarButton) {
@@ -113,18 +126,18 @@ class testVC: UIViewController {
 extension testVC: PlayerControlViewDelegate {
     func backButtonTapped() {
         AudioPleer.shared.loadMusic(from: moks.randomElement() ?? "")
-        controler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
+        playerControler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
     }
     
     func centralButtonTapped() {
         AudioPleer.shared.isPlaying ? AudioPleer.shared.pauseMusic() : AudioPleer.shared.playMusic()
-        controler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
+        playerControler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
     }
     
     func nextButtonTapped() {
         let state = AudioPleer.shared.isPlaying
         AudioPleer.shared.loadMusic(from: moks.randomElement() ?? "")
         state ? AudioPleer.shared.playMusic() : AudioPleer.shared.pauseMusic()
-        controler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
+        playerControler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
     }
 }

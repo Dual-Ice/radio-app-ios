@@ -8,11 +8,17 @@
 import AVFoundation
 
 final class AudioPleer {
-    private var player: AVPlayer?
-    
     static let shared = AudioPleer()
     
+    private var player: AVPlayer?
+    
     private(set) var isPlaying: Bool = false
+    
+    private(set) var playerVolume: Float = 0.1 {
+        didSet {
+            player?.volume = playerVolume
+        }
+    }
     
     private init() {}
     
@@ -23,6 +29,7 @@ final class AudioPleer {
             return
         }
         player = AVPlayer(url: streamURL)
+        setVolume(playerVolume)
     }
     
     func playMusic() {
@@ -33,5 +40,9 @@ final class AudioPleer {
     func pauseMusic() {
         isPlaying = false
         player?.pause()
+    }
+    
+    func setVolume(_ value: Float) {
+        playerVolume = value
     }
 }
