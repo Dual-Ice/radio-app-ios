@@ -27,6 +27,7 @@
 		D1A1D8452C5B179E00ED1998 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1D8442C5B179E00ED1998 /* PasswordView.swift */; };
 		D1A1D8472C5B17B400ED1998 /* PasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1D8462C5B17B400ED1998 /* PasswordController.swift */; };
 		D9CB16872C64C4FE009D50A9 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB16862C64C4FE009D50A9 /* DetailRouter.swift */; };
+		D9CB168D2C64DB70009D50A9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D9CB168C2C64DB70009D50A9 /* Kingfisher */; };
 		D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */; };
 		D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */; };
 		D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3692C56F362007FD2F0 /* PopularController.swift */; };
@@ -183,6 +184,7 @@
 			files = (
 				D9E6F3E02C5E9290007FD2F0 /* GoogleSignInSwift in Frameworks */,
 				D9E6F4142C612149007FD2F0 /* CoreData.framework in Frameworks */,
+				D9CB168D2C64DB70009D50A9 /* Kingfisher in Frameworks */,
 				D9E6F3B22C5BE470007FD2F0 /* FirebaseAuth in Frameworks */,
 				D9E6F3DE2C5E9290007FD2F0 /* GoogleSignIn in Frameworks */,
 				D9E6F3C82C5BFF8F007FD2F0 /* FirebaseAppCheck in Frameworks */,
@@ -557,6 +559,7 @@
 				D9E6F3C72C5BFF8F007FD2F0 /* FirebaseAppCheck */,
 				D9E6F3DD2C5E9290007FD2F0 /* GoogleSignIn */,
 				D9E6F3DF2C5E9290007FD2F0 /* GoogleSignInSwift */,
+				D9CB168C2C64DB70009D50A9 /* Kingfisher */,
 			);
 			productName = "radio-app-ios";
 			productReference = D9E6F3622C56F362007FD2F0 /* radio-app-ios.app */;
@@ -590,6 +593,7 @@
 			packageReferences = (
 				D9E6F3B02C5BE470007FD2F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D9E6F3DC2C5E9290007FD2F0 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				D9CB168B2C64DB70009D50A9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = D9E6F3632C56F362007FD2F0 /* Products */;
 			projectDirPath = "";
@@ -932,6 +936,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D9CB168B2C64DB70009D50A9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
 		D9E6F3B02C5BE470007FD2F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -951,6 +963,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D9CB168C2C64DB70009D50A9 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9CB168B2C64DB70009D50A9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		D9E6F3B12C5BE470007FD2F0 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D9E6F3B02C5BE470007FD2F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -985,8 +1002,7 @@
 				D9E6F4162C612162007FD2F0 /* Radio.xcdatamodel */,
 			);
 			currentVersion = D9E6F4162C612162007FD2F0 /* Radio.xcdatamodel */;
-			name = Radio.xcdatamodeld;
-			path = "Radio.xcdatamodeld";
+			path = Radio.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
