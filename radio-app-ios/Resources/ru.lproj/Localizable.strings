@@ -12,6 +12,7 @@
 "ButtonGetStarted" = "Начать прослушивание";
 "WelcomeTitleLabel" = "Давайте\nначнем";
 "WelcomeLabel" = "Наслаждайтесь лучшими\nрадиостанциями из вашего дома,\nне пропустите ничего.";
+"Hello" = "Привет";
 "Popular" = "Популярное";
 "Favorites" = "Избранное";
 "AllStations" = "Все станции";
@@ -55,3 +56,6 @@
 "AuthSceenResetPasswordErrorTitle" = "Упс, ошибка";
 "AuthSceenPasswordResetSuccessTitle" = "Сброс пароля";
 "AuthSceenPasswordResetSuccessMessage" = "Письмо для сброса пароля успешно отправлено. Пожалуйста, проверьте свою электронную почту.";
+
+//MARK: - Popular
+"votes" = "голоса %d";

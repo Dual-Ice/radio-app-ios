@@ -29,6 +29,10 @@ enum Color {
         return UIColor (red: 255/255, green: 41/255, blue: 109/255, alpha: 1.0)
     }()
     
+    static let customGray: UIColor = {
+        return UIColor(red: 50/255, green: 50/255, blue: 78/255, alpha: 1.0)
+    }()
+    
     static let verticvalTabBar: UIColor = {
         return UIColor (red: 8/255, green: 8/255, blue: 51/255, alpha: 1.0)
     }()

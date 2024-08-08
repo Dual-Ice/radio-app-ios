@@ -53,6 +53,12 @@ extension UIButton {
         return button
     }
     
+    static func makeCustomButtonWithImage(image: UIImage?) -> UIButton {
+        let button = UIButton()
+        button.setImage(image ?? Image.heartBlue, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
     // кнопка без текста
     static func makeCustomPlainButton(title: String?, fontSize: CGFloat) -> UIButton {
         let button = UIButton()
