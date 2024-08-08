@@ -39,7 +39,7 @@ final class FavoriteCell: UICollectionViewCell {
 		imageName: "waveRed" // test
 	)
 
-	private var buttonHeart = UIButton.makeCustomButtonWithHeart()
+	private var buttonHeart = UIButton.makeCustomButtonWithImage(image: .heartBlue)
 
 	// MARK: - Life Cycle
 	override init(frame: CGRect) {
