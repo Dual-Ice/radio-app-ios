@@ -13,7 +13,6 @@
 		243E436B2C5BE51F001D958D /* VerticalTabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43652C5BE51F001D958D /* VerticalTabBarBuilder.swift */; };
 		243E436C2C5BE51F001D958D /* VerticalTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43662C5BE51F001D958D /* VerticalTabBarController.swift */; };
 		243E436D2C5BE51F001D958D /* VerticalTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43672C5BE51F001D958D /* VerticalTabBarPresenter.swift */; };
-		24D3157E2C641DF900340E21 /* Radio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24D3157C2C641DF900340E21 /* Radio.xcdatamodeld */; };
 		24D315802C641EBD00340E21 /* PlayerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3157F2C641EBD00340E21 /* PlayerControlView.swift */; };
 		A76E5E282C5820CD004A06B3 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E272C5820CD004A06B3 /* WelcomeView.swift */; };
 		A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E292C5820E4004A06B3 /* WelcomeController.swift */; };
@@ -65,6 +64,7 @@
 		D9E6F3E62C5FCB11007FD2F0 /* UIResponder_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3E52C5FCB11007FD2F0 /* UIResponder_Extension.swift */; };
 		D9E6F3EA2C5FDB80007FD2F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9E6F3E92C5FDB80007FD2F0 /* GoogleService-Info.plist */; };
 		D9E6F4142C612149007FD2F0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E6F4132C612149007FD2F0 /* CoreData.framework */; };
+		D9E6F4172C612162007FD2F0 /* Radio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F4152C612162007FD2F0 /* Radio.xcdatamodeld */; };
 		D9E6F43C2C612423007FD2F0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F43B2C612423007FD2F0 /* CoreDataManager.swift */; };
 		D9E6F44D2C614469007FD2F0 /* RadioUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F4492C614469007FD2F0 /* RadioUser+CoreDataClass.swift */; };
 		D9E6F44E2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F44A2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift */; };
@@ -95,7 +95,6 @@
 		243E43652C5BE51F001D958D /* VerticalTabBarBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarBuilder.swift; sourceTree = "<group>"; };
 		243E43662C5BE51F001D958D /* VerticalTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarController.swift; sourceTree = "<group>"; };
 		243E43672C5BE51F001D958D /* VerticalTabBarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarPresenter.swift; sourceTree = "<group>"; };
-		24D3157D2C641DF900340E21 /* Radio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Radio.xcdatamodel; sourceTree = "<group>"; };
 		24D3157F2C641EBD00340E21 /* PlayerControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControlView.swift; sourceTree = "<group>"; };
 		A76E5E272C5820CD004A06B3 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A76E5E292C5820E4004A06B3 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
@@ -145,6 +144,7 @@
 		D9E6F3E52C5FCB11007FD2F0 /* UIResponder_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder_Extension.swift; sourceTree = "<group>"; };
 		D9E6F3E92C5FDB80007FD2F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9E6F4132C612149007FD2F0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D9E6F4162C612162007FD2F0 /* Radio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Radio.xcdatamodel; sourceTree = "<group>"; };
 		D9E6F43B2C612423007FD2F0 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D9E6F4492C614469007FD2F0 /* RadioUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RadioUser+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		D9E6F44A2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RadioUser+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -498,7 +498,7 @@
 				D9E6F44A2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift */,
 				D9E6F44B2C614469007FD2F0 /* FavoriteStation+CoreDataClass.swift */,
 				D9E6F44C2C614469007FD2F0 /* FavoriteStation+CoreDataProperties.swift */,
-				24D3157C2C641DF900340E21 /* Radio.xcdatamodeld */,
+				D9E6F4152C612162007FD2F0 /* Radio.xcdatamodeld */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -615,7 +615,7 @@
 				D9E6F3992C5930A8007FD2F0 /* Models.swift in Sources */,
 				243E436A2C5BE51F001D958D /* VerticalTabBar.swift in Sources */,
 				D9E6F3E22C5FB6A1007FD2F0 /* ResetPasswordRequest.swift in Sources */,
-				24D3157E2C641DF900340E21 /* Radio.xcdatamodeld in Sources */,
+				D9E6F4172C612162007FD2F0 /* Radio.xcdatamodeld in Sources */,
 				D9E6F3A32C5930E2007FD2F0 /* Detail.swift in Sources */,
 				D9E6F3972C59307F007FD2F0 /* Components.swift in Sources */,
 				D9E6F3D52C5E7D8E007FD2F0 /* FormField.swift in Sources */,
@@ -963,14 +963,14 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		24D3157C2C641DF900340E21 /* Radio.xcdatamodeld */ = {
-			isa = XCVersionGroup;
+		D9E6F4152C612162007FD2F0 /* Radio.xcdatamodeld */ = {
+			isa = XCVersionGroup;	
 			children = (
-				24D3157D2C641DF900340E21 /* Radio.xcdatamodel */,
+				D9E6F4162C612162007FD2F0 /* Radio.xcdatamodel */,
 			);
-			currentVersion = 24D3157D2C641DF900340E21 /* Radio.xcdatamodel */;
+			currentVersion = D9E6F4162C612162007FD2F0 /* Radio.xcdatamodel */;
 			name = Radio.xcdatamodeld;
-			path = "/Users/nik/Desktop/radio-app-ios/radio-app-ios/Models/DB/Radio.xcdatamodeld";
+			path = "/Users/m_stogniy/Develop/Projects/radio-app-ios/radio-app-ios/Models/DB/Radio.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
