@@ -672,7 +672,7 @@
 				B5C18BCE2C5C14E80017E54E /* DetailBuilder.swift in Sources */,
 				B5C927C12C5970F400BF1722 /* DetailController.swift in Sources */,
 				D9E6F3AD2C593120007FD2F0 /* About.swift in Sources */,
-				D9E6F3CA2C5E49FC007FD2F0 /* AuthBuilder.swift in Sources */,	
+				D9E6F3CA2C5E49FC007FD2F0 /* AuthBuilder.swift in Sources */,
 				D9E6F3E62C5FCB11007FD2F0 /* UIResponder_Extension.swift in Sources */,
 				D1A1D8412C5AE0E600ED1998 /* UIImageView_Extension.swift in Sources */,
 				D9E6F39F2C5930CB007FD2F0 /* All.swift in Sources */,
