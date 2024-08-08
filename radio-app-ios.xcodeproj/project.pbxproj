@@ -14,6 +14,8 @@
 		243E436C2C5BE51F001D958D /* VerticalTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43662C5BE51F001D958D /* VerticalTabBarController.swift */; };
 		243E436D2C5BE51F001D958D /* VerticalTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43672C5BE51F001D958D /* VerticalTabBarPresenter.swift */; };
 		24D315802C641EBD00340E21 /* PlayerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3157F2C641EBD00340E21 /* PlayerControlView.swift */; };
+		24E30A142C653CD700A2278C /* VolumeControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E30A132C653CD700A2278C /* VolumeControlView.swift */; };
+		24E30A162C653D0300A2278C /* UIImage_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E30A152C653D0300A2278C /* UIImage_Extension.swift */; };
 		A76E5E282C5820CD004A06B3 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E272C5820CD004A06B3 /* WelcomeView.swift */; };
 		A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E292C5820E4004A06B3 /* WelcomeController.swift */; };
 		B5C18BCE2C5C14E80017E54E /* DetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C18BCD2C5C14E80017E54E /* DetailBuilder.swift */; };
@@ -101,6 +103,8 @@
 		243E43662C5BE51F001D958D /* VerticalTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarController.swift; sourceTree = "<group>"; };
 		243E43672C5BE51F001D958D /* VerticalTabBarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarPresenter.swift; sourceTree = "<group>"; };
 		24D3157F2C641EBD00340E21 /* PlayerControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControlView.swift; sourceTree = "<group>"; };
+		24E30A132C653CD700A2278C /* VolumeControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeControlView.swift; sourceTree = "<group>"; };
+		24E30A152C653D0300A2278C /* UIImage_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage_Extension.swift; sourceTree = "<group>"; };
 		A76E5E272C5820CD004A06B3 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A76E5E292C5820E4004A06B3 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		B5C18BCD2C5C14E80017E54E /* DetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBuilder.swift; sourceTree = "<group>"; };
@@ -423,6 +427,7 @@
 		D9E6F3912C56FD6D007FD2F0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				24E30A152C653D0300A2278C /* UIImage_Extension.swift */,
 				F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */,
 				F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */,
 				F4DE1C232C590A9300D55FC5 /* UITextField_Extension.swift */,
@@ -436,6 +441,7 @@
 		D9E6F3922C56FD74007FD2F0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				24E30A132C653CD700A2278C /* VolumeControlView.swift */,
 				243E43682C5BE51F001D958D /* VerticalTabBar */,
 				D9E6F3962C59307F007FD2F0 /* Components.swift */,
 				D9E6F3D42C5E7D8E007FD2F0 /* FormField.swift */,
@@ -656,6 +662,7 @@
 				F4DE1C2A2C59173500D55FC5 /* Constants.swift in Sources */,
 				D9E6F43C2C612423007FD2F0 /* CoreDataManager.swift in Sources */,
 				D9E6F3D12C5E53F8007FD2F0 /* ResetPasswordPresenter.swift in Sources */,
+				24E30A142C653CD700A2278C /* VolumeControlView.swift in Sources */,
 				243E436D2C5BE51F001D958D /* VerticalTabBarPresenter.swift in Sources */,
 				D9E6F3C22C5BE6BD007FD2F0 /* UserManager.swift in Sources */,
 				D9E6F4172C612162007FD2F0 /* Radio.xcdatamodeld in Sources */,
@@ -666,6 +673,7 @@
 				24008BD32C5C05CB001DF2CF /* AudioPleer.swift in Sources */,
 				F4DE1C352C5A84AE00D55FC5 /* Endpoints.swift in Sources */,
 				D9E6F3A92C59310D007FD2F0 /* Lang.swift in Sources */,
+				24E30A162C653D0300A2278C /* UIImage_Extension.swift in Sources */,
 				D1A1D8472C5B17B400ED1998 /* PasswordController.swift in Sources */,
 				D1A1D8452C5B179E00ED1998 /* PasswordView.swift in Sources */,
 				D9E6F44D2C614469007FD2F0 /* RadioUser+CoreDataClass.swift in Sources */,
