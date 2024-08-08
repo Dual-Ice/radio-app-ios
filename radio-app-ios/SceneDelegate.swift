@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            return
 //        }
         
-        window?.rootViewController = ProfileVC()
+        window?.rootViewController = NotificationsVC()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

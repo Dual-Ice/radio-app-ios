@@ -69,3 +69,8 @@
 "UserPassword" = "Password";
 "Save Changes" = "Save Changes";
 "ChangeEmailError" = "* Email already exists";
+
+// notifications
+"NotificationsTitle" = "Notification Settings";
+"ShowNotifications" = "Show notifications";
+"SendNotificationsLabel" = "Send notifications at";

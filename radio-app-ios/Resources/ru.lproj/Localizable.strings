@@ -69,3 +69,8 @@
 "UserPassword" = "Пароль";
 "Save Changes" = "Сохранить";
 "ChangeEmailError" = "* Почта уже используется";
+
+// notifications
+"NotificationsTitle" = "Управление уведомлениями";
+"ShowNotifications" = "Разрешить уведомления";
+"SendNotificationsLabel" = "Отправлять уведомления в";
