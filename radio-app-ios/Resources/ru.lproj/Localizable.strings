@@ -34,6 +34,9 @@
 "SentButton" = "Отправить";
 "ChangeButton" = "Изменить пароль";
 
+//MARK: - Detail
+"PlayingNow" = "Сейчас играет";
+
 //MARK: - AuthScreen
 "AuthScreenUDismissButtonText" = "Отмена";
 "AuthScreenOkButtonText" = "Ок";

@@ -84,7 +84,7 @@ private extension VerticalTabBar {
             tabBarContainer.topAnchor.constraint(equalTo: topAnchor),
             tabBarContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
             tabBarContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tabBarContainer.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.19),
+            tabBarContainer.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 79.0/414.0),
             
             viewContainer.topAnchor.constraint(equalTo: topAnchor),
             viewContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -95,7 +95,7 @@ private extension VerticalTabBar {
             stackView.centerXAnchor.constraint(equalTo: tabBarContainer.centerXAnchor),
             
             playImageView.centerXAnchor.constraint(equalTo: tabBarContainer.centerXAnchor),
-            playImageView.widthAnchor.constraint(equalTo: tabBarContainer.widthAnchor, multiplier: 0.41),
+            playImageView.widthAnchor.constraint(equalTo: tabBarContainer.widthAnchor, multiplier: 33.0/79.0),
             playImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
         ])
     }

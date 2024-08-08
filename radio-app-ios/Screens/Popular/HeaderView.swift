@@ -50,7 +50,7 @@ final class HeaderView: UIView {
             profileImageView.heightAnchor.constraint(equalToConstant: 30),
             
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
-            titleLabel.topAnchor.constraint(equalTo: playPinkImage.bottomAnchor, constant: 25)
+            titleLabel.topAnchor.constraint(equalTo: playPinkImage.bottomAnchor, constant: 20)
         ])
     }
     

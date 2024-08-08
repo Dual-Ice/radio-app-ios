@@ -58,6 +58,7 @@ enum Image {
     static let onboardingBackground = UIImage(named: "onboardingBackground")
     static let playerBack = UIImage(named: "playerBack")
     static let playerMain = UIImage(named: "playerMain")
+    static let playerCentral = UIImage(named: "playerCentral")
     static let playerNext = UIImage(named: "playerNext")
     static let playPink = UIImage(named: "playPink")
     static let playWhite = UIImage(named: "playWhite")
