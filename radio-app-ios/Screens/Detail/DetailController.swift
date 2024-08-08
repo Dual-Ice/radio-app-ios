@@ -8,12 +8,8 @@
 import UIKit
 
 final class DetailController: UIViewController {
-    
-    let radioAPI = Radio_API_Manager()
-
-    
     private let detailView = DetailView()
-    let presenter: DetailPresenter
+    private let presenter: DetailPresenter
     
     init (presenter: DetailPresenter) {
         self.presenter = presenter
@@ -21,9 +17,14 @@ final class DetailController: UIViewController {
     }
     
     @available(*, unavailable)
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
     
     // MARK: - Life Cycle
     override func loadView() {
@@ -34,8 +35,8 @@ final class DetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailView.setDelegates(self)
-        presenter.getData()
-        print(presenter.getData())
+        detailView.setUserAvatar(UserManager.shared.getUserProfileData().image)
+        detailView.configureUI(with: presenter.getCurrentStation())
     }
 
 
@@ -44,11 +45,11 @@ final class DetailController: UIViewController {
 extension DetailController: DetailViewDelegate {
     
     func profileButtonTapped() {
-        print("profileButtonTapped")
+        presenter.goToProfileSettings()
     }
     
     func arrowButtonTapped() {
-        print("arrowButtonTapped")
+        presenter.goBack()
     }
     
     func addFavoriteButtonTapped() {

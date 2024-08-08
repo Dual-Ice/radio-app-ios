@@ -7,6 +7,11 @@
 
 import UIKit
 
+
+protocol DetailBuilderProtocol: AnyObject {
+    func build(data: Station) -> UIViewController
+}
+
 class DetailBuilder {
     
     let navigationController: UINavigationController
@@ -15,8 +20,11 @@ class DetailBuilder {
         self.navigationController = navigationController
     }
     
-    func build(data: Datan) -> UIViewController {
-        let presenter = DetailPresenter(data: data)
+    func build(data: Station) -> UIViewController {
+        let presenter = DetailPresenter(
+            data: data,
+            router: DetailRouter(navigationVC: navigationController)
+        )
         let vc = DetailController(presenter: presenter)
         presenter.view = vc
         return vc

@@ -17,7 +17,7 @@ extension UILabel {
         textAligment: NSTextAlignment?) -> UILabel
     {
         let label = UILabel()
-        label.text = NSLocalizedString(key ?? "LabelValue", comment: "Localizable")
+        label.text = (key != nil) ? NSLocalizedString(key!, comment: "Localizable") : ""
         label.numberOfLines = numberOfLines ?? 0
         label.font = .systemFont(ofSize: fontSize)
         label.textColor = textColor
@@ -36,7 +36,7 @@ extension UILabel {
         textAligment: NSTextAlignment?) -> UILabel
     {
         let label = UILabel()
-        label.text = NSLocalizedString(key ?? "LabelValue", comment: "Localizable")
+        label.text = (key != nil) ? NSLocalizedString(key!, comment: "Localizable") : ""
         label.numberOfLines = numberOfLines ?? 0
         label.font = .boldSystemFont(ofSize: fontSize)
         label.textColor = textColor

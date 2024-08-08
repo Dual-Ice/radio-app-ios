@@ -9,14 +9,24 @@ import Foundation
 
 class DetailPresenter {
     
-    var data: Datan
+    private var currentStation: Station
+    private let router: DetailRouterProtocol
     weak var view: DetailController?
     
-    init(data: Datan) {
-        self.data = data
+    init(data: Station, router: DetailRouter) {
+        self.currentStation = data
+        self.router = router
     }
     
-    func getData() -> Datan {
-        return data
+    func getCurrentStation() -> Station {
+        return currentStation
+    }
+    
+    func goBack() {
+        router.dismiss()
+    }
+    
+    func goToProfileSettings() {
+        router.goToProfileSettings()
     }
 }

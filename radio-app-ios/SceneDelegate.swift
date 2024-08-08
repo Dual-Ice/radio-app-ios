@@ -8,10 +8,6 @@
 import UIKit
 import FirebaseAuth
 
-struct Datan {
-    let number: Int
-}
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?

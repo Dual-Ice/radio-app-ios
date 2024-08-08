@@ -37,24 +37,12 @@ final class DetailView: UIView {
         return element
     }()
     
-    private lazy var arrowButton: UIButton = {
-        let element = UIButton()
-        element.setImage(Image.arrowBack, for: .normal)
-        element.translatesAutoresizingMaskIntoConstraints = false
-        return element
-    }()
+    private lazy var arrowButton: UIButton = UIButton.makeCustomButtonWithImage(image: Image.arrowBack!)
     
-    private lazy var profileImageView: UIImageView = {
-        let element = UIImageView()
-        element.image = Image.onboardingBackground
-        element.contentMode = .scaleAspectFill
-        element.isUserInteractionEnabled = true
-        element.translatesAutoresizingMaskIntoConstraints = false
-        return element
-    }()
+    private lazy var profileImageView = RoundedTriangleImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50), radius: 10)
 
     private let headerLabel = UILabel.makeCustomLabel(
-        key: "LabelPlaying",
+        key: "PlayingNow",
         fontSize: 20,
         textColor: .white,
         numberOfLines: nil,
@@ -68,9 +56,9 @@ final class DetailView: UIView {
         return element
     }()
     
-    private lazy var avatarRadioImageView: UIImageView = {
+    private lazy var radioFaviconImageView: UIImageView = {
         let element = UIImageView()
-        element.image = UIImage(named: "onboardingBackground")
+        element.image = UIImage(systemName: "waveform")
         element.tintColor = .white
         element.layer.cornerRadius = 35
         element.contentMode = .scaleAspectFill
@@ -87,15 +75,15 @@ final class DetailView: UIView {
         return element
     }()
     
-    private let frequencyRadioLabel = UILabel.makeCustomLabelBold(
-        key: "90.5",
+    private let stationFrequency = UILabel.makeCustomLabelBold(
+        key: nil,
         fontSize: 60,
         textColor: .white,
         numberOfLines: nil,
         textAligment: .center)
     
-    private let divelementLabel = UILabel.makeCustomLabel(
-        key: "Radio Divelement",
+    private let stationTitle = UILabel.makeCustomLabel(
+        key: nil,
         fontSize: 20,
         textColor: .white,
         numberOfLines: nil,
@@ -180,12 +168,6 @@ final class DetailView: UIView {
         
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        applyCustomShapeMask(to: profileImageView)
-
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -194,17 +176,31 @@ final class DetailView: UIView {
         delegate = value
     }
     
+    func configureUI(with stationData: Station) {
+//        radioFaviconImageView - set image
+        stationTitle.text = stationData.name
+        stationFrequency.text = "90.5" // no data from API
+    }
+    
+    func setUserAvatar(_ image: UIImage?) {
+        if let userAvatar = image{
+            profileImageView.setImage(userAvatar)
+        }
+    }
+    
     // MARK: - Private Methods
     private func setViews() {
-        self.addSubview(backgroundImageView)
-        self.addSubview(headerStackView)
-        self.addSubview(equalizerImageView)
-        self.addSubview(addFavoriteButton)
-        self.addSubview(avatarRadioImageView)
-        self.addSubview(frequencyRadioLabel)
-        self.addSubview(divelementLabel)
-        self.addSubview(controlStackView)
-        self.addSubview(volumeStackView)
+        [
+            backgroundImageView,
+            headerStackView,
+            equalizerImageView,
+            addFavoriteButton,
+            radioFaviconImageView,
+            stationFrequency,
+            stationTitle,
+            controlStackView,
+            volumeStackView
+        ].forEach { addSubview($0) }
         
         headerStackView.addArrangedSubview(arrowButton)
         headerStackView.addArrangedSubview(headerLabel)
@@ -252,24 +248,24 @@ final class DetailView: UIView {
             
             addFavoriteButton.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: Constants.sideForFavorite),
             addFavoriteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.sideForFavoriteTrailing),
-            addFavoriteButton.widthAnchor.constraint(equalToConstant: Constants.profileImageSize),
-            addFavoriteButton.heightAnchor.constraint(equalToConstant: Constants.profileImageSize),
+            addFavoriteButton.widthAnchor.constraint(equalToConstant: 20),
+            addFavoriteButton.heightAnchor.constraint(equalToConstant: 20),
             
-            avatarRadioImageView.topAnchor.constraint(equalTo: frequencyRadioLabel.topAnchor, constant: 10),
-            avatarRadioImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
-            avatarRadioImageView.widthAnchor.constraint(equalToConstant: 70),
-            avatarRadioImageView.heightAnchor.constraint(equalToConstant: 70),
+            radioFaviconImageView.topAnchor.constraint(equalTo: stationFrequency.topAnchor, constant: 10),
+            radioFaviconImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
+            radioFaviconImageView.widthAnchor.constraint(equalToConstant: 65),
+            radioFaviconImageView.heightAnchor.constraint(equalToConstant: 65),
             
             equalizerImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             equalizerImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
-            frequencyRadioLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            frequencyRadioLabel.topAnchor.constraint(equalTo: addFavoriteButton.bottomAnchor, constant: Constants.sideForHeader),
+            stationFrequency.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            stationFrequency.topAnchor.constraint(equalTo: addFavoriteButton.bottomAnchor, constant: Constants.sideForHeader),
             
-            divelementLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            divelementLabel.topAnchor.constraint(equalTo: frequencyRadioLabel.bottomAnchor),
+            stationTitle.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            stationTitle.topAnchor.constraint(equalTo: stationFrequency.bottomAnchor),
             
-            controlStackView.topAnchor.constraint(equalTo: self.equalizerImageView.bottomAnchor, constant: Constants.sideForHeader),
+            controlStackView.topAnchor.constraint(equalTo: self.equalizerImageView.bottomAnchor),
             controlStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.sideForStackView),
             controlStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.sideForStackView),
             
@@ -278,8 +274,8 @@ final class DetailView: UIView {
             volumeStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.sideForStackView),
         ])
     }
-    // MARK: - Actions
     
+    // MARK: - Actions
     @objc private func profileTap() {
         delegate?.profileButtonTapped()
     }
@@ -306,34 +302,6 @@ final class DetailView: UIView {
     
     @objc func sliderValueChanged(_ sender: UISlider) {
         delegate?.volumeSliderChanged(sender)
-        }
-    
-    private func applyCustomShapeMask(to imageView: UIImageView) {
-        let path = UIBezierPath()
-        let width = imageView.bounds.width
-        let height = imageView.bounds.height
-        
-        let point1 = CGPoint(x: width / 2, y: 0)
-        let point2 = CGPoint(x: width, y: height)
-        let point3 = CGPoint(x: 0, y: height)
-        
-        let controlPointOffset: CGFloat = 0
-    
-        path.move(to: point1)
-        let controlPoint1 = CGPoint(x: point1.x + controlPointOffset, y: point1.y + controlPointOffset)
-        path.addQuadCurve(to: point2, controlPoint: controlPoint1)
-        
-        let controlPoint2 = CGPoint(x: point2.x - controlPointOffset, y: point2.y - controlPointOffset)
-        path.addQuadCurve(to: point3, controlPoint: controlPoint2)
-        
-        let controlPoint3 = CGPoint(x: point3.x + controlPointOffset, y: point3.y - controlPointOffset)
-        path.addQuadCurve(to: point1, controlPoint: controlPoint3)
-        
-        path.close()
-
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        imageView.layer.mask = mask
     }
 }
 
