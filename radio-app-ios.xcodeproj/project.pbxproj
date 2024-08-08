@@ -13,6 +13,7 @@
 		243E436B2C5BE51F001D958D /* VerticalTabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43652C5BE51F001D958D /* VerticalTabBarBuilder.swift */; };
 		243E436C2C5BE51F001D958D /* VerticalTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43662C5BE51F001D958D /* VerticalTabBarController.swift */; };
 		243E436D2C5BE51F001D958D /* VerticalTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43672C5BE51F001D958D /* VerticalTabBarPresenter.swift */; };
+		24D315802C641EBD00340E21 /* PlayerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3157F2C641EBD00340E21 /* PlayerControlView.swift */; };
 		A76E5E282C5820CD004A06B3 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E272C5820CD004A06B3 /* WelcomeView.swift */; };
 		A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E292C5820E4004A06B3 /* WelcomeController.swift */; };
 		D13ADE122C59E43D002B94AE /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13ADE112C59E43C002B94AE /* AuthView.swift */; };
@@ -94,6 +95,7 @@
 		243E43652C5BE51F001D958D /* VerticalTabBarBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarBuilder.swift; sourceTree = "<group>"; };
 		243E43662C5BE51F001D958D /* VerticalTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarController.swift; sourceTree = "<group>"; };
 		243E43672C5BE51F001D958D /* VerticalTabBarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarPresenter.swift; sourceTree = "<group>"; };
+		24D3157F2C641EBD00340E21 /* PlayerControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControlView.swift; sourceTree = "<group>"; };
 		A76E5E272C5820CD004A06B3 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A76E5E292C5820E4004A06B3 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		D13ADE112C59E43C002B94AE /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 				D9E6F3962C59307F007FD2F0 /* Components.swift */,
 				D9E6F3D42C5E7D8E007FD2F0 /* FormField.swift */,
 				D9E6F4532C6281F5007FD2F0 /* RoundedTriangleImageView.swift */,
+				24D3157F2C641EBD00340E21 /* PlayerControlView.swift */,
 				D9E6F4552C63C4F7007FD2F0 /* WaveView.swift */,
 				D9E6F4572C63D6D9007FD2F0 /* WaveAnimationView.swift */,
 			);
@@ -631,6 +634,7 @@
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
 				D9E6F3BE2C5BE57E007FD2F0 /* RegisterUserRequest.swift in Sources */,
 				A76E5E282C5820CD004A06B3 /* WelcomeView.swift in Sources */,
+				24D315802C641EBD00340E21 /* PlayerControlView.swift in Sources */,
 				D9E6F3C02C5BE61C007FD2F0 /* LoginUserRequest.swift in Sources */,
 				D9E6F3B92C5BE4C6007FD2F0 /* FirestoreManager.swift in Sources */,
 				F4DE1C2A2C59173500D55FC5 /* Constants.swift in Sources */,
