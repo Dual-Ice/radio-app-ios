@@ -7,11 +7,15 @@
 
 import UIKit
 
-final class SettingVC: UIViewController {
+protocol MainSettingsVCProtocol {
+
+}
+
+final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
 
     // MARK: UI Elements
 
-    private let settingsView = SettingsView()
+    private let settingsView = MainSettingsView()
 
     // MARK: Life Cycle
 
@@ -21,7 +25,7 @@ final class SettingVC: UIViewController {
     }
 }
 
-private extension SettingVC {
+private extension MainSettingsVC {
 
     func setView() {
         [settingsView].forEach { view.addSubview($0) }

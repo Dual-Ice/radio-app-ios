@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SettingsView: UIView {
+final class MainSettingsView: UIView {
 
     // MARK: UI Elements
 
@@ -45,7 +45,7 @@ final class SettingsView: UIView {
     }
 }
 
-private extension SettingsView {
+private extension MainSettingsView {
 
     func setView() {
         self.translatesAutoresizingMaskIntoConstraints = false
