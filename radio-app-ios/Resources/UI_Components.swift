@@ -31,7 +31,7 @@ enum Color {
     
     static let verticvalTabBar: UIColor = {
         return UIColor (red: 8/255, green: 8/255, blue: 51/255, alpha: 1.0)
-    }()    
+    }()
 }
 
 
