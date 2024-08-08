@@ -40,9 +40,10 @@ final class VerticalTabBarPresenter: VerticalTabBarPresenterProtocol {
 
 
 
+import AVFoundation
+
 #warning("TO DO: Заглушки. Удалить после заполнения viewControllers[:]")
 class testVC: UIViewController {
-    
     let moks: [String] = [
         "https://0n-jazz.radionetz.de/0n-jazz.mp3",
         "https://stream.rockantenne.de/alternative/stream/mp3",
@@ -54,8 +55,9 @@ class testVC: UIViewController {
     let playerControler = PlayerControlView()
     
     let volumeControler = VolumeControlView()
-        
+            
     override func loadView() {
+        
         let testView = UIView()
         testView.backgroundColor = Color.backgroundBlue
         let label = UILabel()
@@ -96,7 +98,7 @@ class testVC: UIViewController {
             playerControler.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
             playerControler.widthAnchor.constraint(equalTo: testView.widthAnchor, multiplier: 255/335),
             playerControler.heightAnchor.constraint(equalTo: playerControler.widthAnchor, multiplier: 127/255),
-            playerControler.bottomAnchor.constraint(equalTo: volumeControler.topAnchor, constant: -30)
+            playerControler.bottomAnchor.constraint(equalTo: volumeControler.topAnchor, constant: -30),
         ])
         view = testView
     }
@@ -139,78 +141,3 @@ extension testVC: PlayerControlViewDelegate {
         playerControler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
     }
 }
-
-
-//import UIKit
-//import MediaPlayer
-//
-//class ViewController: UIViewController {
-//
-//    private var volumeView: MPVolumeView!
-//    private var volumeObservation: NSKeyValueObservation?
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        
-//        setupVolumeView()
-//        observeVolumeChanges()
-//    }
-//
-//    private func setupVolumeView() {
-//        volumeView = MPVolumeView(frame: .zero)
-//        volumeView.isHidden = true
-//        view.addSubview(volumeView)
-//    }
-//
-//    private func observeVolumeChanges() {
-//        let volumeView = MPVolumeView()
-//        let volumeSlider = volumeView.subviews.first(where: { $0 is UISlider }) as? UISlider
-//        volumeObservation = volumeSlider?.observe(\.value, options: [.new]) { [weak self] slider, change in
-//            guard let _ = self else { return }
-//            let newVolume = slider.value
-//            print("Volume changed to \(newVolume)")
-//            // Handle the volume change here
-//        }
-//    }
-//}
-
-//import UIKit
-//import AVFoundation
-//
-//class ViewController: UIViewController {
-//
-//    private var audioSession: AVAudioSession!
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        setupAudioSession()
-//    }
-//
-//    private func setupAudioSession() {
-//        print("setupAudioSession")
-//        audioSession = AVAudioSession.sharedInstance()
-//        do {
-//            try audioSession.setCategory(.playback, mode: .default)
-//            try audioSession.setActive(true)
-//            NotificationCenter.default.addObserver(
-//                self,
-//                selector: #selector(volumeChanged),
-//                name: AVAudioSession.silenceSecondaryAudioHintNotification,
-//                object: nil
-//            )
-//        } catch {
-//            print("Failed to set up audio session: \(error)")
-//        }
-//    }
-//
-//    @objc func volumeChanged() {
-//        print("volumeChanged()")
-//        let volume = audioSession.outputVolume
-//        print("Volume changed to \(volume)")
-//    }
-//
-//    deinit {
-//        print("deinit")
-//        NotificationCenter.default.removeObserver(self)
-//    }
-//}

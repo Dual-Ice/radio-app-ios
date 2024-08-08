@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import AVFoundation
 
 final class VolumeControlView: UIView {
+    
     private let speakerIcon = UIImageView.makeSystemImage(
         imageName: "speaker.wave.2",
         color: .gray
@@ -84,54 +86,10 @@ private extension VolumeControlView {
             volumeSlider.centerYAnchor.constraint(equalTo: centerYAnchor),
             volumeSlider.leadingAnchor.constraint(equalTo: speakerIcon.trailingAnchor, constant: 16),
             volumeSlider.trailingAnchor.constraint(equalTo: volumeLabel.leadingAnchor, constant: -16),
-            
         ])
     }
     
     func setupTargets() {
         volumeSlider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#warning("УДАЛИТЬ ПЕРЕД ПУШЕМ")
-import SwiftUI
-
-extension UIViewController {
-    struct Preview: UIViewControllerRepresentable {
-        let viewController: UIViewController
-        
-        func makeUIViewController(context: Context) -> some UIViewController {
-            viewController
-        }
-        
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) { }
-    }
-    
-    func preview() -> some View {
-        Preview(viewController: self).edgesIgnoringSafeArea(.all)
-    }
-}
-
-struct VolumeControlViewProvider: PreviewProvider {
-    static var previews: some View {
-        Group {
-            testVC().preview()
-        }
     }
 }
