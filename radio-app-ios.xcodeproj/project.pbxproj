@@ -20,7 +20,6 @@
 		B5C18BD02C5C15EA0017E54E /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C18BCF2C5C15EA0017E54E /* DetailPresenter.swift */; };
 		B5C927C12C5970F400BF1722 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C927C02C5970F400BF1722 /* DetailController.swift */; };
 		B5C927C32C59710600BF1722 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C927C22C59710600BF1722 /* DetailView.swift */; };
-		B5F851F22C6162CB004A8212 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F851F12C6162CB004A8212 /* GoogleService-Info.plist */; };
 		D13ADE122C59E43D002B94AE /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13ADE112C59E43C002B94AE /* AuthView.swift */; };
 		D13ADE142C59E64B002B94AE /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13ADE132C59E64B002B94AE /* AuthController.swift */; };
 		D1A1D8412C5AE0E600ED1998 /* UIImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1D8402C5AE0E600ED1998 /* UIImageView_Extension.swift */; };
