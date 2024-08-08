@@ -6,8 +6,20 @@
 //
 
 import UIKit
+import Kingfisher
 
 extension UIImageView {
+    
+    func getImage(from url: URL) {
+        self.kf.indicatorType = .activity
+        self.kf.setImage(
+            with: url,
+            placeholder: UIImage(systemName: "waveform"),
+            options: [
+                .transition(.fade(1))
+            ]
+        )
+    }
 
     static func makeSimpleImage(imageName: String) -> UIImageView {
         let image = UIImageView()

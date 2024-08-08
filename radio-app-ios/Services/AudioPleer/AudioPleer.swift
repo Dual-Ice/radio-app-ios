@@ -12,9 +12,12 @@ final class AudioPleer {
     
     static let shared = AudioPleer()
     
+    private(set) var isPlaying: Bool = false
+    
     private init() {}
     
     func loadMusic(from url: String) {
+        isPlaying = false
         guard let streamURL = URL(string: url) else {
             print("Wrong stream URL: \(url)")
             return
@@ -23,10 +26,12 @@ final class AudioPleer {
     }
     
     func playMusic() {
+        isPlaying = true
         player?.play()
     }
     
     func pauseMusic() {
+        isPlaying = false
         player?.pause()
     }
 }

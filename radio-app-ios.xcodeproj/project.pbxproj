@@ -15,16 +15,22 @@
 		243E436D2C5BE51F001D958D /* VerticalTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43672C5BE51F001D958D /* VerticalTabBarPresenter.swift */; };
 		876A05952C5A54A60080F344 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A05942C5A54A60080F344 /* FavoritesView.swift */; };
 		876A05972C5C26000080F344 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A05962C5C26000080F344 /* FavoriteCell.swift */; };
-		87959E3B2C62731B00626EB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87959E3A2C62731B00626EB0 /* GoogleService-Info.plist */; };
 		87959E422C62757800626EB0 /* Radio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87959E402C62757800626EB0 /* Radio.xcdatamodeld */; };
+		24D315802C641EBD00340E21 /* PlayerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3157F2C641EBD00340E21 /* PlayerControlView.swift */; };
 		A76E5E282C5820CD004A06B3 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E272C5820CD004A06B3 /* WelcomeView.swift */; };
 		A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E292C5820E4004A06B3 /* WelcomeController.swift */; };
+		B5C18BCE2C5C14E80017E54E /* DetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C18BCD2C5C14E80017E54E /* DetailBuilder.swift */; };
+		B5C18BD02C5C15EA0017E54E /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C18BCF2C5C15EA0017E54E /* DetailPresenter.swift */; };
+		B5C927C12C5970F400BF1722 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C927C02C5970F400BF1722 /* DetailController.swift */; };
+		B5C927C32C59710600BF1722 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C927C22C59710600BF1722 /* DetailView.swift */; };
 		D13ADE122C59E43D002B94AE /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13ADE112C59E43C002B94AE /* AuthView.swift */; };
 		D13ADE142C59E64B002B94AE /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13ADE132C59E64B002B94AE /* AuthController.swift */; };
 		D1A1D8412C5AE0E600ED1998 /* UIImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1D8402C5AE0E600ED1998 /* UIImageView_Extension.swift */; };
 		D1A1D8432C5B02CC00ED1998 /* UIView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1D8422C5B02CC00ED1998 /* UIView_Extension.swift */; };
 		D1A1D8452C5B179E00ED1998 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1D8442C5B179E00ED1998 /* PasswordView.swift */; };
 		D1A1D8472C5B17B400ED1998 /* PasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1D8462C5B17B400ED1998 /* PasswordController.swift */; };
+		D9CB16872C64C4FE009D50A9 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB16862C64C4FE009D50A9 /* DetailRouter.swift */; };
+		D9CB168D2C64DB70009D50A9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D9CB168C2C64DB70009D50A9 /* Kingfisher */; };
 		D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */; };
 		D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */; };
 		D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3692C56F362007FD2F0 /* PopularController.swift */; };
@@ -38,7 +44,6 @@
 		D9E6F39D2C5930C1007FD2F0 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F39C2C5930C1007FD2F0 /* Search.swift */; };
 		D9E6F39F2C5930CB007FD2F0 /* All.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F39E2C5930CB007FD2F0 /* All.swift */; };
 		D9E6F3A12C5930D5007FD2F0 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3A02C5930D5007FD2F0 /* FavoritesController.swift */; };
-		D9E6F3A32C5930E2007FD2F0 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3A22C5930E2007FD2F0 /* Detail.swift */; };
 		D9E6F3A92C59310D007FD2F0 /* Lang.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3A82C59310D007FD2F0 /* Lang.swift */; };
 		D9E6F3AB2C593117007FD2F0 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AA2C593117007FD2F0 /* Profile.swift */; };
 		D9E6F3AD2C593120007FD2F0 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AC2C593120007FD2F0 /* About.swift */; };
@@ -71,6 +76,9 @@
 		D9E6F44E2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F44A2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift */; };
 		D9E6F44F2C614469007FD2F0 /* FavoriteStation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F44B2C614469007FD2F0 /* FavoriteStation+CoreDataClass.swift */; };
 		D9E6F4502C614469007FD2F0 /* FavoriteStation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F44C2C614469007FD2F0 /* FavoriteStation+CoreDataProperties.swift */; };
+		D9E6F4542C6281F5007FD2F0 /* RoundedTriangleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F4532C6281F5007FD2F0 /* RoundedTriangleImageView.swift */; };
+		D9E6F4562C63C4F7007FD2F0 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F4552C63C4F7007FD2F0 /* WaveView.swift */; };
+		D9E6F4582C63D6D9007FD2F0 /* WaveAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F4572C63D6D9007FD2F0 /* WaveAnimationView.swift */; };
 		F48255472C5D4EE400488872 /* Radio_API_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255462C5D4EE400488872 /* Radio_API_Manager.swift */; };
 		F48255492C5D549600488872 /* Network_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255482C5D549600488872 /* Network_Manager.swift */; };
 		F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */; };
@@ -95,16 +103,21 @@
 		243E43672C5BE51F001D958D /* VerticalTabBarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarPresenter.swift; sourceTree = "<group>"; };
 		876A05942C5A54A60080F344 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		876A05962C5C26000080F344 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
-		87959E3A2C62731B00626EB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87959E412C62757800626EB0 /* Radio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Radio.xcdatamodel; sourceTree = "<group>"; };
+		24D3157F2C641EBD00340E21 /* PlayerControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControlView.swift; sourceTree = "<group>"; };
 		A76E5E272C5820CD004A06B3 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A76E5E292C5820E4004A06B3 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
+		B5C18BCD2C5C14E80017E54E /* DetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBuilder.swift; sourceTree = "<group>"; };
+		B5C18BCF2C5C15EA0017E54E /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		B5C927C02C5970F400BF1722 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		B5C927C22C59710600BF1722 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		D13ADE112C59E43C002B94AE /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		D13ADE132C59E64B002B94AE /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		D1A1D8402C5AE0E600ED1998 /* UIImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView_Extension.swift; sourceTree = "<group>"; };
 		D1A1D8422C5B02CC00ED1998 /* UIView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_Extension.swift; sourceTree = "<group>"; };
 		D1A1D8442C5B179E00ED1998 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		D1A1D8462C5B17B400ED1998 /* PasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordController.swift; sourceTree = "<group>"; };
+		D9CB16862C64C4FE009D50A9 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		D9E6F3622C56F362007FD2F0 /* radio-app-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radio-app-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,7 +134,6 @@
 		D9E6F39C2C5930C1007FD2F0 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		D9E6F39E2C5930CB007FD2F0 /* All.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = All.swift; sourceTree = "<group>"; };
 		D9E6F3A02C5930D5007FD2F0 /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
-		D9E6F3A22C5930E2007FD2F0 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		D9E6F3A82C59310D007FD2F0 /* Lang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lang.swift; sourceTree = "<group>"; };
 		D9E6F3AA2C593117007FD2F0 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D9E6F3AC2C593120007FD2F0 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
@@ -149,6 +161,9 @@
 		D9E6F44A2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RadioUser+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		D9E6F44B2C614469007FD2F0 /* FavoriteStation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteStation+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		D9E6F44C2C614469007FD2F0 /* FavoriteStation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteStation+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		D9E6F4532C6281F5007FD2F0 /* RoundedTriangleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTriangleImageView.swift; sourceTree = "<group>"; };
+		D9E6F4552C63C4F7007FD2F0 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		D9E6F4572C63D6D9007FD2F0 /* WaveAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveAnimationView.swift; sourceTree = "<group>"; };
 		F48255462C5D4EE400488872 /* Radio_API_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radio_API_Manager.swift; sourceTree = "<group>"; };
 		F48255482C5D549600488872 /* Network_Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network_Manager.swift; sourceTree = "<group>"; };
 		F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel_Extension.swift; sourceTree = "<group>"; };
@@ -171,6 +186,7 @@
 			files = (
 				D9E6F3E02C5E9290007FD2F0 /* GoogleSignInSwift in Frameworks */,
 				D9E6F4142C612149007FD2F0 /* CoreData.framework in Frameworks */,
+				D9CB168D2C64DB70009D50A9 /* Kingfisher in Frameworks */,
 				D9E6F3B22C5BE470007FD2F0 /* FirebaseAuth in Frameworks */,
 				D9E6F3DE2C5E9290007FD2F0 /* GoogleSignIn in Frameworks */,
 				D9E6F3C82C5BFF8F007FD2F0 /* FirebaseAppCheck in Frameworks */,
@@ -308,7 +324,11 @@
 		D9E6F3842C56F72A007FD2F0 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				D9E6F3A22C5930E2007FD2F0 /* Detail.swift */,
+				B5C927C02C5970F400BF1722 /* DetailController.swift */,
+				B5C927C22C59710600BF1722 /* DetailView.swift */,
+				B5C18BCD2C5C14E80017E54E /* DetailBuilder.swift */,
+				B5C18BCF2C5C15EA0017E54E /* DetailPresenter.swift */,
+				D9CB16862C64C4FE009D50A9 /* DetailRouter.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -423,6 +443,10 @@
 				243E43682C5BE51F001D958D /* VerticalTabBar */,
 				D9E6F3962C59307F007FD2F0 /* Components.swift */,
 				D9E6F3D42C5E7D8E007FD2F0 /* FormField.swift */,
+				D9E6F4532C6281F5007FD2F0 /* RoundedTriangleImageView.swift */,
+				24D3157F2C641EBD00340E21 /* PlayerControlView.swift */,
+				D9E6F4552C63C4F7007FD2F0 /* WaveView.swift */,
+				D9E6F4572C63D6D9007FD2F0 /* WaveAnimationView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -539,6 +563,7 @@
 				D9E6F3C72C5BFF8F007FD2F0 /* FirebaseAppCheck */,
 				D9E6F3DD2C5E9290007FD2F0 /* GoogleSignIn */,
 				D9E6F3DF2C5E9290007FD2F0 /* GoogleSignInSwift */,
+				D9CB168C2C64DB70009D50A9 /* Kingfisher */,
 			);
 			productName = "radio-app-ios";
 			productReference = D9E6F3622C56F362007FD2F0 /* radio-app-ios.app */;
@@ -572,6 +597,7 @@
 			packageReferences = (
 				D9E6F3B02C5BE470007FD2F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D9E6F3DC2C5E9290007FD2F0 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				D9CB168B2C64DB70009D50A9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = D9E6F3632C56F362007FD2F0 /* Products */;
 			projectDirPath = "";
@@ -610,7 +636,6 @@
 				876A05972C5C26000080F344 /* FavoriteCell.swift in Sources */,
 				243E436A2C5BE51F001D958D /* VerticalTabBar.swift in Sources */,
 				D9E6F3E22C5FB6A1007FD2F0 /* ResetPasswordRequest.swift in Sources */,
-				D9E6F3A32C5930E2007FD2F0 /* Detail.swift in Sources */,
 				D9E6F3972C59307F007FD2F0 /* Components.swift in Sources */,
 				D9E6F3D52C5E7D8E007FD2F0 /* FormField.swift in Sources */,
 				243E43692C5BE51F001D958D /* CustomTabBarButton.swift in Sources */,
@@ -621,12 +646,15 @@
 				F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */,
 				D13ADE142C59E64B002B94AE /* AuthController.swift in Sources */,
 				D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */,
+				B5C927C32C59710600BF1722 /* DetailView.swift in Sources */,
 				D9E6F3952C593066007FD2F0 /* Helpers.swift in Sources */,
 				D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */,
+				D9E6F4582C63D6D9007FD2F0 /* WaveAnimationView.swift in Sources */,
 				D9E6F3BB2C5BE4E0007FD2F0 /* AuthManager.swift in Sources */,
 				A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */,
 				D9E6F3BE2C5BE57E007FD2F0 /* RegisterUserRequest.swift in Sources */,
 				A76E5E282C5820CD004A06B3 /* WelcomeView.swift in Sources */,
+				24D315802C641EBD00340E21 /* PlayerControlView.swift in Sources */,
 				D9E6F3C02C5BE61C007FD2F0 /* LoginUserRequest.swift in Sources */,
 				D9E6F3B92C5BE4C6007FD2F0 /* FirestoreManager.swift in Sources */,
 				F4DE1C2A2C59173500D55FC5 /* Constants.swift in Sources */,
@@ -634,6 +662,8 @@
 				D9E6F3D12C5E53F8007FD2F0 /* ResetPasswordPresenter.swift in Sources */,
 				243E436D2C5BE51F001D958D /* VerticalTabBarPresenter.swift in Sources */,
 				D9E6F3C22C5BE6BD007FD2F0 /* UserManager.swift in Sources */,
+				D9E6F4172C612162007FD2F0 /* Radio.xcdatamodeld in Sources */,
+				D9E6F4562C63C4F7007FD2F0 /* WaveView.swift in Sources */,
 				D9E6F3D92C5E8AC9007FD2F0 /* AuthAlertManager.swift in Sources */,
 				F4DE1C1C2C57EDA400D55FC5 /* UI_Components.swift in Sources */,
 				D9E6F3A12C5930D5007FD2F0 /* FavoritesController.swift in Sources */,
@@ -651,8 +681,11 @@
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
 				D9E6F39D2C5930C1007FD2F0 /* Search.swift in Sources */,
 				D9E6F3CE2C5E4A12007FD2F0 /* AuthRouter.swift in Sources */,
+				B5C18BCE2C5C14E80017E54E /* DetailBuilder.swift in Sources */,
+				B5C927C12C5970F400BF1722 /* DetailController.swift in Sources */,
 				D9E6F3AD2C593120007FD2F0 /* About.swift in Sources */,
 				D9E6F3CA2C5E49FC007FD2F0 /* AuthBuilder.swift in Sources */,
+				D9CB16872C64C4FE009D50A9 /* DetailRouter.swift in Sources */,
 				D9E6F3E62C5FCB11007FD2F0 /* UIResponder_Extension.swift in Sources */,
 				D1A1D8412C5AE0E600ED1998 /* UIImageView_Extension.swift in Sources */,
 				D9E6F39F2C5930CB007FD2F0 /* All.swift in Sources */,
@@ -662,11 +695,13 @@
 				D9E6F3AB2C593117007FD2F0 /* Profile.swift in Sources */,
 				F48255472C5D4EE400488872 /* Radio_API_Manager.swift in Sources */,
 				F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */,
+				B5C18BD02C5C15EA0017E54E /* DetailPresenter.swift in Sources */,
 				D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */,
 				87959E422C62757800626EB0 /* Radio.xcdatamodeld in Sources */,
 				D9E6F3D72C5E88AF007FD2F0 /* ValidationManager.swift in Sources */,
 				243E436C2C5BE51F001D958D /* VerticalTabBarController.swift in Sources */,
 				D9E6F3AF2C59312E007FD2F0 /* Policy.swift in Sources */,
+				D9E6F4542C6281F5007FD2F0 /* RoundedTriangleImageView.swift in Sources */,
 				D1A1D8432C5B02CC00ED1998 /* UIView_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -907,6 +942,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D9CB168B2C64DB70009D50A9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
 		D9E6F3B02C5BE470007FD2F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -926,6 +969,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D9CB168C2C64DB70009D50A9 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9CB168B2C64DB70009D50A9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		D9E6F3B12C5BE470007FD2F0 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D9E6F3B02C5BE470007FD2F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -959,9 +1007,8 @@
 			children = (
 				87959E412C62757800626EB0 /* Radio.xcdatamodel */,
 			);
-			currentVersion = 87959E412C62757800626EB0 /* Radio.xcdatamodel */;
-			name = Radio.xcdatamodeld;
-			path = "Radio.xcdatamodeld";
+			currentVersion = D9E6F4162C612162007FD2F0 /* Radio.xcdatamodel */;
+			path = Radio.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

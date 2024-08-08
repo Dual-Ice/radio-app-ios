@@ -46,10 +46,9 @@ extension UIButton {
         return button
     }
 
-    static func makeCustomButtonWithHeart() -> UIButton {
+    static func makeCustomButtonWithImage(image: UIImage) -> UIButton {
         let button = UIButton()
-        button.backgroundColor = .clear
-        button.setImage(.heartBlue, for: .normal)
+        button.setImage(image, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }
