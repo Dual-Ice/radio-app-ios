@@ -27,15 +27,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            }
 //        }
         
-//        if UserDefaults.standard.bool(forKey: "isWelcomeCompleted") {
-//            checkAuthentication()
-//            return
-//        }
-        
-//        window?.rootViewController = LanguageVC()
-        let settingsBuilder = MainSettingsBuilder()
-        let router = MainSettingsRouter(navigationController: UINavigationController(), moduleBuilder: settingsBuilder)
-        window?.rootViewController = settingsBuilder.createMainSettingsModule(router: router)
+        if UserDefaults.standard.bool(forKey: "isWelcomeCompleted") {
+            checkAuthentication()
+            return
+        }
+        window?.rootViewController = WelcomeController()
+
+        /// settings navigation
+//        let settingsBuilder = MainSettingsBuilder()
+//        let router = MainSettingsRouter(navigationController: UINavigationController(), moduleBuilder: settingsBuilder)
+//        window?.rootViewController = settingsBuilder.createMainSettingsModule(router: router)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
