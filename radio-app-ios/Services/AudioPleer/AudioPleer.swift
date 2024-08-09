@@ -30,10 +30,9 @@ final class AudioPleer {
             print("Wrong stream URL: \(String(describing: url))")
             return
         }
-        let state = isPlaying
         player = AVPlayer(url: streamURL)
         setVolume(playerVolume)
-        if state { playMusic() }
+        if isPlaying { playMusic() }
     }
     
     func loadStationList(_ list: [Station]) {
