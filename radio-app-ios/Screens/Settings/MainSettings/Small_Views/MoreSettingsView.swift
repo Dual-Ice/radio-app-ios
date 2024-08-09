@@ -11,7 +11,8 @@ final class MoreSettingsView: BaseSettingsView {
 
     // MARK: Init
     init() {
-        super.init(titleLabel: "More",
+        super.init(frame: .zero, 
+                   titleLabel: "More",
                    firstTitle: "Legal and Policies",
                    secondTitle: "About Us")
     }

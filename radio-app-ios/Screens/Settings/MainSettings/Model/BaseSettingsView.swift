@@ -38,11 +38,12 @@ class BaseSettingsView: UIView {
     // MARK: Init
 
     init(
+        frame: CGRect,
         titleLabel: String,
         firstTitle: String,
         secondTitle: String
     ) {
-        super.init(frame: .zero)
+        super.init(frame: frame)
         titelLabel.text = NSLocalizedString(titleLabel, comment: "")
         firstSettingView.configureView(with: firstTitle)
         secondSettingView.configureView(with: secondTitle)
@@ -50,10 +51,39 @@ class BaseSettingsView: UIView {
         setView()
         setMainView()
         setupConstraints()
+        setupTargers()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: Private Methods
+
+    private func setupTargers() {
+        let firstTapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(firstSettingTapped)
+        )
+        firstSettingView.addGestureRecognizer(firstTapGesture)
+        firstSettingView.isUserInteractionEnabled = true
+
+        let secondTapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(secondSettingTapped)
+        )
+        secondSettingView.addGestureRecognizer(secondTapGesture)
+        secondSettingView.isUserInteractionEnabled = true
+    }
+
+    // MARK: Selector Methods
+
+    @objc private func firstSettingTapped() {
+        firstViewTap?()
+    }
+
+    @objc private func secondSettingTapped() {
+        secondViewTap?()
     }
 }
 
@@ -81,15 +111,17 @@ private extension BaseSettingsView {
             firstSettingView.topAnchor.constraint(equalTo: titelLabel.bottomAnchor, constant: LayoutConstants.bigSideOffset),
             firstSettingView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.smallSideOffset),
             firstSettingView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.smallSideOffset),
+            firstSettingView.heightAnchor.constraint(equalToConstant: LayoutConstants.settingsHeight),
 
-            separatorLineView.topAnchor.constraint(equalTo: firstSettingView.bottomAnchor, constant: LayoutConstants.bigSideOffset),
+            separatorLineView.topAnchor.constraint(equalTo: firstSettingView.bottomAnchor, constant: LayoutConstants.smallSideOffset),
             separatorLineView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.separatorSideOffset),
             separatorLineView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.separatorSideOffset),
             separatorLineView.heightAnchor.constraint(equalToConstant: LayoutConstants.separatorHeigt),
 
-            secondSettingView.topAnchor.constraint(equalTo: separatorLineView.bottomAnchor, constant: LayoutConstants.bigSideOffset),
+            secondSettingView.topAnchor.constraint(equalTo: separatorLineView.bottomAnchor, constant: LayoutConstants.smallSideOffset),
             secondSettingView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.smallSideOffset),
-            secondSettingView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.smallSideOffset)
+            secondSettingView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.smallSideOffset),
+            secondSettingView.heightAnchor.constraint(equalToConstant: LayoutConstants.settingsHeight),
 
         ])
     }
@@ -101,5 +133,6 @@ private extension BaseSettingsView {
         static let separatorSideOffset: CGFloat = 48
 
         static let separatorHeigt: CGFloat = 1
+        static let settingsHeight: CGFloat = 32
     }
 }

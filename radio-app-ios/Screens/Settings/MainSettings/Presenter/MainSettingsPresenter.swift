@@ -9,11 +9,14 @@ import UIKit
 
 protocol MainSettingsPresenterProtocol {
     init(view: MainSettingsVCProtocol, router: MainSettingsRouter)
-    func showEditVC()
+    func showEditProfileVC()
     func showNotificationsVC()
     func showLanguagesVC()
     func showPolicyVC()
     func showAboutVC()
+
+    func showUserInfo()
+    func logOut()
 }
 
 final class MainSettingsPresenter: MainSettingsPresenterProtocol {
@@ -27,25 +30,32 @@ final class MainSettingsPresenter: MainSettingsPresenterProtocol {
         self.router = router
     }
     
-    func showEditVC() {
-        // code
+    func showEditProfileVC() {
+        router.showEditVC()
     }
     
     func showNotificationsVC() {
-        // code
+        router.showNotificationsVC()
     }
     
     func showLanguagesVC() {
-        // code
+        router.showLanguagesVC()
     }
     
     func showPolicyVC() {
-        // code
+        router.showPolicyVC()
     }
     
     func showAboutVC() {
-        // code
+        router.showAboutVC()
     }
     
+    func showUserInfo() {
+        print ("show user info")
+    }
+
+    func logOut() {
+        print ("log out button tapped")
+    }
 
 }

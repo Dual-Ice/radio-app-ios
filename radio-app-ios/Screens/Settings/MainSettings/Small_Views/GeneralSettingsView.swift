@@ -12,6 +12,7 @@ final class GeneralSettingsView: BaseSettingsView {
     // MARK: Init
     init() {
         super.init(
+            frame: .zero,
             titleLabel: "General",
             firstTitle: "Notification",
             secondTitle: "Language")

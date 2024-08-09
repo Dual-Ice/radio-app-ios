@@ -7,7 +7,16 @@
 
 import UIKit
 
+protocol UserInfoViewDelegate: AnyObject {
+    func editButtonTapped()
+//    func setData(with user: User)
+}
+
 final class UserInfoView: UIView {
+
+    // MARK: Properties
+
+    weak var delegate: UserInfoViewDelegate?
 
     // MARK: UI Elements
 
@@ -48,11 +57,14 @@ final class UserInfoView: UIView {
         setViews()
         setMainView()
         setupConstraints()
+        setupTargets()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: Override Methods
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -63,6 +75,18 @@ final class UserInfoView: UIView {
 
     // тут будем сетить данные юзера
     // func setData(with data: Data) {}
+
+    // MARK: Private Methods
+
+    private func setupTargets() {
+        editButton.addTarget(self, action: #selector(editButtonAction), for: .touchUpInside)
+    }
+
+    // MARK: Selector Methods
+
+    @objc private func editButtonAction() {
+        delegate?.editButtonTapped()
+    }
 }
 
 private extension UserInfoView {
