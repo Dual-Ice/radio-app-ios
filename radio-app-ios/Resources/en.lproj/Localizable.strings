@@ -59,3 +59,24 @@
 
 //MARK: - Popular
 "votes" = "votes %d";
+// MARK: - Settings
+
+// main
+"HeaderUserName" = "Your name";
+"HeaderUserEmail" = "Your email";
+"Log Out" = "Log Out";
+
+// policy
+"MockText" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget ornare quam vel facilisis feugiat amet sagittis arcu, tortor. Sapien, consequat ultrices morbi orci semper sit nulla. Leo auctor ut etiam est, amet aliquet ut vivamus. Odio vulputate est id tincidunt fames";
+
+// edit profile 
+"UserName" = "Full name";
+"UserEmail" = "Email";
+"UserPassword" = "Password";
+"Save Changes" = "Save Changes";
+"ChangeEmailError" = "* Email already exists";
+
+// notifications
+"NotificationsTitle" = "Notification Settings";
+"ShowNotifications" = "Show notifications";
+"SendNotificationsLabel" = "Send notifications at";
