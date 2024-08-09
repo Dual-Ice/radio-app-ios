@@ -12,6 +12,7 @@
 "ButtonGetStarted" = "Get Started";
 "WelcomeTitleLabel" = "Let’s Get\nStarted";
 "WelcomeLabel" = "Enjoy the best radio stations\nfrom your home, don't miss\nout on anything";
+"Hello" = "Hello";
 "Popular" = "Popular";
 "Favorites" = "Favorites";
 "AllStations" = "All Stations";
@@ -33,6 +34,9 @@
 "SentButton" = "Sent";
 "ChangeButton" = "Change password";
 
+//MARK: - Detail
+"PlayingNow" = "Playing now";
+
 
 //MARK: - AuthScreen
 "AuthScreenUDismissButtonText" = "Dismiss";
@@ -53,6 +57,8 @@
 "AuthSceenPasswordResetSuccessTitle" = "Password reset";
 "AuthSceenPasswordResetSuccessMessage" = "The password reset email has been successfully sent. Please check your email.";
 
+//MARK: - Popular
+"votes" = "votes %d";
 // MARK: - Settings
 
 // main

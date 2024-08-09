@@ -15,8 +15,8 @@ struct UserData {
 
 final class UserManager {
     static let shared = UserManager()
-    static let firestoreManager = FirestoreManager()
     private var user: User?
+    private let coreDataManager = CoreDataManager()
     
     private init() {}
     
@@ -24,18 +24,28 @@ final class UserManager {
         user = userObject
     }
     
+    func updateUserDetails(username: String, email: String, completion: @escaping (Error?) -> Void) {
+        guard let userId = user?.id else {
+            let error = NSError(domain: "UserError", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found"])
+            completion(error)
+            return
+        }
+        
+        coreDataManager.updateUser(id: userId, username: username, email: email, image: user?.image, completion: completion)
+    }
+    
     func updateUserAvatar(avatar: UIImage, completion: @escaping (Error?) -> Void) {
+        guard let userId = user?.id else {
+            let error = NSError(domain: "AuthError", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])
+            completion(error)
+            return
+        }
+        
         if let base64String = avatar.pngData()?.base64EncodedString() {
-            let pathToAvatar = saveUserAvatarToUD(with: user?.id ?? "", avatar: base64String)
-            user?.image = pathToAvatar
-            DispatchQueue.main.async {
-                UserManager.firestoreManager.setCollection(
-                    with: self.user!
-                ) { success, error in
-                    if let error = error {
-                        completion(error)
-                    }
-                    
+            coreDataManager.updateUser(id: userId, username: user?.username ?? "", email: user?.email ?? "", image: base64String) { error in
+                if let error = error {
+                    completion(error)
+                } else {
                     completion(nil)
                 }
             }
@@ -53,37 +63,47 @@ final class UserManager {
         )
     }
     
+    func getFavoriteStations(completion: @escaping ([Station], Error?) -> Void) {
+        guard let userId = user?.id else {
+            completion([], NSError(domain: "AuthError", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
+            return
+        }
+        
+        coreDataManager.getAllStations(forUserId: userId) { favoriteStations, error in
+            if let error = error {
+                completion([], error)
+            } else {
+                completion(favoriteStations.map { $0.toStation() }, nil)
+            }
+        }
+    }
+
+    func addToFavorite(station: Station, completion: @escaping (Error?) -> Void) {
+        guard let userId = user?.id else {
+            completion(NSError(domain: "AuthError", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
+            return
+        }
+        coreDataManager.addStation(forUserId: userId, stationData: station) { error in
+            completion(error)
+        }
+    }
+
+    func removeFromFavorite(stationUid: String, completion: @escaping (Error?) -> Void) {
+        coreDataManager.deleteStation(stationUUID: stationUid) { error in
+            completion(error)
+        }
+    }
+    
     private func makeUserImage() -> UIImage? {
-        guard let imageData = getUserAvatarFromUD(by: user?.id ?? ""), !imageData.isEmpty else {
-            return nil
-        }
-            
-        guard let imageDataDecoded = Data(base64Encoded: imageData) else {
+        guard let base64String = user?.image, !base64String.isEmpty else {
             return nil
         }
         
-        return UIImage(data: imageDataDecoded)
-    }
-    
-    private func getKeyForUserAvatar(by userId: String) -> String {
-        return "user-" + userId + "-avatar"
-    }
-    
-    private func saveUserAvatarToUD(with userId: String, avatar: String) -> String {
-        let key = getKeyForUserAvatar(by: userId)
-        UserDefaults.standard.set(avatar, forKey: key)
-        return key
-    }
-    
-    private func getUserAvatarFromUD(by userId: String) -> String? {
-        let key = getKeyForUserAvatar(by: userId)
-        let defaults = UserDefaults.standard
-            
-        guard let avatarString = defaults.string(forKey: key) else {
+        guard let imageData = Data(base64Encoded: base64String) else {
             return nil
         }
         
-        return avatarString
+        return UIImage(data: imageData)
     }
 }
 

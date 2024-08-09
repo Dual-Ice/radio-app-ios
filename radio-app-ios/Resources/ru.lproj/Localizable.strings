@@ -12,6 +12,7 @@
 "ButtonGetStarted" = "Начать прослушивание";
 "WelcomeTitleLabel" = "Давайте\nначнем";
 "WelcomeLabel" = "Наслаждайтесь лучшими\nрадиостанциями из вашего дома,\nне пропустите ничего.";
+"Hello" = "Привет";
 "Popular" = "Популярное";
 "Favorites" = "Избранное";
 "AllStations" = "Все станции";
@@ -33,6 +34,9 @@
 "SentButton" = "Отправить";
 "ChangeButton" = "Изменить пароль";
 
+//MARK: - Detail
+"PlayingNow" = "Сейчас играет";
+
 //MARK: - AuthScreen
 "AuthScreenUDismissButtonText" = "Отмена";
 "AuthScreenOkButtonText" = "Ок";
@@ -53,6 +57,8 @@
 "AuthSceenPasswordResetSuccessTitle" = "Сброс пароля";
 "AuthSceenPasswordResetSuccessMessage" = "Письмо для сброса пароля успешно отправлено. Пожалуйста, проверьте свою электронную почту.";
 
+//MARK: - Popular
+"votes" = "голоса %d";
 // MARK: - Settings
 
 /// main
