@@ -48,8 +48,8 @@ final class VolumeControlView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateSliderValue(to value: Float) {
-        volumeSlider.setValue(value, animated: false)
+    func update() {
+        volumeSlider.setValue(AudioPleer.shared.playerVolume, animated: false)
         updateVolumeLabel()
     }
     
@@ -73,6 +73,7 @@ private extension VolumeControlView {
         ].forEach {
             addSubview($0)
         }
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setupConstrains() {

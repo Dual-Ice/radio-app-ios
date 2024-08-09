@@ -7,12 +7,6 @@
 
 import UIKit
 
-protocol PlayerControlViewDelegate: AnyObject {
-    func backButtonTapped()
-    func centralButtonTapped()
-    func nextButtonTapped()
-}
-
 final class PlayerControlView: UIView {
     private let centralButton: UIButton = UIButton.makeCustomButtonWithImage(image: Image.playerCentral!)
     
@@ -29,8 +23,6 @@ final class PlayerControlView: UIView {
     
     private let nextButton: UIButton = UIButton.makeCustomButtonWithImage(image: Image.playerNext!)
     
-    weak var delegate: PlayerControlViewDelegate?
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -42,22 +34,23 @@ final class PlayerControlView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setPlayerActivity(isPlaying: Bool) {
+    func update() {
         playerStateView.image = UIImage(
-            systemName: isPlaying ? "pause.fill" : "play.fill"
+            systemName: AudioPleer.shared.isPlaying ? "pause.fill" : "play.fill"
         )
     }
     
     @objc private func centralButtonTapped() {
-        delegate?.centralButtonTapped()
+        AudioPleer.shared.isPlaying ? AudioPleer.shared.pauseMusic() : AudioPleer.shared.playMusic()
+        update()
     }
     
     @objc private func backButtonTapped() {
-        delegate?.backButtonTapped()
+        AudioPleer.shared.playPrevious()
     }
     
     @objc private func nextButtonTapped() {
-        delegate?.nextButtonTapped()
+        AudioPleer.shared.playNext()
     }
 }
 
@@ -69,9 +62,8 @@ extension PlayerControlView {
             playerStateView,
             backButton,
             nextButton
-        ].forEach {
-            addSubview($0)
-        }
+        ].forEach { addSubview($0) }
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setupConstrains() {
