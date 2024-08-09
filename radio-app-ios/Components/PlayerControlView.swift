@@ -62,9 +62,8 @@ extension PlayerControlView {
             playerStateView,
             backButton,
             nextButton
-        ].forEach {
-            addSubview($0)
-        }
+        ].forEach { addSubview($0) }
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setupConstrains() {

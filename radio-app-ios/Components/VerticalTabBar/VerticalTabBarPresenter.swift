@@ -49,8 +49,8 @@ class testVC: UIViewController {
         "https://drive.uber.radio/uber/crberlinphilharmonic/icecast.audio"
     ]
     
-    let playerControler = PlayerControlView()
-    let volumeControler = VolumeControlView()
+    private let playerControler = PlayerControlView()
+    private let volumeControler = VolumeControlView()
             
     var stations: [Station] = []
     
@@ -82,11 +82,7 @@ class testVC: UIViewController {
         let button = UIButton()
         button.setTitle("Button: Next Screen", for: .normal)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        playerControler.translatesAutoresizingMaskIntoConstraints = false
-        volumeControler.translatesAutoresizingMaskIntoConstraints = false
-        
+        button.translatesAutoresizingMaskIntoConstraints = false        
         [
             label,
             button,

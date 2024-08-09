@@ -73,6 +73,7 @@ private extension VolumeControlView {
         ].forEach {
             addSubview($0)
         }
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setupConstrains() {
