@@ -14,11 +14,11 @@ protocol AllViewDelegate: AnyObject {
 final class AllView: UIView {
     weak var delegate: AllViewDelegate?
     
-    var favRecipes = ["title1", "title2"]
+    var stations = [StationModel(radioTitle: "PopOne", genre: "Pop", isPlayingNow: false, votes: "340"),
+    StationModel(radioTitle: "RockingHard", genre: "Rock", isPlayingNow: false, votes: "234"),
+    StationModel(radioTitle: "DeepState", genre: "House", isPlayingNow: false, votes: "678")]
     
     // MARK: - UI
-    
-    private let bgImage = UIImageView.makeSimpleImage(imageName: "signInBackground")
     
     lazy var collectionView: UICollectionView = {
             let layout = UICollectionViewFlowLayout()
@@ -28,8 +28,7 @@ final class AllView: UIView {
     
             let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
             cv.translatesAutoresizingMaskIntoConstraints = false
-            //cv.backgroundColor = .clear
-            cv.backgroundColor = .blue
+            cv.backgroundColor = .clear
             cv.showsVerticalScrollIndicator = false
             cv.alwaysBounceVertical = true
     
@@ -62,11 +61,7 @@ final class AllView: UIView {
     private func setViews() {
         
         self.backgroundColor = Color.backgroundBlue
-    
-        self.addSubview(bgImage)
-        
-        [collectionView
-        ].forEach{ bgImage.addSubview($0) }
+        self.addSubview(collectionView)
         
         setUpViews()
     }
