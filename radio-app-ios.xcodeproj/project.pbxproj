@@ -291,7 +291,7 @@
 		D9E6F3642C56F362007FD2F0 /* radio-app-ios */ = {
 			isa = PBXGroup;
 			children = (
-				F48255992C6561E900488872 /* GoogleService-Info.plist */,
+				D9E6F3E92C5FDB80007FD2F0 /* GoogleService-Info.plist */,
 				D9E6F3932C56FD8B007FD2F0 /* Helpers */,
 				D9E6F3922C56FD74007FD2F0 /* Components */,
 				D9E6F3912C56FD6D007FD2F0 /* Extensions */,
@@ -575,7 +575,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-D9E6F4112C61212C007FD2F0 /* DB */ = {
+		D9E6F4112C61212C007FD2F0 /* DB */ = {
 			isa = PBXGroup;
 			children = (
 				D9E6F4492C614469007FD2F0 /* RadioUser+CoreDataClass.swift */,
@@ -802,7 +802,7 @@ D9E6F4112C61212C007FD2F0 /* DB */ = {
 				D9E6F3722C56F364007FD2F0 /* Base in Resources */,
 				F4DE1C282C59123E00D55FC5 /* SF-Pro-Display-Light.otf in Resources */,
 				F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */,
-				F482559A2C6561EA00488872 /* GoogleService-Info.plist in Resources */,
+				D9E6F3EA2C5FDB80007FD2F0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
