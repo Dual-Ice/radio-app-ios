@@ -20,16 +20,34 @@ final class AudioPleer {
         }
     }
     
+    private var stations: [Station] = []
+    private var stationIndex = 0
+    
     private init() {}
     
-    func loadMusic(from url: String) {
-        isPlaying = false
-        guard let streamURL = URL(string: url) else {
-            print("Wrong stream URL: \(url)")
+    private func loadMusic(from url: String?) {
+        guard let streamURL = URL(string: url ?? "") else {
+            print("Wrong stream URL: \(String(describing: url))")
             return
         }
+        let state = isPlaying
         player = AVPlayer(url: streamURL)
         setVolume(playerVolume)
+        if state { playMusic() }
+    }
+    
+    func loadStationList(_ list: [Station]) {
+        stations = list
+        stationIndex = -1
+    }
+    
+    func loadStation(at index: Int) {
+        guard index >= 0, index < stations.count else {
+            print("Index our of range!")
+            return
+        }
+        stationIndex = index
+        loadMusic(from: stations[index].url)
     }
     
     func playMusic() {
@@ -40,6 +58,18 @@ final class AudioPleer {
     func pauseMusic() {
         isPlaying = false
         player?.pause()
+    }
+    
+    func playNext() {
+        stationIndex += 1
+        if stationIndex >= stations.count { stationIndex = 0 }
+        loadMusic(from: stations[stationIndex].url)
+    }
+    
+    func playPrevious() {
+        stationIndex -= 1
+        if stationIndex < 0 { stationIndex = stations.count - 1 }
+        loadMusic(from: stations[stationIndex].url)
     }
     
     func setVolume(_ value: Float) {

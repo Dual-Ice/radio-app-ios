@@ -39,12 +39,9 @@ final class VerticalTabBarPresenter: VerticalTabBarPresenterProtocol {
 }
 
 
-
-import AVFoundation
-
 #warning("TO DO: Заглушки. Удалить после заполнения viewControllers[:]")
 class testVC: UIViewController {
-    let moks: [String] = [
+    let mStations: [String] = [
         "https://0n-jazz.radionetz.de/0n-jazz.mp3",
         "https://stream.rockantenne.de/alternative/stream/mp3",
         "https://stream.zeno.fm/fu24r3f24c9uv",
@@ -53,10 +50,27 @@ class testVC: UIViewController {
     ]
     
     let playerControler = PlayerControlView()
-    
     let volumeControler = VolumeControlView()
             
+    var stations: [Station] = []
+    
     override func loadView() {
+        for i in 0..<mStations.count {
+            let station = Station(
+                name: mStations[i],
+                stationuuid: "\(i)",
+                url: mStations[i],
+                tags: "tags \(i)",
+                favicon: "favicon \(i)",
+                votes: i,
+                country: "country \(i)",
+                language: "language \(i)",
+                geo_lat: Double(i)
+            )
+            stations.append(station)
+        }
+        
+        AudioPleer.shared.loadStationList(stations)
         
         let testView = UIView()
         testView.backgroundColor = Color.backgroundBlue
@@ -71,8 +85,6 @@ class testVC: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         
         playerControler.translatesAutoresizingMaskIntoConstraints = false
-        playerControler.delegate = self
-        
         volumeControler.translatesAutoresizingMaskIntoConstraints = false
         
         [
@@ -80,9 +92,7 @@ class testVC: UIViewController {
             button,
             playerControler,
             volumeControler
-        ].forEach {
-            testView.addSubview($0)
-        }
+        ].forEach { testView.addSubview($0) }
         
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
@@ -90,54 +100,25 @@ class testVC: UIViewController {
             button.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
             button.topAnchor.constraint(equalTo: label.bottomAnchor),
             
-            volumeControler.bottomAnchor.constraint(equalTo: testView.bottomAnchor, constant: -50),
-            volumeControler.leadingAnchor.constraint(equalTo: testView.leadingAnchor, constant: 38),
-            volumeControler.trailingAnchor.constraint(equalTo: testView.trailingAnchor, constant: -38),
-            volumeControler.heightAnchor.constraint(equalToConstant: 16),
-            
             playerControler.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
             playerControler.widthAnchor.constraint(equalTo: testView.widthAnchor, multiplier: 255/335),
             playerControler.heightAnchor.constraint(equalTo: playerControler.widthAnchor, multiplier: 127/255),
             playerControler.bottomAnchor.constraint(equalTo: volumeControler.topAnchor, constant: -30),
+            
+            volumeControler.bottomAnchor.constraint(equalTo: testView.bottomAnchor, constant: -50),
+            volumeControler.leadingAnchor.constraint(equalTo: testView.leadingAnchor, constant: 38),
+            volumeControler.trailingAnchor.constraint(equalTo: testView.trailingAnchor, constant: -38),
+            volumeControler.heightAnchor.constraint(equalToConstant: 16),
         ])
         view = testView
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        playerControler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
-        volumeControler.updateSliderValue(to: AudioPleer.shared.playerVolume)
+        playerControler.update()
+        volumeControler.update()
     }
     
     @objc private func buttonTapped(_ sender: CustomTabBarButton) {
         navigationController?.pushViewController(testVC(), animated: true)
-    }
-    
-    @objc private func playButtonTapped(_ sender: CustomTabBarButton) {
-        let url = moks.randomElement()
-        AudioPleer.shared.loadMusic(from: url ?? "")
-        AudioPleer.shared.playMusic()
-    }
-    
-    @objc private func pauseButtonTapped(_ sender: CustomTabBarButton) {
-        AudioPleer.shared.pauseMusic()
-    }
-}
-
-extension testVC: PlayerControlViewDelegate {
-    func backButtonTapped() {
-        AudioPleer.shared.loadMusic(from: moks.randomElement() ?? "")
-        playerControler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
-    }
-    
-    func centralButtonTapped() {
-        AudioPleer.shared.isPlaying ? AudioPleer.shared.pauseMusic() : AudioPleer.shared.playMusic()
-        playerControler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
-    }
-    
-    func nextButtonTapped() {
-        let state = AudioPleer.shared.isPlaying
-        AudioPleer.shared.loadMusic(from: moks.randomElement() ?? "")
-        state ? AudioPleer.shared.playMusic() : AudioPleer.shared.pauseMusic()
-        playerControler.setPlayerActivity(isPlaying: AudioPleer.shared.isPlaying)
     }
 }
