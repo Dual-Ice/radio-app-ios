@@ -27,11 +27,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            }
 //        }
 
-//        if UserDefaults.standard.bool(forKey: "isWelcomeCompleted") {
-//            checkAuthentication()
-//            return
-//        }
-//        window?.rootViewController = MainSettingsVC()
+        if UserDefaults.standard.bool(forKey: "isWelcomeCompleted") {
+            checkAuthentication()
+            return
+        }
+        window?.rootViewController = WelcomeController()
 
         /// settings navigation
         let settingsBuilder = MainSettingsBuilder()
