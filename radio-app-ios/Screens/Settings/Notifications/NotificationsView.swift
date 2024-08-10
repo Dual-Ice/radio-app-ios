@@ -7,6 +7,8 @@
 
 import UIKit
 
+    // MARK: NotificationsView
+
 final class NotificationsView: UIView {
 
     // MARK: UI Elements
@@ -92,6 +94,7 @@ final class NotificationsView: UIView {
 private extension NotificationsView {
 
     func setView() {
+        self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(backgroundView)
         backgroundView.addSubview(mainView)
         [titleLabel, showNotificationsLabel, sendNotificationsLabel, toggle, timePicker].forEach { mainView.addSubview($0) }

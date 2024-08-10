@@ -7,13 +7,14 @@
 
 import UIKit
 
-protocol MainSettingsVCProtocol: AnyObject {
+    // MARK: MainSettingsVC Protocol
 
+protocol MainSettingsVCProtocol: AnyObject {
 }
 
-final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
+    // MARK: MainSettingsVC
 
-    // MARK: Properties
+final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
 
     var presenter: MainSettingsPresenter!
 
@@ -23,10 +24,12 @@ final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
 
     // MARK: Life Cycle
 
+    override func loadView() {
+        view = settingsView
+    }
+
     override func viewDidLoad() {
-        setView()
-        setupConstraints()
-        setupDelegate()
+        setDelegate()
 
         callNotificationClosure()
         callLanguageClosure()
@@ -36,7 +39,7 @@ final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
 
     // MARK: Private Methods
 
-    private func setupDelegate() {
+    private func setDelegate() {
         settingsView.delegate = self
     }
 }
@@ -83,23 +86,5 @@ extension MainSettingsVC {
             print ("about call")
             self?.presenter.showAboutVC()
         }
-    }
-}
-
-    // MARK: Layout
-
-private extension MainSettingsVC {
-
-    func setView() {
-        [settingsView].forEach { view.addSubview($0) }
-    }
-
-    func setupConstraints() {
-        NSLayoutConstraint.activate([
-            settingsView.topAnchor.constraint(equalTo: view.topAnchor),
-            settingsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            settingsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            settingsView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
     }
 }

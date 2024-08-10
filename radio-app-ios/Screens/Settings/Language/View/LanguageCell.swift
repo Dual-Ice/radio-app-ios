@@ -92,6 +92,7 @@ private extension LanguageCell {
             checkmarkImageView.widthAnchor.constraint(equalToConstant: LayoutConstants.checkMarkSize),
             checkmarkImageView.heightAnchor.constraint(equalToConstant: LayoutConstants.checkMarkSize),
 
+            /// это надо будет потестить на работающем экране
 //            lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 //            lineView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.bigSideOffset),
 //            lineView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.bigSideOffset),

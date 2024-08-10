@@ -13,12 +13,10 @@ protocol AboutPresenterProtocol {
 
 final class AboutPresenter: AboutPresenterProtocol {
 
-
     private weak var view: AboutVCProtocol?
 
     init(view: AboutVCProtocol) {
         self.view = view
     }
-
 }
 

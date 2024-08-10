@@ -7,10 +7,14 @@
 
 import UIKit
 
+    // MARK: UserInfoView Delegate
+
 protocol UserInfoViewDelegate: AnyObject {
     func editButtonTapped()
 //    func setData(with user: User)
 }
+
+    // MARK: UserInfoView
 
 final class UserInfoView: UIView {
 

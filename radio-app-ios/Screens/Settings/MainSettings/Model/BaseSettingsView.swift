@@ -7,6 +7,8 @@
 
 import UIKit
 
+    // MARK: BaseSettingsView
+
 class BaseSettingsView: UIView {
 
     // MARK: Closures
@@ -122,7 +124,6 @@ private extension BaseSettingsView {
             secondSettingView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.smallSideOffset),
             secondSettingView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.smallSideOffset),
             secondSettingView.heightAnchor.constraint(equalToConstant: LayoutConstants.settingsHeight),
-
         ])
     }
 

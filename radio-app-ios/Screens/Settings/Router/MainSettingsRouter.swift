@@ -44,7 +44,6 @@ final class MainSettingsRouter: MainSettingsRouterProtocol {
             guard let mainSettingsVC = moduleBuilder?.createMainSettingsModule(router: self) else { return }
             navigationController.viewControllers = [mainSettingsVC]
         }
-
     }
     
     func showEditVC() {

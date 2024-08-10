@@ -7,8 +7,12 @@
 
 import UIKit
 
+    // MARK: LanguageVC Protocol
+
 protocol LanguageVCProtocol: AnyObject {
 }
+
+    // MARK: LanguageVC
 
 final class LanguageVC: UIViewController {
 
@@ -20,40 +24,17 @@ final class LanguageVC: UIViewController {
 
     // MARK: Life cycle
 
+    override func loadView() {
+        view = languageView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setView()
-        setupConstraints()
     }
 }
 
-    // MARK: Layout
+// MARK: LanguageVCProtocol
 
-private extension LanguageVC {
-
-    func setView() {
-        view.addSubview(languageView)
-        languageView.translatesAutoresizingMaskIntoConstraints = false
-    }
-
-    func setupConstraints() {
-
-        NSLayoutConstraint.activate([
-
-            languageView.topAnchor.constraint(equalTo: view.topAnchor),
-            languageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            languageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            languageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-
-        ])
-
-    }
-
-    enum LayoutConstants {
-
-    }
-}
-
-    // MARK: LanguageVCProtocol
 extension LanguageVC: LanguageVCProtocol {
 }
+

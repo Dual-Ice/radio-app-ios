@@ -7,9 +7,13 @@
 
 import UIKit
 
+    // MARK: AboutVC Protocol
+
 protocol AboutVCProtocol: AnyObject {
 
 }
+
+    // MARK: AboutVC
 
 final class AboutVC: UIViewController, AboutVCProtocol {
 
@@ -21,36 +25,11 @@ final class AboutVC: UIViewController, AboutVCProtocol {
 
     // MARK: Life cycle
 
+    override func loadView() {
+        view = aboutView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setView()
-        setupConstraints()
-    }
-}
-
-    // MARK: Layout
-
-private extension AboutVC {
-
-    func setView() {
-        view.addSubview(aboutView)
-        aboutView.translatesAutoresizingMaskIntoConstraints = false
-    }
-
-    func setupConstraints() {
-
-        NSLayoutConstraint.activate([
-
-            aboutView.topAnchor.constraint(equalTo: view.topAnchor),
-            aboutView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            aboutView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            aboutView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-
-        ])
-
-    }
-
-    enum LayoutConstants {
-
     }
 }

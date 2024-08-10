@@ -7,6 +7,8 @@
 
 import UIKit
 
+    // MARK: MainSettingsPresenter Protocol
+
 protocol MainSettingsPresenterProtocol {
     init(view: MainSettingsVCProtocol, router: MainSettingsRouter)
     func showEditProfileVC()
@@ -15,9 +17,11 @@ protocol MainSettingsPresenterProtocol {
     func showPolicyVC()
     func showAboutVC()
 
-    func showUserInfo()
+    func setUserInfo()
     func logOut()
 }
+
+    // MARK: MainSettingsPresenter
 
 final class MainSettingsPresenter: MainSettingsPresenterProtocol {
 
@@ -50,8 +54,8 @@ final class MainSettingsPresenter: MainSettingsPresenterProtocol {
         router.showAboutVC()
     }
     
-    func showUserInfo() {
-        print ("show user info")
+    func setUserInfo() {
+        print ("set user info")
     }
 
     func logOut() {

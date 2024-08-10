@@ -59,7 +59,4 @@ final class MainSettingsBuilder: MainSettingsBuilderProtocol {
         view.presenter = presenter
         return view
     }
-    
-
-
 }

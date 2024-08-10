@@ -7,6 +7,8 @@
 
 import UIKit
 
+    // MARK: SettingView
+
 final class SettingView: UIView {
 
     // MARK: UI Elements

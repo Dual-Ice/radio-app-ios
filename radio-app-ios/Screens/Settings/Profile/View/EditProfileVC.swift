@@ -7,9 +7,12 @@
 
 import UIKit
 
-protocol EditProfileVCProtocol: AnyObject {
+    // MARK: EditProfileVC Protocol
 
+protocol EditProfileVCProtocol: AnyObject {
 }
+
+    // MARK: EditProfileVC
 
 final class EditProfileVC: UIViewController, EditProfileVCProtocol {
 
@@ -17,40 +20,15 @@ final class EditProfileVC: UIViewController, EditProfileVCProtocol {
 
     // MARK: UI Elements
 
-    private let profileView = ProfileView()
+    private let editProfileView = EditProfileView()
 
     // MARK: Life cycle
 
+    override func loadView() {
+        view = editProfileView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setView()
-        setupConstraints()
-    }
-}
-
-    // MARK: Layout
-
-private extension EditProfileVC {
-
-    func setView() {
-        view.addSubview(profileView)
-        profileView.translatesAutoresizingMaskIntoConstraints = false
-    }
-
-    func setupConstraints() {
-        
-        NSLayoutConstraint.activate([
-
-            profileView.topAnchor.constraint(equalTo: view.topAnchor),
-            profileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            profileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            profileView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-
-        ])
-
-    }
-
-    enum LayoutConstants {
-        
     }
 }

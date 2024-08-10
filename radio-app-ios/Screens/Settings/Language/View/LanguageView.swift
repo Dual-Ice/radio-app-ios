@@ -7,13 +7,14 @@
 
 import UIKit
 
-//protocol LanguageViewDelegate: AnyObject {
-//}
+    // MARK: LanguageView Delegate
+
+protocol LanguageViewDelegate: AnyObject {
+}
+
+// MARK: LanguageView
 
 final class LanguageView: UIView {
-
-    var languages = ["English", "Русский"]
-    var lastSelectedIndexPath: IndexPath = IndexPath(row: 0, section: 0)
 
     // MARK: UI Elements
 
@@ -65,55 +66,40 @@ final class LanguageView: UIView {
 
     // move to VC
     func setTableDelegate() {
-        tableView.dataSource = self
-        tableView.delegate = self
+//        tableView.dataSource = self
+//        tableView.delegate = self
     }
 }
 
 // move to VC
-extension LanguageView: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        languages.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        guard
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: LanguageCell.reuseID,
-                for: indexPath) as? LanguageCell
-        else { return UITableViewCell() }
-
-        let language = languages[indexPath.row]
-        let checkValue = (indexPath == lastSelectedIndexPath)
-        cell.configure(with: language)
-        cell.setCheckmarkValue(checkValue)
-        return cell
-    }
-
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//        tableView.deselectRow(at: indexPath, animated: true)
-//
-//        if let lastIndexPath = presenter.lastSelectedIndexPath,
-//           let lastCell = tableView.cellForRow(at: lastIndexPath) as? LanguageCell {
-//            lastCell.setCheckmarkValue(false)
-//        }
-//
-//        presenter.lastSelectedIndexPath = indexPath
-//        if let cell = tableView.cellForRow(at: indexPath) as? LanguageCell {
-//            cell.setCheckmarkValue(true)
-//        }
+//extension LanguageView: UITableViewDelegate, UITableViewDataSource {
+//    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        presenter.languages.count
 //    }
-
-}
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        guard
+//            let cell = tableView.dequ32eueReusableCell(
+//                withIdentifier: LanguageCell.reuseID,
+//                for: indexPath) as? LanguageCell
+//        else { return UITableViewCell() }
+//
+//        let language = presenter.languages[indexPath.row]
+//        let checkValue = (indexPath == presenter.lastSelectedIndexPath)
+//        cell.configure(with: language)
+//        cell.setCheckmarkValue(checkValue)
+//        return cell
+//    }
+//}
 
     // MARK: Layout
 
 private extension LanguageView {
 
     func setView() {
+        self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(backgroundView)
         backgroundView.addSubview(mainView)
         [titleLabel, tableView].forEach { mainView.addSubview($0) }
@@ -142,7 +128,6 @@ private extension LanguageView {
             tableView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor)
 
         ])
-
     }
 
     enum LayoutConstants {

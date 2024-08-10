@@ -7,9 +7,12 @@
 
 import UIKit
 
-protocol NotificationsVCProtocol: AnyObject {
+    // MARK: NotificationsVC Protocol
 
+protocol NotificationsVCProtocol: AnyObject {
 }
+
+    // MARK: NotificationsVC
 
 final class NotificationsVC: UIViewController, NotificationsVCProtocol {
 
@@ -21,36 +24,11 @@ final class NotificationsVC: UIViewController, NotificationsVCProtocol {
 
     // MARK: Life cycle
 
+    override func loadView() {
+        view = notificationView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setView()
-        setupConstraints()
-    }
-}
-
-    // MARK: Layout
-
-private extension NotificationsVC {
-
-    func setView() {
-        view.addSubview(notificationView)
-        notificationView.translatesAutoresizingMaskIntoConstraints = false
-    }
-
-    func setupConstraints() {
-
-        NSLayoutConstraint.activate([
-
-            notificationView.topAnchor.constraint(equalTo: view.topAnchor),
-            notificationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            notificationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            notificationView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-
-        ])
-
-    }
-
-    enum LayoutConstants {
-
     }
 }

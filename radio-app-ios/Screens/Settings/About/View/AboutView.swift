@@ -37,6 +37,7 @@ private extension AboutView {
 
     func setView() {
         self.addSubview(backgroundView)
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
 
     func setupContraints() {
@@ -49,10 +50,6 @@ private extension AboutView {
             backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 
         ])
-
-    }
-
-    enum LayoutConstants {
 
     }
 }

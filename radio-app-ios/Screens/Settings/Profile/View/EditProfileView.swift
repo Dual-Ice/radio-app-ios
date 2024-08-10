@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class ProfileView: UIView {
+    // MARK: EditProfile View
+
+final class EditProfileView: UIView {
 
     // MARK: UI Elements
 
@@ -95,9 +97,10 @@ final class ProfileView: UIView {
 
     // MARK: Layout
 
-private extension ProfileView {
+private extension EditProfileView {
 
     func setView() {
+        self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(backgroundView)
         [userImage, userName, userEmail, editButton, textFieldStackView, saveButton, errorLabel].forEach { backgroundView.addSubview($0) }
         [changeNameTextfield, changeEmailTextfield, changePasswordTextfield].forEach { textFieldStackView.addArrangedSubview($0) }
