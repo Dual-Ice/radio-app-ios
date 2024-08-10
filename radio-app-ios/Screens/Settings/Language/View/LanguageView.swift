@@ -25,28 +25,13 @@ final class LanguageView: UIView {
         return view
     }()
 
-    private let mainView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        view.layer.cornerRadius = 15
-        view.layer.borderWidth = 1
-        view.layer.borderColor = Color.borderColor.cgColor
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    private let titleLabel = UILabel.makeCustomLabel(
-        key: "AvailableLanguages",
-        fontSize: 14,
-        textColor: .systemGray,
-        numberOfLines: 1,
-        textAligment: .left)
-
     private let tableView: UITableView = {
         let table = UITableView()
         table.register(LanguageCell.self, forCellReuseIdentifier: LanguageCell.reuseID)
         table.backgroundColor = .clear
-        table.isScrollEnabled = false
+        table.layer.cornerRadius = 15
+        table.layer.borderWidth = 1
+        table.layer.borderColor = Color.borderColor.cgColor
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -57,42 +42,21 @@ final class LanguageView: UIView {
         super.init(frame: frame)
         setView()
         setupContraints()
-        setTableDelegate()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // move to VC
-    func setTableDelegate() {
-//        tableView.dataSource = self
-//        tableView.delegate = self
+    // MARK: Public Methods
+
+    func setTableViewDelegate(delegate: UITableViewDelegate,
+                              dataSource: UITableViewDataSource) 
+    {
+        tableView.delegate = delegate
+        tableView.dataSource = dataSource
     }
 }
-
-// move to VC
-//extension LanguageView: UITableViewDelegate, UITableViewDataSource {
-//    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        presenter.languages.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        guard
-//            let cell = tableView.dequ32eueReusableCell(
-//                withIdentifier: LanguageCell.reuseID,
-//                for: indexPath) as? LanguageCell
-//        else { return UITableViewCell() }
-//
-//        let language = presenter.languages[indexPath.row]
-//        let checkValue = (indexPath == presenter.lastSelectedIndexPath)
-//        cell.configure(with: language)
-//        cell.setCheckmarkValue(checkValue)
-//        return cell
-//    }
-//}
 
     // MARK: Layout
 
@@ -101,8 +65,7 @@ private extension LanguageView {
     func setView() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(backgroundView)
-        backgroundView.addSubview(mainView)
-        [titleLabel, tableView].forEach { mainView.addSubview($0) }
+        backgroundView.addSubview(tableView)
     }
 
     func setupContraints() {
@@ -114,18 +77,10 @@ private extension LanguageView {
             backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 
-            mainView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 100),
-            mainView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: LayoutConstants.sideOffset),
-            mainView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -LayoutConstants.sideOffset),
-            mainView.heightAnchor.constraint(equalToConstant: 160),
-
-            titleLabel.topAnchor.constraint(equalTo: mainView.topAnchor, constant: LayoutConstants.verticalOffset),
-            titleLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: LayoutConstants.sideOffset),
-
-            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutConstants.verticalOffset),
-            tableView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: LayoutConstants.sideOffset),
-            tableView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -LayoutConstants.sideOffset),
-            tableView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
+            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.sideOffset),
+            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.sideOffset),
+            tableView.heightAnchor.constraint(equalToConstant: 140)
 
         ])
     }

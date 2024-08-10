@@ -87,3 +87,6 @@
 "NotificationsTitle" = "Notification Settings";
 "ShowNotifications" = "Show notifications";
 "SendNotificationsLabel" = "Send notifications at";
+
+// languages
+"AvailableLanguages" = "Available Languages";

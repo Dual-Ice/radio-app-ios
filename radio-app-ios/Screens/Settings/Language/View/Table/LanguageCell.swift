@@ -84,7 +84,7 @@ private extension LanguageCell {
         NSLayoutConstraint.activate([
 
             mainLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            mainLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.sideOffset),
+            mainLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.bigSideOffset),
 
             checkmarkImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             checkmarkImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.sideOffset),

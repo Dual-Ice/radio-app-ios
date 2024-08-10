@@ -87,3 +87,6 @@
 "NotificationsTitle" = "Управление уведомлениями";
 "ShowNotifications" = "Разрешить уведомления";
 "SendNotificationsLabel" = "Отправлять уведомления в";
+
+// languages
+"AvailableLanguages" = "Доступные языки";

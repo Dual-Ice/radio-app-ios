@@ -106,6 +106,7 @@
 		F48255A92C656D2100488872 /* PolicyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255A82C656D2100488872 /* PolicyPresenter.swift */; };
 		F48255AB2C656FA300488872 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255AA2C656FA300488872 /* EditProfilePresenter.swift */; };
 		F48255AD2C676FBE00488872 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F48255AC2C676FBE00488872 /* GoogleService-Info.plist */; };
+		F48255B02C67750F00488872 /* LanguageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255AF2C67750F00488872 /* LanguageTableHeaderView.swift */; };
 		F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */; };
 		F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */; };
 		F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */; };
@@ -216,6 +217,7 @@
 		F48255A82C656D2100488872 /* PolicyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyPresenter.swift; sourceTree = "<group>"; };
 		F48255AA2C656FA300488872 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
 		F48255AC2C676FBE00488872 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F48255AF2C67750F00488872 /* LanguageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableHeaderView.swift; sourceTree = "<group>"; };
 		F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel_Extension.swift; sourceTree = "<group>"; };
 		F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_Extension.swift; sourceTree = "<group>"; };
@@ -649,9 +651,9 @@
 		F48255912C65203A00488872 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F48255AE2C67750000488872 /* Table */,
 				F48255872C63D28E00488872 /* LanguageVC.swift */,
 				F48255892C63D29A00488872 /* LanguageView.swift */,
-				F482558B2C64F12A00488872 /* LanguageCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -706,6 +708,15 @@
 				F48255A42C656CEB00488872 /* AboutPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F48255AE2C67750000488872 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				F482558B2C64F12A00488872 /* LanguageCell.swift */,
+				F48255AF2C67750F00488872 /* LanguageTableHeaderView.swift */,
+			);
+			path = Table;
 			sourceTree = "<group>";
 		};
 		F4DE1C2F2C5A781300D55FC5 /* Network Layer */ = {
@@ -878,6 +889,7 @@
 				F482555F2C610E0D00488872 /* GeneralSettingsView.swift in Sources */,
 				F48255552C602A7600488872 /* UserInfoView.swift in Sources */,
 				F48255802C63D15800488872 /* AboutView.swift in Sources */,
+				F48255B02C67750F00488872 /* LanguageTableHeaderView.swift in Sources */,
 				D13ADE122C59E43D002B94AE /* AuthView.swift in Sources */,
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
 				A76E5E302C60FE03004A06B3 /* HeaderView.swift in Sources */,
