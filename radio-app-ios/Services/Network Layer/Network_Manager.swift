@@ -46,6 +46,8 @@ class NetworkManager {
             parameters ["limit"] = "15"
         case .getTags:
             parameters ["limit"] = "10"
+        case .doVote(uuids: let uuids):
+            parameters ["uuids"] = "\(uuids)"
         case .doSearch(request: let request):
             parameters ["name"] = "\(request)"
             parameters ["limit"] = "15"
