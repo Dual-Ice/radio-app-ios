@@ -76,7 +76,7 @@ extension UIButton {
         let titleLocalized = NSLocalizedString(title ?? "Button", comment: "Localizable")
         button.setTitle(titleLocalized, for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
