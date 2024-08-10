@@ -30,6 +30,11 @@ class Radio_API_Manager {
         networkManager.makeTask(for: url, completion: completion)
     }
 
+    func voteForStation(stationID: String, completion: @escaping(Result<Vote, NetworkError>) -> Void) {
+        guard let url = networkManager.createURL(for: .doVote(uuids: stationID)) else { return }
+        networkManager.makeTask(for: url, completion: completion)
+    }
+
     /// gettings list of tags
     func getTags(completion: @escaping(Result<[Tag], NetworkError>) -> Void) {
         guard let url = networkManager.createURL(for: .getTags) else { return }

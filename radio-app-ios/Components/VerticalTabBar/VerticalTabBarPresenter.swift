@@ -49,7 +49,7 @@ class testVC: UIViewController {
         "https://stream-176.zeno.fm/a3th9bd1fs8uv?zs=e8ersugnTZy8yQsXXp2s2A",
         "https://drive.uber.radio/uber/crberlinphilharmonic/icecast.audio"
     ]
-    
+
     private let playerControler = PlayerControlView()
     private let volumeControler = VolumeControlView()
             

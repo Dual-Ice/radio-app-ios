@@ -13,6 +13,7 @@ enum Endpoints {
     case getCountriesList
     case getLanguagesList
     case getTags
+    case doVote (uuids: String)
     case doSearch (request: String)
     case doSearchByCountry (parameter: String)
     case doSearchByLanguageOrTag (parameter: String)
@@ -29,6 +30,8 @@ enum Endpoints {
             return "/json/languages"
         case .getTags:
             return "/json/tags"
+        case .doVote(uuids: let uuids):
+            return "/json/vote/\(uuids)"
         case .doSearch:
             return "/json/stations/search"
         case .doSearchByCountry:
