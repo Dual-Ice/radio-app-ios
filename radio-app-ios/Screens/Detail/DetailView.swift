@@ -182,7 +182,7 @@ final class DetailView: UIView {
             radioFaviconImageView.getImage(from: imageUrl)
         }
         stationTitle.text = stationData.name
-        stationFrequency.text = "Striming" // no data from API
+        stationFrequency.text = "Streaming" // no data from API
     }
     
     func setUserAvatar(_ image: UIImage?) {
