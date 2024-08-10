@@ -59,3 +59,8 @@
 
 //MARK: - Popular
 "votes" = "votes %d";
+
+//MARK: - Browse
+"browse_by_tags" = "Browse by\ntags";
+"browse_by_language" = "Browse by\nlanguage";
+"browse_by_country" = "Browse by\ncountry";

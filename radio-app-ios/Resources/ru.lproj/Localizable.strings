@@ -59,3 +59,8 @@
 
 //MARK: - Popular
 "votes" = "голоса %d";
+
+//MARK: - Browse
+"browse_by_tags" = "Поиск по\nжанрам";
+"browse_by_language" = "Поиск по\nязыку";
+"browse_by_country" = "Поиск по\nстране";
