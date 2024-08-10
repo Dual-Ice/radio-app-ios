@@ -46,14 +46,14 @@ final class PolicyVC: UIViewController, PolicyVCProtocol {
         textAligment: .left)
 
     private let firstTextLabel = UILabel.makeCustomLabelBold(
-        key: "MockText",
+        key: "Introduction",
         fontSize: 14,
         textColor: .systemGray,
         numberOfLines: 0,
         textAligment: .left)
 
     private let secondTextLabel = UILabel.makeCustomLabelBold(
-        key: "MockText",
+        key: "MainRules",
         fontSize: 14,
         textColor: .systemGray,
         numberOfLines: 0,

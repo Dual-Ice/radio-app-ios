@@ -39,7 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = settingsBuilder.createMainSettingsModule(router: router)
 
         /// single
-        window?.rootViewController = NotificationsVC()
+        window?.rootViewController = PolicyVC()
 }
 
     func sceneDidDisconnect(_ scene: UIScene) {

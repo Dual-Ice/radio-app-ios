@@ -99,13 +99,13 @@
 		F482558C2C64F12B00488872 /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F482558B2C64F12A00488872 /* LanguageCell.swift */; };
 		F482558E2C651E7100488872 /* MainSettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F482558D2C651E7100488872 /* MainSettingsBuilder.swift */; };
 		F48255942C65206800488872 /* LanguagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255932C65206800488872 /* LanguagePresenter.swift */; };
-		F482559A2C6561EA00488872 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F48255992C6561E900488872 /* GoogleService-Info.plist */; };
 		F482559E2C65630700488872 /* MainSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F482559D2C65630700488872 /* MainSettingsPresenter.swift */; };
 		F48255A12C65635800488872 /* MainSettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255A02C65635800488872 /* MainSettingsRouter.swift */; };
 		F48255A32C656CAE00488872 /* NotificationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255A22C656CAE00488872 /* NotificationsPresenter.swift */; };
 		F48255A52C656CEB00488872 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255A42C656CEB00488872 /* AboutPresenter.swift */; };
 		F48255A92C656D2100488872 /* PolicyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255A82C656D2100488872 /* PolicyPresenter.swift */; };
 		F48255AB2C656FA300488872 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255AA2C656FA300488872 /* EditProfilePresenter.swift */; };
+		F48255AD2C676FBE00488872 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F48255AC2C676FBE00488872 /* GoogleService-Info.plist */; };
 		F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */; };
 		F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */; };
 		F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */; };
@@ -209,13 +209,13 @@
 		F482558B2C64F12A00488872 /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 		F482558D2C651E7100488872 /* MainSettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsBuilder.swift; sourceTree = "<group>"; };
 		F48255932C65206800488872 /* LanguagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePresenter.swift; sourceTree = "<group>"; };
-		F48255992C6561E900488872 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F482559D2C65630700488872 /* MainSettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsPresenter.swift; sourceTree = "<group>"; };
 		F48255A02C65635800488872 /* MainSettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsRouter.swift; sourceTree = "<group>"; };
 		F48255A22C656CAE00488872 /* NotificationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPresenter.swift; sourceTree = "<group>"; };
 		F48255A42C656CEB00488872 /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
 		F48255A82C656D2100488872 /* PolicyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyPresenter.swift; sourceTree = "<group>"; };
 		F48255AA2C656FA300488872 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
+		F48255AC2C676FBE00488872 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel_Extension.swift; sourceTree = "<group>"; };
 		F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_Extension.swift; sourceTree = "<group>"; };
@@ -287,7 +287,6 @@
 		D9E6F3642C56F362007FD2F0 /* radio-app-ios */ = {
 			isa = PBXGroup;
 			children = (
-				D9E6F3E92C5FDB80007FD2F0 /* GoogleService-Info.plist */,
 				D9E6F3932C56FD8B007FD2F0 /* Helpers */,
 				D9E6F3922C56FD74007FD2F0 /* Components */,
 				D9E6F3912C56FD6D007FD2F0 /* Extensions */,
@@ -300,6 +299,7 @@
 				D9E6F36E2C56F364007FD2F0 /* Assets.xcassets */,
 				D9E6F3702C56F364007FD2F0 /* LaunchScreen.storyboard */,
 				D9E6F3732C56F364007FD2F0 /* Info.plist */,
+				F48255AC2C676FBE00488872 /* GoogleService-Info.plist */,
 			);
 			path = "radio-app-ios";
 			sourceTree = "<group>";
@@ -798,7 +798,7 @@
 				D9E6F3722C56F364007FD2F0 /* Base in Resources */,
 				F4DE1C282C59123E00D55FC5 /* SF-Pro-Display-Light.otf in Resources */,
 				F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */,
-				D9E6F3EA2C5FDB80007FD2F0 /* GoogleService-Info.plist in Resources */,
+				F48255AD2C676FBE00488872 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

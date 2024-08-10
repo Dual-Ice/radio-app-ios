@@ -33,13 +33,6 @@ final class LanguageCell: UITableViewCell {
         return label
     }()
 
-//    private var lineView: UIView = {
-//        var view = UIView()
-//        view.backgroundColor = .systemGray
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        return view
-//    }()
-
     private let checkmarkImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.image = UIImage(systemName: "checkmark")
@@ -61,6 +54,12 @@ final class LanguageCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        isChecked = false
+        mainLabel.text = nil
+    }
+
     // MARK: Public Methods
 
     func configure(with text: String) {
@@ -77,7 +76,7 @@ private extension LanguageCell {
     func setView() {
         selectionStyle = .none
         backgroundColor = .clear
-        [mainLabel, /*lineView,*/ checkmarkImageView].forEach { addSubview($0) }
+        [mainLabel, checkmarkImageView].forEach { addSubview($0) }
     }
 
     func setConstraints() {
@@ -90,14 +89,7 @@ private extension LanguageCell {
             checkmarkImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             checkmarkImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.sideOffset),
             checkmarkImageView.widthAnchor.constraint(equalToConstant: LayoutConstants.checkMarkSize),
-            checkmarkImageView.heightAnchor.constraint(equalToConstant: LayoutConstants.checkMarkSize),
-
-            /// это надо будет потестить на работающем экране
-//            lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-//            lineView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.bigSideOffset),
-//            lineView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.bigSideOffset),
-//            lineView.heightAnchor.constraint(equalToConstant: 1)
-
+            checkmarkImageView.heightAnchor.constraint(equalToConstant: LayoutConstants.checkMarkSize)
         ])
     }
 
