@@ -38,3 +38,8 @@ struct Tag: Codable {
     let name: String?
     let stationcount: Int?
 }
+
+struct Vote: Codable {
+    let ok: Bool?               /// true if succeeded
+    let message: String?
+}
