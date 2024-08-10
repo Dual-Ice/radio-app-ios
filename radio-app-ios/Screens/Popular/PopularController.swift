@@ -20,6 +20,17 @@ final class PopularController: UIViewController {
     private let dotColors: [UIColor] = [.red, .blue, .green, .purple, .yellow, .systemCyan, .orange]
     private var cellDotColors: [IndexPath: UIColor] = [:]
     
+    let presenter: PopularPresenter
+    
+    init(presenter: PopularPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life Cycle
     override func loadView() {
         view = popularView
@@ -89,6 +100,8 @@ extension PopularController: UICollectionViewDataSource, UICollectionViewDelegat
         selectedIndexPath = indexPath
         popularView.getCollectionView.reloadData()
         print("Selected cell at \(indexPath)")
+        
+        presenter.goToDetail(station: stations[indexPath.row])
     }
     // MARK: - Активировать когда будет метод
 //    func vote(for stationuuid: String) {

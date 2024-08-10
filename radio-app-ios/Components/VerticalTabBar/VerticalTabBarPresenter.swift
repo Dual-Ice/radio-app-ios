@@ -8,7 +8,7 @@
 import UIKit
 
 protocol VerticalTabBarPresenterProtocol: AnyObject {
-    func loadViewController()
+    func loadViewController(_ navigationController: UINavigationController)
     func didChooseView(_ view: String)
 }
 
@@ -16,17 +16,18 @@ final class VerticalTabBarPresenter: VerticalTabBarPresenterProtocol {
     private unowned let tabBarController: VerticalTabBarControllerProtocol
     
     //MARK: - Modules. Enter here the name and class of the controllers to display
-    private let viewControllers: [String: UIViewController] = [
-        "Popular"       : testVC(),
-        "Favorites"     : testVC(),
-        "AllStations"   : testVC()
-    ]
+    private var viewControllers: [String: UIViewController] = [:]
         
     init(tabBarController: VerticalTabBarControllerProtocol) {
         self.tabBarController = tabBarController
     }
     
-    func loadViewController() {
+    func loadViewController(_ navigationController: UINavigationController) {
+        #warning("заполнить нужными контроллерами")
+        viewControllers["Popular"] = PopularBuilder.buildPopularController(navigationController)
+        viewControllers["Favorites"] = PopularBuilder.buildPopularController(navigationController)
+        viewControllers["AllStations"] = testVC()
+        
         viewControllers.keys.sorted(by: >).forEach { viewName  in
             let title = NSLocalizedString(viewName, comment: "Localizable")
             tabBarController.addTabBarButtons(title, identifier: viewName)
