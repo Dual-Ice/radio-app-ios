@@ -20,7 +20,7 @@ final class VerticalTabBarController: UIViewController {
     
     override func loadView() {
         view = verticalTabBar
-        presenter?.loadViewController()
+        presenter?.loadViewController(navigationController ?? UINavigationController())
     }
     
     override func viewDidLoad() {

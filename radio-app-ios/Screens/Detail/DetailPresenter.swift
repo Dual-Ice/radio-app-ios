@@ -8,9 +8,9 @@
 import Foundation
 
 class DetailPresenter {
-    
+    private let router: DetailRouter
     private var currentStation: Station
-    private let router: DetailRouterProtocol
+    
     weak var view: DetailController?
     
     init(data: Station, router: DetailRouter) {

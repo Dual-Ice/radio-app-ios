@@ -6,14 +6,7 @@
 //
 import UIKit
 
-protocol DetailRouterProtocol: AnyObject {
-    init(navigationVC: UINavigationController)
-    
-    func dismiss()
-    func goToProfileSettings()
-}
-
-final class DetailRouter: DetailRouterProtocol {
+final class DetailRouter {
     private let navigationVC: UINavigationController
     
     required init(navigationVC: UINavigationController) {
