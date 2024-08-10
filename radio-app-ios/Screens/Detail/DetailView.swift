@@ -178,12 +178,11 @@ final class DetailView: UIView {
     }
     
     func configureUI(with stationData: Station) {
-        if let imagePath = stationData.favicon {
-            let imageUrl = URL(string: imagePath)
-            //radioFaviconImageView.getImage(from: imageUrl ?? "")
+        if let imagePath = stationData.favicon, let imageUrl = URL(string: imagePath) {
+            radioFaviconImageView.getImage(from: imageUrl)
         }
         stationTitle.text = stationData.name
-        stationFrequency.text = "90.5" // no data from API
+        stationFrequency.text = "Striming" // no data from API
     }
     
     func setUserAvatar(_ image: UIImage?) {

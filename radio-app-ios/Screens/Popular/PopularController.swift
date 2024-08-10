@@ -99,11 +99,10 @@ extension PopularController: UICollectionViewDataSource, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
         popularView.getCollectionView.reloadData()
-        print("Selected cell at \(indexPath)")
-        
         presenter.goToDetail(station: stations[indexPath.row])
     }
-    // MARK: - Активировать когда будет метод
+    
+    #warning("TO DO: Активировать когда будет метод")
 //    func vote(for stationuuid: String) {
 //        apiManager.vote(for: stationuuid) { [weak self] result in
 //            switch result {

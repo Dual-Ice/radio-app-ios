@@ -89,7 +89,7 @@ extension SceneDelegate {
             
             guard let user = user else { return }
             UserManager.shared.setUser(userObject: user)
-                        
+            
             self?.window?.rootViewController = UINavigationController(rootViewController: VerticalTabBarBuilder.build())
         }
     }
