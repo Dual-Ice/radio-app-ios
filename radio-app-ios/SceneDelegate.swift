@@ -34,9 +34,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = WelcomeController()
 
         /// settings navigation
-        let settingsBuilder = MainSettingsBuilder()
-        let router = MainSettingsRouter(navigationController: UINavigationController(), moduleBuilder: settingsBuilder)
-        window?.rootViewController = settingsBuilder.createLanguageVC()
+        //let settingsBuilder = MainSettingsBuilder()
+        //let router = MainSettingsRouter(navigationController: UINavigationController(), moduleBuilder: settingsBuilder)
+        //window?.rootViewController = settingsBuilder.createLanguageVC()
 }
 
     func sceneDidDisconnect(_ scene: UIScene) {
