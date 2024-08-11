@@ -119,8 +119,9 @@
 		F48255A52C656CEB00488872 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255A42C656CEB00488872 /* AboutPresenter.swift */; };
 		F48255A92C656D2100488872 /* PolicyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255A82C656D2100488872 /* PolicyPresenter.swift */; };
 		F48255AB2C656FA300488872 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255AA2C656FA300488872 /* EditProfilePresenter.swift */; };
-		F48255AD2C676FBE00488872 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F48255AC2C676FBE00488872 /* GoogleService-Info.plist */; };
 		F48255B02C67750F00488872 /* LanguageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255AF2C67750F00488872 /* LanguageTableHeaderView.swift */; };
+		F4B0D18D2C693CC800CAC21A /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0D18C2C693CC800CAC21A /* SettingsHeaderView.swift */; };
+		F4B0D18F2C6940C200CAC21A /* UINavigationController_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0D18E2C6940C200CAC21A /* UINavigationController_Extension.swift */; };
 		F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */; };
 		F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */; };
 		F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */; };
@@ -244,8 +245,9 @@
 		F48255A42C656CEB00488872 /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
 		F48255A82C656D2100488872 /* PolicyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyPresenter.swift; sourceTree = "<group>"; };
 		F48255AA2C656FA300488872 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
-		F48255AC2C676FBE00488872 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F48255AF2C67750F00488872 /* LanguageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableHeaderView.swift; sourceTree = "<group>"; };
+		F4B0D18C2C693CC800CAC21A /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
+		F4B0D18E2C6940C200CAC21A /* UINavigationController_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController_Extension.swift; sourceTree = "<group>"; };
 		F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel_Extension.swift; sourceTree = "<group>"; };
 		F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_Extension.swift; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 				D1A1D8402C5AE0E600ED1998 /* UIImageView_Extension.swift */,
 				D1A1D8422C5B02CC00ED1998 /* UIView_Extension.swift */,
 				D9E6F3E52C5FCB11007FD2F0 /* UIResponder_Extension.swift */,
+				F4B0D18E2C6940C200CAC21A /* UINavigationController_Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				F48255542C602A7600488872 /* UserInfoView.swift */,
 				F482555C2C60F93900488872 /* MoreSettingsView.swift */,
 				F482555E2C610E0D00488872 /* GeneralSettingsView.swift */,
+				F4B0D18C2C693CC800CAC21A /* SettingsHeaderView.swift */,
 			);
 			name = Small_Views;
 			sourceTree = "<group>";
@@ -938,9 +942,11 @@
 				24E30A162C653D0300A2278C /* UIImage_Extension.swift in Sources */,
 				F48255652C6120CA00488872 /* MainSettingsVC.swift in Sources */,
 				D1A1D8472C5B17B400ED1998 /* PasswordController.swift in Sources */,
+				F4B0D18F2C6940C200CAC21A /* UINavigationController_Extension.swift in Sources */,
 				D1A1D8452C5B179E00ED1998 /* PasswordView.swift in Sources */,
 				D9E6F44D2C614469007FD2F0 /* RadioUser+CoreDataClass.swift in Sources */,
 				D9E6F44E2C614469007FD2F0 /* RadioUser+CoreDataProperties.swift in Sources */,
+				F4B0D18D2C693CC800CAC21A /* SettingsHeaderView.swift in Sources */,
 				D9E6F44F2C614469007FD2F0 /* FavoriteStation+CoreDataClass.swift in Sources */,
 				A7A363912C67B6830039DD63 /* CustomCell.swift in Sources */,
 				D9E6F4502C614469007FD2F0 /* FavoriteStation+CoreDataProperties.swift in Sources */,

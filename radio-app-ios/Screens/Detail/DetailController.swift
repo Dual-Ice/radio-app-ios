@@ -55,7 +55,7 @@ final class DetailController: UIViewController {
 //MARK: - DetailViewDelegate
 extension DetailController: DetailViewDelegate {
     func profileButtonTapped() {
-        presenter.goToProfileSettings()
+        presenter.goToSettings()
     }
     
     func arrowButtonTapped() {
