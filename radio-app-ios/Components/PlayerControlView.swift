@@ -7,6 +7,13 @@
 
 import UIKit
 
+@objc protocol PlayerControlDelegate: AnyObject {
+    @objc optional func playButtonTapped()
+    @objc optional func pauseButtonTapped()
+    @objc optional func backButtonTapped()
+    @objc optional func nextButtonTapped()
+}
+
 final class PlayerControlView: UIView {
     private let centralButton: UIButton = UIButton.makeCustomButtonWithImage(image: Image.playerCentral!)
     
@@ -22,6 +29,8 @@ final class PlayerControlView: UIView {
     private let backButton: UIButton = UIButton.makeCustomButtonWithImage(image: Image.playerBack!)
     
     private let nextButton: UIButton = UIButton.makeCustomButtonWithImage(image: Image.playerNext!)
+    
+    weak var delegate: PlayerControlDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,16 +50,24 @@ final class PlayerControlView: UIView {
     }
     
     @objc private func centralButtonTapped() {
-        AudioPleer.shared.isPlaying ? AudioPleer.shared.pauseMusic() : AudioPleer.shared.playMusic()
+        if AudioPleer.shared.isPlaying {
+            delegate?.pauseButtonTapped?()
+            AudioPleer.shared.pauseMusic()
+        }else {
+            delegate?.playButtonTapped?()
+            AudioPleer.shared.playMusic()
+        }
         update()
     }
     
     @objc private func backButtonTapped() {
         AudioPleer.shared.playPrevious()
+        delegate?.backButtonTapped?()
     }
     
     @objc private func nextButtonTapped() {
         AudioPleer.shared.playNext()
+        delegate?.nextButtonTapped?()
     }
 }
 

@@ -17,13 +17,13 @@ final class VerticalTabBarPresenter: VerticalTabBarPresenterProtocol {
     
     //MARK: - Modules. Enter here the name and class of the controllers to display
     private var viewControllers: [String: UIViewController] = [:]
-        
+    
     init(tabBarController: VerticalTabBarControllerProtocol) {
         self.tabBarController = tabBarController
     }
     
     func loadViewController(_ navigationController: UINavigationController) {
-        #warning("заполнить нужными контроллерами")
+#warning("заполнить нужными контроллерами")
         viewControllers["Popular"] = PopularBuilder.buildPopularController(navigationController)
         viewControllers["Favorites"] = PopularBuilder.buildPopularController(navigationController)
         viewControllers["AllStations"] = testVC()
@@ -49,10 +49,10 @@ class testVC: UIViewController {
         "https://stream-176.zeno.fm/a3th9bd1fs8uv?zs=e8ersugnTZy8yQsXXp2s2A",
         "https://drive.uber.radio/uber/crberlinphilharmonic/icecast.audio"
     ]
-
+    
     private let playerControler = PlayerControlView()
     private let volumeControler = VolumeControlView()
-            
+    
     var stations: [Station] = []
     
     override func loadView() {
@@ -83,7 +83,7 @@ class testVC: UIViewController {
         let button = UIButton()
         button.setTitle("Button: Next Screen", for: .normal)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false        
+        button.translatesAutoresizingMaskIntoConstraints = false
         [
             label,
             button,
@@ -119,3 +119,5 @@ class testVC: UIViewController {
         navigationController?.pushViewController(testVC(), animated: true)
     }
 }
+
+import AVFoundation
