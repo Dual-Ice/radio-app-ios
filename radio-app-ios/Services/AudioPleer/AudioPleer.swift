@@ -20,8 +20,8 @@ final class AudioPleer {
         }
     }
     
-    private var stations: [Station] = []
-    private var stationIndex = 0
+    private(set) var stations: [Station] = []
+    private(set) var stationIndex = 0
     
     private init() {}
     
@@ -37,7 +37,7 @@ final class AudioPleer {
     
     func loadStationList(_ list: [Station]) {
         stations = list
-        stationIndex = -1
+        stationIndex = 0
     }
     
     func loadStation(at index: Int) {
@@ -62,12 +62,14 @@ final class AudioPleer {
     func playNext() {
         stationIndex += 1
         if stationIndex >= stations.count { stationIndex = 0 }
+        guard !stations.isEmpty else { return }
         loadMusic(from: stations[stationIndex].url)
     }
     
     func playPrevious() {
         stationIndex -= 1
         if stationIndex < 0 { stationIndex = stations.count - 1 }
+        guard !stations.isEmpty else { return }
         loadMusic(from: stations[stationIndex].url)
     }
     

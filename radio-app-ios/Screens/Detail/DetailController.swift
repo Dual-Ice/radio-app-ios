@@ -16,34 +16,44 @@ final class DetailController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    @available(*, unavailable)
+    //@available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
     }
     
     // MARK: - Life Cycle
     override func loadView() {
         view = detailView
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailView.setDelegates(self)
+        detailView.setDelegates(detailVD: self, playerVD: self)
         detailView.setUserAvatar(UserManager.shared.getUserProfileData().image)
-        detailView.configureUI(with: presenter.getCurrentStation())
+        updateUI()
     }
-
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+        detailView.playerControler.update()
+        detailView.volumeControler.update()
+        if AudioPleer.shared.isPlaying {
+            detailView.waveAnimationView.startAnimation()
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        detailView.waveAnimationView.stopAnimation()
+    }
+    
+    func updateUI() {
+        detailView.configureUI(with: presenter.currentStation)
+    }
 }
 
+//MARK: - DetailViewDelegate
 extension DetailController: DetailViewDelegate {
-    
     func profileButtonTapped() {
         presenter.goToProfileSettings()
     }
@@ -58,23 +68,29 @@ extension DetailController: DetailViewDelegate {
         if currentImage == Image.heartDeselected {
             detailView.addFavoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
         } else {
-            detailView.addFavoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            detailView.addFavoriteButton.setImage(
+                UIImage(systemName: "heart.fill")?.withTintColor(Color.customPink),
+                for: .normal
+            )
         }
     }
-    
+}
+
+//MARK: - PlayerControlDelegate
+extension DetailController: PlayerControlDelegate {
     func playButtonTapped() {
-        print("playButtonTapped")
+        detailView.waveAnimationView.startAnimation()
     }
     
-    func playNextButtonTapped() {
-        print("playNextButtonTapped")
+    func pauseButtonTapped() {
+        detailView.waveAnimationView.stopAnimation()
     }
     
-    func playBackButtonTapped() {
-        print("playBackButtonTapped")
+    func nextButtonTapped() {
+        presenter.nextStation()
     }
     
-    func volumeSliderChanged(_ sender: UISlider) {
-        detailView.percentsLabel.text = "\(Int(sender.value))%"
+    func backButtonTapped() {
+        presenter.previousStation()
     }
 }

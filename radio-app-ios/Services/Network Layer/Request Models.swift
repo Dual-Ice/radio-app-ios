@@ -14,10 +14,11 @@ struct Station: Codable {
     let url: String?            /// link to the station to listen to music
     let tags: String?           /// genre of the station
     let favicon: String?        /// icon of the station
-    let votes: Int?             /// raiting of the station
+    var votes: Int?             /// raiting of the station
     let country: String?        /// country the station belongs to, multistring
     let language: String?       /// spoken languages, multistring
     let geo_lat: Double?        /// частота? часто прилетает nil
+    let freq = String(format: "%.1f%", Double.random(in: 87.5...108.0))
 }
 
 /// model for getting list of countries

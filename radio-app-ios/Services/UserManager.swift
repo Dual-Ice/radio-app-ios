@@ -18,6 +18,8 @@ final class UserManager {
     private var user: User?
     private let coreDataManager = CoreDataManager()
     
+    private let votedStationsKey = "votedStations"
+    
     private init() {}
     
     func setUser(userObject: User) {
@@ -92,6 +94,39 @@ final class UserManager {
         coreDataManager.deleteStation(stationUUID: stationUid) { error in
             completion(error)
         }
+    }
+    
+    func isStationFavorite(_ stationUid: String, completion: @escaping (Bool) -> Void) {
+        getFavoriteStations { favoriteStations, error in
+            if let _ = error {
+                completion(false)
+                return
+            }
+            
+            let isFavorite = favoriteStations.contains { $0.stationuuid == stationUid }
+            completion(isFavorite)
+        }
+    }
+    
+    func hasVoted(for stationUid: String) -> Bool {
+        let votedStations = getVotedStations()
+        return votedStations.contains(stationUid)
+    }
+    
+    func markAsVoted(stationUid: String) {
+        var votedStations = getVotedStations()
+        if !votedStations.contains(stationUid) {
+            votedStations.append(stationUid)
+            saveVotedStations(votedStations)
+        }
+    }
+    
+    private func getVotedStations() -> [String] {
+        return UserDefaults.standard.stringArray(forKey: votedStationsKey) ?? []
+    }
+    
+    private func saveVotedStations(_ stations: [String]) {
+        UserDefaults.standard.set(stations, forKey: votedStationsKey)
     }
     
     private func makeUserImage() -> UIImage? {

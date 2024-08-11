@@ -13,8 +13,7 @@
 "WelcomeTitleLabel" = "Let’s Get\nStarted";
 "WelcomeLabel" = "Enjoy the best radio stations\nfrom your home, don't miss\nout on anything";
 "Hello" = "Hello";
-"Popular" = "Popular";
-"Favorites" = "Favorites";
+"PopularTitle" = "Popular";
 "AllStations" = "All Stations";
 "SignIn" = "Sign in";
 "SignUp" = "Sign up";
@@ -38,6 +37,11 @@
 "PlayingNow" = "Playing now";
 
 
+//MARK: - Favorites
+"FavoritesTitle" = "Favorites";
+"FavoritesEmpty" = "You haven't favorite station yet";
+
+
 //MARK: - AuthScreen
 "AuthScreenUDismissButtonText" = "Dismiss";
 "AuthScreenOkButtonText" = "Ok";
@@ -58,7 +62,7 @@
 "AuthSceenPasswordResetSuccessMessage" = "The password reset email has been successfully sent. Please check your email.";
 
 //MARK: - Popular
-"votes" = "votes %d";
+"votes" = "votes";
 
 // MARK: - Settings
 
@@ -90,3 +94,7 @@
 
 // languages
 "AvailableLanguages" = "Available Languages";
+//MARK: - Browse
+"browse_by_tags" = "Browse by\ntags";
+"browse_by_language" = "Browse by\nlanguage";
+"browse_by_country" = "Browse by\ncountry";
