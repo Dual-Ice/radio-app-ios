@@ -26,7 +26,6 @@ final class PopularPresenter {
     private let apiManager = Radio_API_Manager()
     private var stations: [Station] = .init()
     
-    private let dotColors: [UIColor] = [.red, .blue, .green, .purple, .yellow, .systemCyan, .orange]
     private var cellDotColors: [IndexPath: UIColor] = [:]
     private var selectedIndexPath: IndexPath? = IndexPath(row: 0, section: 0)
     private var favoriteStations: Set<String> = []
@@ -57,10 +56,7 @@ final class PopularPresenter {
             
             if success {
                 if self.stations.count > 0 {
-                    for (index, _) in self.stations.enumerated() {
-                        let indexPath = IndexPath(row: index, section: 0)
-                        self.cellDotColors[indexPath] = self.dotColors[index % (self.dotColors.count ?? 1)]
-                    }
+                    self.cellDotColors = StationHelper.makeDotColorsForStations(stations: stations)
                 }
                 self.popularVC?.refreshData()
             } else {
@@ -76,7 +72,7 @@ final class PopularPresenter {
         return StationData(
             id: station.stationuuid ?? "",
             name: station.name ?? "Unknown station",
-            genre: getGenreFromStationTags(station.tags),
+            genre: StationHelper.getGenreFromStationTags(station.tags),
             votes: station.votes ?? 0,
             isActive: indexPath == selectedIndexPath,
             dotColor: cellDotColors[indexPath] ?? .red,
@@ -180,21 +176,5 @@ final class PopularPresenter {
                 }
             }
         }
-    }
-    
-    private func getGenreFromStationTags(_ tags: String?) -> String {
-        guard let value = tags else {
-            return "Unknown Genre"
-        }
-
-        let elements: [String]
-        
-        if value.contains(",") {
-            elements = value.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }
-        } else {
-            elements = value.split(separator: " ").map { $0.trimmingCharacters(in: .whitespaces) }
-        }
-        
-        return elements.first ?? "Unknown Genre"
     }
 }

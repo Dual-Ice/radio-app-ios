@@ -19,7 +19,7 @@ final class HeaderView: UIView {
     private let greetingLabel = UILabel.makeCustomLabelBold(key: "Hello", fontSize: 26, textColor: .white, numberOfLines: 1, textAligment: .left)
     private let usernameLabel = UILabel.makeCustomLabelBold(key: "Mark", fontSize: 26, textColor: Color.customPink, numberOfLines: 1, textAligment: .left)
     private let profileImageView = RoundedTriangleImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50), radius: 10)
-    private let titleLabel = UILabel.makeCustomLabel(key: "Popular", fontSize: 30, textColor: .white, numberOfLines: 1, textAligment: .left)
+    private let titleLabel = UILabel.makeCustomLabel(key: nil, fontSize: 30, textColor: .white, numberOfLines: 1, textAligment: .left)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -66,9 +66,10 @@ final class HeaderView: UIView {
         delegate?.profileTapped()
     }
     
-    func configure(with username: String, profileImage: UIImage) {
+    func configure(with username: String, profileImage: UIImage, title: String) {
         usernameLabel.text = username
         profileImageView.setImage(profileImage)
+        titleLabel.text = title
     }
     
     func setDelegate(value: HeaderViewDelegate) {

@@ -13,8 +13,7 @@
 "WelcomeTitleLabel" = "Let’s Get\nStarted";
 "WelcomeLabel" = "Enjoy the best radio stations\nfrom your home, don't miss\nout on anything";
 "Hello" = "Hello";
-"Popular" = "Popular";
-"Favorites" = "Favorites";
+"PopularTitle" = "Popular";
 "AllStations" = "All Stations";
 "SignIn" = "Sign in";
 "SignUp" = "Sign up";
@@ -36,6 +35,11 @@
 
 //MARK: - Detail
 "PlayingNow" = "Playing now";
+
+
+//MARK: - Favorites
+"FavoritesTitle" = "Favorites";
+"FavoritesEmpty" = "You haven't favorite station yet";
 
 
 //MARK: - AuthScreen

@@ -13,8 +13,7 @@
 "WelcomeTitleLabel" = "Давайте\nначнем";
 "WelcomeLabel" = "Наслаждайтесь лучшими\nрадиостанциями из вашего дома,\nне пропустите ничего.";
 "Hello" = "Привет";
-"Popular" = "Популярное";
-"Favorites" = "Избранное";
+"PopularTitle" = "Популярное";
 "AllStations" = "Все станции";
 "SignIn" = "Войди,";
 "SignUp" = "Зарегистрируйся,";
@@ -36,6 +35,10 @@
 
 //MARK: - Detail
 "PlayingNow" = "Сейчас играет";
+
+//MARK: - Favorites
+"FavoritesTitle" = "Избранное";
+"FavoritesEmpty" = "Вы не добавили ни одной станции в избранное";
 
 //MARK: - AuthScreen
 "AuthScreenUDismissButtonText" = "Отмена";
