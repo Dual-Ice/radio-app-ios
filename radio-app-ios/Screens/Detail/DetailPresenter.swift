@@ -9,17 +9,13 @@ import Foundation
 
 class DetailPresenter {
     private let router: DetailRouter
-    private var currentStation: Station
+    private(set) var currentStation: Station
     
-    weak var view: DetailController?
+    weak var viewController: DetailController?
     
     init(data: Station, router: DetailRouter) {
         self.currentStation = data
         self.router = router
-    }
-    
-    func getCurrentStation() -> Station {
-        return currentStation
     }
     
     func goBack() {
@@ -28,5 +24,17 @@ class DetailPresenter {
     
     func goToProfileSettings() {
         router.goToProfileSettings()
+    }
+    
+    func nextStation() {
+        AudioPleer.shared.playNext()
+        currentStation = AudioPleer.shared.stations[AudioPleer.shared.stationIndex]
+        viewController?.updateUI()
+    }
+    
+    func previousStation() {
+        AudioPleer.shared.playPrevious()
+        currentStation = AudioPleer.shared.stations[AudioPleer.shared.stationIndex]
+        viewController?.updateUI()
     }
 }

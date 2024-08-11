@@ -18,6 +18,7 @@ struct Station: Codable {
     let country: String?        /// country the station belongs to, multistring
     let language: String?       /// spoken languages, multistring
     let geo_lat: Double?        /// частота? часто прилетает nil
+    let freq = String(format: "%.1f%", Double.random(in: 87.5...108.0))
 }
 
 /// model for getting list of countries
