@@ -8,7 +8,7 @@
 import Foundation
 
 /// model for getting stations
-struct Station: Codable {
+struct Station: Codable, Equatable {
     let name: String?
     let stationuuid: String?
     let url: String?            /// link to the station to listen to music

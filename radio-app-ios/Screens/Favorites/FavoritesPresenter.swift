@@ -26,6 +26,10 @@ final class FavoritesPresenter {
     }
     
     func goToDetail(by index: Int) {
+        AudioPleer.shared.loadStationList(favoriteStations)
+        if AudioPleer.shared.currentURL != favoriteStations[index].url {
+            AudioPleer.shared.loadStation(at: index)
+        }
         favoritesRouter.goToDetail(station: favoriteStations[index])
     }
     

@@ -20,7 +20,7 @@ final class PopularView: UIView {
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 10
-        layout.itemSize = CGSize(width: 120, height: 140)
+        layout.itemSize = CGSize(width: 130, height: 140)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         super.init(frame: frame)

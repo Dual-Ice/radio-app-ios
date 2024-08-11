@@ -22,6 +22,7 @@ final class AudioPleer {
     
     private(set) var stations: [Station] = []
     private(set) var stationIndex = 0
+    private(set) var currentURL = ""
     
     private init() {}
     
@@ -30,6 +31,7 @@ final class AudioPleer {
             print("Wrong stream URL: \(String(describing: url))")
             return
         }
+        currentURL = url ?? ""
         player = AVPlayer(url: streamURL)
         setVolume(playerVolume)
         if isPlaying { playMusic() }
@@ -38,8 +40,6 @@ final class AudioPleer {
     func loadStationList(_ list: [Station]) {
         stations = list
         stationIndex = 0
-        #warning("DEBUG: Удалить перед реквестом")
-        stations.forEach { print($0.url)}
     }
     
     func loadStation(at index: Int) {
@@ -54,10 +54,6 @@ final class AudioPleer {
     func playMusic() {
         isPlaying = true
         player?.play()
-        
-        #warning("DEBUG: Удалить перед реквестом")
-        guard !stations.isEmpty else { return }
-        print("Now playing:", stations[stationIndex].url)
     }
     
     func pauseMusic() {
@@ -69,14 +65,14 @@ final class AudioPleer {
         stationIndex += 1
         if stationIndex >= stations.count { stationIndex = 0 }
         guard !stations.isEmpty else { return }
-        loadMusic(from: stations[stationIndex].url)
+        loadStation(at: stationIndex)
     }
     
     func playPrevious() {
         stationIndex -= 1
         if stationIndex < 0 { stationIndex = stations.count - 1 }
         guard !stations.isEmpty else { return }
-        loadMusic(from: stations[stationIndex].url)
+        loadStation(at: stationIndex)
     }
     
     func setVolume(_ value: Float) {

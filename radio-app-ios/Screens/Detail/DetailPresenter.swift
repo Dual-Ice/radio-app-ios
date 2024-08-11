@@ -27,13 +27,11 @@ class DetailPresenter {
     }
     
     func nextStation() {
-        AudioPleer.shared.playNext()
         currentStation = AudioPleer.shared.stations[AudioPleer.shared.stationIndex]
         viewController?.updateUI()
     }
     
     func previousStation() {
-        AudioPleer.shared.playPrevious()
         currentStation = AudioPleer.shared.stations[AudioPleer.shared.stationIndex]
         viewController?.updateUI()
     }
