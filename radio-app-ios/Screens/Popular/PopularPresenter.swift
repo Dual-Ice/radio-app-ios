@@ -37,7 +37,11 @@ final class PopularPresenter {
     func goToDetail(by index: Int) {
         popularRoute.goToDetail(station: stations[index])
     }
-    
+
+    func goToSettings() {
+        popularRoute.goToSettings()
+    }
+
     func getStations() -> [Station] {
         return stations
     }

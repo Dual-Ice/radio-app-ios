@@ -22,8 +22,8 @@ class DetailPresenter {
         router.dismiss()
     }
     
-    func goToProfileSettings() {
-        router.goToProfileSettings()
+    func goToSettings() {
+        router.goToSettings()
     }
     
     func nextStation() {
