@@ -79,10 +79,11 @@ final class PopularView: UIView {
         )
     }
     
-    func setDelegates(_ delegate: PopularController) {
-        collectionView.delegate = delegate
-        collectionView.dataSource = delegate
-        headerView.setDelegate(value: delegate)
+    func setDelegates(popularVD: PopularController, playerVD: PlayerControlDelegate) {
+        collectionView.delegate = popularVD
+        collectionView.dataSource = popularVD
+        headerView.setDelegate(value: popularVD)
+        playerControler.delegate = playerVD
     }
     
     var getCollectionView: UICollectionView {

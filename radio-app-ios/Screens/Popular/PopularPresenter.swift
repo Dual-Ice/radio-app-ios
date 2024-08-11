@@ -182,3 +182,14 @@ final class PopularPresenter {
         }
     }
 }
+
+//MARK: - Player Actions
+extension PopularPresenter {
+    func nextStation() {
+        popularVC?.refreshData()
+    }
+    
+    func previousStation() {
+        popularVC?.refreshData()
+    }
+}

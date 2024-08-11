@@ -102,9 +102,7 @@ final class DetailView: UIView {
     }
     
     func configureUI(with stationData: Station, isFavorite: Bool) {
-        if let imagePath = stationData.favicon, let imageUrl = URL(string: imagePath) {
-            radioFaviconImageView.getImage(from: imageUrl)
-        }
+        radioFaviconImageView.getImage(from: URL(string: stationData.favicon ?? ""))
         stationTitle.text = stationData.name
         stationFrequency.text = stationData.freq
         

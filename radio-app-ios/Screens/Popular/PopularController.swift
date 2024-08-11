@@ -30,7 +30,7 @@ final class PopularController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        popularView.setDelegates(self)
+        popularView.setDelegates(popularVD: self, playerVD: self)
         presenter.onLoad()
         
         // MARK: - Заменить на данные с профиля
@@ -90,5 +90,16 @@ extension PopularController: PopularCellDelegate {
     
     func vote(for stationuuid: String) {
         presenter.vote(for: stationuuid)
+    }
+}
+
+//MARK: - Player Controller Delegate
+extension PopularController: PlayerControlDelegate {
+    func nextButtonTapped() {
+        presenter.nextStation()
+    }
+    
+    func backButtonTapped() {
+        presenter.previousStation()
     }
 }

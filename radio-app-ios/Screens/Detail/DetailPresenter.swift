@@ -93,9 +93,7 @@ class DetailPresenter {
     }
     
     func onWillAppear(completion: @escaping () -> Void) {
-        loadFavoriteStations(completion: completion)
-        
-        print(currentStation.url)
+        loadFavoriteStations(completion: completion)        
     }
     
     func goBack() {

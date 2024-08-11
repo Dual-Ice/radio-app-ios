@@ -37,15 +37,8 @@ final class AudioPleer {
         let item = AVPlayerItem(url: streamURL)
         
         observerStatus = item.observe(\.status, changeHandler: { (item, value) in
-            switch item.status {
-            case .unknown:
-                print("status: unknown")
-            case .readyToPlay:
-                print("status: ready to play")
-            case .failed:
+            if item.status == .failed {
                 print("playback failed")
-            @unknown default:
-                fatalError()
             }
         })
         
@@ -70,6 +63,7 @@ final class AudioPleer {
     
     func playMusic() {
         isPlaying = true
+        player?.play()
     }
     
     func pauseMusic() {
