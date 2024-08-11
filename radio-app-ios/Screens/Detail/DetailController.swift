@@ -30,7 +30,7 @@ final class DetailController: UIViewController {
         super.viewDidLoad()
         detailView.setDelegates(detailVD: self, playerVD: self)
         detailView.setUserAvatar(UserManager.shared.getUserProfileData().image)
-        updateUI()
+        updateUI(isFavorite: presenter.isFavorite)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,14 +41,17 @@ final class DetailController: UIViewController {
         if AudioPleer.shared.isPlaying {
             detailView.waveAnimationView.startAnimation()
         }
+        presenter.onWillAppear { [unowned self] in
+            updateUI(isFavorite: presenter.isFavorite)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         detailView.waveAnimationView.stopAnimation()
     }
     
-    func updateUI() {
-        detailView.configureUI(with: presenter.currentStation)
+    func updateUI(isFavorite: Bool) {
+        detailView.configureUI(with: presenter.currentStation, isFavorite: isFavorite)
     }
 }
 
@@ -63,16 +66,8 @@ extension DetailController: DetailViewDelegate {
     }
     
     func addFavoriteButtonTapped() {
-        let currentImage = detailView.addFavoriteButton.image(for: .normal)
-        
-        if currentImage == Image.heartDeselected {
-            detailView.addFavoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        } else {
-            detailView.addFavoriteButton.setImage(
-                UIImage(systemName: "heart.fill")?.withTintColor(Color.customPink),
-                for: .normal
-            )
-        }
+        presenter.vote()
+        updateUI(isFavorite: presenter.isFavorite)
     }
 }
 

@@ -11,6 +11,7 @@ final class AudioPleer {
     static let shared = AudioPleer()
     
     private var player: AVPlayer?
+    private var observerStatus: NSKeyValueObservation?
     
     private(set) var isPlaying: Bool = false
     
@@ -32,7 +33,23 @@ final class AudioPleer {
             return
         }
         currentURL = url ?? ""
-        player = AVPlayer(url: streamURL)
+        
+        let item = AVPlayerItem(url: streamURL)
+        
+        observerStatus = item.observe(\.status, changeHandler: { (item, value) in
+            switch item.status {
+            case .unknown:
+                print("status: unknown")
+            case .readyToPlay:
+                print("status: ready to play")
+            case .failed:
+                print("playback failed")
+            @unknown default:
+                fatalError()
+            }
+        })
+        
+        player = AVPlayer(playerItem: item)
         setVolume(playerVolume)
         if isPlaying { playMusic() }
     }
@@ -53,7 +70,6 @@ final class AudioPleer {
     
     func playMusic() {
         isPlaying = true
-        player?.play()
     }
     
     func pauseMusic() {

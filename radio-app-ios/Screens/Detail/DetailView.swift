@@ -101,12 +101,14 @@ final class DetailView: UIView {
         playerControler.delegate = playerVD
     }
     
-    func configureUI(with stationData: Station) {
+    func configureUI(with stationData: Station, isFavorite: Bool) {
         if let imagePath = stationData.favicon, let imageUrl = URL(string: imagePath) {
             radioFaviconImageView.getImage(from: imageUrl)
         }
         stationTitle.text = stationData.name
         stationFrequency.text = stationData.freq
+        
+        addFavoriteButton.setImage(UIImage(systemName: isFavorite ? "heart.fill" : "heart"), for: .normal)
     }
     
     func setUserAvatar(_ image: UIImage?) {
@@ -162,13 +164,13 @@ final class DetailView: UIView {
             profileImageView.widthAnchor.constraint(equalToConstant: Constants.profileImageSize),
             profileImageView.heightAnchor.constraint(equalToConstant: Constants.profileImageSize),
             
-            addFavoriteButton.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: Constants.sideForFavorite),
-            addFavoriteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.sideForFavoriteTrailing),
+            addFavoriteButton.bottomAnchor.constraint(equalTo: stationFrequency.topAnchor, constant: 10),
+            addFavoriteButton.leadingAnchor.constraint(equalTo: stationFrequency.trailingAnchor),
             addFavoriteButton.widthAnchor.constraint(equalToConstant: 20),
             addFavoriteButton.heightAnchor.constraint(equalToConstant: 20),
             
             stationFrequency.centerXAnchor.constraint(equalTo: centerXAnchor),
-            stationFrequency.topAnchor.constraint(equalTo: addFavoriteButton.bottomAnchor, constant: Constants.sideForHeader),
+            stationFrequency.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: Constants.sideForHeader),
             
             stationTitle.leadingAnchor.constraint(equalTo: leadingAnchor),
             stationTitle.trailingAnchor.constraint(equalTo: trailingAnchor),
