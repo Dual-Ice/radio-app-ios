@@ -22,6 +22,7 @@ final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
 
     private let settingsView = MainSettingsView()
 
+
     // MARK: Life Cycle
 
     override func loadView() {
@@ -37,6 +38,11 @@ final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
         callAboutClosure()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.setNavigationBar(for: self, title: "Settings")
+    }
+
     // MARK: Private Methods
 
     private func setDelegate() {
@@ -49,7 +55,6 @@ final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
 extension MainSettingsVC: MainSettingsViewDelegate {
 
     func editButtonTappedTransfer() {
-        print ("edit button tapped")
         presenter.showEditProfileVC()
     }
     
@@ -62,28 +67,24 @@ extension MainSettingsVC {
 
     func callNotificationClosure() {
         settingsView.notificationClosureCall = { [weak self] in
-            print ("notification call")
             self?.presenter.showNotificationsVC()
         }
     }
 
     func callLanguageClosure() {
         settingsView.languageClosureCall = { [weak self] in
-            print ("languages call")
             self?.presenter.showLanguagesVC()
         }
     }
 
     func callPolicyClosure() {
         settingsView.policyClosureCall = { [weak self] in
-            print ("policy call")
             self?.presenter.showPolicyVC()
         }
     }
 
     func callAboutClosure() {
         settingsView.aboutClosureCall = { [weak self] in
-            print ("about call")
             self?.presenter.showAboutVC()
         }
     }
