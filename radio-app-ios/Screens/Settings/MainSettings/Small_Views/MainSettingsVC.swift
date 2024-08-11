@@ -39,6 +39,8 @@ final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.setNavigationBar(for: self, title: "Settings")
     }

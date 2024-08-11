@@ -38,7 +38,7 @@ final class DetailView: UIView {
         radius: 10
     )
 
-    private let headerLabel = UILabel.makeCustomLabel(
+    private let headerLabel = UILabel.makeCustomLabelBold(
         key: "PlayingNow",
         fontSize: 20,
         textColor: .white,
@@ -152,7 +152,7 @@ final class DetailView: UIView {
             backgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundImageView.heightAnchor.constraint(equalTo: heightAnchor),
             
-            headerStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Constants.sideForHeader),
+            headerStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             headerStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.sideForHeader),
             headerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.sideForHeader),
             

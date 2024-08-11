@@ -15,7 +15,7 @@ extension UINavigationController {
         viewController.navigationItem.title = title
         navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)
         ]
 
         /// left item
