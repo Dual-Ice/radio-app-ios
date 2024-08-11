@@ -96,6 +96,11 @@ final class DetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setDelegates(detailVD: DetailViewDelegate, playerVD: PlayerControlDelegate) {
+        delegate = detailVD
+        playerControler.delegate = playerVD
+    }
+    
     func configureUI(with stationData: Station) {
         if let imagePath = stationData.favicon, let imageUrl = URL(string: imagePath) {
             radioFaviconImageView.getImage(from: imageUrl)

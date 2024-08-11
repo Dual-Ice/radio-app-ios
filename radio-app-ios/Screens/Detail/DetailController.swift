@@ -28,8 +28,8 @@ final class DetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailView.delegate = self
-        detailView.playerControler.delegate = self
+        detailView.setDelegates(detailVD: self, playerVD: self)
+        detailView.setUserAvatar(UserManager.shared.getUserProfileData().image)
         updateUI()
     }
     
@@ -48,7 +48,6 @@ final class DetailController: UIViewController {
     }
     
     func updateUI() {
-        detailView.setUserAvatar(UserManager.shared.getUserProfileData().image)
         detailView.configureUI(with: presenter.currentStation)
     }
 }
