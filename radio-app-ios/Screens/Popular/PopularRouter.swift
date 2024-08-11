@@ -8,6 +8,7 @@
 import UIKit
 
 final class PopularRouter {
+
     private let navigationController: UINavigationController
     
     init(_ navigationController: UINavigationController) {
@@ -16,5 +17,12 @@ final class PopularRouter {
     
     func goToDetail(station: Station) {
         navigationController.pushViewController(DetailBuilder.build(navigationController, station), animated: true)
+    }
+
+    func goToSettings() {
+        let builder = MainSettingsBuilder()
+        let router = MainSettingsRouter(navigationController: navigationController, moduleBuilder: builder)
+        let settingsVC = builder.createMainSettingsModule(router: router)
+        navigationController.pushViewController(settingsVC, animated: true)
     }
 }

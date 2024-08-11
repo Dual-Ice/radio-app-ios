@@ -8,6 +8,7 @@
 import Foundation
 
 final class PopularPresenter {
+
     weak var popularVC: PopularController?
     let popularRoute: PopularRouter
     
@@ -17,5 +18,9 @@ final class PopularPresenter {
     
     func goToDetail(station: Station) {
         popularRoute.goToDetail(station: station)
+    }
+
+    func goToSettings() {
+        popularRoute.goToSettings()
     }
 }
