@@ -38,6 +38,8 @@ final class AudioPleer {
     func loadStationList(_ list: [Station]) {
         stations = list
         stationIndex = 0
+        #warning("DEBUG: Удалить перед реквестом")
+        stations.forEach { print($0.url)}
     }
     
     func loadStation(at index: Int) {
@@ -52,6 +54,10 @@ final class AudioPleer {
     func playMusic() {
         isPlaying = true
         player?.play()
+        
+        #warning("DEBUG: Удалить перед реквестом")
+        guard !stations.isEmpty else { return }
+        print("Now playing:", stations[stationIndex].url)
     }
     
     func pauseMusic() {

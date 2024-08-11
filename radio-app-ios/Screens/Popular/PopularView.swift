@@ -11,6 +11,9 @@ final class PopularView: UIView {
     
     private let headerView = HeaderView()
     private let collectionView: UICollectionView
+    
+    let playerControler = PlayerControlView()
+    let volumeControler = VolumeControlView()
 
     override init(frame: CGRect) {
         let layout = UICollectionViewFlowLayout()
@@ -32,8 +35,13 @@ final class PopularView: UIView {
     }
     
     private func setupViews() {
-        addSubview(headerView)
-        addSubview(collectionView)
+        [
+            headerView,
+            collectionView,
+            playerControler,
+            volumeControler
+        ].forEach { addSubview($0) }
+        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
         collectionView.register(PopularCell.self, forCellWithReuseIdentifier: PopularCell.identifier)
@@ -49,7 +57,17 @@ final class PopularView: UIView {
             collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 60),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -230)
+            collectionView.bottomAnchor.constraint(equalTo: playerControler.topAnchor, constant: -10),
+            
+            playerControler.centerXAnchor.constraint(equalTo: centerXAnchor),
+            playerControler.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 255/335),
+            playerControler.heightAnchor.constraint(equalTo: playerControler.widthAnchor, multiplier: 127/255),
+            playerControler.bottomAnchor.constraint(equalTo: volumeControler.topAnchor, constant: -20),
+            
+            volumeControler.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
+            volumeControler.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 38),
+            volumeControler.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -38),
+            volumeControler.heightAnchor.constraint(equalToConstant: 16)
         ])
     }
     

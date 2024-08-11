@@ -35,6 +35,7 @@ final class PopularPresenter {
     }
     
     func goToDetail(by index: Int) {
+        AudioPleer.shared.loadStationList(stations)
         popularRoute.goToDetail(station: stations[index])
     }
     

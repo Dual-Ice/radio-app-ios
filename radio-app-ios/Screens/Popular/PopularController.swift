@@ -45,6 +45,9 @@ final class PopularController: UIViewController {
         presenter.onWillAppear {
             self.refreshData()
         }
+        
+        popularView.playerControler.update()
+        popularView.volumeControler.update()
     }
     
     func refreshData() {
