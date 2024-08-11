@@ -8,38 +8,41 @@
 import UIKit
 
 protocol FavoriteCellDelegate: AnyObject {
-	func tappedButton()
+	func unliked(stationuuid: String)
 }
 
 final class FavoriteCell: UICollectionViewCell {
 
 	weak var delegate: FavoriteCellDelegate?
 
+	// MARK: - Station ID
+	private lazy var stationuuid = ""
+
 	// MARK: - Identifier
 	static let identifier = FavoriteCell.description()
 
 	// MARK: - UI
-	private var genreStation = UILabel.makeCustomLabelBold(
-		key: "POP", // test
+	private var genreLabel = UILabel.makeCustomLabelBold(
+		key: nil,
 		fontSize: 30,
 		textColor: .white,
 		numberOfLines: 1,
 		textAligment: .left
 	)
-
-	private var nameStation = UILabel.makeCustomLabel(
-		key: "Radio Record", // test
+	private var nameLabel = UILabel.makeCustomLabel(
+		key: nil,
 		fontSize: 15,
 		textColor: .white,
 		numberOfLines: 1,
 		textAligment: .left
 	)
-
-	private var imageWave = UIImageView.makeSimpleImage(
-		imageName: "waveRed" // test
+	private var waveView = WaveView(
+		frame: .zero,
+		dotColor: .red
 	)
-
-	private var buttonHeart = UIButton.makeCustomButtonWithImage(image: .heartBlue)
+	private var likeButton = UIButton.makeCustomButtonWithImage(
+		image: .heartBlue
+	)
 
 	// MARK: - Life Cycle
 	override init(frame: CGRect) {
@@ -51,32 +54,28 @@ final class FavoriteCell: UICollectionViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	// MARK: - Reusing a cell
-	override func prepareForReuse() {
-		super.prepareForReuse()
-		nameStation.text = nil
-		genreStation.text = nil
-		imageWave.image = nil
+	func setDelegates(_ value: FavoriteCellDelegate) {
+		delegate = value
 	}
 
 	// MARK: - Setting Views
 	private func setupView() {
 		backgroundColor = .clear
 		contentView.layer.borderWidth = 2
-		contentView.layer.borderColor = Color.cellBorder.cgColor
+		contentView.layer.borderColor = Color.borderColor.cgColor
 		contentView.layer.cornerRadius = 15
 
-		buttonHeart.addTarget(
-			self, 
-			action: #selector(buttonTapped),
+		likeButton.addTarget(
+			self,
+			action: #selector(dontLikeButtonTap),
 			for: .touchUpInside
 		)
 
 		[
-			genreStation,
-			nameStation,
-			imageWave,
-			buttonHeart
+			genreLabel,
+			nameLabel,
+			waveView,
+			likeButton
 		].forEach { addSubview($0) }
 
 		setupConstraints()
@@ -84,40 +83,48 @@ final class FavoriteCell: UICollectionViewCell {
 
 	// MARK: - Constraints
 	private func setupConstraints() {
+		waveView.translatesAutoresizingMaskIntoConstraints = false
+
 		NSLayoutConstraint.activate([
 
-			nameStation.centerYAnchor.constraint(equalTo: centerYAnchor),
-			nameStation.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+			nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+			nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
 
-			genreStation.topAnchor.constraint(equalTo: topAnchor, constant: 17),
-			genreStation.bottomAnchor.constraint(equalTo: nameStation.topAnchor, constant: -3),
-			genreStation.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 22),
+			genreLabel.topAnchor.constraint(equalTo: topAnchor, constant: 17),
+			genreLabel.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -3),
+			genreLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 22),
 
-			imageWave.topAnchor.constraint(equalTo: nameStation.bottomAnchor, constant: 10),
-			imageWave.leadingAnchor.constraint(equalTo: genreStation.leadingAnchor),
+			waveView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
+			waveView.leadingAnchor.constraint(equalTo: genreLabel.leadingAnchor),
+			waveView.widthAnchor.constraint(equalToConstant: 80),
+			waveView.heightAnchor.constraint(equalToConstant: 25),
 
-			buttonHeart.centerYAnchor.constraint(equalTo: centerYAnchor),
-			buttonHeart.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+			likeButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+			likeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
 
 		])
 	}
 
-	// MARK: - Updating a cell with data obtained from models
-//	func configure(model: Station) {
-//				genreStation.text = model.
-//				nameStation.text = model.
-//
-//	}
-}
-
-
-extension FavoriteCell {
-	func setDelegates(_ value: FavoritesController) {
-		delegate = value
+	// MARK: - Reusing a cell
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		nameLabel.text = nil
+		genreLabel.text = nil
+		waveView.setDotColor(color: .red)
+		waveView.setNeedsDisplay()
 	}
 
-	// MARK: - @objc method
-	@objc private func buttonTapped(){
-		delegate?.tappedButton()
+	// MARK: - Updating a cell
+	func configure(model: Station) {
+		stationuuid = model.stationuuid ?? ""
+		genreLabel.text = model.tags?.components(separatedBy: CharacterSet(charactersIn: " ,")).first?.capitalized ?? "Unknown"
+		nameLabel.text = model.name?.capitalized ?? "Unknown station"
+	}
+}
+
+// MARK: - @objc method
+extension FavoriteCell {
+	@objc private func dontLikeButtonTap(){
+		delegate?.unliked(stationuuid: stationuuid)
 	}
 }

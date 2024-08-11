@@ -16,8 +16,10 @@
 		24D315802C641EBD00340E21 /* PlayerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3157F2C641EBD00340E21 /* PlayerControlView.swift */; };
 		876A05952C5A54A60080F344 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A05942C5A54A60080F344 /* FavoritesView.swift */; };
 		876A05972C5C26000080F344 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A05962C5C26000080F344 /* FavoriteCell.swift */; };
+		876E81642C68D02100EF0B51 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E81632C68D02100EF0B51 /* FavoritesRouter.swift */; };
+		876E81662C68D05500EF0B51 /* FavoritesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E81652C68D05500EF0B51 /* FavoritesBuilder.swift */; };
+		876E81682C68D11900EF0B51 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E81672C68D11900EF0B51 /* FavoritesPresenter.swift */; };
 		87959E422C62757800626EB0 /* Radio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87959E402C62757800626EB0 /* Radio.xcdatamodeld */; };
-		24D315802C641EBD00340E21 /* PlayerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3157F2C641EBD00340E21 /* PlayerControlView.swift */; };
 		87959E442C650E3B00626EB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87959E432C650E3B00626EB0 /* GoogleService-Info.plist */; };
 		A76E5E282C5820CD004A06B3 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E272C5820CD004A06B3 /* WelcomeView.swift */; };
 		A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E5E292C5820E4004A06B3 /* WelcomeController.swift */; };
@@ -106,8 +108,10 @@
 		24D3157F2C641EBD00340E21 /* PlayerControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControlView.swift; sourceTree = "<group>"; };
 		876A05942C5A54A60080F344 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		876A05962C5C26000080F344 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		876E81632C68D02100EF0B51 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
+		876E81652C68D05500EF0B51 /* FavoritesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesBuilder.swift; sourceTree = "<group>"; };
+		876E81672C68D11900EF0B51 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		87959E412C62757800626EB0 /* Radio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Radio.xcdatamodel; sourceTree = "<group>"; };
-		24D3157F2C641EBD00340E21 /* PlayerControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerControlView.swift; sourceTree = "<group>"; };
 		87959E432C650E3B00626EB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A76E5E272C5820CD004A06B3 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A76E5E292C5820E4004A06B3 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
@@ -241,7 +245,6 @@
 		D9E6F3642C56F362007FD2F0 /* radio-app-ios */ = {
 			isa = PBXGroup;
 			children = (
-				87959E3A2C62731B00626EB0 /* GoogleService-Info.plist */,
 				87959E432C650E3B00626EB0 /* GoogleService-Info.plist */,
 				D9E6F3932C56FD8B007FD2F0 /* Helpers */,
 				D9E6F3922C56FD74007FD2F0 /* Components */,
@@ -341,6 +344,9 @@
 		D9E6F3852C56F733007FD2F0 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				876E81652C68D05500EF0B51 /* FavoritesBuilder.swift */,
+				876E81672C68D11900EF0B51 /* FavoritesPresenter.swift */,
+				876E81632C68D02100EF0B51 /* FavoritesRouter.swift */,
 				D9E6F3A02C5930D5007FD2F0 /* FavoritesController.swift */,
 				876A05942C5A54A60080F344 /* FavoritesView.swift */,
 				876A05962C5C26000080F344 /* FavoriteCell.swift */,
@@ -624,7 +630,6 @@
 				D9E6F3722C56F364007FD2F0 /* Base in Resources */,
 				F4DE1C282C59123E00D55FC5 /* SF-Pro-Display-Light.otf in Resources */,
 				F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */,
-				87959E3B2C62731B00626EB0 /* GoogleService-Info.plist in Resources */,
 				87959E442C650E3B00626EB0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -637,6 +642,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4DE1C242C590A9300D55FC5 /* UITextField_Extension.swift in Sources */,
+				876E81662C68D05500EF0B51 /* FavoritesBuilder.swift in Sources */,
 				F48255492C5D549600488872 /* Network_Manager.swift in Sources */,
 				D9E6F3992C5930A8007FD2F0 /* Models.swift in Sources */,
 				876A05972C5C26000080F344 /* FavoriteCell.swift in Sources */,
@@ -656,6 +662,7 @@
 				D9E6F3952C593066007FD2F0 /* Helpers.swift in Sources */,
 				D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */,
 				D9E6F4582C63D6D9007FD2F0 /* WaveAnimationView.swift in Sources */,
+				876E81642C68D02100EF0B51 /* FavoritesRouter.swift in Sources */,
 				D9E6F3BB2C5BE4E0007FD2F0 /* AuthManager.swift in Sources */,
 				A76E5E2A2C5820E4004A06B3 /* WelcomeController.swift in Sources */,
 				D9E6F3BE2C5BE57E007FD2F0 /* RegisterUserRequest.swift in Sources */,
@@ -668,7 +675,6 @@
 				D9E6F3D12C5E53F8007FD2F0 /* ResetPasswordPresenter.swift in Sources */,
 				243E436D2C5BE51F001D958D /* VerticalTabBarPresenter.swift in Sources */,
 				D9E6F3C22C5BE6BD007FD2F0 /* UserManager.swift in Sources */,
-				D9E6F4172C612162007FD2F0 /* Radio.xcdatamodeld in Sources */,
 				D9E6F4562C63C4F7007FD2F0 /* WaveView.swift in Sources */,
 				D9E6F3D92C5E8AC9007FD2F0 /* AuthAlertManager.swift in Sources */,
 				F4DE1C1C2C57EDA400D55FC5 /* UI_Components.swift in Sources */,
@@ -700,6 +706,7 @@
 				D9E6F3CC2C5E4A06007FD2F0 /* AuthPresenter.swift in Sources */,
 				D9E6F3AB2C593117007FD2F0 /* Profile.swift in Sources */,
 				F48255472C5D4EE400488872 /* Radio_API_Manager.swift in Sources */,
+				876E81682C68D11900EF0B51 /* FavoritesPresenter.swift in Sources */,
 				F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */,
 				B5C18BD02C5C15EA0017E54E /* DetailPresenter.swift in Sources */,
 				D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */,
@@ -1013,7 +1020,6 @@
 			children = (
 				87959E412C62757800626EB0 /* Radio.xcdatamodel */,
 			);
-			currentVersion = D9E6F4162C612162007FD2F0 /* Radio.xcdatamodel */;
 			currentVersion = 87959E412C62757800626EB0 /* Radio.xcdatamodel */;
 			path = Radio.xcdatamodeld;
 			sourceTree = "<group>";

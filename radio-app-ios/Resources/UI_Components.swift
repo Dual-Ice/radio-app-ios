@@ -33,8 +33,8 @@ enum Color {
         return UIColor (red: 8/255, green: 8/255, blue: 51/255, alpha: 1.0)
     }()
 
-	static let cellBorder: UIColor = {
-		return UIColor (red: 50/250, green: 50/250, blue: 78/250, alpha: 1.0)
+	static let borderColor: UIColor = {
+		return UIColor (red: 50/255, green: 50/255, blue: 78/255, alpha: 1.0)
 	}()
 }
 

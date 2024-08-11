@@ -10,7 +10,7 @@ import UIKit
 final class WaveView: UIView {
 
     private var waveColor: UIColor = .white
-    private let dotColor: UIColor!
+	private var dotColor: UIColor!
     private var isActive: Bool = true
     
     init(frame: CGRect, dotColor: UIColor) {
@@ -36,7 +36,11 @@ final class WaveView: UIView {
         self.waveColor = isActive ? .white : .white.withAlphaComponent(0.5)
         self.setNeedsDisplay()
     }
-    
+
+	func setDotColor(color: UIColor) {
+		dotColor = color
+	}
+
     private func drawWave(in rect: CGRect) {
         let path = UIBezierPath()
         let waveHeight: CGFloat = 10 // Высота волны
