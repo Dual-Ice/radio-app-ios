@@ -58,7 +58,7 @@
 "AuthSceenPasswordResetSuccessMessage" = "The password reset email has been successfully sent. Please check your email.";
 
 //MARK: - Popular
-"votes" = "votes %d";
+"votes" = "votes";
 
 // MARK: - Settings
 
