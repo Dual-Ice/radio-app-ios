@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
-        
+
         // Пока нет кнопки выхода - вы можете использовать этот код, чтобы разавторизовать пользователя
 //        AuthManager().signOut { error in
 //            if let error = error {
@@ -26,14 +26,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //                return
 //            }
 //        }
-        
+
         if UserDefaults.standard.bool(forKey: "isWelcomeCompleted") {
             checkAuthentication()
             return
         }
-        
         window?.rootViewController = WelcomeController()
-    }
+
+        /// settings navigation
+        //let settingsBuilder = MainSettingsBuilder()
+        //let router = MainSettingsRouter(navigationController: UINavigationController(), moduleBuilder: settingsBuilder)
+        //window?.rootViewController = settingsBuilder.createLanguageVC()
+}
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

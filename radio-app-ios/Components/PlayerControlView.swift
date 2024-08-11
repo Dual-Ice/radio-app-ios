@@ -7,10 +7,11 @@
 
 import UIKit
 
-protocol PlayerControlViewDelegate: AnyObject {
-    func backButtonTapped()
-    func centralButtonTapped()
-    func nextButtonTapped()
+@objc protocol PlayerControlDelegate: AnyObject {
+    @objc optional func playButtonTapped()
+    @objc optional func pauseButtonTapped()
+    @objc optional func backButtonTapped()
+    @objc optional func nextButtonTapped()
 }
 
 final class PlayerControlView: UIView {
@@ -29,7 +30,7 @@ final class PlayerControlView: UIView {
     
     private let nextButton: UIButton = UIButton.makeCustomButtonWithImage(image: Image.playerNext!)
     
-    weak var delegate: PlayerControlViewDelegate?
+    weak var delegate: PlayerControlDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,22 +43,31 @@ final class PlayerControlView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setPlayerActivity(isPlaying: Bool) {
+    func update() {
         playerStateView.image = UIImage(
-            systemName: isPlaying ? "pause.fill" : "play.fill"
+            systemName: AudioPleer.shared.isPlaying ? "pause.fill" : "play.fill"
         )
     }
     
     @objc private func centralButtonTapped() {
-        delegate?.centralButtonTapped()
+        if AudioPleer.shared.isPlaying {
+            delegate?.pauseButtonTapped?()
+            AudioPleer.shared.pauseMusic()
+        }else {
+            delegate?.playButtonTapped?()
+            AudioPleer.shared.playMusic()
+        }
+        update()
     }
     
     @objc private func backButtonTapped() {
-        delegate?.backButtonTapped()
+        AudioPleer.shared.playPrevious()
+        delegate?.backButtonTapped?()
     }
     
     @objc private func nextButtonTapped() {
-        delegate?.nextButtonTapped()
+        AudioPleer.shared.playNext()
+        delegate?.nextButtonTapped?()
     }
 }
 
@@ -69,9 +79,8 @@ extension PlayerControlView {
             playerStateView,
             backButton,
             nextButton
-        ].forEach {
-            addSubview($0)
-        }
+        ].forEach { addSubview($0) }
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setupConstrains() {

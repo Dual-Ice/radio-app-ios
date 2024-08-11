@@ -13,19 +13,18 @@ protocol PopularCellDelegate: AnyObject {
 
 final class PopularCell: UICollectionViewCell {
     static let identifier = PopularCell.debugDescription()
+    private var stationUid: String = .init()
     
     weak var delegate: PopularCellDelegate?
     
     private let playImage = UIImageView.makeSimpleImage(imageName: "playWhite")
-    private let votesLabel = UILabel.makeCustomLabelBold(key: "votes", fontSize: 10, textColor: .white, numberOfLines: 1, textAligment: .left)
+    private let votesLabel = UILabel.makeCustomLabelBold(key: "votes", fontSize: 10, textColor: .white, numberOfLines: 0, textAligment: .left, wrapText: true)
     private let votesButton = UIButton.makeCustomButtonWithImage(image: Image.heartDeselected)
     private let genreLabel = UILabel.makeCustomLabelBold(key: "POP", fontSize: 22, textColor: .white, numberOfLines: 1, textAligment: .center)
     private let radioNameLabel = UILabel.makeCustomLabel(key: "Radio Record", fontSize: 11, textColor: .white, numberOfLines: 1, textAligment: .center)
-    private let waveView = WaveView(frame: CGRect(x: 0, y: 0, width: 94, height: 23), dotColor: .red)
+    private let waveView = WaveView(frame: CGRect(x: 0, y: 0, width: 80, height: 23), dotColor: .red)
     
     private var votes = 0
-    private var hasVoted = false
-    private var stationuuid: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,6 +34,10 @@ final class PopularCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setDelegate(_ value: PopularCellDelegate) {
+        delegate = value
     }
     
     private func setViews() {
@@ -52,7 +55,7 @@ final class PopularCell: UICollectionViewCell {
         waveView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            playImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            playImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             playImage.topAnchor.constraint(equalTo: topAnchor, constant: 13),
             playImage.widthAnchor.constraint(equalToConstant: 25),
             playImage.heightAnchor.constraint(equalToConstant: 25),
@@ -73,42 +76,40 @@ final class PopularCell: UICollectionViewCell {
             
             waveView.centerXAnchor.constraint(equalTo: centerXAnchor),
             waveView.topAnchor.constraint(equalTo: radioNameLabel.bottomAnchor, constant: 10),
-            waveView.widthAnchor.constraint(equalToConstant: 94),
+            waveView.widthAnchor.constraint(equalToConstant: 80),
             waveView.heightAnchor.constraint(equalToConstant: 23),
             waveView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15)
         ])
     }
     
     @objc private func votesButtonTapped() {
-        if !hasVoted {
-            hasVoted = true
-            votes += 1
-            votesButton.setImage(UIImage(named: "heartSelected"), for: .normal)
-            updateVotesLabel()
-            if let stationuuid = stationuuid {
-                delegate?.vote(for: stationuuid)
-            }
-        }
+        delegate?.vote(for: stationUid)
     }
     
-    private func updateVotesLabel() {
-        votesLabel.text = String(format: NSLocalizedString("votes", comment: ""), votes)
-    }
-    
-    private func configureGenreLabelText(_ text: String) -> String {
-        return text.components(separatedBy: ",").first?.components(separatedBy: " ").prefix(2).joined(separator: " ") ?? text
-    }
-    
-    func configure(with title: String, subtitle: String, votes: Int, isActive: Bool, dotColor: UIColor) {
-        self.genreLabel.text = configureGenreLabelText(title)
-        self.radioNameLabel.text = subtitle
-        self.votes = votes
-        self.hasVoted = false
-        self.waveView.setDotColor(color: dotColor)
-        self.waveView.setNeedsDisplay() // Обновляем отображение цвета точки
+    private func updateVotesLabel(isActive: Bool) {
+        let votesText = "\(NSLocalizedString("votes", comment: "")) \(votes)"
+        let finalText = isActive ? "\(NSLocalizedString("votes", comment: ""))\n\(votes)" : votesText
         
-        updateVotesLabel()
-        updateAppearance(isActive: isActive)
+        votesLabel.text = finalText
+    }
+    
+    func configure(with stationData: StationData) {
+        self.genreLabel.text = stationData.genre
+        self.radioNameLabel.text = stationData.name
+        self.votes = stationData.votes
+        self.waveView.setDotColor(color: stationData.dotColor)
+        self.waveView.setNeedsDisplay()
+        self.stationUid = stationData.id
+        updateVotesLabel(isActive: stationData.isActive)
+        updateAppearance(isActive: stationData.isActive)
+        updateFavorite(isFavorite: stationData.isFavorite)
+    }
+    
+    private func updateFavorite(isFavorite: Bool) {
+       let imageName = isFavorite
+            ? "heartSelected"
+            : "heartDeselected"
+        votesButton.setImage(UIImage(named: imageName), for: .normal)
     }
     
     private func updateAppearance(isActive: Bool) {
@@ -135,13 +136,12 @@ final class PopularCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        playImage.image = nil
-        hasVoted = false
         votes = 0
+        stationUid = ""
         waveView.setDotColor(color: .red)
         waveView.toggleWaveColor(active: false)
         waveView.setNeedsDisplay()
-        updateVotesLabel()
+        updateVotesLabel(isActive: false)
         updateAppearance(isActive: false)
     }
 }

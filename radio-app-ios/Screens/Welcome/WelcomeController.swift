@@ -10,7 +10,7 @@ import UIKit
 final class WelcomeController: UIViewController {
     
     private let welcomeView = WelcomeView()
-    
+
     // MARK: - Life Cycle
     override func loadView() {
         view = welcomeView

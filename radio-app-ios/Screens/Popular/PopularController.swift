@@ -7,18 +7,21 @@
 
 import UIKit
 
+
 final class PopularController: UIViewController {
     
     private let popularView = PopularView()
-    private let apiManager = Radio_API_Manager()
-    private var stations = [Station]() {
-        didSet {
-            popularView.getCollectionView.reloadData()
-        }
+    
+    private let presenter: PopularPresenter
+    
+    init(presenter: PopularPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
     }
-    private var selectedIndexPath: IndexPath? = IndexPath(row: 0, section: 0)
-    private let dotColors: [UIColor] = [.red, .blue, .green, .purple, .yellow, .systemCyan, .orange]
-    private var cellDotColors: [IndexPath: UIColor] = [:]
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life Cycle
     override func loadView() {
@@ -28,7 +31,7 @@ final class PopularController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         popularView.setDelegates(self)
-        fetchPopularStations()
+        presenter.onLoad()
         
         // MARK: - Заменить на данные с профиля
         if let profileImage = UIImage(named: "onboardingBackground") {
@@ -36,21 +39,16 @@ final class PopularController: UIViewController {
         }
     }
     
-    private func fetchPopularStations() {
-        apiManager.getPopular { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let stations):
-                    self?.stations = stations
-                    for (index, _) in stations.enumerated() {
-                        let indexPath = IndexPath(row: index, section: 0)
-                        self?.cellDotColors[indexPath] = self?.dotColors[index % (self?.dotColors.count ?? 1)]
-                    }
-                case .failure(let error):
-                    print("Failed to featch popular stations: \(error)")
-                }
-            }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        presenter.onWillAppear {
+            self.refreshData()
         }
+    }
+    
+    func refreshData() {
+        popularView.getCollectionView.reloadData()
     }
 }
 
@@ -63,7 +61,7 @@ extension PopularController: HeaderViewDelegate {
 extension PopularController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return stations.count
+        return presenter.getStations().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -71,34 +69,23 @@ extension PopularController: UICollectionViewDataSource, UICollectionViewDelegat
             return UICollectionViewCell()
         }
         
-        let station = stations[indexPath.row]
-        let isActive = indexPath == selectedIndexPath
-        let dotColor = cellDotColors[indexPath] ?? .red
-        cell.configure(
-            with: station.tags ?? "Unknow Genre",
-            subtitle: station.name ?? "Unknow Station",
-            votes: station.votes ?? 0,
-            isActive: isActive,
-            dotColor: dotColor
-        )
+        let stationData = presenter.getStationData(by: indexPath)
+        cell.configure(with: stationData)
+        cell.setDelegate(self)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedIndexPath = indexPath
-        popularView.getCollectionView.reloadData()
-        print("Selected cell at \(indexPath)")
+        presenter.updateSelected(with: indexPath)
+        refreshData()
+        presenter.goToDetail(by: indexPath.row)
     }
-    // MARK: - Активировать когда будет метод
-//    func vote(for stationuuid: String) {
-//        apiManager.vote(for: stationuuid) { [weak self] result in
-//            switch result {
-//            case .success:
-//                print("Vote registered for station \(stationuuid)")
-//            case .failure(let error):
-//                print("Failed to register vote: \(error)")
-//            }
-//        }
-//    }
+}
+
+extension PopularController: PopularCellDelegate {
+    
+    func vote(for stationuuid: String) {
+        presenter.vote(for: stationuuid)
+    }
 }

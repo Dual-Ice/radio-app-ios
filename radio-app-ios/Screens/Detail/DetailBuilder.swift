@@ -7,28 +7,12 @@
 
 import UIKit
 
-
-protocol DetailBuilderProtocol: AnyObject {
-    func build(data: Station) -> UIViewController
-}
-
 class DetailBuilder {
-    
-    let navigationController: UINavigationController
-    
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-    
-    func build(data: Station) -> UIViewController {
-        let presenter = DetailPresenter(
-            data: data,
-            router: DetailRouter(navigationVC: navigationController)
-        )
+    static func build(_ navigationController: UINavigationController, _ data: Station) -> UIViewController {
+        let router = DetailRouter(navigationVC: navigationController)
+        let presenter = DetailPresenter(data: data, router: router)
         let vc = DetailController(presenter: presenter)
-        presenter.view = vc
+        presenter.viewController = vc
         return vc
     }
 }
-
-

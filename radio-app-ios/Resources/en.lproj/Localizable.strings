@@ -13,8 +13,7 @@
 "WelcomeTitleLabel" = "Let’s Get\nStarted";
 "WelcomeLabel" = "Enjoy the best radio stations\nfrom your home, don't miss\nout on anything";
 "Hello" = "Hello";
-"Popular" = "Popular";
-"Favorites" = "Favorites";
+"PopularTitle" = "Popular";
 "AllStations" = "All Stations";
 "SignIn" = "Sign in";
 "SignUp" = "Sign up";
@@ -38,6 +37,11 @@
 "PlayingNow" = "Playing now";
 
 
+//MARK: - Favorites
+"FavoritesTitle" = "Favorites";
+"FavoritesEmpty" = "You haven't favorite station yet";
+
+
 //MARK: - AuthScreen
 "AuthScreenUDismissButtonText" = "Dismiss";
 "AuthScreenOkButtonText" = "Ok";
@@ -58,8 +62,38 @@
 "AuthSceenPasswordResetSuccessMessage" = "The password reset email has been successfully sent. Please check your email.";
 
 //MARK: - Popular
-"votes" = "votes %d";
+"votes" = "votes";
 
+// MARK: - Settings
+
+// main
+"HeaderUserName" = "Your name";
+"HeaderUserEmail" = "Your email";
+"Log Out" = "Log Out";
+
+// policy
+"Introduction" = "Welcome to RadioApp. Your privacy is important to us. This Privacy Policy explains how we collect, use, protect, and share information and data when you use RadioApp. This policy applies to all users of our app and services.";
+
+"MainRules" = "We collect information to provide better services to all of our users. The types of information we collect include:
+
+    Personal Information: This is information that you provide to us which personally identifies you, such as your name, email address, and billing information.
+    Usage Information: We collect information about your interactions with our app, such as the pages you visit, the content you view, and the dates and times of your visits.
+    Device Information: We may collect specific information about your device when you access our app, including model, operating system, unique device identifiers, and mobile network information.";
+
+// edit profile 
+"UserName" = "Full name";
+"UserEmail" = "Email";
+"UserPassword" = "Password";
+"Save Changes" = "Save Changes";
+"ChangeEmailError" = "* Email already exists";
+
+// notifications
+"NotificationsTitle" = "Notification Settings";
+"ShowNotifications" = "Show notifications";
+"SendNotificationsLabel" = "Send notifications at";
+
+// languages
+"AvailableLanguages" = "Available Languages";
 //MARK: - Browse
 "browse_by_tags" = "Browse by\ntags";
 "browse_by_language" = "Browse by\nlanguage";
