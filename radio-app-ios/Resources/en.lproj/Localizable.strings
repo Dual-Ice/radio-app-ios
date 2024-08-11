@@ -92,9 +92,20 @@
 "ShowNotifications" = "Show notifications";
 "SendNotificationsLabel" = "Send notifications at";
 
-// languages
-"AvailableLanguages" = "Available Languages";
+// Settings
+"General" = "General";
+"Notification" = "Notification";
+"Language" = "Language";
+"More" = "More";
+"LegalAndPolicies" = "Legal and Policies";
+"AboutUs" = "About Us";
+
 //MARK: - Browse
 "browse_by_tags" = "Browse by\ntags";
 "browse_by_language" = "Browse by\nlanguage";
 "browse_by_country" = "Browse by\ncountry";
+
+//MARK: Languages
+"AvailableLanguages" = "Available Languages";
+"LangChangeMessage" = "To change the language, close the app and re-launch it.";
+"LangAlerTitle" = "Warning!";

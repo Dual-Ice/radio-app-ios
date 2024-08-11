@@ -86,15 +86,26 @@
 "Save Changes" = "Сохранить";
 "ChangeEmailError" = "* Почта уже используется";
 
+// Settings
+"General" = "Общие";
+"Notification" = "Уведомления";
+"Language" = "Язык приложения";
+"More" = "Дополнительно";
+"LegalAndPolicies" = "Условия и положения";
+"AboutUs" = "О приложении";
+
 // notifications
 "NotificationsTitle" = "Управление уведомлениями";
 "ShowNotifications" = "Разрешить уведомления";
 "SendNotificationsLabel" = "Отправлять уведомления в";
 
-// languages
-"AvailableLanguages" = "Доступные языки";
 
 //MARK: - Browse
 "browse_by_tags" = "Поиск по\nжанрам";
 "browse_by_language" = "Поиск по\nязыку";
 "browse_by_country" = "Поиск по\nстране";
+
+//MARK: Languages
+"AvailableLanguages" = "Доступные языки";
+"LangChangeMessage" = "Для смены языка закройте приложение и запустите его заново.";
+"LangAlerTitle" = "Внимание!";

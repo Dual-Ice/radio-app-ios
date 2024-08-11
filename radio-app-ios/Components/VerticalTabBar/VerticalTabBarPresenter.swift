@@ -24,9 +24,9 @@ final class VerticalTabBarPresenter: VerticalTabBarPresenterProtocol {
     
     func loadViewController(_ navigationController: UINavigationController) {
 #warning("заполнить нужными контроллерами")
-        viewControllers["Popular"] = PopularBuilder.buildPopularController(navigationController)
-        viewControllers["Favorites"] = FavoritesBuilder.buildFavoritesController(navigationController)
-        viewControllers["AllStations"] = testVC()
+        viewControllers[NSLocalizedString("PopularTitle", comment: "")] = PopularBuilder.buildPopularController(navigationController)
+        viewControllers[NSLocalizedString("FavoritesTitle", comment: "")] = FavoritesBuilder.buildFavoritesController(navigationController)
+        viewControllers[NSLocalizedString("AllStations", comment: "")] = testVC()
         
         viewControllers.keys.sorted(by: >).forEach { viewName  in
             let title = NSLocalizedString(viewName, comment: "Localizable")

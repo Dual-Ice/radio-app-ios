@@ -46,6 +46,7 @@
 		D9CB169B2C68CD7C009D50A9 /* FavoritesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB169A2C68CD7C009D50A9 /* FavoritesBuilder.swift */; };
 		D9CB169D2C68CD86009D50A9 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB169C2C68CD86009D50A9 /* FavoritesRouter.swift */; };
 		D9CB16A12C68F7B7009D50A9 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB16A02C68F7B7009D50A9 /* ListController.swift */; };
+		D9CB16A92C6966D1009D50A9 /* LanguagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB16A82C6966D1009D50A9 /* LanguagesService.swift */; };
 		D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */; };
 		D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */; };
 		D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3692C56F362007FD2F0 /* PopularController.swift */; };
@@ -174,6 +175,7 @@
 		D9CB169A2C68CD7C009D50A9 /* FavoritesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesBuilder.swift; sourceTree = "<group>"; };
 		D9CB169C2C68CD86009D50A9 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		D9CB16A02C68F7B7009D50A9 /* ListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
+		D9CB16A82C6966D1009D50A9 /* LanguagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesService.swift; sourceTree = "<group>"; };
 		D9E6F3622C56F362007FD2F0 /* radio-app-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radio-app-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 				D9E6F3B72C5BE4AA007FD2F0 /* Auth */,
 				D9E6F3C12C5BE6BD007FD2F0 /* UserManager.swift */,
 				D9E6F3DA2C5E8B6A007FD2F0 /* AlertManager.swift */,
+				D9CB16A82C6966D1009D50A9 /* LanguagesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -982,6 +985,7 @@
 				A7A3638F2C67AF630039DD63 /* BrowseController.swift in Sources */,
 				D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */,
 				D9E6F3D72C5E88AF007FD2F0 /* ValidationManager.swift in Sources */,
+				D9CB16A92C6966D1009D50A9 /* LanguagesService.swift in Sources */,
 				243E436C2C5BE51F001D958D /* VerticalTabBarController.swift in Sources */,
 				D9E6F4542C6281F5007FD2F0 /* RoundedTriangleImageView.swift in Sources */,
 				D9E6F3AF2C59312E007FD2F0 /* PolicyVC.swift in Sources */,
