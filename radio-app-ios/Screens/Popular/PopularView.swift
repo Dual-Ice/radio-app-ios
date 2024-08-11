@@ -48,13 +48,17 @@ final class PopularView: UIView {
             
             collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 60),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -230)
         ])
     }
     
     func configureHeader(with username: String, profileImage: UIImage) {
-        headerView.configure(with: username, profileImage: profileImage)
+        headerView.configure(
+            with: username,
+            profileImage: profileImage,
+            title: NSLocalizedString("PopularTitle", comment: "")
+        )
     }
     
     func setDelegates(_ delegate: PopularController) {

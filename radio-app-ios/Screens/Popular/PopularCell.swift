@@ -137,6 +137,7 @@ final class PopularCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         votes = 0
+        stationUid = ""
         waveView.setDotColor(color: .red)
         waveView.toggleWaveColor(active: false)
         waveView.setNeedsDisplay()

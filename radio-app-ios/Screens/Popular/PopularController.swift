@@ -12,7 +12,7 @@ final class PopularController: UIViewController {
     
     private let popularView = PopularView()
     
-    let presenter: PopularPresenter
+    private let presenter: PopularPresenter
     
     init(presenter: PopularPresenter) {
         self.presenter = presenter
