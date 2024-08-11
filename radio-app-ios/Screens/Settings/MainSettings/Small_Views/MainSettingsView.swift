@@ -30,6 +30,7 @@ final class MainSettingsView: UIView {
 
     private let backgroundView: UIImageView = {
         let view = UIImageView()
+        view.backgroundColor = .black
         view.image = Image.signInBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
