@@ -8,11 +8,8 @@
 import UIKit
 import AVFoundation
 
-@objc protocol VolumeControlDelegate: AnyObject {
-    @objc optional func volumeChanged(to value: Float)
-}
-
 final class VolumeControlView: UIView {
+    
     private let speakerIcon = UIImageView.makeSystemImage(
         imageName: "speaker.wave.2",
         color: .gray
@@ -39,8 +36,6 @@ final class VolumeControlView: UIView {
         textAligment: .center
     )
     
-    weak var delegate: VolumeControlDelegate?
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -64,7 +59,6 @@ final class VolumeControlView: UIView {
     
     @objc func sliderValueChanged(_ sender: UISlider) {
         updateVolumeLabel()
-        delegate?.volumeChanged?(to: sender.value)
         AudioPleer.shared.setVolume(sender.value)
     }
 }

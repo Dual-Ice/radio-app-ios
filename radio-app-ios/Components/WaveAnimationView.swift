@@ -16,7 +16,7 @@ final class VerticalWaveAnimationView: UIView {
     private let interpolationFactor: CGFloat = 0.1 // Фактор интерполяции для плавности
     private let heightChangeFactor: CGFloat = 0.2 // Фактор изменения высоты для плавности
 
-    private var waveColor: UIColor = Color.customPink
+    private var waveColor: UIColor = .blue
 
     override init(frame: CGRect) {
         super.init(frame: frame)

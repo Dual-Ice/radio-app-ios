@@ -14,7 +14,7 @@ extension UIImageView {
         self.kf.indicatorType = .activity
         self.kf.setImage(
             with: url,
-            placeholder: UIImage(systemName: "waveform.circle"),
+            placeholder: UIImage(systemName: "waveform"),
             options: [
                 .transition(.fade(1))
             ]

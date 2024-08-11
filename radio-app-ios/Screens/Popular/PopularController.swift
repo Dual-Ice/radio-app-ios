@@ -7,12 +7,20 @@
 
 import UIKit
 
-
 final class PopularController: UIViewController {
     
     private let popularView = PopularView()
+    private let apiManager = Radio_API_Manager()
+    private var stations = [Station]() {
+        didSet {
+            popularView.getCollectionView.reloadData()
+        }
+    }
+    private var selectedIndexPath: IndexPath? = IndexPath(row: 0, section: 0)
+    private let dotColors: [UIColor] = [.red, .blue, .green, .purple, .yellow, .systemCyan, .orange]
+    private var cellDotColors: [IndexPath: UIColor] = [:]
     
-    private let presenter: PopularPresenter
+    let presenter: PopularPresenter
     
     init(presenter: PopularPresenter) {
         self.presenter = presenter
@@ -31,7 +39,7 @@ final class PopularController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         popularView.setDelegates(self)
-        presenter.onLoad()
+        fetchPopularStations()
         
         // MARK: - Заменить на данные с профиля
         if let profileImage = UIImage(named: "onboardingBackground") {
@@ -39,16 +47,21 @@ final class PopularController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        presenter.onWillAppear {
-            self.refreshData()
+    private func fetchPopularStations() {
+        apiManager.getPopular { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let stations):
+                    self?.stations = stations
+                    for (index, _) in stations.enumerated() {
+                        let indexPath = IndexPath(row: index, section: 0)
+                        self?.cellDotColors[indexPath] = self?.dotColors[index % (self?.dotColors.count ?? 1)]
+                    }
+                case .failure(let error):
+                    print("Failed to featch popular stations: \(error)")
+                }
+            }
         }
-    }
-    
-    func refreshData() {
-        popularView.getCollectionView.reloadData()
     }
 }
 
@@ -61,7 +74,7 @@ extension PopularController: HeaderViewDelegate {
 extension PopularController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.getStations().count
+        return stations.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -69,23 +82,35 @@ extension PopularController: UICollectionViewDataSource, UICollectionViewDelegat
             return UICollectionViewCell()
         }
         
-        let stationData = presenter.getStationData(by: indexPath)
-        cell.configure(with: stationData)
-        cell.setDelegate(self)
+        let station = stations[indexPath.row]
+        let isActive = indexPath == selectedIndexPath
+        let dotColor = cellDotColors[indexPath] ?? .red
+        cell.configure(
+            with: station.tags ?? "Unknow Genre",
+            subtitle: station.name ?? "Unknow Station",
+            votes: station.votes ?? 0,
+            isActive: isActive,
+            dotColor: dotColor
+        )
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.updateSelected(with: indexPath)
-        refreshData()
-        presenter.goToDetail(by: indexPath.row)
+        selectedIndexPath = indexPath
+        popularView.getCollectionView.reloadData()
+        presenter.goToDetail(station: stations[indexPath.row])
     }
-}
-
-extension PopularController: PopularCellDelegate {
     
-    func vote(for stationuuid: String) {
-        presenter.vote(for: stationuuid)
-    }
+    #warning("TO DO: Активировать когда будет метод")
+//    func vote(for stationuuid: String) {
+//        apiManager.vote(for: stationuuid) { [weak self] result in
+//            switch result {
+//            case .success:
+//                print("Vote registered for station \(stationuuid)")
+//            case .failure(let error):
+//                print("Failed to register vote: \(error)")
+//            }
+//        }
+//    }
 }

@@ -13,7 +13,8 @@
 "WelcomeTitleLabel" = "Давайте\nначнем";
 "WelcomeLabel" = "Наслаждайтесь лучшими\nрадиостанциями из вашего дома,\nне пропустите ничего.";
 "Hello" = "Привет";
-"PopularTitle" = "Популярное";
+"Popular" = "Популярное";
+"Favorites" = "Избранное";
 "AllStations" = "Все станции";
 "SignIn" = "Войди,";
 "SignUp" = "Зарегистрируйся,";
@@ -36,10 +37,6 @@
 //MARK: - Detail
 "PlayingNow" = "Сейчас играет";
 
-//MARK: - Favorites
-"FavoritesTitle" = "Избранное";
-"FavoritesEmpty" = "Вы не добавили ни одной станции в избранное";
-
 //MARK: - AuthScreen
 "AuthScreenUDismissButtonText" = "Отмена";
 "AuthScreenOkButtonText" = "Ок";
@@ -61,7 +58,7 @@
 "AuthSceenPasswordResetSuccessMessage" = "Письмо для сброса пароля успешно отправлено. Пожалуйста, проверьте свою электронную почту.";
 
 //MARK: - Popular
-"votes" = "голоса";
+"votes" = "голоса %d";
 
 // MARK: - Settings
 
@@ -93,8 +90,3 @@
 
 // languages
 "AvailableLanguages" = "Доступные языки";
-
-//MARK: - Browse
-"browse_by_tags" = "Поиск по\nжанрам";
-"browse_by_language" = "Поиск по\nязыку";
-"browse_by_country" = "Поиск по\nстране";

@@ -12,7 +12,7 @@ class DetailBuilder {
         let router = DetailRouter(navigationVC: navigationController)
         let presenter = DetailPresenter(data: data, router: router)
         let vc = DetailController(presenter: presenter)
-        presenter.viewController = vc
+        presenter.view = vc
         return vc
     }
 }

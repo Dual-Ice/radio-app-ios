@@ -33,9 +33,7 @@ extension UILabel {
         fontSize: CGFloat,
         textColor: UIColor,
         numberOfLines: Int?,
-        textAligment: NSTextAlignment?,
-        wrapText: Bool = false
-    ) -> UILabel
+        textAligment: NSTextAlignment?) -> UILabel
     {
         let label = UILabel()
         label.text = (key != nil) ? NSLocalizedString(key!, comment: "Localizable") : ""
@@ -46,7 +44,6 @@ extension UILabel {
         label.adjustsFontSizeToFitWidth = false
         label.minimumScaleFactor = 0.8
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.lineBreakMode = wrapText ? .byWordWrapping : .byTruncatingTail
         return label
     }
 }

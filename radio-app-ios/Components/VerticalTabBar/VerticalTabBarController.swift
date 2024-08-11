@@ -14,7 +14,7 @@ protocol VerticalTabBarControllerProtocol: AnyObject {
 
 final class VerticalTabBarController: UIViewController {
     private let verticalTabBar = VerticalTabBar()
-    private var firstAppear = true
+    private var currentViewController: UIViewController?
     
     var presenter: VerticalTabBarPresenterProtocol?
     
@@ -30,10 +30,10 @@ final class VerticalTabBarController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if firstAppear {
-            firstAppear = false
-            didSelectTab(verticalTabBar.buttons.first ?? CustomTabBarButton(lableText: "", identifier: ""))
-        }
+        didSelectTab(
+            verticalTabBar.buttons.first
+            ?? CustomTabBarButton(lableText: "Empty", identifier: "Empty")
+        )
     }
 }
 
