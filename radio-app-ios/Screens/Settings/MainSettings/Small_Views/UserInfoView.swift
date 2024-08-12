@@ -80,9 +80,9 @@ final class UserInfoView: UIView {
         userEmail.text = user.email
         userName.text = user.username
 
-//        if let userPhoto = user.image {
-//            userImage.image = userPhoto
-//        }
+        if let userPhoto = user.image {
+            userImage.image = userPhoto
+        } 
     }
 
     // MARK: Private Methods

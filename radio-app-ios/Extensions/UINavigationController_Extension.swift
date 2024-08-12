@@ -35,7 +35,12 @@ extension UINavigationController {
                           width: 50,
                           height: 50),
             radius: 10)
-        profileImage.setImage(UIImage(systemName: "person.fill") ?? UIImage())
+        let userData = UserManager.shared.getUserProfileData()
+        if let image = userData.image {
+            profileImage.setImage(image)
+        } else {
+            profileImage.setImage(UIImage(named: "userMock") ?? UIImage())
+        }
         containerView.addSubview(profileImage)
         viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: containerView)
     }

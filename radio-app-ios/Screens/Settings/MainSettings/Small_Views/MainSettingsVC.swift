@@ -45,6 +45,7 @@ final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.setNavigationBar(for: self, title: NSLocalizedString("Settings", comment: "Localizable"))
+        setView()
     }
 
     // MARK: Private Methods

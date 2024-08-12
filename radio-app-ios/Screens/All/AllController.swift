@@ -45,7 +45,7 @@ final class AllController: UIViewController {
         
         allView.configureHeader(
             with: UserManager.shared.getUserProfileData().username,
-            profileImage: UserManager.shared.getUserProfileData().image ?? UIImage.onboardingBackground
+            profileImage: UserManager.shared.getUserProfileData().image ?? UIImage.userMock
         )
     }
     

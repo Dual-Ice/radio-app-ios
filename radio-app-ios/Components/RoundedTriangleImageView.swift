@@ -27,7 +27,7 @@ final class RoundedTriangleImageView: UIView {
         imageView = UIImageView(frame: bounds)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.image = UIImage(systemName: "person.fill")
+        imageView.image = UIImage(named: "userMock")
         imageView.tintColor = Color.customPink
         self.translatesAutoresizingMaskIntoConstraints = false
         addSubview(imageView)

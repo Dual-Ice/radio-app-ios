@@ -40,7 +40,7 @@ final class FavoritesController: UIViewController {
         
         favoritesView.configureHeader(
             with: UserManager.shared.getUserProfileData().username,
-            profileImage: UserManager.shared.getUserProfileData().image ?? UIImage.onboardingBackground
+            profileImage: UserManager.shared.getUserProfileData().image ?? UIImage.userMock
         )
     }
     
