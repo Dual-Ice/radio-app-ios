@@ -95,6 +95,14 @@ extension PopularController: PopularCellDelegate {
 
 //MARK: - Player Controller Delegate
 extension PopularController: PlayerControlDelegate {
+    func playButtonTapped() {
+        refreshData()
+    }
+    
+    func pauseButtonTapped() {
+        refreshData()
+    }
+    
     func nextButtonTapped() {
         presenter.nextStation()
     }

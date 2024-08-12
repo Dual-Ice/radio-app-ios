@@ -27,7 +27,6 @@ final class FavoritesPresenter {
     }
     
     func goToDetail(by index: Int) {
-        AudioPleer.shared.loadStationList(favoriteStations)
         if AudioPleer.shared.currentURL != favoriteStations[index].url {
             AudioPleer.shared.loadStation(at: index)
         }
@@ -91,6 +90,7 @@ final class FavoritesPresenter {
             self?.favoriteStations = stations
             if stations.count > 0 {
                 self?.cellDotColors = StationHelper.makeDotColorsForStations(stations: stations)
+                AudioPleer.shared.loadStationList(stations)
             }
         }
     }
