@@ -8,7 +8,7 @@
 import UIKit
 
 protocol EditProfileViewDelegate: AnyObject {
-    func saveButtonTapped()
+    func saveButtonTapped(email: String, password: String)
     func editImageButtonTapped()
 }
 
@@ -144,7 +144,12 @@ final class EditProfileView: UIView {
     // MARK: Selector Methods
 
     @objc private func saveButtonAction() {
-        delegate?.saveButtonTapped()
+        if let newEmail = changeEmailTextfield.textField.text,
+           let newPassword = changePasswordTextfield.textField.text {
+            delegate?.saveButtonTapped(
+                email: newEmail,
+                password: newPassword)
+        }
     }
 
     @objc private func editImageButtonAction() {

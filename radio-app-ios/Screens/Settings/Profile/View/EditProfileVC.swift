@@ -12,6 +12,10 @@ import UIKit
 protocol EditProfileVCProtocol: AnyObject {
     func updateProfilePhoto(with: UIImage)
     func showImagePicker()
+
+    func showEmailError(message: String)
+    func showPasswordError(message: String)
+    func showSuccess(message: String)
 }
 
     // MARK: EditProfileVC
@@ -19,6 +23,7 @@ protocol EditProfileVCProtocol: AnyObject {
 final class EditProfileVC: UIViewController, EditProfileVCProtocol {
 
     var presenter: EditProfilePresenterProtocol!
+    let alertManager = AuthAlertManager()
 
     // MARK: UI Elements
 
@@ -36,6 +41,24 @@ final class EditProfileVC: UIViewController, EditProfileVCProtocol {
     }
 
     // MARK: Public methods
+
+    func showEmailError(message: String) {
+        alertManager.showDefaultAlert(on: self,
+                                      title: "Email error",
+                                      message: message)
+    }
+
+    func showPasswordError(message: String) {
+        alertManager.showDefaultAlert(on: self,
+                                      title: "Password error",
+                                      message: message)
+    }
+
+    func showSuccess(message: String) {
+        alertManager.showDefaultAlert(on: self,
+                                      title: "Success",
+                                      message: message)
+    }
 
     func showImagePicker() {
         setupImagePicker()
@@ -56,8 +79,8 @@ final class EditProfileVC: UIViewController, EditProfileVCProtocol {
 
 extension EditProfileVC: EditProfileViewDelegate {
     
-    func saveButtonTapped() {
-        presenter.saveChanges()
+    func saveButtonTapped(email: String, password: String)  {
+        presenter.saveChanges(email: email, password: password)
     }
 
     func editImageButtonTapped() {
