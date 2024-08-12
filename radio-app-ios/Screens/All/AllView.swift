@@ -30,33 +30,29 @@ final class AllView: UIView {
         element.translatesAutoresizingMaskIntoConstraints = false
         
         return element
-        
     }()
     
     lazy var collectionView: UICollectionView = {
-            let layout = UICollectionViewFlowLayout()
-            layout.estimatedItemSize.width = 291
-            layout.scrollDirection = .vertical
-            layout.minimumLineSpacing = 16
-    
-            let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-            cv.translatesAutoresizingMaskIntoConstraints = false
-            cv.backgroundColor = .clear
-            cv.showsVerticalScrollIndicator = false
-            cv.alwaysBounceVertical = true
-    
-            cv.register(AllStationCell.self, forCellWithReuseIdentifier: AllStationCell.identifier)
-    
-            return cv
-        }()
-    
-    
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 290, height: 120)
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 15
+        
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.backgroundColor = .clear
+        cv.showsVerticalScrollIndicator = false
+        cv.alwaysBounceVertical = true
+        
+        cv.register(AllStationCell.self, forCellWithReuseIdentifier: AllStationCell.identifier)
+        
+        return cv
+    }()
     
     // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setViews()
         layoutViews()
     }
@@ -65,19 +61,16 @@ final class AllView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    func setDelegates(_ delegate: AllController) {
-        collectionView.delegate = delegate
-        collectionView.dataSource = delegate
-        headerView.setDelegate(value: delegate)
+    func setDelegates(allVD: AllController, playerVD: PlayerControlDelegate) {
+        collectionView.delegate = allVD
+        collectionView.dataSource = allVD
+        headerView.setDelegate(value: allVD)
+        playerControler.delegate = playerVD
     }
-    
-
     
     // MARK: - Set Views
     
     private func setViews() {
-        
         self.backgroundColor = Color.backgroundBlue
     
         [
@@ -93,7 +86,6 @@ final class AllView: UIView {
     
     private func layoutViews() {
         NSLayoutConstraint.activate([
-            
             headerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             headerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -106,18 +98,17 @@ final class AllView: UIView {
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             collectionView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 20),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -230),
-            
-            playerControler.centerXAnchor.constraint(equalTo:self.centerXAnchor),
-            playerControler.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 255/335),
+            collectionView.bottomAnchor.constraint(equalTo: playerControler.topAnchor, constant: -10),
+
+            playerControler.centerXAnchor.constraint(equalTo: centerXAnchor),
+            playerControler.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 255/335),
             playerControler.heightAnchor.constraint(equalTo: playerControler.widthAnchor, multiplier: 127/255),
-            playerControler.bottomAnchor.constraint(equalTo: volumeControler.topAnchor, constant: -30),
+            playerControler.bottomAnchor.constraint(equalTo: volumeControler.topAnchor, constant: -20),
             
-            volumeControler.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50),
-            volumeControler.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 38),
-            volumeControler.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -38),
+            volumeControler.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
+            volumeControler.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 38),
+            volumeControler.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -38),
             volumeControler.heightAnchor.constraint(equalToConstant: 16)
-                        
         ])
     }
     

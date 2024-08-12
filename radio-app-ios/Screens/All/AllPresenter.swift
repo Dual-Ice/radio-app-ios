@@ -63,7 +63,7 @@ final class AllPresenter {
             name: station.name ?? "Unknown station",
             genre: StationHelper.getGenreFromStationTags(station.tags),
             votes: station.votes ?? 0,
-            isActive: indexPath == selectedIndexPath,
+            isActive: station.url == AudioPleer.shared.currentURL,
             dotColor: cellDotColors[indexPath] ?? .red,
             isFavorite: isFavorite
         )
@@ -100,5 +100,20 @@ final class AllPresenter {
                 }
             }
         }
+    }
+    
+    func vote(for stationuuid: String) {
+        print("VOTE for \(stationuuid)")
+    }
+}
+
+//MARK: - Player Actions
+extension AllPresenter {
+    func nextStation() {
+        allVC?.refreshData()
+    }
+    
+    func previousStation() {
+        allVC?.refreshData()
     }
 }

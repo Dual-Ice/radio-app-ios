@@ -29,7 +29,7 @@ final class AllController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        allView.setDelegates(self)
+        allView.setDelegates(allVD: self, playerVD: self)
         presenter.onLoad()
         
         if let profileImage = UIImage(named: "onboardingBackground") {
@@ -72,17 +72,8 @@ extension AllController: UICollectionViewDataSource, UICollectionViewDelegate {
         }
         
         let stationData = presenter.getStationData(by: indexPath)
-        
-        cell.genreStation.text = stationData.genre
-        cell.nameStation.text = stationData.name
-        cell.votes.text = "votes \(stationData.votes)"
-
-        if !stationData.isActive {
-            cell.contentView.layer.borderColor = Color.customGray.cgColor
-            cell.playingStatus.isHidden = true
-            cell.imageHeart.image = UIImage(named: "heartDeselected")
-            cell.contentView.backgroundColor = .clear
-        }
+        cell.configure(with: stationData)
+        cell.setDelegate(self)
         
         return cell
     }
@@ -91,5 +82,23 @@ extension AllController: UICollectionViewDataSource, UICollectionViewDelegate {
         presenter.updateSelected(with: indexPath)
         refreshData()
         presenter.goToDetail(by: indexPath.row)
+    }
+}
+
+//MARK: - AllStationCellDelegate
+extension AllController: AllStationCellDelegate {
+    func vote(for stationuuid: String) {
+        presenter.vote(for: stationuuid)
+    }
+}
+
+//MARK: - Player Controller Delegate
+extension AllController: PlayerControlDelegate {
+    func nextButtonTapped() {
+        presenter.nextStation()
+    }
+    
+    func backButtonTapped() {
+        presenter.previousStation()
     }
 }
