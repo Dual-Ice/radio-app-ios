@@ -17,4 +17,11 @@ final class AllRouter {
     func goToDetail(station: Station) {
         navigationController.pushViewController(DetailBuilder.build(navigationController, station), animated: true)
     }
+    
+    func goToSettings() {
+        let builder = MainSettingsBuilder()
+        let router = MainSettingsRouter(navigationController: navigationController, moduleBuilder: builder)
+        let settingsVC = builder.createMainSettingsModule(router: router)
+        navigationController.pushViewController(settingsVC, animated: true)
+    }
 }

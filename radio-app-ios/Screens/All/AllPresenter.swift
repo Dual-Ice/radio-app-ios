@@ -26,7 +26,15 @@ final class AllPresenter {
     }
     
     func goToDetail(by index: Int) {
+        AudioPleer.shared.loadStationList(stations)
+        if AudioPleer.shared.currentURL != stations[index].url {
+            AudioPleer.shared.loadStation(at: index)
+        }
         allRoute.goToDetail(station: stations[index])
+    }
+    
+    func goToSettings() {
+        allRoute.goToSettings()
     }
     
     func getStations() -> [Station] {
@@ -39,6 +47,9 @@ final class AllPresenter {
     
     func onWillAppear(completion: @escaping () -> Void) {
         loadFavoriteStations(completion: completion)
+        if AudioPleer.shared.currentURL.isEmpty {
+            AudioPleer.shared.loadStationList(self.stations)
+        }
     }
     
     func onLoad() {
@@ -48,6 +59,9 @@ final class AllPresenter {
             if success {
                 if self.stations.count > 0 {
                     self.cellDotColors = StationHelper.makeDotColorsForStations(stations: self.stations)
+                    if AudioPleer.shared.currentURL.isEmpty {
+                        AudioPleer.shared.loadStationList(self.stations)
+                    }
                 }
                 self.allVC?.refreshData()
             } else {
@@ -76,6 +90,71 @@ final class AllPresenter {
         selectedIndexPath = indexPath
     }
     
+    func vote(for stationuuid: String) {
+        guard let station = stations.first(where: { $0.stationuuid == stationuuid }) else {
+            print("Station not found")
+            return
+        }
+        
+        let hasVoted = UserManager.shared.hasVoted(for: stationuuid)
+        let isFavorite = favoriteStations.contains(stationuuid)
+        
+        let action: (@escaping (Error?) -> Void) -> Void = { completion in
+            if isFavorite {
+                UserManager.shared.removeFromFavorite(stationUid: stationuuid) { error in
+                    completion(error)
+                }
+                self.favoriteStations.remove(stationuuid)
+            } else {
+                UserManager.shared.addToFavorite(station: station) { error in
+                    completion(error)
+                }
+                self.favoriteStations.insert(stationuuid)
+            }
+        }
+        action { [weak self] error in
+            if let error = error {
+                print("Failed to update favorites: \(error)")
+                return
+            }
+            
+            if !isFavorite && !hasVoted {
+                self?.sendVote(for: stationuuid)
+            }
+            
+            DispatchQueue.main.async {
+                self?.allVC?.refreshData()
+            }
+        }
+    }
+        
+    private func sendVote(for stationID: String) {
+        apiManager.voteForStation(stationID: stationID) { [weak self] result in
+            switch result {
+            case .success(let vote):
+                if vote.ok == true {
+                    DispatchQueue.main.async {
+                        self?.updateStationVoteCount(stationID: stationID)
+                        UserManager.shared.markAsVoted(stationUid: stationID)
+                    }
+                } else {
+                    print("Vote failed: \(vote.message ?? "No message")")
+                }
+            case .failure(let error):
+                print("Vote request failed: \(error)")
+            }
+        }
+    }
+    
+    private func updateStationVoteCount(stationID: String) {
+        guard let index = stations.firstIndex(where: { $0.stationuuid == stationID }) else { return }
+            
+        if let currentVotes = stations[index].votes {
+            stations[index].votes = currentVotes + 1
+        } else {
+            stations[index].votes = 1
+        }
+    }
     
     private func loadFavoriteStations(completion: @escaping () -> Void) {
         UserManager.shared.getFavoriteStations { [weak self] (stations, error) in
@@ -103,10 +182,6 @@ final class AllPresenter {
                 }
             }
         }
-    }
-    
-    func vote(for stationuuid: String) {
-        print("VOTE for \(stationuuid)")
     }
 
     func searchStations(with query: String) {

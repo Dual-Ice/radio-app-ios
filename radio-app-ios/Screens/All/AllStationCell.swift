@@ -37,7 +37,7 @@ final class AllStationCell: UICollectionViewCell {
     private let playingStatus = UILabel.makeCustomLabelBold(
         key: "Playing now",
         fontSize: 14,
-        textColor: .darkGray,
+        textColor: Color.customPink,
         numberOfLines: 1,
         textAligment: .left
     )
@@ -140,8 +140,7 @@ final class AllStationCell: UICollectionViewCell {
     
     private func updateAppearance(isActive: Bool) {
         if isActive {
-            backgroundColor = Color.customPink
-            layer.borderColor = Color.customPink.cgColor
+            contentView.layer.borderColor = Color.customPink.cgColor
             genreStation.textColor = .white
             nameStation.textColor = .white
             votesLabel.textColor = .white
@@ -150,14 +149,20 @@ final class AllStationCell: UICollectionViewCell {
             waveView.toggleWaveColor(active: true)
             return
         }
-        backgroundColor = .clear
-        layer.borderColor = Color.customGray.cgColor
+        contentView.layer.borderColor = Color.borderColor.cgColor
         genreStation.textColor = Color.customGray
         nameStation.textColor = Color.customGray
         votesLabel.textColor = Color.customGray
         votesButton.tintColor = Color.customGray
         playingStatus.isHidden = true
         waveView.toggleWaveColor(active: false)
+    }
+    
+    private func updateFavorite(isFavorite: Bool) {
+       let imageName = isFavorite
+            ? "heartSelected"
+            : "heartDeselected"
+        votesButton.setImage(UIImage(named: imageName), for: .normal)
     }
     
     func configure(with stationData: StationData) {
@@ -168,6 +173,7 @@ final class AllStationCell: UICollectionViewCell {
         self.votesLabel.text = "votes: \(stationData.votes)"
         self.stationUid = stationData.id
         updateAppearance(isActive: stationData.isActive)
+        updateFavorite(isFavorite: stationData.isFavorite)
     }
     
     func setDelegate(_ value: AllStationCellDelegate) {

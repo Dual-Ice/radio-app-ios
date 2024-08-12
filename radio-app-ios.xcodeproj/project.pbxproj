@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		24008BD32C5C05CB001DF2CF /* AudioPleer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24008BD22C5C05CB001DF2CF /* AudioPleer.swift */; };
+		2413D5E92C6A544C004E0618 /* AllRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413D5E32C6A544C004E0618 /* AllRouter.swift */; };
+		2413D5EA2C6A544C004E0618 /* AllStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413D5E42C6A544C004E0618 /* AllStationCell.swift */; };
+		2413D5EB2C6A544C004E0618 /* AllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413D5E52C6A544C004E0618 /* AllView.swift */; };
+		2413D5EC2C6A544C004E0618 /* AllPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413D5E62C6A544C004E0618 /* AllPresenter.swift */; };
+		2413D5ED2C6A544C004E0618 /* AllBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413D5E72C6A544C004E0618 /* AllBuilder.swift */; };
+		2413D5EE2C6A544C004E0618 /* AllController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2413D5E82C6A544C004E0618 /* AllController.swift */; };
 		243E43692C5BE51F001D958D /* CustomTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43632C5BE51F001D958D /* CustomTabBarButton.swift */; };
 		243E436A2C5BE51F001D958D /* VerticalTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43642C5BE51F001D958D /* VerticalTabBar.swift */; };
 		243E436B2C5BE51F001D958D /* VerticalTabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E43652C5BE51F001D958D /* VerticalTabBarBuilder.swift */; };
@@ -143,6 +149,12 @@
 
 /* Begin PBXFileReference section */
 		24008BD22C5C05CB001DF2CF /* AudioPleer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPleer.swift; sourceTree = "<group>"; };
+		2413D5E32C6A544C004E0618 /* AllRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllRouter.swift; sourceTree = "<group>"; };
+		2413D5E42C6A544C004E0618 /* AllStationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationCell.swift; sourceTree = "<group>"; };
+		2413D5E52C6A544C004E0618 /* AllView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllView.swift; sourceTree = "<group>"; };
+		2413D5E62C6A544C004E0618 /* AllPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllPresenter.swift; sourceTree = "<group>"; };
+		2413D5E72C6A544C004E0618 /* AllBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllBuilder.swift; sourceTree = "<group>"; };
+		2413D5E82C6A544C004E0618 /* AllController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllController.swift; sourceTree = "<group>"; };
 		243E43632C5BE51F001D958D /* CustomTabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarButton.swift; sourceTree = "<group>"; };
 		243E43642C5BE51F001D958D /* VerticalTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBar.swift; sourceTree = "<group>"; };
 		243E43652C5BE51F001D958D /* VerticalTabBarBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTabBarBuilder.swift; sourceTree = "<group>"; };
@@ -910,6 +922,7 @@
 				D13ADE142C59E64B002B94AE /* AuthController.swift in Sources */,
 				D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */,
 				A7A3638C2C67AD480039DD63 /* BrowseView.swift in Sources */,
+				2413D5EE2C6A544C004E0618 /* AllController.swift in Sources */,
 				B5C927C32C59710600BF1722 /* DetailView.swift in Sources */,
 				D9E6F3952C593066007FD2F0 /* StationHelper.swift in Sources */,
 				D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */,
@@ -927,6 +940,7 @@
 				F48255A52C656CEB00488872 /* AboutPresenter.swift in Sources */,
 				D9CB16952C68C7ED009D50A9 /* FavoritesView.swift in Sources */,
 				F48255A12C65635800488872 /* MainSettingsRouter.swift in Sources */,
+				2413D5EA2C6A544C004E0618 /* AllStationCell.swift in Sources */,
 				F48255672C61213700488872 /* MainSettingsView.swift in Sources */,
 				D9E6F3C02C5BE61C007FD2F0 /* LoginUserRequest.swift in Sources */,
 				D9E6F3B92C5BE4C6007FD2F0 /* FirestoreManager.swift in Sources */,
@@ -937,6 +951,7 @@
 				F48255572C6042F100488872 /* BaseSettingsView.swift in Sources */,
 				D9CB16BE2C6A3637009D50A9 /* AllController.swift in Sources */,
 				F48255942C65206800488872 /* LanguagePresenter.swift in Sources */,
+				2413D5E92C6A544C004E0618 /* AllRouter.swift in Sources */,
 				F482559E2C65630700488872 /* MainSettingsPresenter.swift in Sources */,
 				F482558E2C651E7100488872 /* MainSettingsBuilder.swift in Sources */,
 				D9E6F3D12C5E53F8007FD2F0 /* ResetPasswordPresenter.swift in Sources */,
@@ -977,6 +992,7 @@
 				D9CB16932C68C7DB009D50A9 /* FavoritesController.swift in Sources */,
 				F48255B02C67750F00488872 /* LanguageTableHeaderView.swift in Sources */,
 				D13ADE122C59E43D002B94AE /* AuthView.swift in Sources */,
+				2413D5ED2C6A544C004E0618 /* AllBuilder.swift in Sources */,
 				D9E6F38D2C56F845007FD2F0 /* PopularView.swift in Sources */,
 				A76E5E302C60FE03004A06B3 /* HeaderView.swift in Sources */,
 				D9E6F39D2C5930C1007FD2F0 /* Search.swift in Sources */,

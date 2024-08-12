@@ -11,10 +11,9 @@ import UIKit
 final class AllView: UIView {
         
     // MARK: - UI
-    
     private let headerView = HeaderView()
-    private let playerControler = PlayerControlView()
-    private let volumeControler = VolumeControlView()
+    let playerControler = PlayerControlView()
+    let volumeControler = VolumeControlView()
     
     
     private let emptyStateLabel =  UILabel.makeCustomLabel(key: "SearchEmpty", fontSize: 16, textColor: .gray, numberOfLines: 0, textAligment: .center)
@@ -80,7 +79,6 @@ final class AllView: UIView {
     }
     
     // MARK: - Set Views
-    
     private func setViews() {
         self.backgroundColor = Color.backgroundBlue
     
@@ -95,7 +93,6 @@ final class AllView: UIView {
     }
     
     // MARK: - Setup Constraints
-    
     private func layoutViews() {
         NSLayoutConstraint.activate([
             headerView.leadingAnchor.constraint(equalTo: leadingAnchor),

@@ -32,11 +32,6 @@ final class PopularController: UIViewController {
         super.viewDidLoad()
         popularView.setDelegates(popularVD: self, playerVD: self)
         presenter.onLoad()
-        
-        // MARK: - Заменить на данные с профиля
-        if let profileImage = UIImage(named: "onboardingBackground") {
-            popularView.configureHeader(with: "Mark", profileImage: profileImage)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +43,11 @@ final class PopularController: UIViewController {
         
         popularView.playerControler.update()
         popularView.volumeControler.update()
+        
+        popularView.configureHeader(
+            with: UserManager.shared.getUserProfileData().username,
+            profileImage: UserManager.shared.getUserProfileData().image ?? UIImage.onboardingBackground
+        )
     }
     
     func refreshData() {
@@ -90,6 +90,7 @@ extension PopularController: PopularCellDelegate {
     
     func vote(for stationuuid: String) {
         presenter.vote(for: stationuuid)
+        refreshData()
     }
 }
 
