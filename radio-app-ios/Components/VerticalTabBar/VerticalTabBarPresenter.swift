@@ -66,7 +66,8 @@ class testVC: UIViewController {
                 votes: i,
                 country: "country \(i)",
                 language: "language \(i)",
-                geo_lat: Double(i)
+                geo_lat: Double(i),
+                freq: "123"
             )
             stations.append(station)
         }
