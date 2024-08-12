@@ -10,6 +10,7 @@ import UIKit
     // MARK: MainSettingsVC Protocol
 
 protocol MainSettingsVCProtocol: AnyObject {
+    func restartApp()
 }
 
     // MARK: MainSettingsVC
@@ -50,6 +51,12 @@ final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
     private func setDelegate() {
         settingsView.delegate = self
     }
+    
+    func restartApp() {
+        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+            sceneDelegate.checkAuthentication()
+        }
+    }
 }
 
     // MARK: Business Logic
@@ -61,7 +68,7 @@ extension MainSettingsVC: MainSettingsViewDelegate {
     }
     
     func logOutButtonTapped() {
-        print ("log out button tapped")
+        presenter.logOut()
     }
 }
 
