@@ -68,7 +68,6 @@ extension DetailController: DetailViewDelegate {
     
     func addFavoriteButtonTapped() {
         presenter.vote()
-        updateUI(isFavorite: presenter.isFavorite)
     }
 }
 

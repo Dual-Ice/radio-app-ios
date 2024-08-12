@@ -89,6 +89,9 @@ class DetailPresenter {
             if !isFavorite && !hasVoted {
                 self?.sendVote(for: stationuuid)
             }
+            DispatchQueue.main.async {
+                self?.viewController?.updateUI(isFavorite: self?.isFavorite ?? false)
+            }
         }
     }
     
