@@ -76,7 +76,7 @@ private extension LanguageCell {
     func setView() {
         selectionStyle = .none
         backgroundColor = .clear
-        [mainLabel, checkmarkImageView].forEach { addSubview($0) }
+        [mainLabel, checkmarkImageView].forEach { contentView.addSubview($0) }
     }
 
     func setConstraints() {
