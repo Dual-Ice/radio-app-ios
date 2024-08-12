@@ -46,6 +46,12 @@
 		D9CB169B2C68CD7C009D50A9 /* FavoritesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB169A2C68CD7C009D50A9 /* FavoritesBuilder.swift */; };
 		D9CB169D2C68CD86009D50A9 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB169C2C68CD86009D50A9 /* FavoritesRouter.swift */; };
 		D9CB16A12C68F7B7009D50A9 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB16A02C68F7B7009D50A9 /* ListController.swift */; };
+		D9CB16AB2C69FB84009D50A9 /* AllBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB16AA2C69FB84009D50A9 /* AllBuilder.swift */; };
+		D9CB16AD2C69FB98009D50A9 /* AllPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB16AC2C69FB98009D50A9 /* AllPresenter.swift */; };
+		D9CB16AF2C69FBB2009D50A9 /* AllRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB16AE2C69FBB2009D50A9 /* AllRouter.swift */; };
+		D9CB16B12C69FC03009D50A9 /* AllController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB16B02C69FC03009D50A9 /* AllController.swift */; };
+		D9CB16B42C69FC6E009D50A9 /* AllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB16B22C69FC6E009D50A9 /* AllView.swift */; };
+		D9CB16B52C69FC6E009D50A9 /* AllStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB16B32C69FC6E009D50A9 /* AllStationCell.swift */; };
 		D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */; };
 		D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */; };
 		D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3692C56F362007FD2F0 /* PopularController.swift */; };
@@ -57,7 +63,6 @@
 		D9E6F3972C59307F007FD2F0 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3962C59307F007FD2F0 /* Components.swift */; };
 		D9E6F3992C5930A8007FD2F0 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3982C5930A8007FD2F0 /* Models.swift */; };
 		D9E6F39D2C5930C1007FD2F0 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F39C2C5930C1007FD2F0 /* Search.swift */; };
-		D9E6F39F2C5930CB007FD2F0 /* All.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F39E2C5930CB007FD2F0 /* All.swift */; };
 		D9E6F3AB2C593117007FD2F0 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AA2C593117007FD2F0 /* EditProfileVC.swift */; };
 		D9E6F3AD2C593120007FD2F0 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AC2C593120007FD2F0 /* AboutVC.swift */; };
 		D9E6F3AF2C59312E007FD2F0 /* PolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6F3AE2C59312E007FD2F0 /* PolicyVC.swift */; };
@@ -174,9 +179,12 @@
 		D9CB169A2C68CD7C009D50A9 /* FavoritesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesBuilder.swift; sourceTree = "<group>"; };
 		D9CB169C2C68CD86009D50A9 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		D9CB16A02C68F7B7009D50A9 /* ListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
-		D9CB16A22C68FA5B009D50A9 /* AllController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllController.swift; sourceTree = "<group>"; };
-		D9CB16A42C68FADB009D50A9 /* AllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllView.swift; sourceTree = "<group>"; };
-		D9CB16A62C68FB22009D50A9 /* AllStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllStationCell.swift; sourceTree = "<group>"; };
+		D9CB16AA2C69FB84009D50A9 /* AllBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBuilder.swift; sourceTree = "<group>"; };
+		D9CB16AC2C69FB98009D50A9 /* AllPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPresenter.swift; sourceTree = "<group>"; };
+		D9CB16AE2C69FBB2009D50A9 /* AllRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRouter.swift; sourceTree = "<group>"; };
+		D9CB16B02C69FC03009D50A9 /* AllController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllController.swift; sourceTree = "<group>"; };
+		D9CB16B22C69FC6E009D50A9 /* AllView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllView.swift; sourceTree = "<group>"; };
+		D9CB16B32C69FC6E009D50A9 /* AllStationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStationCell.swift; sourceTree = "<group>"; };
 		D9E6F3622C56F362007FD2F0 /* radio-app-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "radio-app-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E6F3652C56F362007FD2F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9E6F3672C56F362007FD2F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -454,10 +462,13 @@
 		D9E6F3862C56F741007FD2F0 /* All */ = {
 			isa = PBXGroup;
 			children = (
+				D9CB16B32C69FC6E009D50A9 /* AllStationCell.swift */,
+				D9CB16B22C69FC6E009D50A9 /* AllView.swift */,
 				A7A3638D2C67AD580039DD63 /* Browse */,
-				D9CB16A22C68FA5B009D50A9 /* AllController.swift */,
-				D9CB16A42C68FADB009D50A9 /* AllView.swift */,
-				D9CB16A62C68FB22009D50A9 /* AllStationCell.swift */,
+				D9CB16B02C69FC03009D50A9 /* AllController.swift */,
+				D9CB16AA2C69FB84009D50A9 /* AllBuilder.swift */,
+				D9CB16AC2C69FB98009D50A9 /* AllPresenter.swift */,
+				D9CB16AE2C69FBB2009D50A9 /* AllRouter.swift */,
 			);
 			path = All;
 			sourceTree = "<group>";
@@ -879,7 +890,6 @@
 			files = (
 				D9CB169B2C68CD7C009D50A9 /* FavoritesBuilder.swift in Sources */,
 				F4DE1C242C590A9300D55FC5 /* UITextField_Extension.swift in Sources */,
-				D9CB16A72C68FB22009D50A9 /* AllStationCell.swift in Sources */,
 				F48255492C5D549600488872 /* Network_Manager.swift in Sources */,
 				D9E6F3992C5930A8007FD2F0 /* Models.swift in Sources */,
 				243E436A2C5BE51F001D958D /* VerticalTabBar.swift in Sources */,
@@ -898,6 +908,7 @@
 				D9E6F36A2C56F362007FD2F0 /* PopularController.swift in Sources */,
 				A7A3638C2C67AD480039DD63 /* BrowseView.swift in Sources */,
 				B5C927C32C59710600BF1722 /* DetailView.swift in Sources */,
+				D9CB16AB2C69FB84009D50A9 /* AllBuilder.swift in Sources */,
 				D9E6F3952C593066007FD2F0 /* StationHelper.swift in Sources */,
 				D9E6F3662C56F362007FD2F0 /* AppDelegate.swift in Sources */,
 				D9E6F4582C63D6D9007FD2F0 /* WaveAnimationView.swift in Sources */,
@@ -920,9 +931,10 @@
 				F482557E2C63CEDF00488872 /* EditProfileView.swift in Sources */,
 				F4DE1C2A2C59173500D55FC5 /* Constants.swift in Sources */,
 				D9E6F43C2C612423007FD2F0 /* CoreDataManager.swift in Sources */,
+				D9CB16B12C69FC03009D50A9 /* AllController.swift in Sources */,
+				D9CB16B52C69FC6E009D50A9 /* AllStationCell.swift in Sources */,
 				F48255572C6042F100488872 /* BaseSettingsView.swift in Sources */,
 				F48255942C65206800488872 /* LanguagePresenter.swift in Sources */,
-				D9CB16A52C68FADB009D50A9 /* AllView.swift in Sources */,
 				F482559E2C65630700488872 /* MainSettingsPresenter.swift in Sources */,
 				F482558E2C651E7100488872 /* MainSettingsBuilder.swift in Sources */,
 				D9E6F3D12C5E53F8007FD2F0 /* ResetPasswordPresenter.swift in Sources */,
@@ -942,6 +954,7 @@
 				F482558C2C64F12B00488872 /* LanguageCell.swift in Sources */,
 				24008BD32C5C05CB001DF2CF /* AudioPleer.swift in Sources */,
 				F48255842C63D27700488872 /* NotificationsVC.swift in Sources */,
+				D9CB16AD2C69FB98009D50A9 /* AllPresenter.swift in Sources */,
 				F48255592C60D87700488872 /* SettingView.swift in Sources */,
 				F4DE1C352C5A84AE00D55FC5 /* Endpoints.swift in Sources */,
 				A7A363932C67CD530039DD63 /* ListView.swift in Sources */,
@@ -958,7 +971,6 @@
 				D9E6F4502C614469007FD2F0 /* FavoriteStation+CoreDataProperties.swift in Sources */,
 				D9E6F3E42C5FB6C0007FD2F0 /* UpdatePasswordRequest.swift in Sources */,
 				F482555F2C610E0D00488872 /* GeneralSettingsView.swift in Sources */,
-				D9CB16A32C68FA5B009D50A9 /* AllController.swift in Sources */,
 				F48255552C602A7600488872 /* UserInfoView.swift in Sources */,
 				F48255802C63D15800488872 /* AboutView.swift in Sources */,
 				D9CB16932C68C7DB009D50A9 /* FavoritesController.swift in Sources */,
@@ -981,9 +993,11 @@
 				249A9E1D2C67D269007839AD /* PopularRouter.swift in Sources */,
 				243E436B2C5BE51F001D958D /* VerticalTabBarBuilder.swift in Sources */,
 				D9E6F3CC2C5E4A06007FD2F0 /* AuthPresenter.swift in Sources */,
+				D9CB16B42C69FC6E009D50A9 /* AllView.swift in Sources */,
 				D9E6F3AB2C593117007FD2F0 /* EditProfileVC.swift in Sources */,
 				F48255472C5D4EE400488872 /* Radio_API_Manager.swift in Sources */,
 				F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */,
+				D9CB16AF2C69FBB2009D50A9 /* AllRouter.swift in Sources */,
 				B5C18BD02C5C15EA0017E54E /* DetailPresenter.swift in Sources */,
 				A7A3638F2C67AF630039DD63 /* BrowseController.swift in Sources */,
 				D9E6F3682C56F362007FD2F0 /* SceneDelegate.swift in Sources */,

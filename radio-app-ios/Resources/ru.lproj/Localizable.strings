@@ -101,3 +101,5 @@
 //MARK: - Audio Pleer
 "AudioPleerErrorTitle" = "Ошибка";
 "AudioPleerErrorMessage" = "Эта станция сейчас ничего не вещает";
+
+"SearchRadioStation" = "Найди радио станцию";
