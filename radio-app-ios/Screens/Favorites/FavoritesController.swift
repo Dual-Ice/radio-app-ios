@@ -86,6 +86,14 @@ extension FavoritesController: UICollectionViewDataSource, UICollectionViewDeleg
 
 //MARK: - Player Controller Delegate
 extension FavoritesController: PlayerControlDelegate {
+    func playButtonTapped() {
+        refreshData()
+    }
+    
+    func pauseButtonTapped() {
+        refreshData()
+    }
+    
     func nextButtonTapped() {
         presenter.nextStation()
     }

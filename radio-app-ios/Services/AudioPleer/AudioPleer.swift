@@ -75,6 +75,9 @@ final class AudioPleer {
     
     func playMusic() {
         isPlaying = true
+        if (currentURL == "") {
+            loadStation(at: stationIndex)
+        }
         player?.play()
     }
     
