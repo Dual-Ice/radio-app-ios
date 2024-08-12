@@ -33,6 +33,7 @@ final class LanguageView: UIView {
         table.layer.cornerRadius = 15
         table.layer.borderWidth = 1
         table.layer.borderColor = Color.borderColor.cgColor
+        table.isUserInteractionEnabled = true
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -54,6 +55,7 @@ final class LanguageView: UIView {
     func setTableViewDelegate(delegate: UITableViewDelegate,
                               dataSource: UITableViewDataSource) 
     {
+        print ("установили делегат")
         tableView.delegate = delegate
         tableView.dataSource = dataSource
     }
