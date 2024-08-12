@@ -64,6 +64,7 @@
 "votes" = "votes";
 
 // MARK: - Settings
+"Settings" = "Settings";
 
 // main
 "HeaderUserName" = "Your name";
@@ -118,3 +119,7 @@ The RadioApp Team";
 "AvailableLanguages" = "Available Languages";
 "LangChangeMessage" = "To change the language, close the app and re-launch it.";
 "LangAlerTitle" = "Warning!";
+
+
+"Changes to the Service and/or Terms" = "Changes to the Service and/or Terms";
+"Terms" = "Terms";

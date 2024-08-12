@@ -77,7 +77,6 @@ extension LanguageVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: false)
-        print("Cell tapped at \(indexPath)")
         let languages = presenter.getLanguages()
         let languageCode = Array(languages.keys)[indexPath.row]
         presenter.setLanguage(code: languageCode)

@@ -18,16 +18,25 @@ final class LanguagesService {
     }
     
     func getCurrentLanguageCode() -> String {
+        if let savedLanguages = UserDefaults.standard.array(forKey: "AppleLanguages") as? [String],
+           let firstLanguage = savedLanguages.first {
+            let fullCode = getFullLanguageCode(from: firstLanguage)
+            return fullCode
+        }
+        
         let preferredLanguage = Locale.preferredLanguages.first ?? "en"
-            // Преобразуем короткий код в полный код
-            switch preferredLanguage {
-            case "en":
-                return "en-US"
-            case "ru":
-                return "ru-RU"
-            default:
-                return "en-US" // Код по умолчанию
-            }
+        return getFullLanguageCode(from: preferredLanguage)
+    }
+
+    private func getFullLanguageCode(from code: String) -> String {
+        switch code {
+        case "en":
+            return "en-US"
+        case "ru":
+            return "ru-RU"
+        default:
+            return code // Вернуть полный код без изменений, если он уже в полном формате
+        }
     }
     
     func setLanguage(code: String) -> Bool {

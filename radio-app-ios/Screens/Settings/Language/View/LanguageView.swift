@@ -55,7 +55,6 @@ final class LanguageView: UIView {
     func setTableViewDelegate(delegate: UITableViewDelegate,
                               dataSource: UITableViewDataSource) 
     {
-        print ("установили делегат")
         tableView.delegate = delegate
         tableView.dataSource = dataSource
     }
@@ -68,6 +67,7 @@ private extension LanguageView {
     func setView() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(backgroundView)
+        backgroundView.isUserInteractionEnabled = true
         backgroundView.addSubview(tableView)
     }
 
