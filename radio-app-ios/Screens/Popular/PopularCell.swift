@@ -68,10 +68,12 @@ final class PopularCell: UICollectionViewCell {
             votesLabel.trailingAnchor.constraint(equalTo: votesButton.leadingAnchor, constant: 5),
             votesLabel.centerYAnchor.constraint(equalTo: votesButton.centerYAnchor),
             
-            genreLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            genreLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            genreLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             genreLabel.topAnchor.constraint(equalTo: playImage.bottomAnchor, constant: -30),
             
-            radioNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            radioNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            radioNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             radioNameLabel.topAnchor.constraint(equalTo: genreLabel.bottomAnchor, constant: -30),
             
             waveView.centerXAnchor.constraint(equalTo: centerXAnchor),

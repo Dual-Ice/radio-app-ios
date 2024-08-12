@@ -38,7 +38,7 @@ final class DetailView: UIView {
         radius: 10
     )
 
-    private let headerLabel = UILabel.makeCustomLabel(
+    private let headerLabel = UILabel.makeCustomLabelBold(
         key: "PlayingNow",
         fontSize: 20,
         textColor: .white,
@@ -101,12 +101,12 @@ final class DetailView: UIView {
         playerControler.delegate = playerVD
     }
     
-    func configureUI(with stationData: Station) {
-        if let imagePath = stationData.favicon, let imageUrl = URL(string: imagePath) {
-            radioFaviconImageView.getImage(from: imageUrl)
-        }
+    func configureUI(with stationData: Station, isFavorite: Bool) {
+        radioFaviconImageView.getImage(from: URL(string: stationData.favicon ?? ""))
         stationTitle.text = stationData.name
         stationFrequency.text = stationData.freq
+        
+        addFavoriteButton.setImage(UIImage(systemName: isFavorite ? "heart.fill" : "heart"), for: .normal)
     }
     
     func setUserAvatar(_ image: UIImage?) {
@@ -152,7 +152,7 @@ final class DetailView: UIView {
             backgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundImageView.heightAnchor.constraint(equalTo: heightAnchor),
             
-            headerStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Constants.sideForHeader),
+            headerStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             headerStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.sideForHeader),
             headerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.sideForHeader),
             
@@ -162,13 +162,13 @@ final class DetailView: UIView {
             profileImageView.widthAnchor.constraint(equalToConstant: Constants.profileImageSize),
             profileImageView.heightAnchor.constraint(equalToConstant: Constants.profileImageSize),
             
-            addFavoriteButton.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: Constants.sideForFavorite),
-            addFavoriteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.sideForFavoriteTrailing),
+            addFavoriteButton.bottomAnchor.constraint(equalTo: stationFrequency.topAnchor, constant: 10),
+            addFavoriteButton.leadingAnchor.constraint(equalTo: stationFrequency.trailingAnchor),
             addFavoriteButton.widthAnchor.constraint(equalToConstant: 20),
             addFavoriteButton.heightAnchor.constraint(equalToConstant: 20),
             
             stationFrequency.centerXAnchor.constraint(equalTo: centerXAnchor),
-            stationFrequency.topAnchor.constraint(equalTo: addFavoriteButton.bottomAnchor, constant: Constants.sideForHeader),
+            stationFrequency.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: Constants.sideForHeader),
             
             stationTitle.leadingAnchor.constraint(equalTo: leadingAnchor),
             stationTitle.trailingAnchor.constraint(equalTo: trailingAnchor),

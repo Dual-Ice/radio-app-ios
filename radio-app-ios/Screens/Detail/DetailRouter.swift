@@ -17,7 +17,10 @@ final class DetailRouter {
         navigationVC.popViewController(animated: true)
     }
     
-    func goToProfileSettings() {
-        print("go to profile")
+    func goToSettings() {
+        let builder = MainSettingsBuilder()
+        let router = MainSettingsRouter(navigationController: navigationVC, moduleBuilder: builder)
+        let settingsVC = builder.createMainSettingsModule(router: router)
+        navigationVC.pushViewController(settingsVC, animated: true)
     }
 }

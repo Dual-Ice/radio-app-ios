@@ -29,6 +29,9 @@ final class FavoritesView: UIView {
     }()
     
     private let emptyStateLabel =  UILabel.makeCustomLabel(key: "FavoritesEmpty", fontSize: 16, textColor: .gray, numberOfLines: 0, textAligment: .center)
+    
+    let playerControler = PlayerControlView()
+    let volumeControler = VolumeControlView()
 
     // MARK: - Life Cycle
     override init(frame: CGRect) {
@@ -40,10 +43,11 @@ final class FavoritesView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setDelegates(_ value: FavoritesController) {
-        collectionView.delegate = value
-        collectionView.dataSource = value
-        headerView.setDelegate(value: value)
+    func setDelegates(favoriteVD: FavoritesController, playerVD: PlayerControlDelegate) {
+        collectionView.delegate = favoriteVD
+        collectionView.dataSource = favoriteVD
+        headerView.setDelegate(value: favoriteVD)
+        playerControler.delegate = playerVD
     }
     
     func configureHeader(with username: String, profileImage: UIImage) {
@@ -64,9 +68,13 @@ final class FavoritesView: UIView {
     private func setupViews(){
         backgroundColor = Color.backgroundBlue
         
-        addSubview(headerView)
-        addSubview(collectionView)
-        addSubview(emptyStateLabel)
+        [
+            headerView,
+            collectionView,
+            emptyStateLabel,
+            playerControler,
+            volumeControler
+        ].forEach { addSubview($0) }
         setupConstraints()
     }
 
@@ -81,13 +89,22 @@ final class FavoritesView: UIView {
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 70),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -230),
+            collectionView.bottomAnchor.constraint(equalTo: playerControler.topAnchor, constant: -10),
             
             emptyStateLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             emptyStateLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             emptyStateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            emptyStateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
-                    
+            emptyStateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
+            playerControler.centerXAnchor.constraint(equalTo: centerXAnchor),
+            playerControler.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 255/335),
+            playerControler.heightAnchor.constraint(equalTo: playerControler.widthAnchor, multiplier: 127/255),
+            playerControler.bottomAnchor.constraint(equalTo: volumeControler.topAnchor, constant: -20),
+            
+            volumeControler.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
+            volumeControler.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 38),
+            volumeControler.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -38),
+            volumeControler.heightAnchor.constraint(equalToConstant: 16)
         ])
     }
 }
