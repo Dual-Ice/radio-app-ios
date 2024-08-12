@@ -127,7 +127,7 @@ final class AuthView: UIView {
         self.backgroundColor = Color.backgroundBlue
         
         self.addSubview(bgImage)
-        
+        bgImage.isUserInteractionEnabled = true
         [
             triangleImage,
             playImage,

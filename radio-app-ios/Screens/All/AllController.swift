@@ -54,6 +54,9 @@ final class AllController: UIViewController {
         allView.updateUI(forEmptyState: presenter.getStations().count == 0, with: presenter.isSearching)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.allView.hideKeyboard()
+    }
 }
 
 // MARK: - Header Delegate
@@ -115,6 +118,8 @@ extension AllController: PlayerControlDelegate {
         presenter.previousStation()
     }
 }
+
+
 
 extension AllController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
