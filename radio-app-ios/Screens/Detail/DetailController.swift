@@ -29,6 +29,7 @@ final class DetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailView.setDelegates(detailVD: self, playerVD: self)
+        AudioPleer.shared.delegate = self
         detailView.setUserAvatar(UserManager.shared.getUserProfileData().image)
         updateUI(isFavorite: presenter.isFavorite)
     }
@@ -87,5 +88,14 @@ extension DetailController: PlayerControlDelegate {
     
     func backButtonTapped() {
         presenter.previousStation()
+    }
+}
+
+//MARK: - AudioPleerDelegate
+extension DetailController: AudioPleerDelegate {
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("ОК", comment: ""), style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
 }

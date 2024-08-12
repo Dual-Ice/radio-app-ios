@@ -93,3 +93,7 @@
 
 // languages
 "AvailableLanguages" = "Доступные языки";
+
+//MARK: - Audio Pleer
+"AudioPleerErrorTitle" = "Ошибка";
+"AudioPleerErrorMessage" = "Эта станция сейчас ничего не вещает";

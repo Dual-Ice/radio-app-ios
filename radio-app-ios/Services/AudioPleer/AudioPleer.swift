@@ -7,6 +7,10 @@
 
 import AVFoundation
 
+protocol AudioPleerDelegate: AnyObject {
+    func showAlert(title: String, message: String)
+}
+
 final class AudioPleer {
     static let shared = AudioPleer()
     
@@ -25,6 +29,8 @@ final class AudioPleer {
     private(set) var stationIndex = 0
     private(set) var currentURL = ""
     
+    weak var delegate: AudioPleerDelegate?
+    
     private init() {}
     
     private func loadMusic(from url: String?) {
@@ -36,9 +42,15 @@ final class AudioPleer {
         
         let item = AVPlayerItem(url: streamURL)
         
-        observerStatus = item.observe(\.status, changeHandler: { (item, value) in
+        observerStatus = item.observe(\.status,
+                                       changeHandler: {
+            (item, value) in
             if item.status == .failed {
                 print("playback failed")
+                self.delegate?.showAlert(
+                    title: NSLocalizedString("AudioPleerErrorTitle", comment: ""),
+                    message: NSLocalizedString("AudioPleerErrorMessage", comment: "")
+                )
             }
         })
         

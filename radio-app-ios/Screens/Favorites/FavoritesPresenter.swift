@@ -12,6 +12,7 @@ struct FavoriteStationData {
     var name: String
     var genre: String
     var dotColor: UIColor
+    var isActive: Bool
 }
 
 final class FavoritesPresenter {
@@ -54,7 +55,8 @@ final class FavoritesPresenter {
             id: station.stationuuid ?? "",
             name: station.name ?? "Unknown station",
             genre: StationHelper.getGenreFromStationTags(station.tags),
-            dotColor: cellDotColors[indexPath] ?? .red
+            dotColor: cellDotColors[indexPath] ?? .red,
+            isActive: station.url == AudioPleer.shared.currentURL
         )
     }
     
@@ -88,5 +90,15 @@ final class FavoritesPresenter {
             }
         }
     }
+}
+
+//MARK: - Player Actions
+extension FavoritesPresenter {
+    func nextStation() {
+        favoritesVC?.refreshData()
+    }
     
+    func previousStation() {
+        favoritesVC?.refreshData()
+    }
 }

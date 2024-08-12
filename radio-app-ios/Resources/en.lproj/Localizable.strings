@@ -36,7 +36,6 @@
 //MARK: - Detail
 "PlayingNow" = "Playing now";
 
-
 //MARK: - Favorites
 "FavoritesTitle" = "Favorites";
 "FavoritesEmpty" = "You haven't favorite station yet";
@@ -94,3 +93,7 @@
 
 // languages
 "AvailableLanguages" = "Available Languages";
+
+//MARK: - Audio Pleer
+"AudioPleerErrorTitle" = "Error";
+"AudioPleerErrorMessage" = "This station is not broadcasting anything at the moment";
