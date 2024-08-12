@@ -57,7 +57,7 @@ final class PopularController: UIViewController {
 
 extension PopularController: HeaderViewDelegate {
     func profileTapped() {
-        print("go to profile")
+        presenter.goToSettings()
     }
 }
 

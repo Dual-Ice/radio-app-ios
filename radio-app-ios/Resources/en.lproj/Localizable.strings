@@ -93,6 +93,10 @@
 
 // languages
 "AvailableLanguages" = "Available Languages";
+//MARK: - Browse
+"browse_by_tags" = "Browse by\ntags";
+"browse_by_language" = "Browse by\nlanguage";
+"browse_by_country" = "Browse by\ncountry";
 
 //MARK: - Audio Pleer
 "AudioPleerErrorTitle" = "Error";

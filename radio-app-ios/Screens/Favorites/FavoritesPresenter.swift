@@ -33,7 +33,11 @@ final class FavoritesPresenter {
         }
         favoritesRouter.goToDetail(station: favoriteStations[index])
     }
-    
+
+    func goToSettings() {
+        favoritesRouter.goToSettings()
+    }
+
     func onLoad() {
         loadFavoriteStations()
         favoritesVC?.refreshData()

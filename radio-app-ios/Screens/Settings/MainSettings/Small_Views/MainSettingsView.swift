@@ -30,6 +30,7 @@ final class MainSettingsView: UIView {
 
     private let backgroundView: UIImageView = {
         let view = UIImageView()
+        view.backgroundColor = .black
         view.image = Image.signInBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -140,7 +141,7 @@ private extension MainSettingsView {
             backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 
-            stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
+            stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 120),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: LayoutConstants.sideOffset),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -LayoutConstants.sideOffset),
 

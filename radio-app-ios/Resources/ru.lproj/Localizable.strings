@@ -94,6 +94,10 @@
 // languages
 "AvailableLanguages" = "Доступные языки";
 
+//MARK: - Browse
+"browse_by_tags" = "Поиск по\nжанрам";
+"browse_by_language" = "Поиск по\nязыку";
+"browse_by_country" = "Поиск по\nстране";
 //MARK: - Audio Pleer
 "AudioPleerErrorTitle" = "Ошибка";
 "AudioPleerErrorMessage" = "Эта станция сейчас ничего не вещает";

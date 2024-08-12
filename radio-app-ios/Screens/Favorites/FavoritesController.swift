@@ -52,7 +52,7 @@ final class FavoritesController: UIViewController {
 
 extension FavoritesController: HeaderViewDelegate {
     func profileTapped() {
-        print("go to profile")
+        presenter.goToSettings()
     }
 }
 
