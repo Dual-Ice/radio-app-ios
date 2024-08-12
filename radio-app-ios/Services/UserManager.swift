@@ -32,10 +32,26 @@ final class UserManager {
             completion(error)
             return
         }
-        
-        coreDataManager.updateUser(id: userId, username: username, email: email, image: user?.image, completion: completion)
+
+        coreDataManager.updateUser(
+            id: userId,
+            username: username,
+            email: email,
+            image: user?.image) { error in
+                if let error = error {
+                    completion(error)
+                    return
+                }
+                self.updateUser(username: username, email: email, image: self.user?.image ?? "")
+            }
     }
-    
+
+    func updateUser(username: String, email: String, image: String) {
+        user?.email = email
+        user?.username = username
+        user?.image = image
+    }
+
     func updateUserAvatar(avatar: UIImage, completion: @escaping (Error?) -> Void) {
         guard let userId = user?.id else {
             let error = NSError(domain: "AuthError", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])

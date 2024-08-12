@@ -11,10 +11,12 @@ import UIKit
 
 protocol EditProfileVCProtocol: AnyObject {
     func updateProfilePhoto(with: UIImage)
+    func updateUserInfo()
     func showImagePicker()
 
     func showEmailError(message: String)
     func showPasswordError(message: String)
+    func showCoreDataError(message: String)
     func showSuccess(message: String)
 }
 
@@ -54,6 +56,12 @@ final class EditProfileVC: UIViewController, EditProfileVCProtocol {
                                       message: message)
     }
 
+    func showCoreDataError(message: String) {
+        alertManager.showDefaultAlert(on: self,
+                                      title: "Data error",
+                                      message: message)
+    }
+
     func showSuccess(message: String) {
         alertManager.showDefaultAlert(on: self,
                                       title: "Success",
@@ -62,6 +70,10 @@ final class EditProfileVC: UIViewController, EditProfileVCProtocol {
 
     func showImagePicker() {
         setupImagePicker()
+    }
+
+    func updateUserInfo() {
+        editProfileView.setUserInfo()
     }
 
     func updateProfilePhoto(with image: UIImage) {
@@ -79,8 +91,8 @@ final class EditProfileVC: UIViewController, EditProfileVCProtocol {
 
 extension EditProfileVC: EditProfileViewDelegate {
     
-    func saveButtonTapped(email: String, password: String)  {
-        presenter.saveChanges(email: email, password: password)
+    func saveButtonTapped(email: String, password: String, name: String)  {
+        presenter.saveChanges(email: email, password: password, name: name)
     }
 
     func editImageButtonTapped() {

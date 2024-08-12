@@ -9,7 +9,7 @@ import UIKit
 
 protocol EditProfilePresenterProtocol {
     init(view: EditProfileVCProtocol)
-    func saveChanges(email: String, password: String)
+    func saveChanges(email: String, password: String, name: String)
     func changeImage()
     func didSelectImage(_ image: UIImage)
 }
@@ -18,15 +18,16 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
 
     private weak var view: EditProfileVCProtocol?
     private let authManager = AuthManager()
+    private let userManager = UserManager.shared
     private let validation = ValidationManager()
 
     init(view: any EditProfileVCProtocol) {
         self.view = view
     }
 
-    func saveChanges(email: String, password: String) {
+    func saveChanges(email: String, password: String, name: String) {
         saveChangesInFirebase(email: email, password: password)
-        saveChangesInCoreData()
+        saveChangesInCoreData(email: email, name: name)
     }
 
     func saveChangesInFirebase(email: String, password: String) {
@@ -36,7 +37,16 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
 
     func saveChangesInCoreData(email: String, name: String) {
         print ("change data in coredata")
-        self?.view?.
+        userManager.updateUserDetails(
+            username: name,
+            email: email,
+            completion: { [ weak self ] error in
+                if let error = error {
+                    self?.view?.showCoreDataError(message: error.localizedDescription)
+                    return
+                }
+            })
+        self.view?.updateUserInfo()
     }
 
     func updateName(with newName: String) {

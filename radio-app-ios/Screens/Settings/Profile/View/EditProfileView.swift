@@ -8,7 +8,7 @@
 import UIKit
 
 protocol EditProfileViewDelegate: AnyObject {
-    func saveButtonTapped(email: String, password: String)
+    func saveButtonTapped(email: String, password: String, name: String)
     func editImageButtonTapped()
 }
 
@@ -113,24 +113,24 @@ final class EditProfileView: UIView {
         userImage.image = image
     }
 
-    // MARK: Private Methods
-
-    private func setupTargets() {
-        saveButton.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
-        editButton.addTarget(self, action: #selector(editImageButtonAction), for: .touchUpInside)
-    }
-
-    private func setUserInfo() {
+    func setUserInfo() {
         let user = UserManager.shared.getUserProfileData()
+
         userEmail.text = user.email
         userName.text = user.username
-
         changeNameTextfield.textField.text = user.username
         changeEmailTextfield.textField.text = user.email
 
         if let userPhoto = user.image {
             userImage.image = userPhoto
         }
+    }
+
+    // MARK: Private Methods
+
+    private func setupTargets() {
+        saveButton.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
+        editButton.addTarget(self, action: #selector(editImageButtonAction), for: .touchUpInside)
     }
 
     private func showEmailError() {
@@ -148,7 +148,8 @@ final class EditProfileView: UIView {
            let newPassword = changePasswordTextfield.textField.text {
             delegate?.saveButtonTapped(
                 email: newEmail,
-                password: newPassword)
+                password: newPassword,
+                name: changeNameTextfield.textField.text ?? "User")
         }
     }
 
