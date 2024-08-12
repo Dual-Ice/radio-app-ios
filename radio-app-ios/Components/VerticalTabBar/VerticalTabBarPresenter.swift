@@ -8,7 +8,7 @@
 import UIKit
 
 protocol VerticalTabBarPresenterProtocol: AnyObject {
-    func loadViewController()
+    func loadViewController(_ navigationController: UINavigationController)
     func didChooseView(_ view: String)
 }
 
@@ -16,17 +16,18 @@ final class VerticalTabBarPresenter: VerticalTabBarPresenterProtocol {
     private unowned let tabBarController: VerticalTabBarControllerProtocol
     
     //MARK: - Modules. Enter here the name and class of the controllers to display
-    private let viewControllers: [String: UIViewController] = [
-        "Popular"       : testVC1(),
-        "Favorites"     : testVC2(),
-        "AllStations"   : testVC3()
-    ]
-        
+    private var viewControllers: [String: UIViewController] = [:]
+    
     init(tabBarController: VerticalTabBarControllerProtocol) {
         self.tabBarController = tabBarController
     }
     
-    func loadViewController() {
+    func loadViewController(_ navigationController: UINavigationController) {
+#warning("заполнить нужными контроллерами")
+        viewControllers["Popular"] = PopularBuilder.buildPopularController(navigationController)
+        viewControllers["Favorites"] = FavoritesBuilder.buildFavoritesController(navigationController)
+        viewControllers["AllStations"] = testVC()
+        
         viewControllers.keys.sorted(by: >).forEach { viewName  in
             let title = NSLocalizedString(viewName, comment: "Localizable")
             tabBarController.addTabBarButtons(title, identifier: viewName)
@@ -39,11 +40,9 @@ final class VerticalTabBarPresenter: VerticalTabBarPresenterProtocol {
 }
 
 
-
 #warning("TO DO: Заглушки. Удалить после заполнения viewControllers[:]")
-class testVC1: UIViewController {
-    
-    let moks: [String] = [
+class testVC: UIViewController {
+    let mStations: [String] = [
         "https://0n-jazz.radionetz.de/0n-jazz.mp3",
         "https://stream.rockantenne.de/alternative/stream/mp3",
         "https://stream.zeno.fm/fu24r3f24c9uv",
@@ -51,132 +50,74 @@ class testVC1: UIViewController {
         "https://drive.uber.radio/uber/crberlinphilharmonic/icecast.audio"
     ]
     
+    private let playerControler = PlayerControlView()
+    private let volumeControler = VolumeControlView()
+    
+    var stations: [Station] = []
+    
     override func loadView() {
+        for i in 0..<mStations.count {
+            let station = Station(
+                name: mStations[i],
+                stationuuid: "\(i)",
+                url: mStations[i],
+                tags: "tags \(i)",
+                favicon: "favicon \(i)",
+                votes: i,
+                country: "country \(i)",
+                language: "language \(i)",
+                geo_lat: Double(i)
+            )
+            stations.append(station)
+        }
+        
+        AudioPleer.shared.loadStationList(stations)
+        
         let testView = UIView()
-        testView.backgroundColor = .green
+        testView.backgroundColor = Color.backgroundBlue
         let label = UILabel()
-        label.text = "testVC1"
+        label.text = "Test VC"
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         
         let button = UIButton()
-        button.setTitle("Tap Me", for: .normal)
+        button.setTitle("Button: Next Screen", for: .normal)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
-        let playButton = UIButton()
-        playButton.setTitle("PLAY RANDOM", for: .normal)
-        playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
-        playButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        let pauseButton = UIButton()
-        pauseButton.setTitle("PAUSE", for: .normal)
-        pauseButton.addTarget(self, action: #selector(pauseButtonTapped), for: .touchUpInside)
-        pauseButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        testView.addSubview(label)
-        testView.addSubview(button)
-        testView.addSubview(playButton)
-        testView.addSubview(pauseButton)
+        [
+            label,
+            button,
+            playerControler,
+            volumeControler
+        ].forEach { testView.addSubview($0) }
         
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: testView.centerYAnchor),
             button.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
             button.topAnchor.constraint(equalTo: label.bottomAnchor),
-            playButton.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
-            playButton.topAnchor.constraint(equalTo: button.bottomAnchor),
-            pauseButton.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
-            pauseButton.topAnchor.constraint(equalTo: playButton.bottomAnchor),
+            
+            playerControler.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
+            playerControler.widthAnchor.constraint(equalTo: testView.widthAnchor, multiplier: 255/335),
+            playerControler.heightAnchor.constraint(equalTo: playerControler.widthAnchor, multiplier: 127/255),
+            playerControler.bottomAnchor.constraint(equalTo: volumeControler.topAnchor, constant: -30),
+            
+            volumeControler.bottomAnchor.constraint(equalTo: testView.bottomAnchor, constant: -50),
+            volumeControler.leadingAnchor.constraint(equalTo: testView.leadingAnchor, constant: 38),
+            volumeControler.trailingAnchor.constraint(equalTo: testView.trailingAnchor, constant: -38),
+            volumeControler.heightAnchor.constraint(equalToConstant: 16),
         ])
         view = testView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        playerControler.update()
+        volumeControler.update()
     }
     
     @objc private func buttonTapped(_ sender: CustomTabBarButton) {
-        navigationController?.pushViewController(FinalVC(), animated: true)
-    }
-    
-    @objc private func playButtonTapped(_ sender: CustomTabBarButton) {
-        let url = moks.randomElement()
-        AudioPleer.shared.loadMusic(from: url ?? "")
-        AudioPleer.shared.playMusic()
-    }
-    
-    @objc private func pauseButtonTapped(_ sender: CustomTabBarButton) {
-        AudioPleer.shared.pauseMusic()
+        navigationController?.pushViewController(testVC(), animated: true)
     }
 }
 
-class testVC2: UIViewController {
-    override func loadView() {
-        let testView = UIView()
-        testView.backgroundColor = .yellow
-        let label = UILabel()
-        label.text = "testVC2"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        testView.addSubview(label)
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: testView.centerYAnchor)
-        ])
-        view = testView
-    }
-}
-
-class testVC3: UIViewController {
-    override func loadView() {
-        let testView = UIView()
-        testView.backgroundColor = .blue
-        let label = UILabel()
-        label.text = "testVC3"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        testView.addSubview(label)
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: testView.centerYAnchor)
-        ])
-        view = testView
-    }
-}
-
-class FinalVC: UIViewController {
-    override func loadView() {
-        let testView = UIView()
-        testView.backgroundColor = .cyan
-        let label = UILabel()
-        label.text = "FinalVC"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        let playButton = UIButton()
-        playButton.setTitle("PLAY", for: .normal)
-        playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
-        playButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        let pauseButton = UIButton()
-        pauseButton.setTitle("PAUSE", for: .normal)
-        pauseButton.addTarget(self, action: #selector(pauseButtonTapped), for: .touchUpInside)
-        pauseButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        testView.addSubview(label)
-        testView.addSubview(playButton)
-        testView.addSubview(pauseButton)
-        
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: testView.centerYAnchor),
-            playButton.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
-            playButton.topAnchor.constraint(equalTo: label.bottomAnchor),
-            pauseButton.centerXAnchor.constraint(equalTo: testView.centerXAnchor),
-            pauseButton.topAnchor.constraint(equalTo: playButton.bottomAnchor)
-        ])
-        view = testView
-    }
-    
-    @objc private func playButtonTapped(_ sender: CustomTabBarButton) {
-        AudioPleer.shared.playMusic()
-    }
-    
-    @objc private func pauseButtonTapped(_ sender: CustomTabBarButton) {
-        AudioPleer.shared.pauseMusic()
-    }
-}
+import AVFoundation

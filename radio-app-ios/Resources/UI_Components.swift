@@ -29,8 +29,24 @@ enum Color {
         return UIColor (red: 255/255, green: 41/255, blue: 109/255, alpha: 1.0)
     }()
     
+    static let customGray: UIColor = {
+        return UIColor(red: 50/255, green: 50/255, blue: 78/255, alpha: 1.0)
+    }()
+    
     static let verticvalTabBar: UIColor = {
         return UIColor (red: 8/255, green: 8/255, blue: 51/255, alpha: 1.0)
+    }()
+
+    static let borderColor: UIColor = {
+        return UIColor (red: 50/255, green: 50/255, blue: 78/255, alpha: 1.0)
+    }()
+
+    static let buttonWithBlueIconBackground: UIColor = {
+        return UIColor (red: 31/255, green: 29/255, blue: 43/255, alpha: 1.0)
+    }()
+
+    static let iconDarkBackground: UIColor = {
+        return UIColor (red: 37/255, green: 40/255, blue: 54/255, alpha: 1.0)
     }()
 }
 
@@ -39,6 +55,7 @@ enum Image {
 
     /// icons
     static let arrowBack = UIImage(named: "arrowBack")
+    static let arrowBlue = UIImage(named: "arrowBlue")
     static let arrowForward = UIImage(named: "arrowForward")
     static let editCircle = UIImage(named: "editCircle")
     static let editSquare = UIImage(named: "editSquare")
@@ -46,7 +63,6 @@ enum Image {
     static let heartSelected = UIImage(named: "heartSelected")
     static let pointBlue = UIImage(named: "pointBlue")
     static let searchMagnifying = UIImage(named: "searchMagnifying")
-    static let searchContinue = UIImage(named: "searchContinue")
 
     /// images
     static let equalizer = UIImage(named: "equalizer")
@@ -54,12 +70,14 @@ enum Image {
     static let onboardingBackground = UIImage(named: "onboardingBackground")
     static let playerBack = UIImage(named: "playerBack")
     static let playerMain = UIImage(named: "playerMain")
+    static let playerCentral = UIImage(named: "playerCentral")
     static let playerNext = UIImage(named: "playerNext")
     static let playPink = UIImage(named: "playPink")
     static let playWhite = UIImage(named: "playWhite")
     static let signInBackground = UIImage(named: "signInBackground")
     static let trianglePink = UIImage(named: "trianglePink")
     static let googleSignIn = UIImage(named: "google-signin")
+    static let userMock = UIImage(named: "userMock")
 
     /// waves images
     static let waveBlue = UIImage(named: "waveBlue")

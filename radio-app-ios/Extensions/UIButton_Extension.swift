@@ -45,7 +45,20 @@ extension UIButton {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }
+
+    static func makeCustomButtonWithImage(image: UIImage) -> UIButton {
+        let button = UIButton()
+        button.setImage(image, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
     
+    static func makeCustomButtonWithImage(image: UIImage?) -> UIButton {
+        let button = UIButton()
+        button.setImage(image ?? Image.heartBlue, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
     // кнопка без текста
     static func makeCustomPlainButton(title: String?, fontSize: CGFloat) -> UIButton {
         let button = UIButton()
@@ -63,7 +76,7 @@ extension UIButton {
         let titleLocalized = NSLocalizedString(title ?? "Button", comment: "Localizable")
         button.setTitle(titleLocalized, for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
