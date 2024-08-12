@@ -17,7 +17,6 @@ protocol MainSettingsPresenterProtocol {
     func showPolicyVC()
     func showAboutVC()
 
-    func setUserInfo()
     func logOut()
 }
 
@@ -28,13 +27,19 @@ final class MainSettingsPresenter: MainSettingsPresenterProtocol {
     private weak var view: MainSettingsVCProtocol?
     private var router: MainSettingsRouter
     private let authManager = AuthManager()
+    private let userManager = UserManager.shared
 
     init(view: MainSettingsVCProtocol,
          router: MainSettingsRouter) {
         self.view = view
         self.router = router
     }
-    
+
+    func getUserData() -> UserData {
+        return userManager.getUserProfileData()
+    }
+
+    /// navigation
     func showEditProfileVC() {
         router.showEditVC()
     }
@@ -53,10 +58,6 @@ final class MainSettingsPresenter: MainSettingsPresenterProtocol {
     
     func showAboutVC() {
         router.showAboutVC()
-    }
-    
-    func setUserInfo() {
-        print ("set user info")
     }
 
     func logOut() {

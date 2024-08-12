@@ -11,7 +11,6 @@ import UIKit
 
 protocol UserInfoViewDelegate: AnyObject {
     func editButtonTapped()
-//    func setData(with user: User)
 }
 
     // MARK: UserInfoView
@@ -77,8 +76,14 @@ final class UserInfoView: UIView {
 
     // MARK: Public Methods
 
-    // тут будем сетить данные юзера
-    // func setData(with data: Data) {}
+    func setUserInfo(with user: UserData) {
+        userEmail.text = user.email
+        userName.text = user.username
+
+        if let userPhoto = user.image {
+            userImage.image = userPhoto
+        } 
+    }
 
     // MARK: Private Methods
 

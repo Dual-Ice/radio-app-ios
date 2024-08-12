@@ -70,6 +70,12 @@ final class MainSettingsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: Public Methods
+
+    func setUserInfoView(with user: UserData) {
+        userInfoView.setUserInfo(with: user)
+    }
+
     // MARK: Private Methods
 
     private func setupDelegate() {
@@ -90,6 +96,7 @@ final class MainSettingsView: UIView {
     // MARK: Work with Delegate
 
 extension MainSettingsView: UserInfoViewDelegate {
+    
     func editButtonTapped() {
         delegate?.editButtonTappedTransfer()
     }

@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol EditProfileViewDelegate: AnyObject {
+    func saveButtonTapped(email: String, password: String, name: String, image: UIImage)
+    func editImageButtonTapped()
+}
+
     // MARK: EditProfile View
 
 final class EditProfileView: UIView {
+
+    weak var delegate: EditProfileViewDelegate?
 
     // MARK: UI Elements
 
@@ -59,13 +66,15 @@ final class EditProfileView: UIView {
         return stack
     }()
 
-    private let changeNameTextfield = UITextField.makeCustomPinkTextfield(
-        placeholderText: "UserName",
+    private let changeNameTextfield = FormField(
+        labelText: "EmailLabel",
+        placeholder: "UserName",
         isSecure: false,
         keyboardType: .default)
 
-    private let changeEmailTextfield = UITextField.makeCustomPinkTextfield(
-        placeholderText: "UserEmail",
+    private let changeEmailTextfield = FormField (
+        labelText: "EmailLabel",
+        placeholder: "UserEmail",
         isSecure: false,
         keyboardType: .emailAddress)
 
@@ -76,8 +85,9 @@ final class EditProfileView: UIView {
         numberOfLines: 1,
         textAligment: .left)
 
-    private let changePasswordTextfield = UITextField.makeCustomPinkTextfield(
-        placeholderText: "Password",
+    private let changePasswordTextfield = FormField(
+        labelText: "PasswordLabel",
+        placeholder: "Set new password",
         isSecure: false,
         keyboardType: .default)
 
@@ -89,10 +99,63 @@ final class EditProfileView: UIView {
         super.init(frame: frame)
         setView()
         setupContraints()
+        setupTargets()
+        setUserInfo()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: Public methods
+
+    func updatePhoto(with image: UIImage) {
+        userImage.image = image
+    }
+
+    func setUserInfo() {
+        let user = UserManager.shared.getUserProfileData()
+
+        userEmail.text = user.email
+        userName.text = user.username
+        changeNameTextfield.textField.text = user.username
+        changeEmailTextfield.textField.text = user.email
+
+        if let userPhoto = user.image {
+            userImage.image = userPhoto
+        }
+    }
+
+    // MARK: Private Methods
+
+    private func setupTargets() {
+        saveButton.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
+        editButton.addTarget(self, action: #selector(editImageButtonAction), for: .touchUpInside)
+    }
+
+    private func showEmailError() {
+        errorLabel.isHidden = false
+    }
+
+    private func hideEmailError() {
+        errorLabel.isHidden = true
+    }
+
+    // MARK: Selector Methods
+
+    @objc private func saveButtonAction() {
+        if let newEmail = changeEmailTextfield.textField.text,
+           let newPassword = changePasswordTextfield.textField.text {
+            delegate?.saveButtonTapped(
+                email: newEmail,
+                password: newPassword,
+                name: changeNameTextfield.textField.text ?? "User", 
+                image: (userImage.image ?? UIImage(named: "MockUser")) ?? UIImage())
+        }
+    }
+
+    @objc private func editImageButtonAction() {
+        delegate?.editImageButtonTapped()
     }
 }
 
@@ -102,9 +165,15 @@ private extension EditProfileView {
 
     func setView() {
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.isUserInteractionEnabled = true
+
         self.addSubview(backgroundView)
+        backgroundView.isUserInteractionEnabled = true
+
         [userImage, userName, userEmail, editButton, textFieldStackView, saveButton, errorLabel].forEach { backgroundView.addSubview($0) }
         [changeNameTextfield, changeEmailTextfield, changePasswordTextfield].forEach { textFieldStackView.addArrangedSubview($0) }
+
+        hideEmailError()
     }
 
     func setupContraints() {
