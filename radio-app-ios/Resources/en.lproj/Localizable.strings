@@ -101,3 +101,10 @@
 //MARK: - Audio Pleer
 "AudioPleerErrorTitle" = "Error";
 "AudioPleerErrorMessage" = "This station is not broadcasting anything at the moment";
+"AboutText" = "🎵 Welcome to RadioApp — your personal radio studio! 🌟
+
+We’ve curated the best collection of radio stations from around the globe so you can enjoy music anytime, anywhere. Our app is designed to keep your day full of rhythm, fun, and great vibes!
+
+If you have any questions or suggestions, we’re all ears! Drop us a line, and we’ll do our best to make your radio experience even better!
+
+The RadioApp Team";
