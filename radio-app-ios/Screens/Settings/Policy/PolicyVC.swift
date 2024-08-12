@@ -34,28 +34,28 @@ final class PolicyVC: UIViewController, PolicyVCProtocol {
 
     private let firstTitleLabel = UILabel.makeCustomLabelBold(
         key: "Terms",
-        fontSize: 14,
+        fontSize: 16,
         textColor: .white,
         numberOfLines: 1,
         textAligment: .left)
 
     private let secondTitleLabel = UILabel.makeCustomLabelBold(
         key: "Changes to the Service and/or Terms",
-        fontSize: 14,
+        fontSize: 16,
         textColor: .white,
         numberOfLines: 1,
         textAligment: .left)
 
     private let firstTextLabel = UILabel.makeCustomLabelBold(
         key: "Introduction",
-        fontSize: 14,
+        fontSize: 16,
         textColor: .systemGray,
         numberOfLines: 0,
         textAligment: .left)
 
     private let secondTextLabel = UILabel.makeCustomLabelBold(
         key: "MainRules",
-        fontSize: 14,
+        fontSize: 16,
         textColor: .systemGray,
         numberOfLines: 0,
         textAligment: .left)

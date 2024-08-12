@@ -59,6 +59,7 @@ final class FavoriteCell: UICollectionViewCell {
         genreStation.text = nil
         waveView.setDotColor(color: .red)
         waveView.setNeedsDisplay()
+        updateAppearance(isActive: false)
     }
     
     func setDelegate(_ value: FavoriteCellDelegate) {
@@ -116,6 +117,11 @@ final class FavoriteCell: UICollectionViewCell {
         self.waveView.setDotColor(color: stationData.dotColor)
         self.waveView.setNeedsDisplay()
         self.stationUid = stationData.id
+        updateAppearance(isActive: stationData.isActive)
+    }
+    
+    private func updateAppearance(isActive: Bool) {
+        contentView.layer.borderColor = (isActive ? Color.customPink : Color.borderColor).cgColor
     }
 }
 

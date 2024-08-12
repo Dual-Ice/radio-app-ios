@@ -25,7 +25,8 @@ extension FavoriteStation {
             votes: Int(self.votes),
             country: self.country,
             language: self.language,
-            geo_lat: self.geo_lat
+            geo_lat: self.geo_lat,
+            freq: self.freq
         )
     }
 }

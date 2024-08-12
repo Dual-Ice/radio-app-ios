@@ -26,6 +26,7 @@ extension FavoriteStation {
     @NSManaged public var language: String?
     @NSManaged public var geo_lat: Double
     @NSManaged public var user_id: String?
+    @NSManaged public var freq: String?
 
 }
 

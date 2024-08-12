@@ -29,8 +29,9 @@ final class DetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailView.setDelegates(detailVD: self, playerVD: self)
+        AudioPleer.shared.delegate = self
         detailView.setUserAvatar(UserManager.shared.getUserProfileData().image)
-        updateUI()
+        updateUI(isFavorite: presenter.isFavorite)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,14 +42,17 @@ final class DetailController: UIViewController {
         if AudioPleer.shared.isPlaying {
             detailView.waveAnimationView.startAnimation()
         }
+        presenter.onWillAppear { [unowned self] in
+            updateUI(isFavorite: presenter.isFavorite)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         detailView.waveAnimationView.stopAnimation()
     }
     
-    func updateUI() {
-        detailView.configureUI(with: presenter.currentStation)
+    func updateUI(isFavorite: Bool) {
+        detailView.configureUI(with: presenter.currentStation, isFavorite: isFavorite)
     }
 }
 
@@ -63,16 +67,7 @@ extension DetailController: DetailViewDelegate {
     }
     
     func addFavoriteButtonTapped() {
-        let currentImage = detailView.addFavoriteButton.image(for: .normal)
-        
-        if currentImage == Image.heartDeselected {
-            detailView.addFavoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        } else {
-            detailView.addFavoriteButton.setImage(
-                UIImage(systemName: "heart.fill")?.withTintColor(Color.customPink),
-                for: .normal
-            )
-        }
+        presenter.vote()
     }
 }
 
@@ -92,5 +87,14 @@ extension DetailController: PlayerControlDelegate {
     
     func backButtonTapped() {
         presenter.previousStation()
+    }
+}
+
+//MARK: - AudioPleerDelegate
+extension DetailController: AudioPleerDelegate {
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("ОК", comment: ""), style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
 }

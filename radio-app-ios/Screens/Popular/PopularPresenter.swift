@@ -35,6 +35,10 @@ final class PopularPresenter {
     }
     
     func goToDetail(by index: Int) {
+        AudioPleer.shared.loadStationList(stations)
+        if AudioPleer.shared.currentURL != stations[index].url {
+            AudioPleer.shared.loadStation(at: index)
+        }
         popularRoute.goToDetail(station: stations[index])
     }
 
@@ -78,7 +82,7 @@ final class PopularPresenter {
             name: station.name ?? "Unknown station",
             genre: StationHelper.getGenreFromStationTags(station.tags),
             votes: station.votes ?? 0,
-            isActive: indexPath == selectedIndexPath,
+            isActive: station.url == AudioPleer.shared.currentURL,
             dotColor: cellDotColors[indexPath] ?? .red,
             isFavorite: isFavorite
         )
@@ -180,5 +184,16 @@ final class PopularPresenter {
                 }
             }
         }
+    }
+}
+
+//MARK: - Player Actions
+extension PopularPresenter {
+    func nextStation() {
+        popularVC?.refreshData()
+    }
+    
+    func previousStation() {
+        popularVC?.refreshData()
     }
 }

@@ -19,19 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
 
-        // Пока нет кнопки выхода - вы можете использовать этот код, чтобы разавторизовать пользователя
-//        AuthManager().signOut { error in
-//            if let error = error {
-//                print(error.localizedDescription)
-//                return
-//            }
-//        }
 
-        if UserDefaults.standard.bool(forKey: "isWelcomeCompleted") {
-            checkAuthentication()
-            return
-        }
-        window?.rootViewController = WelcomeController()
+        checkAuthentication()
 
         /// settings navigation
         //let settingsBuilder = MainSettingsBuilder()
@@ -70,6 +59,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate {
     func checkAuthentication() {
+        if !UserDefaults.standard.bool(forKey: "isWelcomeCompleted") {
+            window?.rootViewController = WelcomeController()
+            return
+        }
+        
         if Auth.auth().currentUser == nil {
             let navigationController = UINavigationController()
             let authBuilder = AuthBuilder(navigationVC: navigationController)

@@ -3,6 +3,7 @@
     <entity name="FavoriteStation" representedClassName=".FavoriteStation" syncable="YES">
         <attribute name="country" optional="YES" attributeType="String"/>
         <attribute name="favicon" optional="YES" attributeType="String"/>
+        <attribute name="freq" optional="YES" attributeType="String"/>
         <attribute name="geo_lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="language" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
