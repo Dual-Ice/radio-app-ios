@@ -11,13 +11,16 @@ final class PopularView: UIView {
     
     private let headerView = HeaderView()
     private let collectionView: UICollectionView
+    
+    let playerControler = PlayerControlView()
+    let volumeControler = VolumeControlView()
 
     override init(frame: CGRect) {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 10
-        layout.itemSize = CGSize(width: 120, height: 140)
+        layout.itemSize = CGSize(width: 130, height: 140)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         super.init(frame: frame)
@@ -32,8 +35,13 @@ final class PopularView: UIView {
     }
     
     private func setupViews() {
-        addSubview(headerView)
-        addSubview(collectionView)
+        [
+            headerView,
+            collectionView,
+            playerControler,
+            volumeControler
+        ].forEach { addSubview($0) }
+        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
         collectionView.register(PopularCell.self, forCellWithReuseIdentifier: PopularCell.identifier)
@@ -49,7 +57,17 @@ final class PopularView: UIView {
             collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 60),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -230)
+            collectionView.bottomAnchor.constraint(equalTo: playerControler.topAnchor, constant: -10),
+            
+            playerControler.centerXAnchor.constraint(equalTo: centerXAnchor),
+            playerControler.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 255/335),
+            playerControler.heightAnchor.constraint(equalTo: playerControler.widthAnchor, multiplier: 127/255),
+            playerControler.bottomAnchor.constraint(equalTo: volumeControler.topAnchor, constant: -20),
+            
+            volumeControler.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
+            volumeControler.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 38),
+            volumeControler.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -38),
+            volumeControler.heightAnchor.constraint(equalToConstant: 16)
         ])
     }
     
@@ -61,10 +79,11 @@ final class PopularView: UIView {
         )
     }
     
-    func setDelegates(_ delegate: PopularController) {
-        collectionView.delegate = delegate
-        collectionView.dataSource = delegate
-        headerView.setDelegate(value: delegate)
+    func setDelegates(popularVD: PopularController, playerVD: PlayerControlDelegate) {
+        collectionView.delegate = popularVD
+        collectionView.dataSource = popularVD
+        headerView.setDelegate(value: popularVD)
+        playerControler.delegate = playerVD
     }
     
     var getCollectionView: UICollectionView {

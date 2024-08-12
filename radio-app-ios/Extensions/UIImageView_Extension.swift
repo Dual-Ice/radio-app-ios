@@ -10,7 +10,7 @@ import Kingfisher
 
 extension UIImageView {
     
-    func getImage(from url: URL) {
+    func getImage(from url: URL?) {
         self.kf.indicatorType = .activity
         self.kf.setImage(
             with: url,
