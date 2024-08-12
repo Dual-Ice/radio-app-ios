@@ -64,6 +64,7 @@
 "votes" = "votes";
 
 // MARK: - Settings
+"Settings" = "Settings";
 
 // main
 "HeaderUserName" = "Your name";
@@ -91,8 +92,14 @@
 "ShowNotifications" = "Show notifications";
 "SendNotificationsLabel" = "Send notifications at";
 
-// languages
-"AvailableLanguages" = "Available Languages";
+// Settings
+"General" = "General";
+"Notification" = "Notification";
+"Language" = "Language";
+"More" = "More";
+"LegalAndPolicies" = "Legal and Policies";
+"AboutUs" = "About Us";
+
 //MARK: - Browse
 "browse_by_tags" = "Browse by\ntags";
 "browse_by_language" = "Browse by\nlanguage";
@@ -108,3 +115,11 @@ We’ve curated the best collection of radio stations from around the globe so y
 If you have any questions or suggestions, we’re all ears! Drop us a line, and we’ll do our best to make your radio experience even better!
 
 The RadioApp Team";
+//MARK: Languages
+"AvailableLanguages" = "Available Languages";
+"LangChangeMessage" = "To change the language, close the app and re-launch it.";
+"LangAlerTitle" = "Warning!";
+
+
+"Changes to the Service and/or Terms" = "Changes to the Service and/or Terms";
+"Terms" = "Terms";

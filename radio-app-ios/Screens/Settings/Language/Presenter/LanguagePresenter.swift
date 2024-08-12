@@ -9,19 +9,43 @@ import UIKit
 
 protocol LanguagePresenterProtocol {
     init(view: LanguageVCProtocol)
-    var languages: [String] { get }
-    var lastSelectedIndexPath: IndexPath? { get set }
+    func getLanguages() -> [String:String]
+    func getCurrentLanguageCode() -> String
+    func setLanguage(code: String)
 }
 
 final class LanguagePresenter: LanguagePresenterProtocol {
 
     private weak var view: LanguageVCProtocol?
-
-    var languages = ["English", "Русский"]
-    var lastSelectedIndexPath: IndexPath?
+    private let languagesService = LanguagesService()
+    private let alertService = AlertManager()
+    private var currentLanguageCode: String
+    private let availableLanguages: [String:String]
 
     init(view: LanguageVCProtocol) {
         self.view = view
-        self.lastSelectedIndexPath = IndexPath(row: 0, section: 0)
+        self.currentLanguageCode = languagesService.getCurrentLanguageCode()
+        self.availableLanguages = languagesService.getAvailableLanguages()
+    }
+    
+    func getLanguages() -> [String:String] {
+        return availableLanguages
+    }
+    
+    func setLanguage(code: String) {
+        let result = languagesService.setLanguage(code: code)
+        if result {
+            currentLanguageCode = code
+            alertService.presentAlertWithAction(
+                from: view as! UIViewController,
+                title: NSLocalizedString("LangAlerTitle", comment: ""),
+                message: NSLocalizedString("LangChangeMessage", comment: "")
+            ) {}
+        }
+    }
+    
+    func getCurrentLanguageCode() -> String {
+        return currentLanguageCode
     }
 }
+

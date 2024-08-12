@@ -13,8 +13,8 @@ final class MoreSettingsView: BaseSettingsView {
     init() {
         super.init(frame: .zero, 
                    titleLabel: "More",
-                   firstTitle: "Legal and Policies",
-                   secondTitle: "About Us")
+                   firstTitle: "LegalAndPolicies",
+                   secondTitle: "AboutUs")
     }
     
     required init?(coder: NSCoder) {

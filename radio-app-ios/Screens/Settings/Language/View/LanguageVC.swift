@@ -53,7 +53,7 @@ extension LanguageVC: UITableViewDelegate, UITableViewDataSource {
 
     /// cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter.languages.count
+        presenter.getLanguages().count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,16 +64,24 @@ extension LanguageVC: UITableViewDelegate, UITableViewDataSource {
                 for: indexPath) as? LanguageCell
         else { return UITableViewCell() }
 
-        let language = presenter.languages[indexPath.row]
-        let checkValue = (indexPath == presenter.lastSelectedIndexPath)
-        cell.configure(with: language)
+        let languages = presenter.getLanguages()
+        let languageCode = Array(languages.keys)[indexPath.row]
+        let languageName = languages[languageCode] ?? ""
+        let checkValue = (languageCode == presenter.getCurrentLanguageCode())
+        cell.configure(with: languageName)
         cell.setCheckmarkValue(checkValue)
         return cell
     }
 
     /// cell tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // code
+
+        tableView.deselectRow(at: indexPath, animated: false)
+        let languages = presenter.getLanguages()
+        let languageCode = Array(languages.keys)[indexPath.row]
+        presenter.setLanguage(code: languageCode)
+        
+        tableView.reloadData()
     }
 }
 
