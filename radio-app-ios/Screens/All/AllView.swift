@@ -2,6 +2,15 @@
 //  AllView.swift
 //  radio-app-ios
 //
+<<<<<<< HEAD
+=======
+//  Created by  Maksim Stogniy on 11.08.2024.
+//
+//
+//  AllView.swift
+//  radio-app-ios
+//
+>>>>>>> 95a53d95ce8562a689cf7f9f4390e5263815a019
 //  Created by Дмитрий Волков on 07.08.2024.
 //
 
@@ -32,7 +41,11 @@ final class AllView: UIView {
             cv.showsVerticalScrollIndicator = false
             cv.alwaysBounceVertical = true
     
+<<<<<<< HEAD
             cv.register(StationCell.self, forCellWithReuseIdentifier: StationCell.identifier)
+=======
+            cv.register(AllStationCell.self, forCellWithReuseIdentifier: AllStationCell.identifier)
+>>>>>>> 95a53d95ce8562a689cf7f9f4390e5263815a019
     
             return cv
         }()
@@ -92,4 +105,7 @@ final class AllView: UIView {
     }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 95a53d95ce8562a689cf7f9f4390e5263815a019
