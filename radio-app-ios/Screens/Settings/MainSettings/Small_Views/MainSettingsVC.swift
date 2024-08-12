@@ -10,6 +10,7 @@ import UIKit
     // MARK: MainSettingsVC Protocol
 
 protocol MainSettingsVCProtocol: AnyObject {
+    func restartApp()
 }
 
     // MARK: MainSettingsVC
@@ -42,13 +43,19 @@ final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.setNavigationBar(for: self, title: "Settings")
+        self.navigationController?.setNavigationBar(for: self, title: NSLocalizedString("Settings", comment: "Localizable"))
     }
 
     // MARK: Private Methods
 
     private func setDelegate() {
         settingsView.delegate = self
+    }
+    
+    func restartApp() {
+        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+            sceneDelegate.checkAuthentication()
+        }
     }
 }
 
@@ -61,7 +68,7 @@ extension MainSettingsVC: MainSettingsViewDelegate {
     }
     
     func logOutButtonTapped() {
-        print ("log out button tapped")
+        presenter.logOut()
     }
 }
 

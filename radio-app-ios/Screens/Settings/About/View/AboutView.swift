@@ -18,6 +18,25 @@ final class AboutView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    
+
+    private let stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 20
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+
+    private let text = UILabel.makeCustomLabel(
+        key: "AboutText",
+        fontSize: 16,
+        textColor: .white,
+        numberOfLines: 0,
+        textAligment: .left,
+        wrapText: true
+    )
 
     // MARK: Init
 
@@ -38,6 +57,8 @@ private extension AboutView {
 
     func setView() {
         self.addSubview(backgroundView)
+        backgroundView.addSubview(stackView)
+        stackView.addArrangedSubview(text)
         self.translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -50,7 +71,14 @@ private extension AboutView {
             backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 
+            stackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: LayoutConstants.sideOffset),
+            stackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -LayoutConstants.sideOffset),
+            stackView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 100),
         ])
 
+    }
+    
+    enum LayoutConstants {
+        static let sideOffset: CGFloat = 16
     }
 }

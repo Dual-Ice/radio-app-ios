@@ -33,6 +33,7 @@ final class LanguageView: UIView {
         table.layer.cornerRadius = 15
         table.layer.borderWidth = 1
         table.layer.borderColor = Color.borderColor.cgColor
+        table.isUserInteractionEnabled = true
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -66,6 +67,7 @@ private extension LanguageView {
     func setView() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(backgroundView)
+        backgroundView.isUserInteractionEnabled = true
         backgroundView.addSubview(tableView)
     }
 

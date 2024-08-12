@@ -13,6 +13,7 @@ struct StationData {
     var genre: String
     var votes: Int
     var isActive: Bool
+    var isPlaying: Bool
     var dotColor: UIColor
     var isFavorite: Bool
 }
@@ -35,7 +36,6 @@ final class PopularPresenter {
     }
     
     func goToDetail(by index: Int) {
-        AudioPleer.shared.loadStationList(stations)
         if AudioPleer.shared.currentURL != stations[index].url {
             AudioPleer.shared.loadStation(at: index)
         }
@@ -64,7 +64,8 @@ final class PopularPresenter {
             
             if success {
                 if self.stations.count > 0 {
-                    self.cellDotColors = StationHelper.makeDotColorsForStations(stations: stations)
+                    self.cellDotColors = StationHelper.makeDotColorsForStations(stations: self.stations)
+                    AudioPleer.shared.loadStationList(self.stations)
                 }
                 self.popularVC?.refreshData()
             } else {
@@ -83,6 +84,7 @@ final class PopularPresenter {
             genre: StationHelper.getGenreFromStationTags(station.tags),
             votes: station.votes ?? 0,
             isActive: station.url == AudioPleer.shared.currentURL,
+            isPlaying: AudioPleer.shared.isPlaying,
             dotColor: cellDotColors[indexPath] ?? .red,
             isFavorite: isFavorite
         )
