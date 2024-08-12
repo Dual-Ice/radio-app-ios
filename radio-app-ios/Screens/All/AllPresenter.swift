@@ -24,6 +24,7 @@ final class AllPresenter {
     }
     
     func goToDetail(by index: Int) {
+        AudioPleer.shared.loadStationList(stations)
         if AudioPleer.shared.currentURL != stations[index].url {
             AudioPleer.shared.loadStation(at: index)
         }
@@ -44,7 +45,9 @@ final class AllPresenter {
     
     func onWillAppear(completion: @escaping () -> Void) {
         loadFavoriteStations(completion: completion)
-        AudioPleer.shared.loadStationList(self.stations)
+        if AudioPleer.shared.currentURL.isEmpty {
+            AudioPleer.shared.loadStationList(self.stations)
+        }
     }
     
     func onLoad() {
@@ -54,7 +57,9 @@ final class AllPresenter {
             if success {
                 if self.stations.count > 0 {
                     self.cellDotColors = StationHelper.makeDotColorsForStations(stations: self.stations)
-                    AudioPleer.shared.loadStationList(self.stations)
+                    if AudioPleer.shared.currentURL.isEmpty {
+                        AudioPleer.shared.loadStationList(self.stations)
+                    }
                 }
                 self.allVC?.refreshData()
             } else {

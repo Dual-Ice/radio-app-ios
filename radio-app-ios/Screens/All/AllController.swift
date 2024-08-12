@@ -31,11 +31,6 @@ final class AllController: UIViewController {
         super.viewDidLoad()
         allView.setDelegates(allVD: self, playerVD: self)
         presenter.onLoad()
-        
-        #warning("TO DO: Заменить на данные с профиля")
-        if let profileImage = UIImage(named: "onboardingBackground") {
-            allView.configureHeader(with: "Mark", profileImage: profileImage)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +42,11 @@ final class AllController: UIViewController {
         
         allView.playerControler.update()
         allView.volumeControler.update()
+        
+        allView.configureHeader(
+            with: UserManager.shared.getUserProfileData().username,
+            profileImage: UserManager.shared.getUserProfileData().image ?? UIImage.onboardingBackground
+        )
     }
     
     func refreshData() {

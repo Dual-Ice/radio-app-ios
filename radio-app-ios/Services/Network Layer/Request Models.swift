@@ -53,7 +53,7 @@ class Station: Codable, Equatable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.name = try container.decodeIfPresent(String.self, forKey: .name)?.replacingOccurrences(of: "\t", with: "")
+        self.name = try container.decodeIfPresent(String.self, forKey: .name)?.replacingOccurrences(of: "\t", with: "").replacingOccurrences(of: "\n", with: "")
         self.stationuuid = try container.decodeIfPresent(String.self, forKey: .stationuuid)
         self.url = try container.decodeIfPresent(String.self, forKey: .url)
         self.tags = try container.decodeIfPresent(String.self, forKey: .tags)

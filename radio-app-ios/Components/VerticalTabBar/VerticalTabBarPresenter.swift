@@ -23,7 +23,6 @@ final class VerticalTabBarPresenter: VerticalTabBarPresenterProtocol {
     }
     
     func loadViewController(_ navigationController: UINavigationController) {
-#warning("заполнить нужными контроллерами")
         viewControllers["PopularTitle"] = PopularBuilder.buildPopularController(navigationController)
         viewControllers["FavoritesTitle"] = FavoritesBuilder.buildFavoritesController(navigationController)
         viewControllers["AllStations"] = AllBuilder.buildAllController(navigationController)
