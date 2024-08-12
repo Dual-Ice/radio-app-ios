@@ -64,6 +64,7 @@ final class AllPresenter {
             genre: StationHelper.getGenreFromStationTags(station.tags),
             votes: station.votes ?? 0,
             isActive: station.url == AudioPleer.shared.currentURL,
+            isPlaying: station.url == AudioPleer.shared.currentURL,
             dotColor: cellDotColors[indexPath] ?? .red,
             isFavorite: isFavorite
         )

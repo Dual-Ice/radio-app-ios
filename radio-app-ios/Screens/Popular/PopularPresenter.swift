@@ -56,6 +56,7 @@ final class PopularPresenter {
     
     func onWillAppear(completion: @escaping () -> Void) {
         loadFavoriteStations(completion: completion)
+        AudioPleer.shared.loadStationList(self.stations)
     }
     
     func onLoad() {

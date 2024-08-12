@@ -117,7 +117,7 @@ final class AllStationCell: UICollectionViewCell {
             
             waveView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
             waveView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            waveView.widthAnchor.constraint(equalToConstant: 90),
+            waveView.widthAnchor.constraint(equalToConstant: 80),
             waveView.heightAnchor.constraint(equalToConstant: 23),
             
             nameStation.topAnchor.constraint(equalTo: votesButton.bottomAnchor),
