@@ -56,6 +56,7 @@
 "AuthScreenUserPasswordRepeatErrorMessage" = "Passwords do not match. Please try again.";
 "AuthSceenRegistrationErrorTitle" = "Oh, it's an error";
 "AuthSceenRegistrationUserError" = "User's registration error";
+"AuthSceenRegistrationUnexpectedError" = "Unexpected error";
 "AuthSceenResetPasswordErrorTitle" = "Oh, it's an error";
 "AuthSceenPasswordResetSuccessTitle" = "Password reset";
 "AuthSceenPasswordResetSuccessMessage" = "The password reset email has been successfully sent. Please check your email.";
@@ -115,11 +116,11 @@ We’ve curated the best collection of radio stations from around the globe so y
 If you have any questions or suggestions, we’re all ears! Drop us a line, and we’ll do our best to make your radio experience even better!
 
 The RadioApp Team";
+
 //MARK: Languages
 "AvailableLanguages" = "Available Languages";
 "LangChangeMessage" = "To change the language, close the app and re-launch it.";
 "LangAlerTitle" = "Warning!";
-
 
 "Changes to the Service and/or Terms" = "Changes to the Service and/or Terms";
 "Terms" = "Terms";
