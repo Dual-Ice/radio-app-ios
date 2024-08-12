@@ -27,6 +27,7 @@ final class MainSettingsPresenter: MainSettingsPresenterProtocol {
 
     private weak var view: MainSettingsVCProtocol?
     private var router: MainSettingsRouter
+    private let authManager = AuthManager()
 
     init(view: MainSettingsVCProtocol,
          router: MainSettingsRouter) {
@@ -59,7 +60,16 @@ final class MainSettingsPresenter: MainSettingsPresenterProtocol {
     }
 
     func logOut() {
-        print ("log out button tapped")
+        AudioPleer.shared.pauseMusic()
+        authManager.signOut { error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            UserDefaults.standard.set(false, forKey: "isWelcomeCompleted")
+            self.view?.restartApp()
+        }
     }
 
 }
