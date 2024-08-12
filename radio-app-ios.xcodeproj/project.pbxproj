@@ -122,6 +122,7 @@
 		F48255B02C67750F00488872 /* LanguageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48255AF2C67750F00488872 /* LanguageTableHeaderView.swift */; };
 		F4B0D18D2C693CC800CAC21A /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0D18C2C693CC800CAC21A /* SettingsHeaderView.swift */; };
 		F4B0D18F2C6940C200CAC21A /* UINavigationController_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0D18E2C6940C200CAC21A /* UINavigationController_Extension.swift */; };
+		F4B0D1912C6A1B1800CAC21A /* EditProfile_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0D1902C6A1B1800CAC21A /* EditProfile_Extension.swift */; };
 		F4DE1BF92C57AC2900D55FC5 /* UILabel_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */; };
 		F4DE1C122C57C76000D55FC5 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */; };
 		F4DE1C1A2C57E81B00D55FC5 /* UIButton_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */; };
@@ -248,6 +249,7 @@
 		F48255AF2C67750F00488872 /* LanguageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableHeaderView.swift; sourceTree = "<group>"; };
 		F4B0D18C2C693CC800CAC21A /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
 		F4B0D18E2C6940C200CAC21A /* UINavigationController_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController_Extension.swift; sourceTree = "<group>"; };
+		F4B0D1902C6A1B1800CAC21A /* EditProfile_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile_Extension.swift; sourceTree = "<group>"; };
 		F4DE1BF82C57AC2900D55FC5 /* UILabel_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel_Extension.swift; sourceTree = "<group>"; };
 		F4DE1C0F2C57C76000D55FC5 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		F4DE1C192C57E81B00D55FC5 /* UIButton_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_Extension.swift; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 			children = (
 				D9E6F3AA2C593117007FD2F0 /* EditProfileVC.swift */,
 				F482557D2C63CEDF00488872 /* EditProfileView.swift */,
+				F4B0D1902C6A1B1800CAC21A /* EditProfile_Extension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -884,6 +887,7 @@
 				F48255882C63D28E00488872 /* LanguageVC.swift in Sources */,
 				243E43692C5BE51F001D958D /* CustomTabBarButton.swift in Sources */,
 				D9E6F3DB2C5E8B6A007FD2F0 /* AlertManager.swift in Sources */,
+				F4B0D1912C6A1B1800CAC21A /* EditProfile_Extension.swift in Sources */,
 				D9CB16A12C68F7B7009D50A9 /* ListController.swift in Sources */,
 				D9E6F3C42C5BE6E3007FD2F0 /* User.swift in Sources */,
 				F4DE1C312C5A7B7800D55FC5 /* Request Models.swift in Sources */,

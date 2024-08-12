@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol EditProfileViewDelegate: AnyObject {
+    func saveButtonTapped()
+    func editImageButtonTapped()
+}
+
     // MARK: EditProfile View
 
 final class EditProfileView: UIView {
+
+    weak var delegate: EditProfileViewDelegate?
 
     // MARK: UI Elements
 
@@ -59,13 +66,15 @@ final class EditProfileView: UIView {
         return stack
     }()
 
-    private let changeNameTextfield = UITextField.makeCustomPinkTextfield(
-        placeholderText: "UserName",
+    private let changeNameTextfield = FormField(
+        labelText: "EmailLabel",
+        placeholder: "UserName",
         isSecure: false,
         keyboardType: .default)
 
-    private let changeEmailTextfield = UITextField.makeCustomPinkTextfield(
-        placeholderText: "UserEmail",
+    private let changeEmailTextfield = FormField (
+        labelText: "EmailLabel",
+        placeholder: "UserEmail",
         isSecure: false,
         keyboardType: .emailAddress)
 
@@ -76,8 +85,9 @@ final class EditProfileView: UIView {
         numberOfLines: 1,
         textAligment: .left)
 
-    private let changePasswordTextfield = UITextField.makeCustomPinkTextfield(
-        placeholderText: "Password",
+    private let changePasswordTextfield = FormField(
+        labelText: "PasswordLabel",
+        placeholder: "Password",
         isSecure: false,
         keyboardType: .default)
 
@@ -89,10 +99,34 @@ final class EditProfileView: UIView {
         super.init(frame: frame)
         setView()
         setupContraints()
+        setupTargets()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: Public methods
+
+    func updatePhoto(with image: UIImage) {
+        userImage.image = image
+    }
+
+    // MARK: Private Methods
+
+    private func setupTargets() {
+        saveButton.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
+        editButton.addTarget(self, action: #selector(editImageButtonAction), for: .touchUpInside)
+    }
+
+    // MARK: Selector Methods
+
+    @objc private func saveButtonAction() {
+        delegate?.saveButtonTapped()
+    }
+
+    @objc private func editImageButtonAction() {
+        delegate?.editImageButtonTapped()
     }
 }
 
@@ -102,7 +136,11 @@ private extension EditProfileView {
 
     func setView() {
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.isUserInteractionEnabled = true
+
         self.addSubview(backgroundView)
+        backgroundView.isUserInteractionEnabled = true
+
         [userImage, userName, userEmail, editButton, textFieldStackView, saveButton, errorLabel].forEach { backgroundView.addSubview($0) }
         [changeNameTextfield, changeEmailTextfield, changePasswordTextfield].forEach { textFieldStackView.addArrangedSubview($0) }
     }

@@ -10,6 +10,8 @@ import UIKit
     // MARK: EditProfileVC Protocol
 
 protocol EditProfileVCProtocol: AnyObject {
+    func updateProfilePhoto(with: UIImage)
+    func showImagePicker()
 }
 
     // MARK: EditProfileVC
@@ -30,5 +32,35 @@ final class EditProfileVC: UIViewController, EditProfileVCProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDelegate()
+    }
+
+    // MARK: Public methods
+
+    func showImagePicker() {
+        setupImagePicker()
+    }
+
+    func updateProfilePhoto(with image: UIImage) {
+        editProfileView.updatePhoto(with: image)
+    }
+
+    // MARK: Private methods
+
+    private func setDelegate() {
+        editProfileView.delegate = self
+    }
+}
+
+    // MARK:
+
+extension EditProfileVC: EditProfileViewDelegate {
+    
+    func saveButtonTapped() {
+        presenter.saveChanges()
+    }
+
+    func editImageButtonTapped() {
+        presenter.changeImage()
     }
 }
