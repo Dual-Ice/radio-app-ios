@@ -32,6 +32,7 @@ final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
 
     override func viewDidLoad() {
         setDelegate()
+        setView()
 
         callNotificationClosure()
         callLanguageClosure()
@@ -59,8 +60,17 @@ final class MainSettingsVC: UIViewController, MainSettingsVCProtocol {
     }
 }
 
+/// call public functions
+extension MainSettingsVC {
+    func setView() {
+        let userData = presenter.getUserData()
+        settingsView.setUserInfoView(with: userData)
+    }
+}
+
     // MARK: Business Logic
 
+/// delegate
 extension MainSettingsVC: MainSettingsViewDelegate {
 
     func editButtonTappedTransfer() {
@@ -72,6 +82,7 @@ extension MainSettingsVC: MainSettingsViewDelegate {
     }
 }
 
+/// closures
 extension MainSettingsVC {
 
     func callNotificationClosure() {

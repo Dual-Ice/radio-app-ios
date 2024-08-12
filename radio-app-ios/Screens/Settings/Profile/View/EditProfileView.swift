@@ -87,7 +87,7 @@ final class EditProfileView: UIView {
 
     private let changePasswordTextfield = FormField(
         labelText: "PasswordLabel",
-        placeholder: "Password",
+        placeholder: "Set new password",
         isSecure: false,
         keyboardType: .default)
 
@@ -100,6 +100,7 @@ final class EditProfileView: UIView {
         setView()
         setupContraints()
         setupTargets()
+        setUserInfo()
     }
     
     required init?(coder: NSCoder) {
@@ -117,6 +118,27 @@ final class EditProfileView: UIView {
     private func setupTargets() {
         saveButton.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
         editButton.addTarget(self, action: #selector(editImageButtonAction), for: .touchUpInside)
+    }
+
+    private func setUserInfo() {
+        let user = UserManager.shared.getUserProfileData()
+        userEmail.text = user.email
+        userName.text = user.username
+
+        changeNameTextfield.textField.text = user.username
+        changeEmailTextfield.textField.text = user.email
+
+        if let userPhoto = user.image {
+            userImage.image = userPhoto
+        }
+    }
+
+    private func showEmailError() {
+        errorLabel.isHidden = false
+    }
+
+    private func hideEmailError() {
+        errorLabel.isHidden = true
     }
 
     // MARK: Selector Methods
@@ -143,6 +165,8 @@ private extension EditProfileView {
 
         [userImage, userName, userEmail, editButton, textFieldStackView, saveButton, errorLabel].forEach { backgroundView.addSubview($0) }
         [changeNameTextfield, changeEmailTextfield, changePasswordTextfield].forEach { textFieldStackView.addArrangedSubview($0) }
+
+        hideEmailError()
     }
 
     func setupContraints() {

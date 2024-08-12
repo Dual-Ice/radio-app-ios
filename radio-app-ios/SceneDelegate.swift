@@ -20,12 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
 
 
-//        checkAuthentication()
+        checkAuthentication()
 
         /// settings navigation
-        let settingsBuilder = MainSettingsBuilder()
-        let router = MainSettingsRouter(navigationController: UINavigationController(), moduleBuilder: settingsBuilder)
-        window?.rootViewController = settingsBuilder.createEditProfileVC()
+//        let settingsBuilder = MainSettingsBuilder()
+//        let router = MainSettingsRouter(navigationController: UINavigationController(), moduleBuilder: settingsBuilder)
+//        window?.rootViewController = settingsBuilder.createEditProfileVC()
 }
 
     func sceneDidDisconnect(_ scene: UIScene) {

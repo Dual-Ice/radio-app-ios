@@ -11,7 +11,7 @@ final class FormField: UIView {
     
     // MARK: - UI Elements
     private let label: UILabel
-    private let textField: UITextField
+    let textField: UITextField
     
     init(
         labelText: String,

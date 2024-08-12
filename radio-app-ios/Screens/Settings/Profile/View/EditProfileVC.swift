@@ -52,7 +52,7 @@ final class EditProfileVC: UIViewController, EditProfileVCProtocol {
     }
 }
 
-    // MARK:
+    // MARK: Work with EditProfile Delegate
 
 extension EditProfileVC: EditProfileViewDelegate {
     
