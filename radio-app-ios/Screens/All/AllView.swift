@@ -11,10 +11,9 @@ import UIKit
 final class AllView: UIView {
         
     // MARK: - UI
-    
     private let headerView = HeaderView()
-    private let playerControler = PlayerControlView()
-    private let volumeControler = VolumeControlView()
+    let playerControler = PlayerControlView()
+    let volumeControler = VolumeControlView()
     
     lazy var searchTextField: UISearchTextField = {
         var element = UISearchTextField()
@@ -61,15 +60,7 @@ final class AllView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setDelegates(allVD: AllController, playerVD: PlayerControlDelegate) {
-        collectionView.delegate = allVD
-        collectionView.dataSource = allVD
-        headerView.setDelegate(value: allVD)
-        playerControler.delegate = playerVD
-    }
-    
     // MARK: - Set Views
-    
     private func setViews() {
         self.backgroundColor = Color.backgroundBlue
     
@@ -83,7 +74,6 @@ final class AllView: UIView {
     }
     
     // MARK: - Setup Constraints
-    
     private func layoutViews() {
         NSLayoutConstraint.activate([
             headerView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -118,6 +108,13 @@ final class AllView: UIView {
             profileImage: profileImage,
             title: NSLocalizedString("AllStations", comment: "")
         )
+    }
+    
+    func setDelegates(allVD: AllController, playerVD: PlayerControlDelegate) {
+        collectionView.delegate = allVD
+        collectionView.dataSource = allVD
+        headerView.setDelegate(value: allVD)
+        playerControler.delegate = playerVD
     }
     
     var getCollectionView: UICollectionView {

@@ -32,6 +32,7 @@ final class AllController: UIViewController {
         allView.setDelegates(allVD: self, playerVD: self)
         presenter.onLoad()
         
+        #warning("TO DO: Заменить на данные с профиля")
         if let profileImage = UIImage(named: "onboardingBackground") {
             allView.configureHeader(with: "Mark", profileImage: profileImage)
         }
@@ -43,6 +44,9 @@ final class AllController: UIViewController {
         presenter.onWillAppear {
             self.refreshData()
         }
+        
+        allView.playerControler.update()
+        allView.volumeControler.update()
     }
     
     func refreshData() {
@@ -54,7 +58,7 @@ final class AllController: UIViewController {
 // MARK: - Header Delegate
 extension AllController: HeaderViewDelegate {
     func profileTapped() {
-        print("go to profile")
+        presenter.goToSettings()
     }
 }
 
@@ -94,6 +98,14 @@ extension AllController: AllStationCellDelegate {
 
 //MARK: - Player Controller Delegate
 extension AllController: PlayerControlDelegate {
+    func playButtonTapped() {
+        refreshData()
+    }
+    
+    func pauseButtonTapped() {
+        refreshData()
+    }
+    
     func nextButtonTapped() {
         presenter.nextStation()
     }

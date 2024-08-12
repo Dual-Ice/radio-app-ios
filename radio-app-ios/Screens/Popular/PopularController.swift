@@ -33,7 +33,7 @@ final class PopularController: UIViewController {
         popularView.setDelegates(popularVD: self, playerVD: self)
         presenter.onLoad()
         
-        // MARK: - Заменить на данные с профиля
+        #warning("TO DO: Заменить на данные с профиля")
         if let profileImage = UIImage(named: "onboardingBackground") {
             popularView.configureHeader(with: "Mark", profileImage: profileImage)
         }
@@ -90,6 +90,7 @@ extension PopularController: PopularCellDelegate {
     
     func vote(for stationuuid: String) {
         presenter.vote(for: stationuuid)
+        refreshData()
     }
 }
 
