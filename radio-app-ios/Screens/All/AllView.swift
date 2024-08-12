@@ -16,20 +16,29 @@ final class AllView: UIView {
     private let playerControler = PlayerControlView()
     private let volumeControler = VolumeControlView()
     
-    lazy var searchTextField: UISearchTextField = {
-        var element = UISearchTextField()
+    
+    private let emptyStateLabel =  UILabel.makeCustomLabel(key: "SearchEmpty", fontSize: 16, textColor: .gray, numberOfLines: 0, textAligment: .center)
+    var searchIcon = Image.searchMagnifying
+    
+    lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        let image = searchIcon?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        searchBar.setImage(image, for: .search, state: .normal)
+        searchBar.searchTextField.attributedPlaceholder =  NSAttributedString(string: NSLocalizedString("SearchRadioStation", comment: "") , attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.8)])
+        searchBar.backgroundColor = .clear
+        searchBar.tintColor = .white
+        searchBar.searchTextField.backgroundColor = Color.customGray
+        searchBar.searchTextField.textColor = .white
+        searchBar.searchTextField.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor
+        searchBar.searchTextField.layer.borderWidth = 1
+        searchBar.searchTextField.layer.cornerRadius = 8
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.setImage(UIImage(systemName: "xmark.circle.fill")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .clear, state: .normal)
+        searchBar.searchTextField.textColor = .white
+        // Set the background image of the searchBar to a transparent image
+        searchBar.backgroundImage = UIImage()
         
-        element.backgroundColor = Color.customGray
-        element.textColor = .white
-        element.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("SearchRadioStation", comment: "") , attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        
-        if let leftView = element.leftView as? UIImageView {
-                leftView.image = leftView.image?.withRenderingMode(.alwaysTemplate)
-                leftView.tintColor = UIColor.white
-        }
-        element.translatesAutoresizingMaskIntoConstraints = false
-        
-        return element
+        return searchBar
     }()
     
     lazy var collectionView: UICollectionView = {
@@ -66,6 +75,8 @@ final class AllView: UIView {
         collectionView.dataSource = allVD
         headerView.setDelegate(value: allVD)
         playerControler.delegate = playerVD
+        
+        searchBar.delegate = allVD
     }
     
     // MARK: - Set Views
@@ -75,8 +86,9 @@ final class AllView: UIView {
     
         [
             headerView,
-            searchTextField,
+            searchBar,
             collectionView,
+            emptyStateLabel,
             playerControler,
             volumeControler
         ].forEach { addSubview($0) }
@@ -91,13 +103,13 @@ final class AllView: UIView {
             headerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 50),
             
-            searchTextField.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 60),
-            searchTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            searchTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            
+            searchBar.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 60),
+            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            collectionView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 20),
+            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 20),
             collectionView.bottomAnchor.constraint(equalTo: playerControler.topAnchor, constant: -10),
 
             playerControler.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -108,7 +120,12 @@ final class AllView: UIView {
             volumeControler.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
             volumeControler.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 38),
             volumeControler.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -38),
-            volumeControler.heightAnchor.constraint(equalToConstant: 16)
+            volumeControler.heightAnchor.constraint(equalToConstant: 16),
+            
+            emptyStateLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            emptyStateLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            emptyStateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            emptyStateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
         ])
     }
     
@@ -120,7 +137,18 @@ final class AllView: UIView {
         )
     }
     
+    func switchHeader(_ value: Bool) {
+        headerView.switchTitle(value)
+    }
+    
     var getCollectionView: UICollectionView {
         return collectionView
+    }
+    
+    func updateUI(forEmptyState isEmpty: Bool, with isSearching: Bool) {
+        collectionView.isHidden = isEmpty
+        emptyStateLabel.isHidden = !isEmpty || !isSearching
+        playerControler.isHidden = isEmpty
+        volumeControler.isHidden = isEmpty
     }
 }

@@ -14,10 +14,12 @@ final class AllPresenter {
     private let allRoute: AllRouter
     private let apiManager = Radio_API_Manager()
     private var stations: [Station] = .init()
+    private var backupStations: [Station] = .init()
     
     private var cellDotColors: [IndexPath: UIColor] = [:]
     private var selectedIndexPath: IndexPath? = IndexPath(row: 0, section: 0)
     private var favoriteStations: Set<String> = []
+    var isSearching = false
     
     init(allRoute: AllRouter) {
         self.allRoute = allRoute
@@ -105,6 +107,31 @@ final class AllPresenter {
     
     func vote(for stationuuid: String) {
         print("VOTE for \(stationuuid)")
+    }
+
+    func searchStations(with query: String) {
+        apiManager.doSearch(request: query) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let stations):
+                    if self?.backupStations.count == 0 {
+                        self?.backupStations = self?.stations ?? []
+                    }
+                    self?.stations = stations
+                    self?.isSearching = true
+                    self?.allVC?.refreshData()
+                case .failure(let error):
+                    print("Ошибка поиска: \(error)")
+                }
+            }
+        }
+    }
+    
+    func rollbackStations() {
+        isSearching = false
+        stations = backupStations
+        backupStations = []
+        allVC?.refreshData()
     }
 }
 

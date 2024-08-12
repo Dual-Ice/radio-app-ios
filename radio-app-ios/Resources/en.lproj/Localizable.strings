@@ -125,3 +125,5 @@ The RadioApp Team";
 "Changes to the Service and/or Terms" = "Changes to the Service and/or Terms";
 "Terms" = "Terms";
 "SearchRadioStation" = "Search radio station";
+"SearchTitle" = "Seach";
+"SearchEmpty" = "Nothing was found 😢";

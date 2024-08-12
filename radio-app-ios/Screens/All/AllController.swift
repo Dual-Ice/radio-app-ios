@@ -47,6 +47,7 @@ final class AllController: UIViewController {
     
     func refreshData() {
         allView.getCollectionView.reloadData()
+        allView.updateUI(forEmptyState: presenter.getStations().count == 0, with: presenter.isSearching)
     }
     
 }
@@ -100,5 +101,30 @@ extension AllController: PlayerControlDelegate {
     
     func backButtonTapped() {
         presenter.previousStation()
+    }
+}
+
+extension AllController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if let query = searchBar.text, query.isEmpty {
+            searchBar.text = nil
+            searchBar.resignFirstResponder()
+            allView.switchHeader(false)
+            presenter.rollbackStations()
+        }
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let query = searchBar.text, !query.isEmpty {
+            allView.switchHeader(true)
+            presenter.searchStations(with: query)
+        }
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+        allView.switchHeader(false)
+        presenter.rollbackStations()
     }
 }
