@@ -95,10 +95,12 @@ final class FavoriteCell: UICollectionViewCell {
 
             nameStation.centerYAnchor.constraint(equalTo: centerYAnchor),
             nameStation.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            nameStation.trailingAnchor.constraint(equalTo: centerXAnchor, constant: 50),
 
             genreStation.topAnchor.constraint(equalTo: topAnchor, constant: 17),
             genreStation.bottomAnchor.constraint(equalTo: nameStation.topAnchor, constant: -3),
             genreStation.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 22),
+            genreStation.trailingAnchor.constraint(equalTo: centerXAnchor, constant: 50),
 
             waveView.topAnchor.constraint(equalTo: nameStation.bottomAnchor, constant: 10),
             waveView.leadingAnchor.constraint(equalTo: genreStation.leadingAnchor),

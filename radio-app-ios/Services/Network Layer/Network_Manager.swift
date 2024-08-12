@@ -57,6 +57,8 @@ class NetworkManager {
         case .doSearchByLanguageOrTag(parameter: let parameter):
             parameters ["tag"] = "\(parameter)"
             parameters ["limit"] = "10"
+        case .getAllStations:
+            parameters ["limit"] = "15"
         }
 
         return parameters

@@ -65,4 +65,9 @@ class Radio_API_Manager {
         guard let url = networkManager.createURL(for: .getSingleStation(uuids: id)) else { return }
         networkManager.makeTask(for: url, completion: completion)
     }
+    
+    func getAllStations(completion: @escaping(Result<[Station], NetworkError>) -> Void) {
+        guard let url = networkManager.createURL(for: .getAllStations) else { return }
+        networkManager.makeTask(for: url, completion: completion)
+    }
 }

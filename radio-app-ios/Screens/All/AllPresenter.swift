@@ -1,38 +1,28 @@
 //
-//  PopularPresenter.swift
+//  AllPresenter.swift
 //  radio-app-ios
 //
-//  Created by nik on 10.08.24.
+//  Created by Дмитрий Волков on 11.08.2024.
 //
 
 import UIKit
 
-struct StationData {
-    var id: String
-    var name: String
-    var genre: String
-    var votes: Int
-    var isActive: Bool
-    var isPlaying: Bool
-    var dotColor: UIColor
-    var isFavorite: Bool
-}
 
-typealias CompletionHandler = (Error?) -> Void
-
-final class PopularPresenter {
+final class AllPresenter {
     
-    weak var popularVC: PopularController?
-    private let popularRoute: PopularRouter
+    weak var allVC: AllController?
+    private let allRoute: AllRouter
     private let apiManager = Radio_API_Manager()
     private var stations: [Station] = .init()
+    private var backupStations: [Station] = .init()
     
     private var cellDotColors: [IndexPath: UIColor] = [:]
     private var selectedIndexPath: IndexPath? = IndexPath(row: 0, section: 0)
     private var favoriteStations: Set<String> = []
+    var isSearching = false
     
-    init(popularRoute: PopularRouter) {
-        self.popularRoute = popularRoute
+    init(allRoute: AllRouter) {
+        self.allRoute = allRoute
     }
     
     func goToDetail(by index: Int) {
@@ -40,13 +30,13 @@ final class PopularPresenter {
         if AudioPleer.shared.currentURL != stations[index].url {
             AudioPleer.shared.loadStation(at: index)
         }
-        popularRoute.goToDetail(station: stations[index])
+        allRoute.goToDetail(station: stations[index])
     }
-
+    
     func goToSettings() {
-        popularRoute.goToSettings()
+        allRoute.goToSettings()
     }
-
+    
     func getStations() -> [Station] {
         return stations
     }
@@ -63,7 +53,7 @@ final class PopularPresenter {
     }
     
     func onLoad() {
-        fetchPopularStations { [weak self] success in
+        fetchAllStations { [weak self] success in
             guard let self = self else { return }
             
             if success {
@@ -73,7 +63,7 @@ final class PopularPresenter {
                         AudioPleer.shared.loadStationList(self.stations)
                     }
                 }
-                self.popularVC?.refreshData()
+                self.allVC?.refreshData()
             } else {
                 print("Failed to load popular stations.")
             }
@@ -90,7 +80,7 @@ final class PopularPresenter {
             genre: StationHelper.getGenreFromStationTags(station.tags),
             votes: station.votes ?? 0,
             isActive: station.url == AudioPleer.shared.currentURL,
-            isPlaying: AudioPleer.shared.isPlaying,
+            isPlaying: station.url == AudioPleer.shared.currentURL,
             dotColor: cellDotColors[indexPath] ?? .red,
             isFavorite: isFavorite
         )
@@ -133,7 +123,7 @@ final class PopularPresenter {
             }
             
             DispatchQueue.main.async {
-                self?.popularVC?.refreshData()
+                self?.allVC?.refreshData()
             }
         }
     }
@@ -179,8 +169,8 @@ final class PopularPresenter {
         }
     }
     
-    private func fetchPopularStations(completion: @escaping (_ result: Bool) -> Void) {
-        apiManager.getPopular { [weak self] result in
+    private func fetchAllStations(completion: @escaping (_ result: Bool) -> Void) {
+        apiManager.getAllStations() { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let stations):
@@ -193,15 +183,40 @@ final class PopularPresenter {
             }
         }
     }
+
+    func searchStations(with query: String) {
+        apiManager.doSearch(request: query) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let stations):
+                    if self?.backupStations.count == 0 {
+                        self?.backupStations = self?.stations ?? []
+                    }
+                    self?.stations = stations
+                    self?.isSearching = true
+                    self?.allVC?.refreshData()
+                case .failure(let error):
+                    print("Ошибка поиска: \(error)")
+                }
+            }
+        }
+    }
+    
+    func rollbackStations() {
+        isSearching = false
+        stations = backupStations
+        backupStations = []
+        allVC?.refreshData()
+    }
 }
 
 //MARK: - Player Actions
-extension PopularPresenter {
+extension AllPresenter {
     func nextStation() {
-        popularVC?.refreshData()
+        allVC?.refreshData()
     }
     
     func previousStation() {
-        popularVC?.refreshData()
+        allVC?.refreshData()
     }
 }
