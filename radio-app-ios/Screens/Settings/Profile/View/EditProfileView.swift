@@ -8,7 +8,7 @@
 import UIKit
 
 protocol EditProfileViewDelegate: AnyObject {
-    func saveButtonTapped(email: String, password: String, name: String)
+    func saveButtonTapped(email: String, password: String, name: String, image: UIImage)
     func editImageButtonTapped()
 }
 
@@ -149,7 +149,8 @@ final class EditProfileView: UIView {
             delegate?.saveButtonTapped(
                 email: newEmail,
                 password: newPassword,
-                name: changeNameTextfield.textField.text ?? "User")
+                name: changeNameTextfield.textField.text ?? "User", 
+                image: (userImage.image ?? UIImage(named: "MockUser")) ?? UIImage())
         }
     }
 

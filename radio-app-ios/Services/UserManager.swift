@@ -33,23 +33,29 @@ final class UserManager {
             return
         }
 
+//        updateUserAvatar(avatar: image) { error in
+//            if let error = error {
+//                completion(error)
+//                return
+//            }
+//        }
+        
+
         coreDataManager.updateUser(
             id: userId,
             username: username,
-            email: email,
-            image: user?.image) { error in
+            email: email, image: user?.image) { error in
                 if let error = error {
                     completion(error)
                     return
                 }
-                self.updateUser(username: username, email: email, image: self.user?.image ?? "")
+                self.updateUser(username: username, email: email)
             }
     }
 
-    func updateUser(username: String, email: String, image: String) {
+    func updateUser(username: String, email: String) {
         user?.email = email
         user?.username = username
-        user?.image = image
     }
 
     func updateUserAvatar(avatar: UIImage, completion: @escaping (Error?) -> Void) {
@@ -65,6 +71,7 @@ final class UserManager {
                     completion(error)
                 } else {
                     completion(nil)
+                    self.user?.image = base64String
                 }
             }
         } else {

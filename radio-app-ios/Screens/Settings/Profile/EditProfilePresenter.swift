@@ -9,7 +9,7 @@ import UIKit
 
 protocol EditProfilePresenterProtocol {
     init(view: EditProfileVCProtocol)
-    func saveChanges(email: String, password: String, name: String)
+    func saveChanges(email: String, password: String, name: String, image: UIImage)
     func changeImage()
     func didSelectImage(_ image: UIImage)
 }
@@ -25,9 +25,9 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
         self.view = view
     }
 
-    func saveChanges(email: String, password: String, name: String) {
+    func saveChanges(email: String, password: String, name: String, image: UIImage) {
         saveChangesInFirebase(email: email, password: password)
-        saveChangesInCoreData(email: email, name: name)
+        saveChangesInCoreData(email: email, name: name, image: image)
     }
 
     func saveChangesInFirebase(email: String, password: String) {
@@ -35,7 +35,7 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
         updatePassword(with: password)
     }
 
-    func saveChangesInCoreData(email: String, name: String) {
+    func saveChangesInCoreData(email: String, name: String, image: UIImage) {
         print ("change data in coredata")
         userManager.updateUserDetails(
             username: name,
@@ -46,11 +46,14 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
                     return
                 }
             })
-        self.view?.updateUserInfo()
-    }
 
-    func updateName(with newName: String) {
-        // code
+        userManager.updateUserAvatar(avatar: image) { error in
+            if let error = error {
+                print("Error while fetching image", error)
+            }
+        }
+
+        self.view?.updateUserInfo()
     }
 
     func updateEmail(with newEmail: String) {

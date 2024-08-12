@@ -91,8 +91,8 @@ final class EditProfileVC: UIViewController, EditProfileVCProtocol {
 
 extension EditProfileVC: EditProfileViewDelegate {
     
-    func saveButtonTapped(email: String, password: String, name: String)  {
-        presenter.saveChanges(email: email, password: password, name: name)
+    func saveButtonTapped(email: String, password: String, name: String, image: UIImage)  {
+        presenter.saveChanges(email: email, password: password, name: name, image: image)
     }
 
     func editImageButtonTapped() {
