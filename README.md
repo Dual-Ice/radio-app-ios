@@ -1,6 +1,8 @@
 # Radio - DevRush Marathon XII Challenge #3
 
-![iOS](https://img.shields.io/badge/iOS-15.0-orange)  ![Swift](https://img.shields.io/badge/Swift-lightblue)  ![UIKit](https://img.shields.io/badge/UIKit-blue) ![MVP+R](https://img.shields.io/badge/MVP+R-yellow)
+![iOS](https://img.shields.io/badge/iOS-15.0-lightblue)  ![Swift](https://img.shields.io/badge/Swift-blue)  ![UIKit](https://img.shields.io/badge/UIKit-rebeccapurple) ![MVP+R](https://img.shields.io/badge/MVP+R-deeppink)
+
+![iphone](https://www.dropbox.com/scl/fi/ibb15nccxt7hzkkzhx4b7/appBanner.jpeg?rlkey=mrhe7kr9qjpybc3rjaydi5814&st=4hbi9a0d&raw=1)
 
  ### Project created by:
 <p align="left"> 
