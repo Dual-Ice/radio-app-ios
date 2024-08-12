@@ -68,6 +68,10 @@ final class AuthController: UIViewController {
     @objc private func keyboardWillHide(_ notification: Notification) {
         view.frame.origin.y = 0
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.authView.hideKeyboard()
+    }
 }
 
 extension AuthController {

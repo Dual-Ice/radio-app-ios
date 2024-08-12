@@ -81,6 +81,7 @@ final class AllView: UIView {
     // MARK: - Set Views
     private func setViews() {
         self.backgroundColor = Color.backgroundBlue
+        self.isUserInteractionEnabled = true
     
         [
             headerView,

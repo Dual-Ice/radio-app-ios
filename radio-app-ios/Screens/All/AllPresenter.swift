@@ -136,6 +136,8 @@ final class AllPresenter {
                     DispatchQueue.main.async {
                         self?.updateStationVoteCount(stationID: stationID)
                         UserManager.shared.markAsVoted(stationUid: stationID)
+                        self?.allVC?.refreshData()
+                        
                     }
                 } else {
                     print("Vote failed: \(vote.message ?? "No message")")

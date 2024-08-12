@@ -45,6 +45,7 @@ final class HeaderView: UIView {
             greetingLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             
             usernameLabel.leadingAnchor.constraint(equalTo: greetingLabel.trailingAnchor, constant: 5),
+            usernameLabel.trailingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: -10),
             usernameLabel.centerYAnchor.constraint(equalTo: greetingLabel.centerYAnchor),
             
             profileImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),

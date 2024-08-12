@@ -146,6 +146,7 @@ final class PopularPresenter {
                     DispatchQueue.main.async {
                         self?.updateStationVoteCount(stationID: stationID)
                         UserManager.shared.markAsVoted(stationUid: stationID)
+                        self?.popularVC?.refreshData()
                     }
                 } else {
                     print("Vote failed: \(vote.message ?? "No message")")
