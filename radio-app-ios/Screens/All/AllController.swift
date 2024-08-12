@@ -1,20 +1,18 @@
 //
-//  PopularController.swift
+//  AllController.swift
 //  radio-app-ios
 //
-//  Created by Валентина Попова on 01.08.2024.
+//  Created by Дмитрий Волков on 11.08.2024.
 //
 
 import UIKit
 
-
-final class PopularController: UIViewController {
+final class AllController: UIViewController {
     
-    private let popularView = PopularView()
+    private let allView = AllView()
+    private let presenter: AllPresenter
     
-    private let presenter: PopularPresenter
-    
-    init(presenter: PopularPresenter) {
+    init(presenter: AllPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -23,14 +21,15 @@ final class PopularController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     // MARK: - Life Cycle
     override func loadView() {
-        view = popularView
+        view = allView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        popularView.setDelegates(popularVD: self, playerVD: self)
+        allView.setDelegates(allVD: self, playerVD: self)
         presenter.onLoad()
     }
     
@@ -41,34 +40,42 @@ final class PopularController: UIViewController {
             self.refreshData()
         }
         
-        popularView.playerControler.update()
-        popularView.volumeControler.update()
+        allView.playerControler.update()
+        allView.volumeControler.update()
         
-        popularView.configureHeader(
+        allView.configureHeader(
             with: UserManager.shared.getUserProfileData().username,
             profileImage: UserManager.shared.getUserProfileData().image ?? UIImage.onboardingBackground
         )
     }
     
     func refreshData() {
-        popularView.getCollectionView.reloadData()
+        allView.getCollectionView.reloadData()
+        allView.updateUI(forEmptyState: presenter.getStations().count == 0, with: presenter.isSearching)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.allView.hideKeyboard()
     }
 }
 
-extension PopularController: HeaderViewDelegate {
+// MARK: - Header Delegate
+extension AllController: HeaderViewDelegate {
     func profileTapped() {
         presenter.goToSettings()
     }
 }
 
-extension PopularController: UICollectionViewDataSource, UICollectionViewDelegate {
+// MARK: - AllController DataSource and Delegate
+extension AllController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter.getStations().count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularCell.identifier, for: indexPath) as? PopularCell else {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AllStationCell.identifier, for: indexPath) as? AllStationCell else {
             return UICollectionViewCell()
         }
         
@@ -86,16 +93,15 @@ extension PopularController: UICollectionViewDataSource, UICollectionViewDelegat
     }
 }
 
-extension PopularController: PopularCellDelegate {
-    
+//MARK: - AllStationCellDelegate
+extension AllController: AllStationCellDelegate {
     func vote(for stationuuid: String) {
         presenter.vote(for: stationuuid)
-        refreshData()
     }
 }
 
 //MARK: - Player Controller Delegate
-extension PopularController: PlayerControlDelegate {
+extension AllController: PlayerControlDelegate {
     func playButtonTapped() {
         refreshData()
     }
@@ -110,5 +116,32 @@ extension PopularController: PlayerControlDelegate {
     
     func backButtonTapped() {
         presenter.previousStation()
+    }
+}
+
+
+
+extension AllController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if let query = searchBar.text, query.isEmpty {
+            searchBar.text = nil
+            searchBar.resignFirstResponder()
+            allView.switchHeader(false)
+            presenter.rollbackStations()
+        }
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let query = searchBar.text, !query.isEmpty {
+            allView.switchHeader(true)
+            presenter.searchStations(with: query)
+        }
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+        allView.switchHeader(false)
+        presenter.rollbackStations()
     }
 }

@@ -25,6 +25,7 @@ extension UIImageView {
         let image = UIImageView()
         //code
         image.image = UIImage(named: imageName)
+        image.tintColor = .white
         image.isUserInteractionEnabled = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image

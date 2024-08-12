@@ -56,6 +56,7 @@
 "AuthScreenUserPasswordRepeatErrorMessage" = "Passwords do not match. Please try again.";
 "AuthSceenRegistrationErrorTitle" = "Oh, it's an error";
 "AuthSceenRegistrationUserError" = "User's registration error";
+"AuthSceenRegistrationUnexpectedError" = "Unexpected error";
 "AuthSceenResetPasswordErrorTitle" = "Oh, it's an error";
 "AuthSceenPasswordResetSuccessTitle" = "Password reset";
 "AuthSceenPasswordResetSuccessMessage" = "The password reset email has been successfully sent. Please check your email.";
@@ -64,6 +65,7 @@
 "votes" = "votes";
 
 // MARK: - Settings
+"Settings" = "Settings";
 
 // main
 "HeaderUserName" = "Your name";
@@ -91,8 +93,14 @@
 "ShowNotifications" = "Show notifications";
 "SendNotificationsLabel" = "Send notifications at";
 
-// languages
-"AvailableLanguages" = "Available Languages";
+// Settings
+"General" = "General";
+"Notification" = "Notification";
+"Language" = "Language";
+"More" = "More";
+"LegalAndPolicies" = "Legal and Policies";
+"AboutUs" = "About Us";
+
 //MARK: - Browse
 "browse_by_tags" = "Browse by\ntags";
 "browse_by_language" = "Browse by\nlanguage";
@@ -101,3 +109,21 @@
 //MARK: - Audio Pleer
 "AudioPleerErrorTitle" = "Error";
 "AudioPleerErrorMessage" = "This station is not broadcasting anything at the moment";
+"AboutText" = "🎵 Welcome to RadioApp — your personal radio studio! 🌟
+
+We’ve curated the best collection of radio stations from around the globe so you can enjoy music anytime, anywhere. Our app is designed to keep your day full of rhythm, fun, and great vibes!
+
+If you have any questions or suggestions, we’re all ears! Drop us a line, and we’ll do our best to make your radio experience even better!
+
+The RadioApp Team";
+
+//MARK: Languages
+"AvailableLanguages" = "Available Languages";
+"LangChangeMessage" = "To change the language, close the app and re-launch it.";
+"LangAlerTitle" = "Warning!";
+
+"Changes to the Service and/or Terms" = "Changes to the Service and/or Terms";
+"Terms" = "Terms";
+"SearchRadioStation" = "Search radio station";
+"SearchTitle" = "Seach";
+"SearchEmpty" = "Nothing was found 😢";

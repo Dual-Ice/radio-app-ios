@@ -43,9 +43,12 @@ final class SettingView: UIView {
 
         if !title.isEmpty {
             let imageView = UIImageView(image: UIImage(named: title))
+            imageView.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(imageView)
-
-        #warning("поправить значки")
+            NSLayoutConstraint.activate([
+                imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            ])
         }
 
         return view

@@ -84,7 +84,7 @@ final class SearchBarView: UIView {
         search.barTintColor = nil
         search.tintColor = .gray
         search.searchTextPositionAdjustment = UIOffset(horizontal: 5, vertical: 0)
-        search.searchTextField.placeholder = "Search"
+        search.searchTextField.placeholder = NSLocalizedString("SearchRadioStation", comment: "")
         search.searchTextField.textColor = .gray
         search.backgroundColor = .clear
         search.searchTextField.backgroundColor = .white

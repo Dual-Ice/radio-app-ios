@@ -103,7 +103,7 @@ final class PopularCell: UICollectionViewCell {
         self.waveView.setNeedsDisplay()
         self.stationUid = stationData.id
         updateVotesLabel(isActive: stationData.isActive)
-        updateAppearance(isActive: stationData.isActive)
+        updateAppearance(isActive: stationData.isActive, isPlaying: stationData.isPlaying)
         updateFavorite(isFavorite: stationData.isFavorite)
     }
     
@@ -114,7 +114,13 @@ final class PopularCell: UICollectionViewCell {
         votesButton.setImage(UIImage(named: imageName), for: .normal)
     }
     
-    private func updateAppearance(isActive: Bool) {
+    private func updateAppearance(isActive: Bool, isPlaying: Bool) {
+        if isPlaying {
+            playImage.image = UIImage(named: "playWhite")
+        } else {
+            playImage.image = UIImage(systemName: "pause.fill")?.withTintColor(.white)
+        }
+        
         if isActive {
             backgroundColor = Color.customPink
             layer.borderColor = Color.customPink.cgColor
@@ -144,6 +150,6 @@ final class PopularCell: UICollectionViewCell {
         waveView.toggleWaveColor(active: false)
         waveView.setNeedsDisplay()
         updateVotesLabel(isActive: false)
-        updateAppearance(isActive: false)
+        updateAppearance(isActive: false, isPlaying: false)
     }
 }

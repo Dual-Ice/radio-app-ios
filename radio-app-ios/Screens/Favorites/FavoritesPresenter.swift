@@ -91,6 +91,9 @@ final class FavoritesPresenter {
             self?.favoriteStations = stations
             if stations.count > 0 {
                 self?.cellDotColors = StationHelper.makeDotColorsForStations(stations: stations)
+                if AudioPleer.shared.currentURL.isEmpty {
+                    AudioPleer.shared.loadStationList(self?.favoriteStations ?? [])
+                }
             }
         }
     }

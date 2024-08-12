@@ -30,11 +30,6 @@ final class FavoritesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         favoritesView.setDelegates(favoriteVD: self, playerVD: self)
-        
-        // MARK: - Заменить на данные с профиля
-        if let profileImage = UIImage(named: "onboardingBackground") {
-            favoritesView.configureHeader(with: "Mark", profileImage: profileImage)
-        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -42,6 +37,11 @@ final class FavoritesController: UIViewController {
         presenter.onWillAppear()
         favoritesView.playerControler.update()
         favoritesView.volumeControler.update()
+        
+        favoritesView.configureHeader(
+            with: UserManager.shared.getUserProfileData().username,
+            profileImage: UserManager.shared.getUserProfileData().image ?? UIImage.onboardingBackground
+        )
     }
     
     func refreshData() {
@@ -86,6 +86,14 @@ extension FavoritesController: UICollectionViewDataSource, UICollectionViewDeleg
 
 //MARK: - Player Controller Delegate
 extension FavoritesController: PlayerControlDelegate {
+    func playButtonTapped() {
+        refreshData()
+    }
+    
+    func pauseButtonTapped() {
+        refreshData()
+    }
+    
     func nextButtonTapped() {
         presenter.nextStation()
     }

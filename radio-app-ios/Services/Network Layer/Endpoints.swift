@@ -17,6 +17,7 @@ enum Endpoints {
     case doSearch (request: String)
     case doSearchByCountry (parameter: String)
     case doSearchByLanguageOrTag (parameter: String)
+    case getAllStations
 
     var path: String {
         switch self {
@@ -38,6 +39,8 @@ enum Endpoints {
             return "/json/stations/search"
         case .doSearchByLanguageOrTag:
             return "/json/stations/search"
+        case .getAllStations:
+            return "/json/stations"
         }
     }
 }

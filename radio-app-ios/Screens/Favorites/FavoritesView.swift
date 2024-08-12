@@ -61,7 +61,8 @@ final class FavoritesView: UIView {
     func updateUI(forEmptyState isEmpty: Bool) {
         collectionView.isHidden = isEmpty
         emptyStateLabel.isHidden = !isEmpty
-        // если isEmpty то плеер не показываем
+        playerControler.isHidden = isEmpty
+        volumeControler.isHidden = isEmpty
     }
 
     // MARK: - Setting Views

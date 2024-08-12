@@ -16,6 +16,8 @@ final class HeaderView: UIView {
     
     weak var delegate: HeaderViewDelegate?
     
+    private var title: String = ""
+    
     private let greetingLabel = UILabel.makeCustomLabelBold(key: "Hello", fontSize: 26, textColor: .white, numberOfLines: 1, textAligment: .left)
     private let usernameLabel = UILabel.makeCustomLabelBold(key: "Mark", fontSize: 26, textColor: Color.customPink, numberOfLines: 1, textAligment: .left)
     private let profileImageView = RoundedTriangleImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50), radius: 10)
@@ -43,11 +45,12 @@ final class HeaderView: UIView {
             greetingLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             
             usernameLabel.leadingAnchor.constraint(equalTo: greetingLabel.trailingAnchor, constant: 5),
+            usernameLabel.trailingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: -10),
             usernameLabel.centerYAnchor.constraint(equalTo: greetingLabel.centerYAnchor),
             
             profileImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             profileImageView.centerYAnchor.constraint(equalTo: greetingLabel.centerYAnchor),
-//            profileImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            //            profileImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             profileImageView.widthAnchor.constraint(equalToConstant: 50),
             profileImageView.heightAnchor.constraint(equalToConstant: 50),
             
@@ -70,9 +73,16 @@ final class HeaderView: UIView {
         usernameLabel.text = username
         profileImageView.setImage(profileImage)
         titleLabel.text = title
+        self.title = title
     }
     
     func setDelegate(value: HeaderViewDelegate) {
         delegate = value
+    }
+    
+    func switchTitle(_ value:Bool) {
+        UIView.animate(withDuration: 0.3) {
+            self.titleLabel.text = value ? NSLocalizedString("SearchTitle", comment: "Localizable") : self.title
+        }
     }
 }

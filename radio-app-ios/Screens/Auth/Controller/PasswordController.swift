@@ -38,6 +38,10 @@ final class PasswordController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.passwordView.hideKeyboard()
+    }
 }
 
 extension PasswordController {
@@ -55,7 +59,7 @@ extension PasswordController {
             title: NSLocalizedString("AuthSceenPasswordResetSuccessTitle", comment: ""),
             message: NSLocalizedString("AuthSceenPasswordResetSuccessMessage", comment: "")
         ) {
-            self.passwordView.changeStateToPasswordUpdate()
+//            self.passwordView.changeStateToPasswordUpdate()
         }
     }
     
